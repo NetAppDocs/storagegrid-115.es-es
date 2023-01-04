@@ -1,0 +1,34 @@
+---
+permalink: admin/viewing-ip-addresses.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede ver la dirección IP de cada nodo de grid en el sistema StorageGRID. A continuación, puede usar esta dirección IP para iniciar sesión en el nodo de grid en la línea de comandos y realizar varios procedimientos de mantenimiento. 
+---
+= Visualización de direcciones IP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver la dirección IP de cada nodo de grid en el sistema StorageGRID. A continuación, puede usar esta dirección IP para iniciar sesión en el nodo de grid en la línea de comandos y realizar varios procedimientos de mantenimiento.
+
+.Lo que necesitará
+Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+
+.Acerca de esta tarea
+Para obtener información acerca de cómo cambiar direcciones IP, consulte las instrucciones de recuperación y mantenimiento.
+
+.Pasos
+. Seleccione *Nodes* > *_grid node_* > *Descripción general*.
+. Haga clic en *Mostrar más* a la derecha del título direcciones IP.
++
+Las direcciones IP de ese nodo de grid se enumeran en una tabla.
+
++
+image::../media/nodes_page_overview_tab_extended.png[Direcciones IP de página de nodos]
+
+
+
+.Información relacionada
+link:../maintain/index.html["Mantener  recuperar"]

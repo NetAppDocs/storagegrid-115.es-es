@@ -1,0 +1,34 @@
+---
+permalink: monitor/logs-files-reference.html 
+sidebar: sidebar 
+keywords: log, logs, log files 
+summary: En las siguientes secciones, se enumeran los registros que se usan para capturar eventos, mensajes de diagnóstico y condiciones de error. Es posible que se le solicite recoger archivos de registro y reirlos al soporte técnico para ayudar con la solución de problemas. 
+---
+= Referencia de archivos de registro
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En las siguientes secciones, se enumeran los registros que se usan para capturar eventos, mensajes de diagnóstico y condiciones de error. Es posible que se le solicite recoger archivos de registro y reirlos al soporte técnico para ayudar con la solución de problemas.
+
+* link:storagegrid-software-logs.html["Registros del software StorageGRID"]
+* link:deployment-and-maintenance-logs.html["Registros de implementación y mantenimiento"]
+* link:logs-for-third-party-software.html["Registros del software de terceros"]
+* link:about-bycast-log.html["Acerca de bycast.log"]
+
+
+
+IMPORTANT: Las tablas de esta sección son sólo de referencia. Los registros están destinados a la solución de problemas avanzada del soporte técnico. Las técnicas avanzadas que implican la reconstrucción del historial de problemas mediante los registros de auditoría y los archivos de registro de aplicaciones están más allá del alcance de esta guía.
+
+Para acceder a estos registros, puede recopilar archivos de registro y datos del sistema (*Soporte* > *Herramientas* > *registros*). O bien, si el nodo de administrador principal no está disponible o no puede conectarse a un nodo específico, puede acceder a los registros de cada nodo de grid, del siguiente modo:
+
+. Introduzca el siguiente comando: `ssh admin@grid_node_IP`
+. Introduzca la contraseña que aparece en `Passwords.txt` archivo.
+. Introduzca el siguiente comando para cambiar a la raíz: `su -`
+. Introduzca la contraseña que aparece en `Passwords.txt` archivo.
+
+
+.Información relacionada
+link:collecting-log-files-and-system-data.html["Recogida de archivos de registro y datos del sistema"]

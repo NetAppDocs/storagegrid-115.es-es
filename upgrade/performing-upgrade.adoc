@@ -1,0 +1,39 @@
+---
+permalink: upgrade/performing-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, software upgrade 
+summary: La página actualización de software le guía durante el proceso de carga del archivo necesario y de actualización de todos los nodos de grid del sistema StorageGRID. 
+---
+= Realizando la actualización
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La página actualización de software le guía durante el proceso de carga del archivo necesario y de actualización de todos los nodos de grid del sistema StorageGRID.
+
+.Lo que necesitará
+Conoce lo siguiente:
+
+* Debe actualizar todos los nodos de grid para todos los sitios del centro de datos desde el nodo de administración principal mediante Grid Manager.
+* Para detectar y resolver problemas, puede ejecutar manualmente las comprobaciones previas de la actualización antes de iniciar la actualización real. Las mismas comprobaciones previas se realizan al iniciar la actualización. Los fallos de comprobación previa detendrán el proceso de actualización y podrían requerir implicación del soporte técnico para solucionarlos.
+* Cuando se inicia la actualización, el nodo de administrador principal se actualiza de forma automática.
+* Una vez que se haya actualizado el nodo de administración principal, puede seleccionar los nodos de grid a actualizar a continuación.
+* Para completar la actualización, debe actualizar todos los nodos de grid del sistema StorageGRID, pero es posible actualizar nodos de grid individuales en cualquier orden. Puede seleccionar nodos de grid individuales, grupos de nodos de grid o todos los nodos de grid. Puede repetir el proceso de selección de los nodos de cuadrícula tantas veces como sea necesario hasta que se actualicen todos los nodos de grid de todos los sitios.
+* Cuando la actualización se inicia en un nodo de grid, los servicios de ese nodo se detienen. Más tarde, el nodo de grid se reinicia. No apruebe la actualización para un nodo de grid a menos que esté seguro de que el nodo está listo para detenerse y reiniciar.
+* Una vez que se han actualizado todos los nodos de cuadrícula, se activan las nuevas funciones y se pueden reanudar las operaciones; sin embargo, debe esperar a realizar un procedimiento de retirada o ampliación hasta que se haya completado la tarea de fondo *base de datos de actualización* y la tarea *pasos de actualización final*.
+* Debe completar la actualización en la misma plataforma de hipervisor con la que empezó.
+
+
+.Pasos
+. link:linux-installing-rpm-or-deb-package-on-all-hosts.html["Linux: Instalación del paquete RPM o DEB en todos los hosts"]
+. link:starting-upgrade.html["Iniciando la actualización"]
+. link:upgrading-grid-nodes-and-completing-upgrade.html["Actualizar nodos de grid y completar la actualización"]
+. link:increasing-metadata-reserved-space-setting.html["Aumento de la configuración de espacio reservado de metadatos"]
+
+
+.Información relacionada
+link:../admin/index.html["Administre StorageGRID"]
+
+link:estimating-time-to-complete-upgrade.html["Estimación del tiempo para completar una actualización"]

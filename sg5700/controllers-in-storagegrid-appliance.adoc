@@ -1,0 +1,180 @@
+---
+permalink: sg5700/controllers-in-storagegrid-appliance.html 
+sidebar: sidebar 
+keywords: storagegrid, sg5700, storage node, storage appliance, controllers, controller, e5700sg, e2800, ports, port, connectors, connector 
+summary: Los modelos SG5712 y SG5760 del dispositivo StorageGRID incluyen una controladora E5700SG y una controladora E2800. Debe revisar los diagramas para conocer las diferencias entre las controladoras. 
+---
+= En el dispositivo StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los modelos SG5712 y SG5760 del dispositivo StorageGRID incluyen una controladora E5700SG y una controladora E2800. Debe revisar los diagramas para conocer las diferencias entre las controladoras.
+
+
+
+== Controladora E5700SG
+
+* Funciona como servidor de computación del dispositivo.
+* Incluye el instalador de dispositivos StorageGRID.
++
+
+NOTE: El software StorageGRID no está preinstalado en el dispositivo. A este software se accede desde el nodo de administración cuando se implementa el dispositivo.
+
+* Se puede conectar a las tres redes StorageGRID, incluidas la red de cuadrícula, la red de administración y la red de cliente.
+* Se conecta a la controladora E2800 y funciona como iniciador.
+
+
+En esta figura se muestran los conectores de la parte posterior del controlador E5700SG.
+
+image::../media/e5700sg_controller_with_callouts.gif[Conectores en el controlador E5700SG]
+
+[cols="1a,2a,2a,3a"]
+|===
+|  | Puerto | Tipo | Uso 
+
+
+ a| 
+1
+ a| 
+Puertos de interconexión 1 y 2
+ a| 
+Fibre Channel (FC) de 16 GB/s, SFPA óptico
+ a| 
+Conecte la controladora E5700SG a la controladora E2800.
+
+
+
+ a| 
+2
+ a| 
+Puertos de diagnóstico y soporte
+ a| 
+* Puerto serie RJ-45
+* Puerto serie micro USB
+* Puerto USB
+
+ a| 
+Reservado para soporte técnico.
+
+
+
+ a| 
+3
+ a| 
+Puertos de expansión de unidades
+ a| 
+SAS de 12 GB/s
+ a| 
+No se utiliza. Los dispositivos StorageGRID no admiten bandejas de unidades de expansión.
+
+
+
+ a| 
+4
+ a| 
+Puertos de red 1-4
+ a| 
+10-GbE o 25-GbE, según el tipo de transceptor SFP, la velocidad del switch y la velocidad de enlace configurada
+ a| 
+Conéctese a la red de red y a la red de cliente para StorageGRID.
+
+
+
+ a| 
+5
+ a| 
+Puerto de gestión 1
+ a| 
+Ethernet de 1 GB (RJ-45)
+ a| 
+Conéctese a la red de administración para StorageGRID.
+
+
+
+ a| 
+6
+ a| 
+Puerto de gestión 2
+ a| 
+Ethernet de 1 GB (RJ-45)
+ a| 
+Opciones:
+
+* Bond con el puerto de gestión 1 para una conexión redundante con la red de administrador para StorageGRID.
+* Deje sin cables y disponible para acceso local temporal (IP 169.254.0.1).
+* Durante la instalación, utilice el puerto 2 para la configuración de IP si las direcciones IP asignadas por DHCP no están disponibles.
+
+
+|===
+
+
+== Controladora E2800
+
+* Funciona como controladora de almacenamiento del dispositivo.
+* Gestiona el almacenamiento de datos en las unidades.
+* Funciona como controladora E-Series estándar en modo simple.
+* Incluye software de sistema operativo SANtricity (firmware de la controladora).
+* Incluye System Manager de SANtricity para supervisar el hardware del dispositivo y gestionar alertas, la función AutoSupport y la función Drive Security.
+* Se conecta a la controladora E5700SG y funciona como objetivo.
+
+
+Esta figura muestra los conectores de la parte posterior de la controladora E2800.
+
+image::../media/e2800_controller_with_callouts.gif[Conectores en la controladora E2800]
+
+[cols="1a,2a,2a,3a"]
+|===
+|  | Puerto | Tipo | Uso 
+
+
+ a| 
+1
+ a| 
+Puertos de interconexión 1 y 2
+ a| 
+SFPA óptico FC de 16 GB/s
+ a| 
+Conecte la controladora E2800 a la controladora E5700SG.
+
+
+
+ a| 
+2
+ a| 
+Puertos de gestión 1 y 2
+ a| 
+Ethernet de 1 GB (RJ-45)
+ a| 
+* El puerto 1 se conecta a la red en la que se accede a System Manager de SANtricity en un explorador.
+* El puerto 2 está reservado para uso del soporte técnico.
+
+
+
+
+ a| 
+3
+ a| 
+Puertos de diagnóstico y soporte
+ a| 
+* Puerto serie RJ-45
+* Puerto serie micro USB
+* Puerto USB
+
+ a| 
+Reservado para uso del soporte técnico.
+
+
+
+ a| 
+4
+ a| 
+Puertos de expansión de unidades.
+ a| 
+SAS de 12 GB/s
+ a| 
+No se utiliza. Los dispositivos StorageGRID no admiten bandejas de unidades de expansión.
+
+|===

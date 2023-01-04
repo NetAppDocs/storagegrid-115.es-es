@@ -1,0 +1,39 @@
+---
+permalink: primer/how-object-data-is-protected.html 
+sidebar: sidebar 
+keywords: object data, replicate, replication, erasure coding, ec 
+summary: 'El sistema StorageGRID ofrece dos mecanismos para proteger los datos de objetos contra la pérdida: La replicación y la codificación de borrado.' 
+---
+= Cómo se protegen los datos de objetos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El sistema StorageGRID ofrece dos mecanismos para proteger los datos de objetos contra la pérdida: La replicación y la codificación de borrado.
+
+
+
+== Replicación
+
+Cuando StorageGRID enlaza objetos con una regla de gestión del ciclo de vida de la información (ILM) que se configura para crear copias replicadas, el sistema crea copias exactas de datos de objetos y los almacena en nodos de almacenamiento, nodos de archivado o pools de almacenamiento en el cloud. Las reglas de ILM determinan el número de copias realizadas, dónde se almacenan esas copias y durante el tiempo que el sistema retiene. Si se pierde una copia, por ejemplo, como resultado de la pérdida de un nodo de almacenamiento, el objeto sigue disponible si existe una copia en otro lugar del sistema StorageGRID.
+
+En el ejemplo siguiente, la regla make 2 copies especifica que se coloquen dos copias replicadas de cada objeto en un pool de almacenamiento que contenga tres nodos de almacenamiento.
+
+image::../media/ilm_replication_make_2_copies.png[Crear regla de 2 copias]
+
+
+
+== Codificación de borrado
+
+Cuando StorageGRID enlaza objetos con una regla de ILM que se configura para crear copias con código de borrado, corta los datos de objetos en fragmentos de datos, calcula fragmentos de paridad adicionales y almacena cada fragmento en un nodo de almacenamiento diferente. Cuando se accede a un objeto, se vuelve a ensamblar utilizando los fragmentos almacenados. Si un dato o un fragmento de paridad se corrompen o se pierden, el algoritmo de codificación de borrado puede recrear ese fragmento con un subconjunto de los datos restantes y fragmentos de paridad. Las reglas de ILM y los perfiles de codificación de borrado determinan el esquema de codificación de borrado utilizado.
+
+En el siguiente ejemplo, se muestra el uso de códigos de borrado en los datos de un objeto. En este ejemplo, la regla ILM utiliza un esquema de codificación de borrado 4+2. Cada objeto se divide en cuatro fragmentos de datos iguales y dos fragmentos de paridad se calculan a partir de los datos del objeto. Cada uno de los seis fragmentos se almacena en un nodo de almacenamiento diferente en tres centros de datos para proporcionar protección de datos ante fallos de nodos o pérdidas de sitios.
+
+image::../media/ec_three_sites_4_plus_2.png[Código de borrado tres Sitios 4 Plus 2]
+
+.Información relacionada
+link:../ilm/index.html["Gestión de objetos con ILM"]
+
+link:using-information-lifecycle-management.html["Usar la gestión del ciclo de vida de la información"]

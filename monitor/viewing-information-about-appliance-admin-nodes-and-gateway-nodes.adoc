@@ -1,0 +1,233 @@
+---
+permalink: monitor/viewing-information-about-appliance-admin-nodes-and-gateway-nodes.html 
+sidebar: sidebar 
+keywords: appliance nodes, Gateway Nodes, Admin Nodes, viewing 
+summary: En la página Nodes, se incluye información sobre el estado del servicio y todos los recursos computacionales, de disco y de red para cada dispositivo de servicios que se utiliza para un nodo de administrador o un nodo de puerta de enlace. También puede ver memoria, hardware de almacenamiento, recursos de red, interfaces de red, direcciones de red, y recibir y transmitir datos. 
+---
+= Ver información sobre los nodos de administración de dispositivos y los nodos de puerta de enlace
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En la página Nodes, se incluye información sobre el estado del servicio y todos los recursos computacionales, de disco y de red para cada dispositivo de servicios que se utiliza para un nodo de administrador o un nodo de puerta de enlace. También puede ver memoria, hardware de almacenamiento, recursos de red, interfaces de red, direcciones de red, y recibir y transmitir datos.
+
+.Pasos
+. En la página Nodes, seleccione un nodo de administrador de dispositivos o un Appliance Gateway Node.
+. Seleccione *Descripción general*.
++
+La tabla Información del nodo de la pestaña Descripción general muestra el ID y el nombre del nodo, el tipo de nodo, la versión de software instalada y las direcciones IP asociadas con el nodo. La columna interfaz contiene el nombre de la interfaz, como se indica a continuación:
+
++
+** *Adllb* y *adlli*: Se muestra si se utiliza el enlace activo/de respaldo para la interfaz de red de administración
+** *Eth*: Red Grid, red de administración o red de cliente.
+** *Clic*: Uno de los puertos 10, 25 o 100 GbE físicos del aparato. Estos puertos se pueden unir y conectar a la red de cuadrícula de StorageGRID (eth0) y a la red de cliente (eth2).
+** *mtc*: Uno de los puertos físicos de 1 GbE del dispositivo, que se puede unir o aliar y conectar a la red de administración de StorageGRID (eth1).image:../media/nodes_page_overview_tab_services_appliance.png["Pestaña Nodes Page Overview para el dispositivo de servicios"]
+
+
+. Seleccione *hardware* para obtener más información sobre el dispositivo.
++
+.. Consulte los gráficos de utilización de CPU y memoria para determinar los porcentajes de uso de CPU y memoria a lo largo del tiempo. Para mostrar un intervalo de tiempo diferente, seleccione uno de los controles situados encima del gráfico o gráfico. Puede visualizar la información disponible para intervalos de 1 hora, 1 día, 1 semana o 1 mes. También puede establecer un intervalo personalizado, que le permite especificar intervalos de fecha y hora.
++
+image::../media/nodes_page_hardware_tab_graphs_services_appliance.png[Página nodos gráficos de la pestaña hardware para el dispositivo de servicios]
+
+.. Desplácese hacia abajo para ver la tabla de componentes del aparato. Esta tabla contiene información, como el nombre del modelo, número de serie, versión de firmware de la controladora y el estado de cada componente.
++
+image::../media/nodes_page_hardware_tab_services_appliance_do_not_use.png[Página nodos Ficha hardware para el dispositivo de servicios]
+
++
+|===
+| En la tabla dispositivo | Descripción 
+
+
+ a| 
+Modelo de dispositivo
+ a| 
+El número de modelo para este dispositivo StorageGRID.
+
+
+
+ a| 
+Número de unidades con errores del controlador de almacenamiento
+ a| 
+La cantidad de unidades que no están en estado óptimo.
+
+
+
+ a| 
+Tipo de unidad de datos de almacenamiento
+ a| 
+El tipo de unidades del dispositivo, como HDD (unidad de disco duro) o SSD (unidad de estado sólido).
+
+
+
+ a| 
+Tamaño de la unidad de datos de almacenamiento
+ a| 
+La capacidad total incluidas todas las unidades de datos del dispositivo.
+
+
+
+ a| 
+Modo RAID de almacenamiento
+ a| 
+El modo RAID del dispositivo.
+
+
+
+ a| 
+Fuente de alimentación general
+ a| 
+El estado de todas las fuentes de alimentación del dispositivo.
+
+
+
+ a| 
+BMC IP del controlador de computación
+ a| 
+La dirección IP del puerto del controlador de administración de la placa base (BMC) en el controlador de computación. Puede utilizar esta IP para conectarse a la interfaz del BMC para supervisar y diagnosticar el hardware del dispositivo.
+
+Este campo no se muestra para modelos de dispositivos que no contienen un BMC.
+
+
+
+ a| 
+Número de serie del controlador de computación
+ a| 
+El número de serie de la controladora de computación.
+
+
+
+ a| 
+Hardware de computación
+ a| 
+El estado del hardware de la controladora de computación.
+
+
+
+ a| 
+Temperatura de CPU de la controladora de computación
+ a| 
+El estado de temperatura de la CPU de la controladora de computación.
+
+
+
+ a| 
+Temperatura del chasis de la controladora de computación
+ a| 
+El estado de temperatura de la controladora de computación.
+
+|===
+.. Confirmar que todos los Estados son «'nominales'».
++
+Si un estado no es "'nominal'", revise cualquier alerta actual.
+
+
+
+. Seleccione *Red* para ver la información de cada red.
++
+El gráfico tráfico de red proporciona un resumen del tráfico de red general.
+
++
+image::../media/nodes_page_network_traffic_graph.gif[Gráfico de tráfico de red de la página Nodes]
+
++
+.. Revise la sección Network interfaces.
++
+image::../media/nodes_page_hardware_tab_network_services_appliance.png[Página nodos ficha hardware Network Services Appliance]
+
++
+Utilice la siguiente tabla con los valores de la columna *velocidad* de la tabla interfaces de red para determinar si los cuatro puertos de red 40/100-GbE del dispositivo estaban configurados para utilizar el modo activo/backup o el modo LACP.
+
++
+
+NOTE: Los valores mostrados en la tabla asumen que se utilizan los cuatro enlaces.
+
++
+|===
+| Modo de enlace | Modo de agregación | Velocidad de enlace de HIC individual (hipo 1, hipo 2, hipo 4) | Velocidad esperada de la red Grid/cliente (eth0, eth2) 
+
+
+ a| 
+Agregado
+ a| 
+LACP
+ a| 
+100
+ a| 
+400
+
+
+
+ a| 
+Fija
+ a| 
+LACP
+ a| 
+100
+ a| 
+200
+
+
+
+ a| 
+Fija
+ a| 
+Activa/Backup
+ a| 
+100
+ a| 
+100
+
+
+
+ a| 
+Agregado
+ a| 
+LACP
+ a| 
+40
+ a| 
+160
+
+
+
+ a| 
+Fija
+ a| 
+LACP
+ a| 
+40
+ a| 
+80
+
+
+
+ a| 
+Fija
+ a| 
+Activa/Backup
+ a| 
+40
+ a| 
+40
+
+|===
+.. Revise la sección Comunicación de red.
++
+Las tablas de recepción y transmisión muestran cuántos bytes y paquetes se han recibido y enviado a través de cada red, así como otras métricas de recepción y transmisión.
+
++
+image::../media/nodes_page_network_communication.gif[Comunicación de red de página nodos]
+
+
+
+. Seleccione *almacenamiento* para ver información sobre los dispositivos de disco y los volúmenes del dispositivo de servicios.
++
+image::../media/nodes_page_storage_tab_services_appliance.png[Página nodos ficha almacenamiento Servicios dispositivo]
+
+
+
+.Información relacionada
+link:../sg100-1000/index.html["SG100  servicios de aplicaciones SG1000"]

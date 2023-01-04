@@ -1,0 +1,19 @@
+---
+permalink: tenant/managing-system-access-for-tenant-users.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Permite a los usuarios acceder a una cuenta de inquilino mediante la importación de grupos desde un origen de identidad federado y la asignación de permisos de administración. También puede crear usuarios y grupos de inquilinos locales, a menos que se aplique el inicio de sesión único \(SSO\) para todo el sistema StorageGRID.' 
+---
+= Gestión del acceso al sistema para usuarios de inquilinos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Permite a los usuarios acceder a una cuenta de inquilino mediante la importación de grupos desde un origen de identidad federado y la asignación de permisos de administración. También puede crear usuarios y grupos de inquilinos locales, a menos que el inicio de sesión único (SSO) esté vigente para todo el sistema StorageGRID.
+
+* link:using-identity-federation.html["Mediante la federación de identidades"]
+* link:managing-groups.html["Gestión de grupos"]
+* link:managing-local-users.html["Gestión de usuarios locales"]
+

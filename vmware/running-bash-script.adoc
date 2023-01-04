@@ -1,0 +1,77 @@
+---
+permalink: vmware/running-bash-script.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede usar el script deploy-vsphere-ovftool.sh Bash y el archivo de configuración deploy-vsphere-ovftool.ini que modificó para automatizar la implementación de los nodos de grid StorageGRID en VMware vSphere. 
+---
+= Ejecución de la secuencia de comandos Bash
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar el `deploy-vsphere-ovftool.sh` El script de bash y el archivo de configuración deploy-vsphere-ovftool.ini que modificó para automatizar la puesta en marcha de los nodos de grid StorageGRID en VMware vSphere.
+
+.Lo que necesitará
+* Ha creado un archivo de configuración deploy-vsphere-ovftool.ini para el entorno.
+
+
+Puede utilizar la ayuda disponible con el script Bash introduciendo los comandos de ayuda (`-h/--help`). Por ejemplo:
+
+[listing]
+----
+./deploy-vsphere-ovftool.sh -h
+----
+o.
+
+[listing]
+----
+./deploy-vsphere-ovftool.sh --help
+----
+.Pasos
+. Inicie sesión en el equipo Linux que está utilizando para ejecutar el script Bash.
+. Cambie al directorio en el que ha extraído el archivo de instalación.
++
+Por ejemplo:
+
++
+[listing]
+----
+cd StorageGRID-Webscale-version/vsphere
+----
+. Para desplegar todos los nodos de cuadrícula, ejecute la secuencia de comandos Bash con las opciones adecuadas para su entorno.
++
+Por ejemplo:
+
++
+[listing]
+----
+./deploy-vsphere-ovftool.sh --username=user --password=pwd ./deploy-vsphere-ovftool.ini
+----
+. Si un nodo de cuadrícula no se pudo implementar debido a un error, resuelva el error y vuelva a ejecutar el script Bash sólo para ese nodo.
++
+Por ejemplo:
+
++
+[listing]
+----
+./deploy-vsphere-ovftool.sh --username=user --password=pwd --single-node="DC1-S3" ./deploy-vsphere-ovftool.ini
+----
+
+
+El despliegue se completa cuando el estado de cada nodo es "'pasado'".
+
+[listing]
+----
+Deployment Summary
++-----------------------------+----------+----------------------+
+| node                        | attempts | status               |
++-----------------------------+----------+----------------------+
+| DC1-ADM1                    |        1 | Passed               |
+| DC1-G1                      |        1 | Passed               |
+| DC1-S1                      |        1 | Passed               |
+| DC1-S2                      |        1 | Passed               |
+| DC1-S3                      |        1 | Passed               |
++-----------------------------+----------+----------------------+
+----

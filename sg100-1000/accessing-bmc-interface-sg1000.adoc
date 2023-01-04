@@ -1,0 +1,65 @@
+---
+permalink: sg100-1000/accessing-bmc-interface-sg1000.html 
+sidebar: sidebar 
+keywords: storagegrid, sg100, sg1000, service appliance, services appliance, gateway Node, admin node, BMC, baseboard management controller, access, open, login 
+summary: Puede acceder a la interfaz del BMC en el dispositivo de servicios mediante la dirección IP estática o DHCP del puerto de gestión del BMC. 
+---
+= Acceso a la interfaz del BMC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede acceder a la interfaz del BMC en el dispositivo de servicios mediante la dirección IP estática o DHCP del puerto de gestión del BMC.
+
+.Lo que necesitará
+* El cliente de gestión usa un navegador web compatible.
+* El puerto de administración de BMC del dispositivo de servicios está conectado a la red de administración que planea utilizar.
++
+*SG100 Puerto de gestión BMC*
+
++
+image::../media/sg100_bmc_management_port.png[sg100 bmc puerto de gestión]
+
++
+*Puerto de administración de SG1000 BMC*
+
++
+image::../media/sg1000_bmc_management_port.png[Puerto de administración de BMC SG1000]
+
+
+
+.Pasos
+. Introduzca la dirección URL de la interfaz del BMC: +
+`*https://_BMC_Port_IP_*`
++
+Para `_BMC_Port_IP_`, Utilice la dirección IP estática o DHCP para el puerto de administración del BMC.
+
++
+Aparece la página de inicio de sesión de BMC.
+
+. Introduzca el nombre de usuario raíz y la contraseña, utilizando la contraseña que estableció al cambiar la contraseña raíz predeterminada: +
+`*root*`
++
+`*_password_*`
+
++
+image::../media/bmc_signin_page.gif[Página de inicio de sesión de BMC]
+
+. Haga clic en *Iniciar sesión*
++
+Aparece el panel BMC.
+
++
+image::../media/bmc_dashboard.gif[Consola de BMC]
+
+. Opcionalmente, cree usuarios adicionales seleccionando *Ajustes* *Gestión de usuarios* y haciendo clic en cualquier usuario "desactivado".
++
+
+NOTE: Cuando los usuarios inician sesión por primera vez, es posible que se les pida que cambien su contraseña para aumentar la seguridad.
+
+
+
+.Información relacionada
+link:changing-root-password-for-bmc-interface-sg1000.html["Cambiar la contraseña de root para la interfaz de BMC"]

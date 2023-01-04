@@ -1,0 +1,22 @@
+---
+permalink: sg100-1000/installing-hardware-sg100-and-sg1000.html 
+sidebar: sidebar 
+keywords: storagegrid, sg100, sg1000, service appliance, services appliance, gateway Node, admin node, hardware, install, installing 
+summary: La instalación del hardware implica la instalación del dispositivo en un armario o rack, la conexión de los cables y la alimentación. 
+---
+= Instalar el hardware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La instalación del hardware implica la instalación del dispositivo en un armario o rack, la conexión de los cables y la alimentación.
+
+.Pasos
+* link:registering-hardware-sg100-and-sg1000.html["Registrar el hardware"]
+* link:installing-appliance-in-cabinet-or-rack-sg100-and-sg1000.html["Instalación del aparato en un armario o rack (SG100 y SG1000)"]
+* link:cabling-appliance-sg100-and-sg1000.html["Cableado del aparato SG100 y SG1000)"]
+* link:connecting-power-cords-and-applying-power-sg100-and-sg1000.html["Conexión de los cables de alimentación y alimentación (SG100 y SG1000)"]
+* link:viewing-status-indicators-on-sg100-and-sg1000-appliances.html["Visualización de los indicadores de estado en los dispositivos SG100 y SG1000"]
+

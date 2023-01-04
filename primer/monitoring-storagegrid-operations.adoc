@@ -1,0 +1,20 @@
+---
+permalink: primer/monitoring-storagegrid-operations.html 
+sidebar: sidebar 
+keywords:  
+summary: El administrador de grid proporciona información para supervisar las actividades diarias del sistema StorageGRID, incluido su estado. 
+---
+= Supervisar las operaciones de StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El administrador de grid proporciona información para supervisar las actividades diarias del sistema StorageGRID, incluido su estado.
+
+* link:viewing-nodes-page.html["Ver la página Nodes"]
+* link:monitoring-and-managing-alerts.html["Supervisión y gestión de alertas"]
+* link:using-snmp-monitoring.html["Uso de la supervisión de SNMP"]
+* link:reviewing-audit-messages.html["Revisión de mensajes de auditoría"]
+

@@ -1,0 +1,55 @@
+---
+permalink: admin/testing-relying-party-trusts.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Antes de imponer el uso de inicio de sesión único \(SSO\) para StorageGRID, confirme que el inicio de sesión único y el cierre de sesión único \(SLO\) están configurados correctamente. Si ha creado una confianza de parte de confianza para cada nodo de administrador, confirme que puede usar SSO y SLO para cada nodo de administración.' 
+---
+= Prueba de fideicomisos de la parte de confianza
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de aplicar el uso de inicio de sesión único (SSO) para StorageGRID, confirme que el inicio de sesión único y el cierre de sesión único (SLO) se han configurado correctamente. Si ha creado una confianza de parte de confianza para cada nodo de administrador, confirme que puede usar SSO y SLO para cada nodo de administración.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+* Ha configurado una o más confianzas de parte de confianza en AD FS.
+
+
+.Pasos
+. Seleccione *Configuración* > *Control de acceso* > *Inicio de sesión único*.
++
+Aparece la página Single Sign-On, con la opción *modo Sandbox* seleccionada.
+
+. En las instrucciones para el modo de recinto de seguridad, busque el vínculo a la página de inicio de sesión del proveedor de identidades.
++
+La dirección URL se deriva del valor especificado en el campo *Nombre de servicio federado*.
+
++
+image::../media/sso_sandbox_mode_url.gif[URL de la página de inicio de sesión del proveedor de identidades]
+
+. Haga clic en el vínculo o copie y pegue la URL en un navegador para acceder a la página de inicio de sesión del proveedor de identidades.
+. Para confirmar que puede utilizar SSO para iniciar sesión en StorageGRID, seleccione *Iniciar sesión en uno de los siguientes sitios*, seleccione el identificador de la parte que confía para su nodo de administración principal y haga clic en *Iniciar sesión*.
++
+image::../media/sso_sandbox_mode_testing.gif[Prueba de confianza de la parte de confianza en el modo SSO Sandbox]
+
++
+Se le solicitará que introduzca su nombre de usuario y contraseña.
+
+. Introduzca el nombre de usuario y la contraseña federados.
++
+** Si las operaciones de inicio de sesión y cierre de sesión SSO se realizan correctamente, se muestra un mensaje de éxito.
++
+image::../media/sso_sandbox_mode_sign_in_success.gif[Autenticación SSO y mensaje de cierre de sesión de la prueba de éxito]
+
+** Si la operación de SSO se realiza sin errores, se muestra un mensaje de error. Solucione el problema, borre las cookies del navegador e inténtelo de nuevo.
+
+
+. Repita los pasos anteriores para confirmar que puede iniciar sesión en cualquier otro nodo de administrador.
++
+Si todas las operaciones de inicio de sesión y cierre de sesión SSO se realizan correctamente, estará listo para habilitar SSO.
+
+

@@ -1,0 +1,26 @@
+---
+permalink: rhel/configuring-grid-and-completing-installation.html 
+sidebar: sidebar 
+keywords: storagegrid, rhel, redhat, redhat linux, completing installation, configuring grid 
+summary: Para completar la instalación, configure el sistema StorageGRID desde Grid Manager en el nodo de administración principal. 
+---
+= Configurar la cuadrícula y completar la instalación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para completar la instalación, configure el sistema StorageGRID desde Grid Manager en el nodo de administración principal.
+
+* link:navigating-to-grid-manager.html["Navegar hasta Grid Manager"]
+* link:specifying-storagegrid-license-information.html["Se especifica la información de licencia de StorageGRID"]
+* link:adding-sites.html["Agregar sitios"]
+* link:specifying-grid-network-subnets.html["Especificación de subredes de red de red"]
+* link:approving-pending-grid-nodes.html["Aprobando nodos de cuadrícula pendientes"]
+* link:specifying-network-time-protocol-server-information.html["Especificar la información del servidor de protocolo de tiempo de redes"]
+* link:specifying-domain-name-system-server-information.html["Especificación de la información del servidor del sistema de nombres de dominio"]
+* link:specifying-storagegrid-system-passwords.html["Especificar las contraseñas del sistema StorageGRID"]
+* link:reviewing-your-configuration-and-completing-installation.html["Revisar la configuración y completar la instalación"]
+* link:post-installation-guidelines.html["Directrices posteriores a la instalación"]
+

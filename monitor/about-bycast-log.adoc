@@ -1,0 +1,16 @@
+---
+permalink: monitor/about-bycast-log.html 
+sidebar: sidebar 
+keywords: bycast, log 
+summary: 'El archivo /var/local/log/bycast.log es el archivo principal de solución de problemas para el software StorageGRID. Hay una `bycast.log` archivo para cada nodo de grid. El archivo contiene mensajes específicos de ese nodo de cuadrícula.' 
+---
+= Acerca de bycast.log
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El archivo `/var/local/log/bycast.log` Es el archivo principal de solución de problemas del software StorageGRID. Hay una `bycast.log` archivo para cada nodo de grid. El archivo contiene mensajes específicos de ese nodo de cuadrícula.
+
+El archivo `/var/local/log/bycast-err.log` es un subconjunto de `bycast.log`. Contiene mensajes DE ERROR grave Y CRÍTICOS.

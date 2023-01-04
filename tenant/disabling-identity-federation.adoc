@@ -1,0 +1,36 @@
+---
+permalink: tenant/disabling-identity-federation.html 
+sidebar: sidebar 
+keywords: storagegrid, tenant, disable identity federation, disabling identity federation, federated identity source 
+summary: Si ha configurado un servicio de federación de identidades para este inquilino, puede deshabilitar temporalmente o de forma permanente la federación de identidades para los grupos de inquilinos y usuarios. Cuando se deshabilita la federación de identidades, no hay comunicación entre el sistema StorageGRID y el origen de identidades. Sin embargo, cualquier configuración que haya configurado se conservará, lo que le permitirá volver a habilitar fácilmente la federación de identidades en el futuro. 
+---
+= Desactivar la federación de identidades
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si ha configurado un servicio de federación de identidades para este inquilino, puede deshabilitar temporalmente o de forma permanente la federación de identidades para los grupos de inquilinos y usuarios. Cuando se deshabilita la federación de identidades, no hay comunicación entre el sistema StorageGRID y el origen de identidades. Sin embargo, cualquier configuración que haya configurado se conservará, lo que le permitirá volver a habilitar fácilmente la federación de identidades en el futuro.
+
+.Lo que necesitará
+* Debe iniciar sesión en el Administrador de inquilinos con un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+.Acerca de esta tarea
+Antes de deshabilitar la federación de identidades, debe tener en cuenta lo siguiente:
+
+* Los usuarios federados no podrán iniciar sesión.
+* Los usuarios federados que hayan iniciado sesión actualmente conservarán el acceso a la cuenta de inquilino hasta que caduque la sesión, pero no podrán iniciar sesión después de que caduque la sesión.
+* La sincronización entre el sistema StorageGRID y el origen de identidad no se llevará a cabo.
+
+
+.Pasos
+. Seleccione *ADMINISTRACIÓN de ACCESO* > *federación de identidades*.
+. Desactive la casilla de verificación *Activar federación de identidades*.
+. Seleccione *Guardar*.
+
+
+.Información relacionada
+link:tenant-management-permissions.html["Permisos de gestión de inquilinos"]

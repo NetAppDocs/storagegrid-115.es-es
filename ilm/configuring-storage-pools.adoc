@@ -1,0 +1,24 @@
+---
+permalink: ilm/configuring-storage-pools.html 
+sidebar: sidebar 
+keywords:  
+summary: Al definir una regla de ILM, se usan agrupaciones de almacenamiento para especificar dónde se almacenan los objetos . Antes de crear un pool de almacenamiento, debe revisar las directrices del pool de almacenamiento. 
+---
+= Configuración de pools de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al definir una regla de ILM, se usan agrupaciones de almacenamiento para especificar dónde se almacenan los objetos . Antes de crear un pool de almacenamiento, debe revisar las directrices del pool de almacenamiento.
+
+* link:what-storage-pool-is.html["Qué es un pool de almacenamiento"]
+* link:guidelines-for-creating-storage-pools.html["Directrices para crear pools de almacenamiento"]
+* link:using-multiple-storage-pools-for-cross-site-replication.html["Uso de varios pools de almacenamiento para la replicación entre sitios"]
+* link:using-storage-pool-as-temporary-location-deprecated.html["Uso de un pool de almacenamiento como ubicación temporal (obsoleto)"]
+* link:creating-storage-pool.html["Creación de un pool de almacenamiento"]
+* link:viewing-storage-pool-details.html["Ver los detalles del pool de almacenamiento"]
+* link:editing-storage-pool.html["Editar un pool de almacenamiento"]
+* link:removing-storage-pool.html["Eliminación de un pool de almacenamiento"]
+

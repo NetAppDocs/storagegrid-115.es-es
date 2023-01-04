@@ -1,0 +1,33 @@
+---
+permalink: admin/deleting-tenant-account.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede eliminar una cuenta de inquilino si desea eliminar de forma permanente el acceso del inquilino al sistema. 
+---
+= Eliminar una cuenta de inquilino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede eliminar una cuenta de inquilino si desea eliminar de forma permanente el acceso del inquilino al sistema.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+* Debe haber quitado todos los bloques (S3), los contenedores (Swift) y los objetos asociados con la cuenta de inquilino.
+
+
+.Pasos
+. Seleccione *arrendatarios*.
+. Seleccione la cuenta de arrendatario que desea eliminar.
++
+Si el sistema incluye más de 20 elementos, puede especificar cuántas filas se muestran en cada página a la vez. Utilice el cuadro de búsqueda para buscar una cuenta de inquilino por nombre para mostrar o ID de inquilino.
+
+. En el menú desplegable *acciones*, seleccione *Quitar*.
+. Seleccione *OK*.
+
+
+.Información relacionada
+link:controlling-administrator-access-to-storagegrid.html["Controlando el acceso del administrador a StorageGRID"]

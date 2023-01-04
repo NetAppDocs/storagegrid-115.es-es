@@ -1,0 +1,24 @@
+---
+permalink: admin/restoring-default-server-certificates-for-s3-swift-api-endpoints.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede revertir a usar los certificados de servidor predeterminados para los extremos de la API DE REST de S3 y Swift. 
+---
+= Restaurar los certificados de servidor predeterminados para los extremos de la API DE REST de S3 y Swift
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede revertir a usar los certificados de servidor predeterminados para los extremos de la API DE REST de S3 y Swift.
+
+.Pasos
+. Seleccione *Configuración* > *Configuración de red* > *certificados de servidor*.
+. En la sección Object Storage API Service Endpoints Server Certificate, haga clic en *utilizar certificados predeterminados*.
+. Haga clic en *Aceptar* en el cuadro de diálogo de confirmación.
++
+Cuando se restauran los certificados de servidor predeterminados para los extremos de API de almacenamiento de objetos, se eliminan los archivos de certificado de servidor personalizados que se configuraron y no se pueden recuperar desde el sistema. Los certificados de servidor predeterminados se utilizan para todas las conexiones de clientes API nuevas posteriores.
+
+. Actualice la página para garantizar que se actualice el explorador web.
+

@@ -1,0 +1,24 @@
+---
+permalink: admin/restoring-default-server-certificates-for-grid-manager-tenant-manager.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede volver a utilizar los certificados de servidor predeterminados para el administrador de grid y el administrador de inquilinos. 
+---
+= Restauración de los certificados de servidor predeterminados para el administrador de grid y el administrador de inquilinos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede volver a utilizar los certificados de servidor predeterminados para el administrador de grid y el administrador de inquilinos.
+
+.Pasos
+. Seleccione *Configuración* > *Configuración de red* > *certificados de servidor*.
+. En la sección Administrar certificado de servidor de interfaz, haga clic en *utilizar certificados predeterminados*.
+. Haga clic en *Aceptar* en el cuadro de diálogo de confirmación.
++
+Al restaurar los certificados de servidor predeterminados, los archivos de certificado de servidor personalizados que configuró se eliminan y no se pueden recuperar del sistema. Los certificados de servidor predeterminados se utilizan para todas las conexiones de cliente nuevas posteriores.
+
+. Actualice la página para garantizar que se actualice el explorador web.
+

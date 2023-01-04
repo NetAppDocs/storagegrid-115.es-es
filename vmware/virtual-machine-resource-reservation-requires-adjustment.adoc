@@ -1,0 +1,31 @@
+---
+permalink: vmware/virtual-machine-resource-reservation-requires-adjustment.html 
+sidebar: sidebar 
+keywords:  
+summary: Los archivos OVF incluyen una reserva de recursos diseñada para garantizar que cada nodo de grid tiene suficiente RAM y CPU para funcionar de forma eficiente. Si crea máquinas virtuales implementando estos archivos OVF en VMware y el número predefinido de recursos no está disponible, las máquinas virtuales no se iniciarán. 
+---
+= La reserva de recursos de la máquina virtual requiere ajustes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los archivos OVF incluyen una reserva de recursos diseñada para garantizar que cada nodo de grid tiene suficiente RAM y CPU para funcionar de forma eficiente. Si crea máquinas virtuales implementando estos archivos OVF en VMware y el número predefinido de recursos no está disponible, las máquinas virtuales no se iniciarán.
+
+.Acerca de esta tarea
+Si tiene la seguridad de que el host de máquina virtual tiene suficientes recursos para cada nodo de grid, ajuste manualmente los recursos asignados para cada máquina virtual e intente iniciar las máquinas virtuales.
+
+.Pasos
+. En el árbol del cliente del hipervisor de VMware vSphere, seleccione la máquina virtual que no se ha iniciado.
+. Haga clic con el botón secundario‐en la máquina virtual y seleccione *Editar configuración*.
+. En la ventana Propiedades de máquinas virtuales, seleccione la ficha *Recursos*.
+. Ajuste los recursos asignados a la máquina virtual:
++
+.. Seleccione *CPU* y, a continuación, utilice el control deslizante Reservación para ajustar el MHz reservado para esta máquina virtual.
+.. Seleccione *memoria* y, a continuación, utilice el control deslizante Reservación para ajustar el MB reservado para esta máquina virtual.
+
+
+. Haga clic en *Aceptar*.
+. Repita esto según sea necesario para otras máquinas virtuales alojadas en el mismo host de VM.
+

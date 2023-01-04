@@ -1,0 +1,31 @@
+---
+permalink: monitor/viewing-hardware-tab.html 
+sidebar: sidebar 
+keywords: hardware tab 
+summary: En la pestaña hardware, se muestra la utilización de CPU y la memoria de cada nodo, así como información de hardware adicional sobre los dispositivos. 
+---
+= Visualización de la pestaña hardware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En la pestaña hardware, se muestra la utilización de CPU y la memoria de cada nodo, así como información de hardware adicional sobre los dispositivos.
+
+La pestaña hardware se muestra para todos los nodos.
+
+image::../media/nodes_page_hardware_tab_graphs.png[Página Nodes pestaña hardware]
+
+Para mostrar un intervalo de tiempo diferente, seleccione uno de los controles situados encima del gráfico o gráfico. Puede visualizar la información disponible para intervalos de 1 hora, 1 día, 1 semana o 1 mes. También puede establecer un intervalo personalizado, que le permite especificar intervalos de fecha y hora.
+
+Para ver detalles sobre el uso de la CPU y la memoria, pase el cursor sobre cada gráfico.
+
+image::../media/nodes_page_memory_usage_details.png[Página nodos > hardware > Detalles de uso de memoria]
+
+Si el nodo es un nodo de dispositivo, en esta pestaña también se incluye una sección con más información sobre el hardware del dispositivo.
+
+.Información relacionada
+link:viewing-information-about-appliance-storage-nodes.html["Ver información sobre los nodos de almacenamiento de dispositivos"]
+
+link:viewing-information-about-appliance-admin-nodes-and-gateway-nodes.html["Ver información sobre los nodos de administración de dispositivos y los nodos de puerta de enlace"]

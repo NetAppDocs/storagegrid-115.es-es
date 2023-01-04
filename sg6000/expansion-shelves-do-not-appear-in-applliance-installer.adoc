@@ -1,0 +1,39 @@
+---
+permalink: sg6000/expansion-shelves-do-not-appear-in-applliance-installer.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance troubleshooting, Expansion, shelves, do not appear, Appliance Installer, missing, not shown 
+summary: Si instaló bandejas de expansión para el SG6060 y no aparecen en el instalador de dispositivos de StorageGRID, debe verificar que las bandejas se han instalado por completo y se han encendido. 
+---
+= Las bandejas de expansión no aparecen en el instalador de dispositivos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si instaló bandejas de expansión para el SG6060 y no aparecen en el instalador de dispositivos de StorageGRID, debe verificar que las bandejas se han instalado por completo y se han encendido.
+
+.Acerca de esta tarea
+Puede verificar que las bandejas de ampliación están conectadas al dispositivo consultando la siguiente información en el instalador de dispositivos StorageGRID:
+
+* La página *Home* contiene un mensaje sobre las estanterías de expansión.
++
+image::../media/expansion_shelf_home_page_msg.png[Mensaje de bandejas de expansión]
+
+* La página *Advanced* *RAID Mode* indica por número de unidades si el aparato incluye o no estantes de expansión. Por ejemplo, en la siguiente captura de pantalla se muestran dos SSD y 178 HDD. Un SG6060 con dos bandejas de expansión contiene 180 unidades en total.
+
+
+image::../media/expansion_shelves_shown_by_num_of_drives.png[Máximo de unidades]
+
+Si en las páginas del instalador de dispositivos StorageGRID no se indica que haya bandejas de ampliación presentes, siga este procedimiento.
+
+.Pasos
+. Compruebe que todos los cables necesarios están conectados firmemente.
+. Verifique que se hayan encendido las bandejas de expansión.
+. Si necesita ayuda para resolver un problema, póngase en contacto con el soporte técnico.
+
+
+.Información relacionada
+link:sg6060-cabling-optional-expansion-shelves.html["SG6060: Cableado de las bandejas de expansión opcionales"]
+
+link:connecting-power-cords-and-applying-power-sg6000.html["Conexión de los cables de alimentación y alimentación (SG6000)"]

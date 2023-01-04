@@ -1,0 +1,14 @@
+---
+permalink: monitor/using-charts-and-reports.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Puede utilizar gráficos e informes para supervisar el estado del sistema StorageGRID y solucionar problemas. Los tipos de gráficos e informes disponibles en Grid Manager incluyen gráficos circulares \(sólo en el Panel\), gráficos e informes de texto.' 
+---
+= Uso de gráficos e informes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar gráficos e informes para supervisar el estado del sistema StorageGRID y solucionar problemas. Los tipos de gráficos e informes disponibles en Grid Manager incluyen gráficos circulares (solo en la consola), gráficos e informes de texto.

@@ -1,0 +1,42 @@
+---
+permalink: ilm/how-objects-are-ingested.html 
+sidebar: sidebar 
+keywords:  
+summary: StorageGRID protege los objetos durante el procesamiento mediante una ubicación síncrona o la ejecución de un registro doble, como se especifica en la regla de ILM que coincide con los objetos. 
+---
+= Cómo se ingieren los objetos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID protege los objetos durante el procesamiento mediante una ubicación síncrona o la ejecución de un registro doble, como se especifica en la regla de ILM que coincide con los objetos.
+
+Cuando un cliente S3 o Swift almacena un objeto en el grid, StorageGRID procesa el objeto mediante uno de los siguientes dos métodos:
+
+* *Colocación síncrona*: StorageGRID crea inmediatamente todas las copias de objeto que se necesitan para cumplir con los requisitos de ILM. StorageGRID envía un mensaje «'ingesta correcta'» al cliente cuando se crean todas las copias.
++
+Si StorageGRID no puede crear inmediatamente todas las copias de objeto (por ejemplo, porque una ubicación requerida no está disponible temporalmente), envía un mensaje «'error de ingesta'» al cliente, O bien, la creación de copias de objetos provisionales y la evaluación de ILM se realizarán más tarde, en función de la opción que haya creado la regla de ILM.
+
+* *Commit doble*: StorageGRID crea inmediatamente dos copias provisionales del objeto, cada una en un nodo de almacenamiento diferente, y envía un mensaje "'ingesta exitosa'" al cliente. StorageGRID entonces pone en cola el objeto para la evaluación de ILM.
++
+Cuando StorageGRID realiza la evaluación de ILM, primero comprueba si las copias provisionales cumplen las instrucciones de colocación en la regla de ILM. Por ejemplo, las dos copias provisionales podrían cumplir las instrucciones de una regla de ILM de dos copias, pero no deberían cumplir las instrucciones de una regla de codificación de borrado. Si las copias provisionales no cumplen las instrucciones de ILM, StorageGRID crea nuevas copias de objetos y elimina las copias provisionales que no sean necesarias.
+
++
+Si StorageGRID no puede crear dos copias provisionales (por ejemplo, si un problema de red impide que se realice la segunda copia), StorageGRID no lo intenta de nuevo. La ingesta falla.
+
++
+
+NOTE: Los clientes de S3 o Swift pueden especificar que StorageGRID cree una única copia provisional durante el procesamiento especificando `REDUCED_REDUNDANCY` para la clase de almacenamiento. Consulte las instrucciones para implementar un cliente S3 o Swift para obtener más información.
+
+
+
+De forma predeterminada, StorageGRID utiliza una ubicación síncrona para proteger los objetos durante el procesamiento.
+
+.Información relacionada
+link:data-protection-options-for-ingest.html["Opciones de protección de datos para consumo"]
+
+link:../s3/index.html["Use S3"]
+
+link:../swift/index.html["Use Swift"]

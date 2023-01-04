@@ -1,0 +1,49 @@
+---
+permalink: ilm/what-ilm-placement-instructions-are.html 
+sidebar: sidebar 
+keywords:  
+summary: Las instrucciones de colocación determinan dónde, cuándo y cómo se almacenan los datos de objetos. Una regla de ILM puede incluir una o varias instrucciones de ubicación. Cada instrucción de colocación se aplica a un único período de tiempo. 
+---
+= ¿Qué son las instrucciones de colocación de reglas de ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las instrucciones de colocación determinan dónde, cuándo y cómo se almacenan los datos de objetos. Una regla de ILM puede incluir una o varias instrucciones de ubicación. Cada instrucción de colocación se aplica a un único período de tiempo.
+
+Al crear una instrucción de colocación, debe especificar cuándo se aplica la ubicación (el período de tiempo), qué tipo de copias debe crear (replicadas o codificadas de borrado) y dónde almacenar las copias (una o varias ubicaciones de almacenamiento). Dentro de una sola regla se pueden especificar varias colocaciones para un período de tiempo e instrucciones de colocación para más de un período de tiempo:
+
+* Para especificar más de una ubicación de objeto durante un único período de tiempo, haga clic en el icono de signo más image:../media/icon_plus_sign_black_on_white.gif["Icono de signo más negro en blanco"] para agregar más de una línea para ese período de tiempo.
+* Para especificar ubicaciones de objetos durante más de un período de tiempo, haga clic en el botón *Agregar* para agregar el siguiente período de tiempo. A continuación, especifique una o más líneas dentro del período de tiempo.
+
+
+El ejemplo muestra la página define colocaciones del asistente Create ILM Rule.
+
+image::../media/ilm_rule_multiple_placements_in_single_time_period.png[Pantalla de ubicaciones de ILM en Grid Manager]
+
+[cols="1a,3a"]
+|===
+
+
+ a| 
+image:../media/icon_number_1.png["icono número 1"]
+ a| 
+La primera instrucción de colocación tiene dos líneas para el primer año:
+
+. La primera línea crea dos copias de objetos replicadas en dos sitios de centro de datos.
+. La segunda línea crea una copia con código de borrado de 6+3 utilizando tres centros de datos.
+
+
+
+
+ a| 
+image:../media/icon_number_2.png["icono número 2"]
+ a| 
+La segunda instrucción de colocación crea dos copias archivadas después de un año y mantiene esas copias para siempre.
+
+|===
+Cuando defina el conjunto de instrucciones de colocación para una regla, debe asegurarse de que al menos una instrucción de colocación comienza en el día 0, de que no haya espacios entre los períodos de tiempo definidos. y que la instrucción de colocación final continúa para siempre o hasta que ya no se requiere ninguna copia de objeto.
+
+Cuando cada período de tiempo de la regla caduca, se aplican las instrucciones de colocación del contenido para el próximo período de tiempo. Se crean nuevas copias de objetos y se eliminan todas las copias innecesarias.

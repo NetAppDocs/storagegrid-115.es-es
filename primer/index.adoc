@@ -1,0 +1,22 @@
+---
+permalink: primer/index.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Imprimador de rejilla
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Conozca los conceptos básicos de un sistema StorageGRID de NetApp.
+
+* link:about-storagegrid.html["Acerca de StorageGRID"]
+* link:storagegrid-architecture-and-network-topology.html["Arquitectura de StorageGRID y topología de red"]
+* link:how-storagegrid-manages-data.html["Cómo StorageGRID gestiona los datos"]
+* link:exploring-grid-manager.html["Exploración de Grid Manager"]
+* link:exploring-tenant-manager.html["Exploración del responsable de inquilinos"]
+* link:using-storagegrid.html["Uso de StorageGRID"]
+

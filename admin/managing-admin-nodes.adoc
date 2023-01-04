@@ -1,0 +1,23 @@
+---
+permalink: admin/managing-admin-nodes.html 
+sidebar: sidebar 
+keywords:  
+summary: Cada sitio de una implementación de StorageGRID puede tener uno o varios nodos de administrador. 
+---
+= Gestión de los nodos de administrador
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cada sitio de una implementación de StorageGRID puede tener uno o varios nodos de administrador.
+
+* link:what-admin-node-is.html["Qué es un nodo de administrador"]
+* link:using-multiple-admin-nodes.html["El uso de varios nodos de administrador"]
+* link:identifying-primary-admin-node.html["Identificar el nodo de administrador principal"]
+* link:selecting-preferred-sender.html["Seleccionar un remitente preferido"]
+* link:viewing-notification-status-and-queues.html["Ver el estado de notificación y las colas"]
+* link:how-admin-nodes-show-acknowledged-alarms.html["Cómo muestran los nodos de administración alarmas confirmadas (sistema heredado)"]
+* link:configuring-audit-client-access.html["Configuración del acceso de clientes de auditoría"]
+

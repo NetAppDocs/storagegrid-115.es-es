@@ -1,0 +1,22 @@
+---
+permalink: ubuntu/example-1-1-to-1-mapping-to-physical-or-virtual-nics.html 
+sidebar: sidebar 
+keywords:  
+summary: El ejemplo 1 describe una asignación sencilla de interfaz física que requiere poca o ninguna configuración en el lado del host. 
+---
+= Ejemplo 1: Asignación de 1 a 1 a NIC físicas o virtuales
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El ejemplo 1 describe una asignación sencilla de interfaz física que requiere poca o ninguna configuración en el lado del host.
+
+image::../media/rhel_install_vlan_diag_1.gif[Esta imagen se explica por el texto circundante.]
+
+El sistema operativo Linux crea las interfaces ensXYZ automáticamente durante la instalación o el arranque, o cuando las interfaces se añaden en caliente. No se necesita ninguna configuración que no sea asegurarse de que las interfaces estén configuradas para que se encuentren en funcionamiento automáticamente después del arranque. Debe determinar qué red ensXYZ corresponde a qué red StorageGRID (Grid, Admin o Cliente) para poder proporcionar las asignaciones correctas más adelante en el proceso de configuración.
+
+Tenga en cuenta que en la figura se muestran varios nodos StorageGRID; sin embargo, normalmente usaría esta configuración para máquinas virtuales de un solo nodo.
+
+Si el switch 1 es un switch físico, debe configurar los puertos conectados a las interfaces de 10 G~1~ a 10 G~3~ para el modo de acceso y colocarlos en las VLAN que corresponda.

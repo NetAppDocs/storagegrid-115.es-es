@@ -1,0 +1,41 @@
+---
+permalink: primer/what-object-is.html 
+sidebar: sidebar 
+keywords: object, metadata 
+summary: Con el almacenamiento de objetos, la unidad de almacenamiento es un objeto, en lugar de un archivo o un bloque. A diferencia de la jerarquía de árbol de un sistema de archivos o almacenamiento basado en bloques, el almacenamiento de objetos organiza los datos en un diseño plano y sin estructura. El almacenamiento de objetos separa la ubicación física de los datos del método utilizado para almacenar y recuperar esos datos. 
+---
+= Qué es un objeto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Con el almacenamiento de objetos, la unidad de almacenamiento es un objeto, en lugar de un archivo o un bloque. A diferencia de la jerarquía de árbol de un sistema de archivos o almacenamiento basado en bloques, el almacenamiento de objetos organiza los datos en un diseño plano y sin estructura. El almacenamiento de objetos separa la ubicación física de los datos del método utilizado para almacenar y recuperar esos datos.
+
+Cada objeto de un sistema de almacenamiento basado en objetos tiene dos partes: Datos de objetos y metadatos de objetos.
+
+image::../media/object_conceptual_drawing.png[Objeto]
+
+
+
+== Datos de objetos
+
+Los datos del objeto pueden ser cualquier cosa; por ejemplo, una fotografía, una película o un registro médico.
+
+
+
+== Metadatos de objetos
+
+Los metadatos de objetos son cualquier información que describa un objeto. StorageGRID utiliza metadatos de objetos para realizar un seguimiento de las ubicaciones de todos los objetos en el grid y gestionar el ciclo de vida de cada objeto a lo largo del tiempo.
+
+Los metadatos de objetos incluyen información como la siguiente:
+
+* Metadatos del sistema, incluidos un ID único para cada objeto (UUID), el nombre del objeto, el nombre del bloque de S3 o el contenedor Swift, el nombre o el ID de la cuenta de inquilino, el tamaño lógico del objeto, la fecha y la hora en que se creó el objeto por primera vez, y la fecha y hora en que se modificó por última vez el objeto.
+* La ubicación actual de almacenamiento de cada copia de objeto o fragmento con código de borrado.
+* Todos los metadatos de usuario asociados con el objeto.
+
+
+Los metadatos de objetos son personalizables y ampliables, por lo que es flexible para las aplicaciones.
+
+Para obtener información detallada sobre cómo y dónde almacena StorageGRID metadatos de objetos, vaya a. link:../admin/managing-object-metadata-storage.html["Gestionar el almacenamiento de metadatos de objetos"].

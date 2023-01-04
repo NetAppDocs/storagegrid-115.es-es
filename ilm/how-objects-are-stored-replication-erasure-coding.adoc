@@ -1,0 +1,21 @@
+---
+permalink: ilm/how-objects-are-stored-replication-erasure-coding.html 
+sidebar: sidebar 
+keywords:  
+summary: StorageGRID puede proteger los objetos contra pérdidas almacenando copias replicadas o almacenando copias codificadas por borrado. Puede especificar el tipo de copias que desea crear en las instrucciones de colocación de las reglas de ILM. 
+---
+= Cómo se almacenan los objetos (codificación de borrado o replicación)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID puede proteger los objetos contra pérdidas almacenando copias replicadas o almacenando copias codificadas por borrado. Puede especificar el tipo de copias que desea crear en las instrucciones de colocación de las reglas de ILM.
+
+* link:what-replication-is.html["Qué es la replicación"]
+* link:why-you-should-not-use-single-copy-replication.html["Por qué no se debe utilizar la replicación de copia única"]
+* link:what-erasure-coding-is.html["Qué es la codificación de borrado"]
+* link:what-erasure-coding-schemes-are.html["Qué son los esquemas de codificación de borrado"]
+* link:advantages-disadvantages-and-requirements-for-ec.html["Ventajas, desventajas y requisitos de codificación de borrado"]
+

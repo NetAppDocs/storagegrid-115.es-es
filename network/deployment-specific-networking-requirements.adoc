@@ -1,0 +1,26 @@
+---
+permalink: network/deployment-specific-networking-requirements.html 
+sidebar: sidebar 
+keywords:  
+summary: Según las plataformas de puesta en marcha que utilice, es posible que tenga en cuenta otras consideraciones para el diseño de red de StorageGRID. 
+---
+= Consideraciones sobre redes específicas de la implementación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Según las plataformas de puesta en marcha que utilice, es posible que tenga en cuenta otras consideraciones para el diseño de red de StorageGRID.
+
+Los nodos de grid pueden ponerse en marcha del siguiente modo:
+
+* Nodos de grid basados en software puestos en marcha como máquinas virtuales en VMware vSphere Web Client
+* Los nodos de grid basados en software puestos en marcha en contenedores Docker en hosts Linux
+* Nodos basados en dispositivos
+
+
+Para obtener información adicional acerca de los nodos de cuadrícula, consulte _Grid primer_.
+
+.Información relacionada
+link:../primer/index.html["Imprimador de rejilla"]

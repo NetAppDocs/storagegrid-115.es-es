@@ -1,0 +1,34 @@
+---
+permalink: monitor/viewing-events-tab.html 
+sidebar: sidebar 
+keywords:  
+summary: La pestaña Events muestra un número de errores de sistema o eventos de fallo de un nodo, incluidos errores, como errores de red. 
+---
+= Ver la pestaña Eventos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La pestaña Events muestra un número de errores de sistema o eventos de fallo de un nodo, incluidos errores, como errores de red.
+
+La pestaña Eventos se muestra para todos los nodos.
+
+Si tiene problemas con un nodo en particular, puede usar la pestaña Events para obtener más información sobre el problema. El soporte técnico también puede usar la información contenida en la pestaña Eventos como ayuda para la solución de problemas.
+
+image::../media/nodes_page_events_tab.png[Pestaña Nodes de la página Events]
+
+Es posible realizar estas tareas en la pestaña Events:
+
+* Utilice la información que se muestra en el campo *último evento* de la parte superior de la tabla para determinar qué evento ocurrió más recientemente.
+* Haga clic en el icono del gráfico image:../media/icon_chart_new.gif["Icono de gráfico"] para ver un evento específico, que permite ver cuándo ocurrió ese evento a lo largo del tiempo.
+* El número de eventos de restablecimiento es cero después de resolver cualquier problema.
+
+
+.Información relacionada
+link:monitoring-events.html["Supervisar eventos"]
+
+link:displaying-charts-and-graphs.html["Mostrar gráficos y gráficos"]
+
+link:resetting-event-counts.html["Restableciendo el número de eventos"]

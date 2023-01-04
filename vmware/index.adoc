@@ -1,0 +1,24 @@
+---
+permalink: vmware/index.html 
+sidebar: sidebar 
+keywords:  
+summary: Descubra cómo instalar StorageGRID en las implementaciones de VMware. 
+---
+= Instale VMware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Descubra cómo instalar StorageGRID en las implementaciones de VMware.
+
+* link:installation-overview.html["Información general de la instalación"]
+* link:planning-and-preparation.html["Planificación y preparación"]
+* link:deploying-virtual-machine-grid-nodes-in-vmware-vsphere-web-client.html["Implementación de nodos de grid de máquinas virtuales en VMware vSphere Web Client"]
+* link:configuring-grid-and-completing-installation.html["Configurar la cuadrícula y completar la instalación"]
+* link:automating-installation.html["Automatización de la instalación"]
+* link:overview-of-installation-rest-api.html["Información general de la instalación de la API de REST"]
+* link:where-to-go-next.html["A continuación, ¿dónde ir"]
+* link:troubleshooting-installation-issues.html["Resolución de problemas de instalación"]
+

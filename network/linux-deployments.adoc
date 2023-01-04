@@ -1,0 +1,26 @@
+---
+permalink: network/linux-deployments.html 
+sidebar: sidebar 
+keywords:  
+summary: Para obtener eficiencia, fiabilidad y seguridad, el sistema StorageGRID se ejecuta en Linux como una colección de contenedores Docker. No se requiere una configuración de red relacionada con Docker en un sistema StorageGRID. 
+---
+= Implementaciones de Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para obtener eficiencia, fiabilidad y seguridad, el sistema StorageGRID se ejecuta en Linux como una colección de contenedores Docker. No se requiere una configuración de red relacionada con Docker en un sistema StorageGRID.
+
+Utilice un dispositivo que no sea de vínculo, como un par VLAN o Ethernet virtual (veth), para la interfaz de red del contenedor. Especifique este dispositivo como la interfaz de red en el archivo de configuración del nodo.
+
+
+IMPORTANT: No utilice dispositivos de enlace o puente directamente como interfaz de red de contenedores. Hacerlo podría evitar el arranque de nodos debido a un problema de kernel con el uso de macvlan con dispositivos de enlace y puente en el espacio de nombres de contenedores.
+
+Consulte las instrucciones de instalación para implementaciones de Red Hat Enterprise Linux/CentOS o Ubuntu/Debian.
+
+.Información relacionada
+link:../rhel/index.html["Instale Red Hat Enterprise Linux o CentOS"]
+
+link:../ubuntu/index.html["Instalar Ubuntu o Debian"]

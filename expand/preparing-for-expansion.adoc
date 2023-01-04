@@ -1,0 +1,440 @@
+---
+permalink: expand/preparing-for-expansion.html 
+sidebar: sidebar 
+keywords: expand, expansion, planning 
+summary: Debe prepararse para la expansión de StorageGRID obteniendo el material requerido e instalando y configurando cualquier hardware y redes nuevos. 
+---
+= Preparación para una expansión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe prepararse para la expansión de StorageGRID obteniendo el material requerido e instalando y configurando cualquier hardware y redes nuevos.
+
+
+
+== Recolección de materiales necesarios
+
+Antes de realizar una operación de expansión, debe recopilar los materiales enumerados en la siguiente tabla.
+
+[cols="1a,2a"]
+|===
+| Elemento | Notas 
+
+
+ a| 
+Archivo de instalación de StorageGRID
+ a| 
+Si va a añadir nodos de grid o un sitio nuevo, debe descargar y extraer el archivo de instalación de StorageGRID. Debe utilizar la misma versión que se esté ejecutando actualmente en la cuadrícula.
+
+Para obtener detalles, consulte las instrucciones para descargar y extraer los archivos de instalación de StorageGRID.
+
+*Nota:* no es necesario descargar archivos si va a añadir volúmenes de almacenamiento nuevos a nodos de almacenamiento existentes o a instalar un dispositivo StorageGRID nuevo.
+
+
+
+ a| 
+Portátil de servicio
+ a| 
+El ordenador portátil de servicio debe cumplir los siguientes requisitos:
+
+* Puerto de red
+* Cliente SSH (por ejemplo, PuTTY)
+* Navegador compatible
+
+
+
+
+ a| 
+Clave de acceso de aprovisionamiento
+ a| 
+La frase de contraseña se crea y documenta cuando se instala el sistema StorageGRID por primera vez. La clave de acceso de aprovisionamiento no está en la `Passwords.txt` archivo.
+
+
+
+ a| 
+Documentación de StorageGRID
+ a| 
+* _Administring StorageGRID_
+* _Notas de la versión de StorageGRID_
+* Instrucciones de instalación para su plataforma
+
+
+
+
+ a| 
+La documentación actual de su plataforma
+ a| 
+Para las versiones compatibles, consulte la matriz de interoperabilidad.
+
+|===
+.Información relacionada
+link:../admin/index.html["Administre StorageGRID"]
+
+link:../release-notes/index.html["Notas de la versión"]
+
+link:../vmware/index.html["Instale VMware"]
+
+link:../rhel/index.html["Instale Red Hat Enterprise Linux o CentOS"]
+
+link:../ubuntu/index.html["Instalar Ubuntu o Debian"]
+
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+
+
+
+=== Requisitos del navegador web
+
+Debe utilizar un navegador web compatible.
+
+[cols="1a,1a"]
+|===
+| Navegador Web | Versión mínima admitida 
+
+
+ a| 
+Google Chrome
+ a| 
+87
+
+
+
+ a| 
+Microsoft Edge
+ a| 
+87
+
+
+
+ a| 
+Mozilla Firefox
+ a| 
+84
+
+|===
+Debe establecer la ventana del navegador en un ancho recomendado.
+
+[cols="1a,1a"]
+|===
+| Ancho del navegador | Píxeles 
+
+
+ a| 
+Mínimo
+ a| 
+1024
+
+
+
+ a| 
+Óptimo
+ a| 
+1280
+
+|===
+
+
+== Descarga y extracción de los archivos de instalación de StorageGRID
+
+Antes de poder añadir nuevos nodos de grid o un sitio nuevo, debe descargar el archivo de instalación de StorageGRID correspondiente y extraer los archivos.
+
+.Acerca de esta tarea
+Es necesario realizar operaciones de ampliación con la versión de StorageGRID que se está ejecutando en el grid.
+
+.Pasos
+. Vaya a la página de descargas de NetApp para StorageGRID.
++
+https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Descargas de NetApp: StorageGRID"^]
+
+. Seleccione la versión de StorageGRID que se está ejecutando actualmente en la cuadrícula.
+. Inicie sesión con el nombre de usuario y la contraseña de su cuenta de NetApp.
+. Lea el contrato de licencia para usuario final, seleccione la casilla de verificación y, a continuación, seleccione *Aceptar y continuar*.
+. En la columna *instalar StorageGRID* de la página de descarga, seleccione `.tgz` o. `.zip` archivar para su plataforma.
++
+La versión que se muestra en el archivo de archivo de instalación debe coincidir con la versión del software que está instalado actualmente.
+
++
+Utilice la `.zip` Archivo si está ejecutando Windows en el portátil de servicio.
+
++
+[cols="1a,1a"]
+|===
+| Plataforma | Archivo de instalación 
+
+
+ a| 
+VMware
+| StorageGRID-Webscale-_version_-VMware-_uniqueID_.zip StorageGRID-Webscale-_version_-VMware-_uniqueID_.tgz 
+
+
+ a| 
+Red Hat Enterprise Linux o CentOS
+| StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz 
+
+
+ a| 
+Ubuntu o Debian y el dispositivo
+| StorageGRID-Webscale-_version_-DEB-_uniqueID_.zip StorageGRID-Webscale-_version_-DEB-_uniqueID_.tgz 
+
+
+ a| 
+OpenStack/otro hipervisor
+ a| 
+Para ampliar una puesta en marcha existente en OpenStack, debe implementar una máquina virtual que ejecute una de las distribuciones de Linux admitidas que se indican anteriormente y seguir las instrucciones correspondientes para Linux.
+
+|===
+. Descargue y extraiga el archivo de archivo.
+. Siga el paso adecuado para que su plataforma elija los archivos que necesite, en función de su plataforma, la topología de cuadrícula planificada y cómo ampliará su sistema StorageGRID.
++
+Las rutas enumeradas en el paso de cada plataforma son relativas al directorio de nivel superior instalado por el archivo de archivado.
+
+. Si va a ampliar un sistema VMware, seleccione los archivos adecuados.
++
+[cols="1a,1a"]
+|===
+| Ruta y nombre de archivo | Descripción 
+
+
+| ./vsphere/README  a| 
+Archivo de texto que describe todos los archivos contenidos en el archivo de descarga de StorageGRID.
+
+
+
+| ./vsphere/NLF000000.txt  a| 
+Una licencia gratuita que no proporciona ningún derecho de soporte para el producto.
+
+
+
+| ./vsphere/NetApp-SG-_version_-SHA.vmdk  a| 
+El archivo de disco de máquina virtual que se usa como plantilla para crear máquinas virtuales del nodo de grid.
+
+
+
+| ./vsphere/vsphere-primary-admin.ovf ./vsphere/vsphere-primary-admin.mf  a| 
+El archivo de plantilla Abrir formato de virtualización (`.ovf`) y el archivo de manifiesto (`.mf`) Para implementar el nodo de administración principal.
+
+
+
+| ./vsphere/vsphere-non-primary-admin.ovf ./vsphere/vsphere-non-primary-admin.mf  a| 
+El archivo de plantilla (`.ovf`) y el archivo de manifiesto (`.mf`) Para implementar nodos de administración no primarios.
+
+
+
+| ./vsphere/vsphere-archive.ovf ./vsphere/vsphere-archive.mf  a| 
+El archivo de plantilla (`.ovf`) y el archivo de manifiesto (`.mf`) Para implementar nodos de archivado.
+
+
+
+| ./vsphere/vsphere-gateway.ovf ./vsphere/vsphere-gateway.mf  a| 
+El archivo de plantilla (`.ovf`) y el archivo de manifiesto (`.mf`) Para implementar nodos de puerta de enlace.
+
+
+
+| ./vsphere/vsphere-storage.ovf ./vsphere/vsphere-storage.mf  a| 
+El archivo de plantilla (`.ovf`) y el archivo de manifiesto (`.mf`) Para implementar nodos de almacenamiento basados en máquinas virtuales.
+
+
+
+| Herramienta de secuencia de comandos de la implementación | Descripción 
+
+
+| ./vsphere/deploy-vsphere-ovftool.sh  a| 
+Una secuencia de comandos de shell Bash que se utiliza para automatizar la implementación de nodos de cuadrícula virtual.
+
+
+
+| ./vsphere/deploy-vsphere-ovftool-sample.ini  a| 
+Un archivo de configuración de ejemplo que se puede utilizar con `deploy-vsphere-ovftool.sh` guión.
+
+
+
+| ./vsphere/configure-storagegrid.py  a| 
+Script Python que se utiliza para automatizar la configuración de un sistema StorageGRID.
+
+
+
+| ./vsphere/configure-sga.py  a| 
+Una secuencia de comandos Python que se utiliza para automatizar la configuración de los dispositivos StorageGRID.
+
+
+
+| ./vsphere/storagegrid-ssoauth.py  a| 
+Ejemplo de secuencia de comandos Python que puede utilizar para iniciar sesión en la API de gestión de grid cuando está activado el inicio de sesión único.
+
+
+
+| ./vsphere/configure-storagegrid.sample.json  a| 
+Un archivo de configuración de ejemplo que se puede utilizar con `configure-storagegrid.py` guión.
+
+
+
+| ./vsphere/configure-storagegrid.blank.json  a| 
+Un archivo de configuración en blanco para usar con el `configure-storagegrid.py` guión.
+
+|===
+. Si va a ampliar un sistema Red Hat Enterprise Linux o CentOS, seleccione los archivos adecuados.
++
+[cols="1a,1a"]
+|===
+| Ruta y nombre de archivo | Descripción 
+
+
+| ./rpms/README  a| 
+Archivo de texto que describe todos los archivos contenidos en el archivo de descarga de StorageGRID.
+
+
+
+| ./rpms/NLF000000.txt  a| 
+Una licencia gratuita que no proporciona ningún derecho de soporte para el producto.
+
+
+
+| ./rpms/StorageGRID-Webscale-Images-version-SHA.rpm  a| 
+PAQUETE RPM para instalar las imágenes de nodo StorageGRID en sus hosts RHEL o CentOS.
+
+
+
+| ./rpms/StorageGRID-Webscale-Service-version-SHA.rpm  a| 
+PAQUETE RPM para instalar el servicio host StorageGRID en sus hosts RHEL o CentOS.
+
+
+
+| Herramienta de secuencia de comandos de la implementación | Descripción 
+
+
+| ./rpms/configure-storagegrid.py  a| 
+Script Python que se utiliza para automatizar la configuración de un sistema StorageGRID.
+
+
+
+| ./rpms/configure-sga.py  a| 
+Una secuencia de comandos Python que se utiliza para automatizar la configuración de los dispositivos StorageGRID.
+
+
+
+| ./rpms/configure-storagegrid.sample.json  a| 
+Un archivo de configuración de ejemplo que se puede utilizar con `configure-storagegrid.py` guión.
+
+
+
+| ./rpms/storagegrid-ssoauth.py  a| 
+Ejemplo de secuencia de comandos Python que puede utilizar para iniciar sesión en la API de gestión de grid cuando está activado el inicio de sesión único.
+
+
+
+| ./rpms/configure-storagegrid.blank.json  a| 
+Un archivo de configuración en blanco para usar con el `configure-storagegrid.py` guión.
+
+
+
+| ./rpms/extras/ansible  a| 
+Ejemplo de rol de Ansible y libro de estrategia para configurar hosts de RHEL o CentOS para puesta en marcha del contenedor StorageGRID. Puede personalizar el rol o el libro de estrategia según sea necesario.
+
+|===
+. Si va a ampliar un sistema Ubuntu o Debian, seleccione los archivos apropiados.
++
+[cols="1a,1a"]
+|===
+| Ruta y nombre de archivo | Descripción 
+
+
+| ./debs/README  a| 
+Archivo de texto que describe todos los archivos contenidos en el archivo de descarga de StorageGRID.
+
+
+
+| ./debs/NLF000000.txt  a| 
+Un archivo de licencia de NetApp que no es de producción y que se puede usar para pruebas e implementaciones conceptuales.
+
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb  a| 
+PAQUETE DEB para instalar las imágenes del nodo StorageGRID en hosts de Ubuntu o Debian.
+
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb.md5  a| 
+Suma de comprobación MD5 para el archivo `/debs/storagegrid-webscale-images-version-SHA.deb`.
+
+
+
+| ./debs/storagegrid-webscale-service-version-SHA.deb  a| 
+PAQUETE DEB para instalar el servicio de host de StorageGRID en hosts de Ubuntu o Debian.
+
+
+
+| Herramienta de secuencia de comandos de la implementación | Descripción 
+
+
+| ./debs/configure-storagegrid.py  a| 
+Script Python que se utiliza para automatizar la configuración de un sistema StorageGRID.
+
+
+
+| ./debs/configure-sga.py  a| 
+Una secuencia de comandos Python que se utiliza para automatizar la configuración de los dispositivos StorageGRID.
+
+
+
+| ./debs/storagegrid-ssoauth.py  a| 
+Ejemplo de secuencia de comandos Python que puede utilizar para iniciar sesión en la API de gestión de grid cuando está activado el inicio de sesión único.
+
+
+
+| ./debs/configure-storagegrid.sample.json  a| 
+Un archivo de configuración de ejemplo que se puede utilizar con `configure-storagegrid.py` guión.
+
+
+
+| ./debs/configure-storagegrid.blank.json  a| 
+Un archivo de configuración en blanco para usar con el `configure-storagegrid.py` guión.
+
+
+
+| ./débitos/extras/ansible  a| 
+Ejemplo de rol de Ansible y libro de aplicaciones para configurar hosts Ubuntu o Debian para la implementación del contenedor StorageGRID. Puede personalizar el rol o el libro de estrategia según sea necesario.
+
+|===
+. Si va a ampliar un sistema basado en dispositivos StorageGRID, seleccione los archivos adecuados.
++
+[cols="1a,1a"]
+|===
+| Ruta y nombre de archivo | Descripción 
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb  a| 
+DEB el paquete para instalar las imágenes de nodo StorageGRID en sus dispositivos.
+
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb.md5  a| 
+Suma de comprobación del paquete DE instalación DE DEB utilizado por el instalador de dispositivos de StorageGRID para validar que el paquete está intacto tras la carga.
+
+|===
++
+
+NOTE: Para la instalación del dispositivo, estos archivos sólo son necesarios si necesita evitar el tráfico de red. El dispositivo puede descargar los archivos necesarios del nodo de administración principal.
+
+
+
+
+
+== Verificación de hardware y redes
+
+Antes de iniciar la ampliación del sistema StorageGRID, debe asegurarse de haber instalado y configurado el hardware necesario para admitir los nodos de grid o el sitio nuevo.
+
+Para obtener información sobre las versiones compatibles, consulte la matriz de interoperabilidad.
+
+También debe verificar la conectividad de red entre los servidores del sitio y confirmar que el nodo de administración principal pueda comunicarse con todos los servidores de expansión que están destinados a alojar el sistema StorageGRID.
+
+Si está realizando una actividad de expansión que incluye la adición de una nueva subred, debe agregar la nueva subred de cuadrícula antes de iniciar el procedimiento de expansión.
+
+No utilice la traducción de direcciones de red (NAT) en la red de cuadrícula entre nodos de cuadrícula o entre sitios StorageGRID. Cuando utilice direcciones IPv4 privadas para la red de cuadrícula, esas direcciones deben poder enrudarse directamente desde cada nodo de cuadrícula de cada sitio. Sin embargo, según sea necesario, puede utilizar NAT entre clientes externos y nodos de cuadrícula, como para proporcionar una dirección IP pública para un nodo de puerta de enlace. El uso de NAT para tender un segmento de red pública sólo se admite cuando se emplea una aplicación de túnel que es transparente para todos los nodos de la cuadrícula, lo que significa que los nodos de la cuadrícula no necesitan conocimientos de direcciones IP públicas.
+
+*Información relacionada*
+
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+
+link:updating-subnets-for-grid-network.html["Actualización de subredes para la red de cuadrícula"]

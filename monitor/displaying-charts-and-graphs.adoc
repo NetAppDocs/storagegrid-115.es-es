@@ -1,0 +1,64 @@
+---
+permalink: monitor/displaying-charts-and-graphs.html 
+sidebar: sidebar 
+keywords: charts, display graphs 
+summary: La página nodos contiene los gráficos y los gráficos a los que debe acceder de manera regular para supervisar atributos como la capacidad de almacenamiento y el rendimiento. En algunos casos, especialmente cuando trabaja con soporte técnico, puede utilizar la página Support \> Tools \> Grid Topology para acceder a gráficos adicionales. 
+---
+= Mostrar gráficos y gráficos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La página nodos contiene los gráficos y los gráficos a los que debe acceder de manera regular para supervisar atributos como la capacidad de almacenamiento y el rendimiento. En algunos casos, especialmente cuando trabaja con soporte técnico, puede utilizar la página *Support* > *Tools* > *Grid Topology* para acceder a gráficos adicionales.
+
+.Lo que necesitará
+Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+
+.Pasos
+. Seleccione *Nodes*. A continuación, seleccione un nodo, un sitio o toda la cuadrícula.
+. Seleccione la ficha para la que desea ver información.
++
+Algunas pestañas incluyen uno o más gráficos Grafana, que se utilizan para trazar los valores de las métricas Prometheus a lo largo del tiempo. Por ejemplo, la ficha *Nodes* > *hardware* de un nodo incluye dos gráficos Grafana.
+
++
+image::../media/nodes_page_hardware_tab_graphs.png[Página nodos gráficos de pestaña hardware]
+
+. De manera opcional, pase el cursor sobre el gráfico para ver valores más detallados de un momento específico.
++
+image::../media/nodes_page_memory_usage_details.png[Detalles de uso de la memoria de la página Nodes]
+
+. Según sea necesario, a menudo puede mostrar un gráfico para un atributo o métrica específicos. En la tabla de la página Nodes, haga clic en el icono del gráfico image:../media/icon_chart_new.gif["Icono de gráfico"] o. image:../media/icon_chart_new_for_11_5.png["Icono de gráfico - Nuevo para 11.5"] a la derecha del nombre del atributo.
++
+
+NOTE: Los gráficos no están disponibles para todas las métricas y atributos.
+
++
+*Ejemplo 1*: En la ficha objetos de un nodo de almacenamiento, puede hacer clic en el icono del gráfico image:../media/icon_chart_new.gif["Icono de gráfico"] para ver la latencia media de una consulta de metadatos a lo largo del tiempo.
+
++
+image::../media/icon_nodes_average_latency_chart.png[Icono del gráfico de latencia media de nodos]
+
++
+image::../media/charts_average_query_latency.png[Latencia de consulta media de gráficos]
+
++
+*Ejemplo 2*: En la ficha objetos de un nodo de almacenamiento, puede hacer clic en el icono del gráfico image:../media/icon_chart_new_for_11_5.png["Icono de gráfico - Nuevo para 11.5"] Para ver el gráfico Grafana del número de objetos perdidos detectados con el tiempo.
+
++
+image::../media/object_count_table.png[Tabla de recuento de objetos]
+
++
+image::../media/charts_lost_object_detected.png[Se ha detectado un objeto perdido de gráficos]
+
+. Para mostrar gráficos de atributos que no se muestran en la página Node, seleccione *Support* > *Tools* > *Grid Topology*.
+. Seleccione *_grid node_* > *_component o Service_* > *Descripción general* > *Principal*.
++
+image::../media/nms_chart.gif[captura de pantalla descrita por el texto circundante]
+
+. Haga clic en el icono del gráfico image:../media/icon_chart_new.gif["Icono de gráfico"] junto al atributo.
++
+La pantalla cambia automáticamente a la página *Informes* > *gráficos*. El gráfico muestra los datos del atributo en el último día.
+
+

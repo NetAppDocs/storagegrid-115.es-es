@@ -1,0 +1,71 @@
+---
+permalink: ilm/creating-ilm-rule.html 
+sidebar: sidebar 
+keywords:  
+summary: Las reglas de ILM permiten gestionar la ubicación de los datos de objetos con el tiempo. Para crear una regla de ILM, debe usar el asistente Create ILM Rule. 
+---
+= Creación de una regla de ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las reglas de ILM permiten gestionar la ubicación de los datos de objetos con el tiempo. Para crear una regla de ILM, debe usar el asistente Create ILM Rule.
+
+.Antes de empezar
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+* Si desea especificar a qué cuentas de arrendatario se aplica esta regla, debe tener el permiso Cuentas de arrendatario o debe conocer el ID de cuenta de cada cuenta.
+* Si desea que la regla filtre objetos en los metadatos del último acceso, las actualizaciones de la hora del último acceso deben habilitarse en bloque para S3 o mediante contenedor para Swift.
+* Si crea copias replicadas, debe haber configurado todos los pools de almacenamiento o los pools de almacenamiento en cloud que planea utilizar.
+* Si crea copias con código de borrado, debe haber configurado un perfil de código de borrado.
+* Usted debe estar familiarizado con link:data-protection-options-for-ingest.html["opciones de protección de datos para consumo"].
+* Si necesita crear una regla conforme para usarla con el bloqueo de objetos S3, debe estar familiarizado con la link:requirements-for-s3-object-lock.html["Requisitos para el bloqueo de objetos de S3"].
+
+
+
+NOTE: Para crear la regla de ILM predeterminada para una directiva, utilice este procedimiento en su lugar: link:creating-default-ilm-rule.html["Creación de una regla de ILM predeterminada"].
+
+.Acerca de esta tarea
+Al crear reglas de ILM:
+
+* Considere la topología y las configuraciones de almacenamiento del sistema StorageGRID.
+* Considere qué tipos de copias de objetos desea hacer (replicadas o codificadas por borrado) y el número de copias de cada objeto que se necesitan.
+* Determinar qué tipos de metadatos de objetos se usan en las aplicaciones que se conectan al sistema StorageGRID. Las reglas de ILM filtran los objetos en función de sus metadatos.
+* Considere dónde desea que las copias de objetos se coloquen a lo largo del tiempo.
+* Decidir qué opción se utilizará para la opción de protección de datos durante el procesamiento (confirmación equilibrada, estricta o doble)
+
+
+.Pasos
+. Seleccione *ILM* > *Reglas*.
++
+Aparece la página ILM Rules, con la regla general, haga 2 copias, seleccionada.
+
++
+image::../media/ilm_create_ilm_rule.png[Página ILM Rules]
+
++
+
+NOTE: La página ILM Rules tiene un aspecto ligeramente diferente si se habilitó la configuración global de bloqueo de objetos S3 para el sistema StorageGRID. La tabla de resumen incluye una columna *compatible* y los detalles de la regla seleccionada incluyen un campo *compatible*.
+
+. Seleccione *Crear*.
++
+Aparece el paso 1 (definir datos básicos) del asistente Crear regla de ILM. Utilice la página definir conceptos básicos para definir a qué objetos se aplica la regla.
+
+
+
+.Información relacionada
+link:../s3/index.html["Use S3"]
+
+link:../swift/index.html["Use Swift"]
+
+link:configuring-erasure-coding-profiles.html["Configurar perfiles de código de borrado"]
+
+link:configuring-storage-pools.html["Configuración de pools de almacenamiento"]
+
+link:using-cloud-storage-pools.html["Uso de Cloud Storage Pools"]
+
+link:data-protection-options-for-ingest.html["Opciones de protección de datos para consumo"]
+
+link:managing-objects-with-s3-object-lock.html["Gestión de objetos con bloqueo de objetos de S3"]

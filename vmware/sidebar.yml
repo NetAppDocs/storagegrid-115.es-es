@@ -1,0 +1,80 @@
+---
+section: vmware
+title: Instale VMware
+url: "/vmware/index.html"
+entries:
+- title: Información general de la instalación
+  url: "/vmware/installation-overview.html"
+- title: Planificación y preparación
+  url: "/vmware/planning-and-preparation.html"
+  entries:
+  - title: Materiales requeridos
+    url: "/vmware/required-materials.html"
+  - title: Descarga y extracción de los archivos de instalación de StorageGRID
+    url: "/vmware/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: Requisitos de software
+    url: "/vmware/software-requirements.html"
+  - title: Requisitos de CPU y RAM
+    url: "/vmware/cpu-and-ram-requirements.html"
+  - title: Los requisitos de almacenamiento y rendimiento
+    url: "/vmware/storage-and-performance-requirements.html"
+  - title: Requisitos del navegador web
+    url: "/vmware/web-browser-requirements.html"
+- title: Implementación de nodos de grid de máquinas virtuales en VMware vSphere Web
+    Client
+  url: "/vmware/deploying-virtual-machine-grid-nodes-in-vmware-vsphere-web-client.html"
+  entries:
+  - title: Recogida de información sobre el entorno de implementación
+    url: "/vmware/collecting-information-about-your-deployment-environment.html"
+  - title: La forma en que los nodos de grid detectan el nodo de administrador principal
+    url: "/vmware/how-grid-nodes-discover-primary-admin-node.html"
+  - title: Poner en marcha un nodo de StorageGRID como máquina virtual
+    url: "/vmware/deploying-storagegrid-node-as-virtual-machine.html"
+- title: Configurar la cuadrícula y completar la instalación
+  url: "/vmware/configuring-grid-and-completing-installation.html"
+  entries:
+  - title: Navegar hasta Grid Manager
+    url: "/vmware/navigating-to-grid-manager.html"
+  - title: Se especifica la información de licencia de StorageGRID
+    url: "/vmware/specifying-storagegrid-license-information.html"
+  - title: Agregar sitios
+    url: "/vmware/adding-sites.html"
+  - title: Especificación de subredes de red de red
+    url: "/vmware/specifying-grid-network-subnets.html"
+  - title: Aprobando nodos de cuadrícula pendientes
+    url: "/vmware/approving-pending-grid-nodes.html"
+  - title: Especificar la información del servidor de protocolo de tiempo de redes
+    url: "/vmware/specifying-network-time-protocol-server-information.html"
+  - title: Especificación de la información del servidor del sistema de nombres de
+      dominio
+    url: "/vmware/specifying-domain-name-system-server-information.html"
+  - title: Especificar las contraseñas del sistema StorageGRID
+    url: "/vmware/specifying-storagegrid-system-passwords.html"
+  - title: Revisar la configuración y completar la instalación
+    url: "/vmware/reviewing-your-configuration-and-completing-installation.html"
+  - title: Directrices posteriores a la instalación
+    url: "/vmware/post-installation-guidelines.html"
+- title: Automatización de la instalación
+  url: "/vmware/automating-installation.html"
+  entries:
+  - title: Automatización de la puesta en marcha del nodo de grid en VMware vSphere
+    url: "/vmware/automating-grid-node-deployment-in-vmware-vsphere.html"
+    entries:
+    - title: Definición del archivo de configuración para la implementación
+      url: "/vmware/defining-configuration-file-for-your-deployment.html"
+      entries:
+      - title: Ajustes del archivo de configuración
+        url: "/vmware/configuration-file-settings.html"
+    - title: Ejecución de la secuencia de comandos Bash
+      url: "/vmware/running-bash-script.html"
+  - title: Automatización de la configuración de StorageGRID
+    url: "/vmware/automating-configuration-of-storagegrid.html"
+- title: Información general de la instalación de la API de REST
+  url: "/vmware/overview-of-installation-rest-api.html"
+- title: A continuación, ¿dónde ir
+  url: "/vmware/where-to-go-next.html"
+- title: Resolución de problemas de instalación
+  url: "/vmware/troubleshooting-installation-issues.html"
+  entries:
+  - title: La reserva de recursos de la máquina virtual requiere ajustes
+    url: "/vmware/virtual-machine-resource-reservation-requires-adjustment.html"

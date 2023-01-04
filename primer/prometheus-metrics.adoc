@@ -1,0 +1,40 @@
+---
+permalink: primer/prometheus-metrics.html 
+sidebar: sidebar 
+keywords: prometheus, metrics, grafana 
+summary: El servicio Prometheus en nodos de administración recopila métricas de series temporales de los servicios de todos los nodos. 
+---
+= Métricas de Prometheus
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El servicio Prometheus en nodos de administración recopila métricas de series temporales de los servicios de todos los nodos.
+
+La métrica recopilada por Prometheus se utiliza en varios lugares de Grid Manager:
+
+* *Página de nodos*: Los gráficos y gráficos de las fichas disponibles en la página Nodes utilizan la herramienta de visualización Grafana para mostrar las métricas de series de tiempo recogidas por Prometheus. Grafana muestra los datos de la serie Time en formatos de gráficos y gráficos, mientras que Prometheus sirve como origen de datos del back-end.
++
+image::../media/prometheus_graph.png[Gráfico Prometheus]
+
+* *Alertas*: Las alertas se activan en niveles de gravedad específicos cuando las condiciones de regla de alerta que utilizan las métricas Prometheus se evalúan como verdaderas.
+* *API de gestión de grid*: Puede utilizar métricas Prometheus en reglas de alerta personalizadas o con herramientas de automatización externas para supervisar su sistema StorageGRID. La lista completa de métricas Prometheus está disponible en la API de gestión de grid (*Help* > *Documentación de API* > *Metrics*). Si bien hay más de mil métricas disponibles, solo se requiere una cantidad relativamente pequeña para supervisar las operaciones de StorageGRID más importantes.
++
+
+NOTE: Las métricas que incluyen _private_ en sus nombres están destinadas únicamente a uso interno y están sujetas a cambios entre versiones de StorageGRID sin previo aviso.
+
+* La página *Soporte* > *Herramientas* > *Diagnósticos* y la página *Soporte* > *Herramientas* > *Métricas*: Estas páginas, que están principalmente destinadas a ser utilizadas por soporte técnico, proporcionan una serie de herramientas y gráficos que usan los valores de las métricas Prometheus.
++
+
+NOTE: Algunas funciones y elementos de menú de la página Métricas no son intencionalmente funcionales y están sujetos a cambios.
+
+
+
+.Información relacionada
+link:monitoring-and-managing-alerts.html["Supervisión y gestión de alertas"]
+
+link:using-storagegrid-support-options.html["Usar las opciones de soporte de StorageGRID"]
+
+link:../monitor/index.html["Solución de problemas de  monitor"]

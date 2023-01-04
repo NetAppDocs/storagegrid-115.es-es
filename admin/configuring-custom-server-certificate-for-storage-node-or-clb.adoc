@@ -1,0 +1,64 @@
+---
+permalink: admin/configuring-custom-server-certificate-for-storage-node-or-clb.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Es posible reemplazar el certificado de servidor que se utiliza para las conexiones de clientes S3 o Swift al nodo de almacenamiento o al servicio CLB \(obsoleta\) en el nodo de puerta de enlace. El certificado de servidor personalizado de reemplazo es específico de su organización.' 
+---
+= Configuración de un certificado de servidor personalizado para las conexiones al nodo de almacenamiento o al servicio CLB
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible reemplazar el certificado de servidor que se utiliza para las conexiones de clientes S3 o Swift al nodo de almacenamiento o al servicio CLB (obsoleto) en Gateway Node. El certificado de servidor personalizado de reemplazo es específico de su organización.
+
+.Acerca de esta tarea
+De forma predeterminada, cada nodo de almacenamiento recibe un certificado de servidor X.509 firmado por la CA de grid. Estos certificados firmados por CA pueden sustituirse por un solo certificado de servidor personalizado común y una clave privada correspondiente.
+
+Un único certificado de servidor personalizado se usa para todos los nodos de almacenamiento, por lo que debe especificar el certificado como comodín o certificado de varios dominios si los clientes necesitan verificar el nombre de host al conectarse al extremo de almacenamiento. Defina el certificado personalizado de forma que coincida con todos los nodos de almacenamiento de la cuadrícula.
+
+Después de completar la configuración en el servidor, es posible que los usuarios también deban instalar el certificado de CA raíz en el cliente API S3 o Swift que utilizarán para acceder al sistema, según la entidad de certificación (CA) raíz que use.
+
+
+NOTE: Para asegurarse de que las operaciones no se ven interrumpidas por un certificado de servidor con errores, la alarma *caducidad del certificado de servidor para los extremos de la API de almacenamiento* y la alarma de caducidad del certificado de los extremos del servicio de la API de almacenamiento (SCEP) se activan cuando el certificado del servidor raíz está a punto de expirar. Según sea necesario, puede ver el número de días hasta que caduque el certificado de servicio actual seleccionando *Soporte* > *Herramientas* > *Topología de cuadrícula*. A continuación, seleccione *_primary Admin Node_* > *CMN* > *Resources*.
+
+Los certificados personalizados solo se utilizan si los clientes se conectan a StorageGRID mediante el servicio CLB obsoleto en los nodos de puerta de enlace o si se conectan directamente a los nodos de almacenamiento. Los clientes S3 o Swift que se conectan a StorageGRID mediante el servicio Load Balancer en los nodos de administración o de puerta de enlace usan el certificado configurado para el extremo de balanceo de carga.
+
+
+NOTE: La alerta *caducidad del certificado de punto final de equilibrador de carga* se activa para los extremos de equilibrador de carga que caducarán pronto.
+
+.Pasos
+. Seleccione *Configuración* > *Configuración de red* > *certificados de servidor*.
+. En la sección Object Storage API Service Endpoints Server Certificate, haga clic en *instalar certificado personalizado*.
+. Cargue los archivos de certificado de servidor requeridos:
++
+** *Certificado de servidor*: El archivo de certificado de servidor personalizado (`.crt`).
+** *Clave privada del certificado del servidor*: El archivo de clave privada del certificado del servidor personalizado (`.key`).
++
+
+NOTE: Las claves privadas EC deben ser de 224 bits o más. Las claves privadas RSA deben ser de 2048 bits o más.
+
+** *Paquete CA*: Un único archivo que contiene los certificados de cada entidad emisora de certificados intermedia (CA). El archivo debe contener cada uno de los archivos de certificado de CA codificados con PEM, concatenados en el orden de la cadena de certificados.
+
+
+. Haga clic en *Guardar*.
++
+El certificado de servidor personalizado se utiliza para todas las conexiones de cliente API nuevas posteriores.
+
++
+Seleccione una pestaña para mostrar información detallada sobre el certificado de servidor StorageGRID predeterminado o un certificado firmado de CA que se cargó.
+
++
+
+NOTE: Después de cargar un nuevo certificado, permita que se borren todas las alertas de caducidad de certificados (o alarmas heredadas) relacionadas.
+
+. Actualice la página para garantizar que se actualice el explorador web.
+
+
+.Información relacionada
+link:../s3/index.html["Use S3"]
+
+link:../swift/index.html["Use Swift"]
+
+link:configuring-s3-api-endpoint-domain-names.html["Configurar nombres de dominio de extremo de API de S3"]

@@ -1,0 +1,14 @@
+---
+permalink: monitor/monitoring-performance-networking-and-system-resources.html 
+sidebar: sidebar 
+keywords:  
+summary: Deberá supervisar el rendimiento, las redes y los recursos del sistema para determinar si StorageGRID puede encargarse de su carga actual y garantizar que el rendimiento del cliente no se degrade con el tiempo. 
+---
+= Supervisar el rendimiento, las redes y los recursos del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Deberá supervisar el rendimiento, las redes y los recursos del sistema para determinar si StorageGRID puede encargarse de su carga actual y garantizar que el rendimiento del cliente no se degrade con el tiempo.

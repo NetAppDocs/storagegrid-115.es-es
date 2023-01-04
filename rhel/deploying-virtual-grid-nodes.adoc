@@ -1,0 +1,28 @@
+---
+permalink: rhel/deploying-virtual-grid-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, deploying grid nodes, deploy grid nodes, rhel, redhat, redhat linux, centos 
+summary: Para implementar nodos de red virtual en hosts Red Hat Enterprise Linux o CentOS, se crean archivos de configuración de nodos para todos los nodos, se validan los archivos e se inicia el servicio de host de StorageGRID, que inicia los nodos. Si necesita poner en marcha cualquier nodo de almacenamiento de dispositivos StorageGRID, consulte las instrucciones de instalación y mantenimiento del dispositivo después de implementar todos los nodos virtuales. 
+---
+= Poner en marcha nodos de grid virtual
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para implementar nodos de red virtual en hosts Red Hat Enterprise Linux o CentOS, se crean archivos de configuración de nodos para todos los nodos, se validan los archivos e se inicia el servicio de host de StorageGRID, que inicia los nodos. Si necesita poner en marcha cualquier nodo de almacenamiento de dispositivos StorageGRID, consulte las instrucciones de instalación y mantenimiento del dispositivo después de implementar todos los nodos virtuales.
+
+* link:creating-node-configuration-files.html["Creando archivos de configuración del nodo"]
+* link:validating-storagegrid-configuration.html["Validar la configuración de StorageGRID"]
+* link:starting-storagegrid-host-service.html["Iniciar el servicio de host StorageGRID"]
+
+
+.Información relacionada
+link:../sg100-1000/index.html["SG100  servicios de aplicaciones SG1000"]
+
+link:../sg5600/index.html["Dispositivos de almacenamiento SG5600"]
+
+link:../sg5700/index.html["Dispositivos de almacenamiento SG5700"]
+
+link:../sg6000/index.html["Dispositivos de almacenamiento SG6000"]

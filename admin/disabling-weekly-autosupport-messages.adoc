@@ -1,0 +1,36 @@
+---
+permalink: admin/disabling-weekly-autosupport-messages.html 
+sidebar: sidebar 
+keywords:  
+summary: De manera predeterminada, el sistema StorageGRID se configura para que envíe un mensaje de AutoSupport al soporte de NetApp una vez por semana. 
+---
+= Deshabilitar los mensajes semanales de AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+De manera predeterminada, el sistema StorageGRID se configura para que envíe un mensaje de AutoSupport al soporte de NetApp una vez por semana.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener el permiso acceso raíz u otra configuración de cuadrícula.
+
+
+.Acerca de esta tarea
+Para determinar cuándo se envía el mensaje semanal de AutoSupport, consulte *la siguiente hora programada* en *AutoSupport semanal* en la página *AutoSupport* > *resultados*. image:../media/autosupport_weekly_next_scheduled_time.png["Hora programada siguiente para el AutoSupport semanal"]
+
+Es posible deshabilitar el envío automático de un mensaje de AutoSupport en cualquier momento.
+
+.Pasos
+. Seleccione *Soporte* > *Herramientas* > *AutoSupport*.
++
+Aparece la página AutoSupport con la ficha *Configuración* seleccionada.
+
+. Desactive la casilla de verificación *Activar AutoSupport semanal*.
++
+image::../media/autosupport_disable_weekly.png[AutoSupport]
+
+. Seleccione *Guardar*.
+

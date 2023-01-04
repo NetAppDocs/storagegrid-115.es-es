@@ -1,0 +1,38 @@
+---
+permalink: admin/what-ha-group-is.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Los grupos de alta disponibilidad utilizan direcciones IP virtuales \(VIP\) para proporcionar acceso de backup activo a los servicios del nodo de puerta de enlace o del nodo de administración.' 
+---
+= Qué es un grupo de alta disponibilidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los grupos de alta disponibilidad usan direcciones IP virtuales (VIP) para proporcionar acceso de backup activo a los servicios Gateway Node o Admin Node.
+
+Un grupo de alta disponibilidad consta de una o varias interfaces de red en los nodos de administración y de pasarela. Al crear un grupo ha, se seleccionan las interfaces de red que pertenecen a la red de cuadrícula (eth0) o a la red de cliente (eth2). Todas las interfaces de un grupo de alta disponibilidad deben estar en la misma subred de red.
+
+Un grupo de alta disponibilidad mantiene una o varias direcciones IP virtuales que se han añadido a la interfaz activa en el grupo. Si la interfaz activa deja de estar disponible, las direcciones IP virtuales se mueven a otra interfaz. Por lo general, este proceso de conmutación por error solo se realiza en unos pocos segundos y es lo suficientemente rápido como para que las aplicaciones cliente tengan un impacto escaso y puedan confiar en los comportamientos normales de reintento para continuar con el funcionamiento.
+
+La interfaz activa de un grupo de alta disponibilidad se designa como maestro. El resto de las interfaces se designan como copia de seguridad. Para ver estas designaciones, seleccione *Nodes* > *_node_* > *Descripción general*.
+
+image::../media/ha_group_master_interface.png[Interfaz maestra del grupo DE ALTA DISPONIBILIDAD]
+
+Al crear un grupo de alta disponibilidad, se especifica una interfaz para que sea el maestro preferido. El principal preferido es la interfaz activa a menos que se produzca un fallo que haga que las direcciones VIP se reasignan a una interfaz de copia de seguridad. Cuando se resuelve el fallo, las direcciones VIP se vuelven automáticamente al maestro preferido.
+
+La conmutación por error puede activarse por cualquiera de estas razones:
+
+* El nodo en el que se configura la interfaz se desactiva.
+* El nodo en el que se configura la interfaz pierde la conectividad con los demás nodos durante al menos 2 minutos
+* La interfaz activa se desactiva.
+* El servicio Load Balancer se detiene.
+* El servicio de alta disponibilidad se detiene.
+
+
+
+NOTE: Es posible que la conmutación al respaldo no se active por errores de red externos al nodo que aloja la interfaz activa. Del mismo modo, la conmutación por error no se activa con el fallo del servicio CLB (obsoleto) o los servicios para el administrador de grid o el administrador de inquilinos.
+
+Si el grupo de alta disponibilidad incluye interfaces de más de dos nodos, la interfaz activa podría moverse a la interfaz de cualquier otro nodo durante la conmutación por error.

@@ -1,0 +1,19 @@
+---
+permalink: ilm/configuring-erasure-coding-profiles.html 
+sidebar: sidebar 
+keywords:  
+summary: Los perfiles de código de borrado se configuran asociando un pool de almacenamiento con un esquema de código de borrado como 6+3. A continuación, cuando configure las instrucciones de ubicación de una regla de ILM, puede seleccionar el perfil de código de borrado. Si un objeto coincide con la regla, se crean fragmentos de datos y de paridad para las ubicaciones del almacenamiento en el pool de almacenamiento de acuerdo con el esquema de codificación de borrado. 
+---
+= Configurar perfiles de código de borrado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los perfiles de código de borrado se configuran asociando un pool de almacenamiento con un esquema de código de borrado como 6+3. A continuación, cuando configure las instrucciones de ubicación de una regla de ILM, puede seleccionar el perfil de código de borrado. Si un objeto coincide con la regla, se crean fragmentos de datos y de paridad para las ubicaciones del almacenamiento en el pool de almacenamiento de acuerdo con el esquema de codificación de borrado.
+
+* link:creating-erasure-coding-profile.html["Creación de un perfil de código de borrado"]
+* link:renaming-erasure-coding-profile.html["Cambiar el nombre de un perfil de código de borrado"]
+* link:deactivating-erasure-coding-profile.html["Desactivación de un perfil de código de borrado"]
+

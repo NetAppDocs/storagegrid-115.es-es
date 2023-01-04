@@ -1,0 +1,25 @@
+---
+permalink: ubuntu/index.html 
+sidebar: sidebar 
+keywords:  
+summary: Aprenda a instalar el software de StorageGRID en implementaciones de Ubuntu o Debian. 
+---
+= Instalar Ubuntu o Debian
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aprenda a instalar el software de StorageGRID en implementaciones de Ubuntu o Debian.
+
+* link:installation-overview.html["Información general de la instalación"]
+* link:planning-and-preparation.html["Planificación y preparación"]
+* link:deploying-virtual-grid-nodes.html["Poner en marcha nodos de grid virtual"]
+* link:configuring-grid-and-completing-installation.html["Configurar la cuadrícula y completar la instalación"]
+* link:automating-installation.html["Automatización de la instalación"]
+* link:overview-of-installation-rest-api.html["Información general de la instalación de la API de REST"]
+* link:where-to-go-next.html["A continuación, ¿dónde ir"]
+* link:troubleshooting-installation-issues.html["Resolución de problemas de instalación"]
+* link:example-etc-network-interfaces.html["Ejemplo /etc/network/interfaces"]
+

@@ -1,0 +1,173 @@
+---
+permalink: admin/creating-tenant-account-if-storagegrid-is-not-using-sso.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Al crear una cuenta de inquilino, se especifica un nombre, un protocolo de cliente y, opcionalmente, una cuota de almacenamiento. Si StorageGRID no utiliza el inicio de sesión único \(SSO\), también debe especificar si la cuenta de inquilino utilizará su propio origen de identidad y configurar la contraseña inicial para el usuario raíz local del inquilino.' 
+---
+= Creación de una cuenta de inquilino si StorageGRID no utiliza SSO
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al crear una cuenta de inquilino, se especifica un nombre, un protocolo de cliente y, opcionalmente, una cuota de almacenamiento. Si StorageGRID no utiliza el inicio de sesión único (SSO), también debe especificar si la cuenta de inquilino usará su propio origen de identidad y configurar la contraseña inicial para el usuario raíz local del inquilino.
+
+.Acerca de esta tarea
+Si la cuenta de arrendatario utilizará el origen de identidad configurado para el Administrador de grid y desea otorgar el permiso acceso raíz para la cuenta de arrendatario a un grupo federado, debe haber importado ese grupo federado en el Gestor de grid. No es necesario asignar ningún permiso de Grid Manager a este grupo de administración. Consulte las instrucciones para link:managing-admin-groups.html["gestión de los grupos de administración"].
+
+.Pasos
+. En el cuadro de texto *Nombre para mostrar*, introduzca un nombre para mostrar para esta cuenta de arrendatario.
++
+No es necesario que los nombres de presentación sean únicos. Cuando se crea la cuenta de arrendatario, recibe un ID de cuenta numérico único.
+
+. Seleccione el protocolo de cliente que utilizará esta cuenta de arrendatario, ya sea *S3* o *Swift*.
+. Para las cuentas de inquilinos S3, mantenga seleccionada la casilla de verificación *permitir servicios de plataforma* a menos que no desee que este inquilino utilice servicios de plataforma para bloques S3.
++
+Si se habilitan los servicios de plataforma, un inquilino puede usar características, como la replicación de CloudMirror, que accedan a servicios externos. Puede que desee deshabilitar el uso de estas funciones para limitar la cantidad de ancho de banda de red u otros recursos que consume un cliente. Consulte «gestionar servicios de plataforma».
+
+. En el cuadro de texto *cuota de almacenamiento*, introduzca opcionalmente el número máximo de gigabytes, terabytes o petabytes que desea poner a disposición de los objetos de este arrendatario. A continuación, seleccione las unidades en la lista desplegable.
++
+Deje este campo en blanco si desea que este arrendatario tenga una cuota ilimitada.
+
++
+
+NOTE: La cuota de almacenamiento de un inquilino representa una cantidad lógica (tamaño de objeto), no una cantidad física (tamaño en disco). Las copias de ILM y la codificación de borrado no contribuyen a la cantidad de cuota utilizada. Si se supera la cuota, la cuenta de arrendatario no puede crear nuevos objetos.
+
++
+
+NOTE: Para supervisar el uso de almacenamiento de cada cuenta de inquilino, seleccione *uso*. Las cuentas de inquilino también pueden supervisar su propio uso de almacenamiento desde la consola de Administrador de inquilinos o con la API de gestión de inquilinos. Tenga en cuenta que los valores de uso de almacenamiento de un inquilino pueden dejar de estar actualizados si los nodos están aislados de otros nodos del grid. Los totales se actualizarán cuando se restaure la conectividad de red.
+
+. Si el inquilino va a administrar sus propios grupos y usuarios, siga estos pasos.
++
+.. Seleccione la casilla de verificación *usa el origen de identidad propio* (predeterminado).
++
+
+NOTE: Si esta casilla de verificación está seleccionada y desea utilizar la federación de identidades para grupos de inquilinos y usuarios, el inquilino debe configurar su propio origen de identidad. Consulte las instrucciones de uso de cuentas de inquilino.
+
+.. Especifique una contraseña para el usuario raíz local del inquilino.
+
+
+. Si el inquilino utilizará los grupos y usuarios configurados para el administrador de grid, siga estos pasos.
++
+.. Anule la selección de la casilla de verificación *usa el origen de identidad propio*.
+.. Realice una o ambas de las siguientes acciones:
++
+*** En el campo Grupo de acceso raíz, seleccione un grupo federado existente en el Administrador de grid que tenga el permiso acceso raíz inicial para el arrendatario.
++
+
+NOTE: Si dispone de los permisos adecuados, los grupos federados existentes del Gestor de grid se mostrarán al hacer clic en el campo. De lo contrario, introduzca el nombre exclusivo del grupo.
+
+*** Especifique una contraseña para el usuario raíz local del inquilino.
+
+
+
+
+. Haga clic en *Guardar*.
++
+Se crea la cuenta de inquilino.
+
+. De manera opcional, acceda al nuevo inquilino. De lo contrario, vaya al paso correspondiente <<STEP_SIGN_IN_LATER,acceder al inquilino más tarde>>.
++
+[cols="1a,2a"]
+|===
+| Si está... | Realice lo siguiente... 
+
+
+ a| 
+Acceso a Grid Manager en un puerto restringido
+ a| 
+Haga clic en *restringido* para obtener más información sobre cómo acceder a esta cuenta de arrendatario.
+
+La dirección URL del administrador de inquilinos tiene el siguiente formato:
+
+`https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_/`
+
+** `_FQDN_or_Admin_Node_IP_` Es un nombre de dominio completo o la dirección IP de un nodo de administrador
+** `_port_` es el puerto de solo inquilino
+** `_20-digit-account-id_` Es el ID de cuenta único del inquilino
+
+
+
+
+ a| 
+Acceso a Grid Manager en el puerto 443 pero no ha establecido una contraseña para el usuario raíz local
+ a| 
+Haga clic en *Iniciar sesión* e introduzca las credenciales de un usuario en el grupo federado de acceso raíz.
+
+
+
+ a| 
+Acceso a Grid Manager en el puerto 443 y una contraseña para el usuario raíz local
+ a| 
+Vaya al paso siguiente a. <<STEP_SIGN_IN_AS_ROOT,inicie sesión como raíz>>.
+
+|===
+. [[STEP_SIGN_IN_AS_ROOT]]Iniciar sesión en el arrendatario como root:
++
+.. En el cuadro de diálogo Configurar cuenta de inquilino, haga clic en el botón *Iniciar sesión como raíz*.
++
+image::../media/configure_tenant_account.gif[Captura de pantalla del paso 2: Configuración de la cuenta de inquilino]
+
++
+Aparece una Marca de verificación verde en el botón, que indica que ahora ha iniciado sesión en la cuenta de arrendatario como usuario root.
+
++
+image::../media/step_2_sign_in_as_root.gif[Inicie sesión como raíz]
+
+.. Haga clic en los vínculos para configurar la cuenta de arrendatario.
++
+Cada enlace abre la página correspondiente en el Administrador de arrendatarios. Para completar la página, consulte las instrucciones de uso de cuentas de arrendatario.
+
+.. Haga clic en *Finalizar*.
+
+
+. [[STEP_SIGN_IN_LATER]]para acceder al arrendatario más adelante:
++
+[cols="1a,2a"]
+|===
+| Si está usando... | Realice una de estas... 
+
+
+ a| 
+Puerto 443
+ a| 
+** En Grid Manager, seleccione *arrendatarios* y haga clic en *Iniciar sesión* a la derecha del nombre del arrendatario.
+** Introduzca la URL del inquilino en un navegador web:
++
+`https://_FQDN_or_Admin_Node_IP_/?accountId=_20-digit-account-id_/`
+
++
+*** `_FQDN_or_Admin_Node_IP_` Es un nombre de dominio completo o la dirección IP de un nodo de administrador
+*** `_20-digit-account-id_` Es el ID de cuenta único del inquilino
+
+
+
+
+
+
+ a| 
+Un puerto restringido
+ a| 
+** En Grid Manager, seleccione *arrendatarios* y haga clic en *restringido*.
+** Introduzca la URL del inquilino en un navegador web:
++
+`https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_`
+
++
+*** `_FQDN_or_Admin_Node_IP_` Es un nombre de dominio completo o la dirección IP de un nodo de administrador
+*** `_port_` es el puerto restringido solo para inquilinos
+*** `_20-digit-account-id_` Es el ID de cuenta único del inquilino
+
+
+
+
+|===
+
+
+.Información relacionada
+link:controlling-access-through-firewalls.html["Controlar el acceso mediante firewalls"]
+
+link:managing-platform-services-for-s3-tenant-accounts.html["Se gestionan los servicios de la plataforma para cuentas de inquilinos de S3"]
+
+link:../tenant/index.html["Usar una cuenta de inquilino"]

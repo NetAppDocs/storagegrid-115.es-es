@@ -1,0 +1,61 @@
+---
+permalink: tenant/deleting-s3-bucket.html 
+sidebar: sidebar 
+keywords: storagegrid, S3 bucket, tenant, delete bucket, delete s3 bucket, deleting bucket, deleting s3 bucket, s3 object lock 
+summary: Puede usar el administrador de inquilinos para eliminar un bloque de S3 que esté vacío. 
+---
+= Eliminar un bloque de S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar el administrador de inquilinos para eliminar un bloque de S3 que esté vacío.
+
+.Lo que necesitará
+* Debe iniciar sesión en el Administrador de inquilinos con un explorador compatible.
+* Debe pertenecer a un grupo de usuarios que tenga el permiso Administrar todos los cucharones o acceso raíz. Estos permisos anulan la configuración de los permisos en las políticas de grupo o bloque.
+
+
+.Acerca de esta tarea
+Estas instrucciones describen cómo eliminar un bloque de S3 mediante el administrador de inquilinos. También se pueden eliminar bloques S3 con la API de gestión de inquilinos o la API DE REST de S3.
+
+No puede eliminar un bloque de S3 si contiene objetos o versiones de objetos no actuales. Para obtener información sobre cómo se eliminan los objetos con versiones S3, consulte las instrucciones para gestionar objetos con gestión del ciclo de vida de la información.
+
+.Pasos
+. Seleccione *ALMACENAMIENTO (S3)* > *Cuchos*.
++
+Aparece la página Buckets y muestra todos los bloques S3 existentes.
+
++
+image::../media/buckets_table.png[Mesa de cucharones]
+
+. Seleccione la casilla de verificación para el segmento vacío que desea eliminar.
++
+El menú acciones está activado.
+
+. En el menú acciones, seleccione *Eliminar segmento vacío*.
++
+image::../media/delete_bucket_button.png[Botón Eliminar cucharones]
+
++
+Aparecerá un mensaje de confirmación.
+
++
+image::../media/delete_bucket_confirmation_dialog.png[Diálogo Delete Bucket Confirmation]
+
+. Si está seguro de que desea eliminar el bloque, seleccione *Eliminar bloque*.
++
+StorageGRID confirma que el cucharón está vacío y, a continuación, elimina el cucharón. Esta operación puede llevar algunos minutos.
+
++
+Si el segmento no está vacío, aparece un mensaje de error. Debe eliminar todos los objetos antes de poder eliminar el bloque.
+
++
+image::../media/delete_bucket_not_empty_message.png[Eliminar contenedor no vacío mensaje]
+
+
+
+.Información relacionada
+link:../ilm/index.html["Gestión de objetos con ILM"]

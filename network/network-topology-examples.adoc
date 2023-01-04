@@ -1,0 +1,23 @@
+---
+permalink: network/network-topology-examples.html 
+sidebar: sidebar 
+keywords: storagegrid, network topology 
+summary: Además de la Red de Grid necesaria, puede elegir si desea configurar las interfaces de red de administración y de red de cliente al diseñar la topología de red para una implementación de un único sitio o de varios sitios. 
+---
+= Ejemplos de topología de red
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Además de la Red de Grid necesaria, puede elegir si desea configurar las interfaces de red de administración y de red de cliente al diseñar la topología de red para una implementación de un único sitio o de varios sitios.
+
+Sólo se puede acceder a los puertos internos a través de la red de cuadrícula. Se puede acceder a los puertos externos desde todos los tipos de red. Esta flexibilidad proporciona varias opciones para diseñar una implementación de StorageGRID y configurar filtros de puertos e IP externos en switches y firewalls. Para obtener más información acerca de los puertos internos y externos, consulte la referencia del puerto de red.
+
+Si especifica que la interfaz de red de cliente de un nodo no es de confianza, configure un extremo de equilibrador de carga para que acepte el tráfico entrante. Para obtener información acerca de la configuración de redes de cliente no confiables y puntos finales de equilibrador de carga, consulte las instrucciones para administrar StorageGRID.
+
+.Información relacionada
+link:../admin/index.html["Administre StorageGRID"]
+
+link:network-port-reference.html["Referencia de puerto de red"]

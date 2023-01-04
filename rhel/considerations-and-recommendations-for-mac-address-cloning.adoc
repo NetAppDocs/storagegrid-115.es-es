@@ -1,0 +1,68 @@
+---
+permalink: rhel/considerations-and-recommendations-for-mac-address-cloning.html 
+sidebar: sidebar 
+keywords:  
+summary: La clonación de direcciones MAC hace que el contenedor Docker utilice la dirección MAC del host y que el host utilice la dirección MAC de una dirección que especifique o una generada aleatoriamente. Debe utilizar la clonación de direcciones MAC para evitar el uso de configuraciones de red en modo promiscuo. 
+---
+= Consideraciones y recomendaciones para la clonación de direcciones MAC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La clonación de direcciones MAC hace que el contenedor Docker utilice la dirección MAC del host y que el host utilice la dirección MAC de una dirección que especifique o una generada aleatoriamente. Debe utilizar la clonación de direcciones MAC para evitar el uso de configuraciones de red en modo promiscuo.
+
+
+
+== Activación de la clonado de MAC
+
+En algunos entornos, la seguridad se puede mejorar mediante el clonado de direcciones MAC porque permite utilizar un NIC virtual dedicado para la red de administración, la red de cuadrícula y la red de cliente. Si el contenedor Docker utiliza la dirección MAC de la NIC dedicada en el host, podrá evitar el uso de configuraciones de red en modo promiscuo.
+
+
+IMPORTANT: La clonación de direcciones MAC está pensada para utilizarse con instalaciones de servidores virtuales y puede que no funcione correctamente con todas las configuraciones de dispositivos físicos.
+
+
+NOTE: Si no se puede iniciar un nodo debido a que una interfaz objetivo de clonado MAC está ocupada, es posible que deba establecer el enlace a "inactivo" antes de iniciar el nodo. Además, es posible que el entorno virtual pueda evitar la clonación de MAC en una interfaz de red mientras el enlace está activo. Si un nodo no puede configurar la dirección MAC e iniciar debido a una interfaz que está ocupada, configurar el enlace a "inactivo" antes de iniciar el nodo puede solucionar el problema.
+
+La clonación de direcciones MAC está deshabilitada de forma predeterminada y debe establecerse mediante claves de configuración de nodos. Debe habilitarla cuando instala StorageGRID.
+
+Hay una clave para cada red:
+
+* `ADMIN_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC`
+* `GRID_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC`
+* `CLIENT_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC`
+
+
+Si se establece la clave en "verdadero", el contenedor Docker utilizará la dirección MAC de la NIC del host. Además, el host utilizará la dirección MAC de la red de contenedores especificada. De forma predeterminada, la dirección del contenedor es una dirección generada aleatoriamente, pero si ha definido una utilizando la `_NETWORK_MAC` la clave de configuración del nodo, en su lugar, se usa esa dirección. El host y el contenedor siempre tendrán direcciones MAC diferentes.
+
+
+IMPORTANT: Al habilitar la clonación MAC en un host virtual sin habilitar también el modo promiscuo en el hipervisor, es posible que la red de host Linux utilice la interfaz del host para dejar de funcionar.
+
+
+
+== Casos de uso de clonación DE MAC
+
+Existen dos casos de uso a tener en cuenta con la clonación de MAC:
+
+* Clonado DE MAC no activado: Cuando el `_CLONE_MAC` La clave del archivo de configuración del nodo no está establecida o se establece en "false", el host utilizará el NIC MAC host y el contenedor tendrá un MAC generado por StorageGRID, a menos que se especifique un MAC en el `_NETWORK_MAC` clave. Si se establece una dirección en la `_NETWORK_MAC` clave, el contenedor tendrá la dirección especificada en `_NETWORK_MAC` clave. Esta configuración de claves requiere el uso del modo promiscuo.
+* Clonado DE MAC activado: Cuando la `_CLONE_MAC` La clave del archivo de configuración del nodo se establece en "true", el contenedor utiliza el NIC MAC del host y el host utiliza un MAC generado por StorageGRID, a menos que se especifique un MAC en el `_NETWORK_MAC` clave. Si se establece una dirección en la `_NETWORK_MAC` key, el host utiliza la dirección especificada en lugar de la generada. En esta configuración de claves, no debe utilizar el modo promiscuo.
+
+
+
+NOTE: Si no desea utilizar la clonación de direcciones MAC y, más bien, permite que todas las interfaces reciban y transmitan datos para direcciones MAC distintas a las asignadas por el hipervisor, Asegúrese de que las propiedades de seguridad de los niveles de conmutador virtual y grupo de puertos están configuradas en *Aceptar* para modo promiscuous, cambios de dirección MAC y señales falsificadas. Los valores establecidos en el conmutador virtual pueden ser anulados por los valores en el nivel de grupo de puertos, por lo que asegúrese de que la configuración sea la misma en ambos lugares.
+
+Para habilitar la clonación de MAC, consulte link:creating-node-configuration-files.html["instrucciones para crear archivos de configuración de nodo"].
+
+
+
+== Ejemplo de clonación EN MAC
+
+Ejemplo de clonación MAC habilitada con un host que tiene la dirección MAC 11:22:33:44:55:66 para la interfaz ens256 y las siguientes claves en el archivo de configuración del nodo:
+
+* `ADMIN_NETWORK_TARGET = ens256`
+* `ADMIN_NETWORK_MAC = b2:9c:02:c2:27:10`
+* `ADMIN_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC = true`
+
+
+*Resultado*: El MAC de host para ens256 es b2:9c:02:c2:27:10 y el MAC de red de administración es 11:22:33:44:55:66

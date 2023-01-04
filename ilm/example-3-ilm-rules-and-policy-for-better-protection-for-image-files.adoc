@@ -1,0 +1,127 @@
+---
+permalink: ilm/example-3-ilm-rules-and-policy-for-better-protection-for-image-files.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Ejemplo 3: Reglas de ILM y política para mejorar la protección de los archivos de imagen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar las siguientes reglas y políticas de ejemplo a fin de garantizar que las imágenes mayores de 200 KB estén codificadas para el borrado y que haya tres copias de imágenes más pequeñas.
+
+
+CAUTION: Las siguientes reglas y políticas de ILM son solo ejemplos. Existen varias formas de configurar las reglas de ILM. Antes de activar una nueva directiva, simule la política propuesta para confirmar que funcionará con el fin de proteger el contenido de las pérdidas.
+
+
+
+== Regla ILM 1 por ejemplo 3: Utilizar EC para archivos de imagen de más de 200 KB
+
+En esta regla de ILM de ejemplo se usa un filtrado avanzado para borrar el código de todos los archivos de imagen con un tamaño superior a los 200 KB.
+
+[cols="1a,2a"]
+|===
+| Definición de regla | Valor de ejemplo 
+
+
+ a| 
+Nombre de regla
+ a| 
+Archivos de imagen EC > 200 KB
+
+
+
+ a| 
+Tiempo de referencia
+ a| 
+Tiempo de ingesta
+
+
+
+ a| 
+Filtrado avanzado para metadatos de usuario
+ a| 
+El tipo de metadatos de usuario equivale a los archivos de imagen
+
+
+
+ a| 
+Filtrado avanzado para el tamaño del objeto
+ a| 
+Tamaño de objeto (MB) mayor que 0.2
+
+
+
+ a| 
+Colocación del contenido
+ a| 
+Cree una copia codificada con borrado al 2+1 mediante tres ubicaciones
+
+|===
+image:../media/policy_3_rule_1_ec_images_adv_filtering.gif["Regla ILM 1 por ejemplo 3: Utilizar EC para archivos de imagen de más de 200 KB"]
+
+Dado que esta regla se configura como la primera regla de la política, la instrucción de colocación de codificación de borrado solo se aplica a imágenes mayores de 200 KB.
+
+image::../media/policy_2_rule_1_ec_objects_placements.png[Regla ILM 1 por ejemplo 3: Utilizar EC para archivos de imagen de más de 200 KB]
+
+
+
+== Regla ILM 2 por ejemplo 3: Replique 3 copias para todos los archivos de imagen restantes
+
+En este ejemplo, la regla ILM utiliza el filtrado avanzado para especificar que se repliquen los archivos de imagen.
+
+[cols="1a,2a"]
+|===
+| Definición de regla | Valor de ejemplo 
+
+
+ a| 
+Nombre de regla
+ a| 
+3 copias para archivos de imagen
+
+
+
+ a| 
+Tiempo de referencia
+ a| 
+Tiempo de ingesta
+
+
+
+ a| 
+Filtrado avanzado para metadatos de usuario
+ a| 
+El tipo de metadatos de usuario equivale a los archivos de imagen
+
+
+
+ a| 
+Colocación del contenido
+ a| 
+Cree 3 copias replicadas en todos los nodos de almacenamiento
+
+|===
+image:../media/policy_3_rule_2_copies_for_images_adv_filtering.gif["Regla ILM 2 por ejemplo 3: Replique 3 copias para todos los archivos de imagen restantes"]
+
+Puesto que la primera regla de la directiva ya coincide con los archivos de imagen de más de 200 KB, estas instrucciones de colocación solo se aplican a los archivos de imagen de 200 KB o menos.
+
+image::../media/policy_3_rule_2_copies_for_images_placements.png[Regla ILM 2 por ejemplo 3: Replique 3 copias para todos los archivos de imagen restantes]
+
+
+
+== Política de ILM, por ejemplo 3: Mejor protección para los archivos de imagen
+
+En este ejemplo, la política de ILM utiliza tres reglas de ILM para crear una política que borre los archivos de imágenes con un tamaño superior a 200 KB (0.2 MB), cree copias replicadas para archivos de imágenes de 200 KB o menos, y realice dos copias replicadas para cualquier archivo sin imagen.
+
+Este ejemplo de política de ILM incluye reglas que realizan las siguientes acciones:
+
+* Código de borrado de todos los archivos de imagen de más de 200 KB.
+* Cree tres copias de cualquier archivo de imagen restante (es decir, imágenes de 200 KB o menos).
+* Aplique la regla predeterminada a los objetos restantes (es decir, todos los archivos que no sean de imagen).
+
+
+image::../media/policy_3_configured_policy.gif[Política de ILM, por ejemplo 3: Mejor protección para los archivos de imagen]

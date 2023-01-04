@@ -1,0 +1,179 @@
+---
+permalink: sg6000/sg6060-overview.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, overview, models, features 
+summary: El dispositivo StorageGRIDSG6060 incluye una controladora de computación y una bandeja de controladoras de almacenamiento con dos controladoras de almacenamiento y 60 unidades. Opcionalmente, se pueden añadir bandejas de expansión de 60 unidades al dispositivo. 
+---
+= Descripción general del SG6060
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El dispositivo StorageGRIDSG6060 incluye una controladora de computación y una bandeja de controladoras de almacenamiento con dos controladoras de almacenamiento y 60 unidades. Opcionalmente, se pueden añadir bandejas de expansión de 60 unidades al dispositivo.
+
+
+
+== Componentes SG6060
+
+El dispositivo SG6060 incluye los siguientes componentes:
+
+|===
+| Componente | Descripción 
+
+
+ a| 
+Controladora de computación
+ a| 
+Controlador SG6000-CN, un servidor de unidad de un rack (1U) que incluye:
+
+* 40 núcleos (80 subprocesos)
+* 192 GB DE MEMORIA RAM
+* Hasta 4 × 25 Gbps de ancho de banda total de Ethernet
+* 4 × interconexión Fibre Channel (FC) de 16 Gbps
+* Controlador de administración en placa base (BMC) que simplifica la administración del hardware
+* Sistemas de alimentación redundantes
+
+
+
+
+ a| 
+Bandeja de controladoras de almacenamiento
+ a| 
+Bandeja de controladoras E-Series E2860 (cabina de almacenamiento), una bandeja 4U que incluye:
+
+* Dos controladoras E-Series E2800 (configuración doble) para admitir conmutación por error de una controladora de almacenamiento
+* Bandeja de unidades de cinco cajones que aloja sesenta unidades de 3.5 pulgadas (2 unidades de estado sólido o SSD y 58 unidades NL-SAS)
+* Sistemas de alimentación y ventiladores redundantes
+
+
+
+
+ a| 
+Opcional: Bandejas de ampliación del almacenamiento
+
+*Nota:* las bandejas de expansión se pueden instalar durante la implementación inicial o agregar más adelante.
+ a| 
+Compartimento DE460C de E-Series, una bandeja de 4U que incluye:
+
+* Dos módulos de entrada/salida (IOM)
+* Cinco cajones, cada uno de ellos tiene 12 unidades NL-SAS, para un total de 60 unidades
+* Sistemas de alimentación y ventiladores redundantes
+
+
+Cada dispositivo SG6060 puede tener una o dos bandejas de expansión para un total de 180 unidades.
+
+|===
+
+
+== Diagramas SG6060
+
+Esta figura muestra el frente del SG6060, que incluye una controladora de computación 1U y una bandeja 4U con dos controladoras de almacenamiento y 60 unidades en cinco cajones de unidades.
+
+image::../media/sg6060_front_view_with_and_without_bezels.gif[Vista frontal del SG6060]
+
+[cols="1a,5a"]
+|===
+|  | Descripción 
+
+
+ a| 
+1
+ a| 
+Controlador de computación SG6000-CN con marco frontal
+
+
+
+ a| 
+2
+ a| 
+Bandeja de controladoras E2860 con cubierta frontal (la bandeja de expansión opcional tiene el mismo aspecto)
+
+
+
+ a| 
+3
+ a| 
+Se ha eliminado el controlador informático SG6000-CN con marco frontal
+
+
+
+ a| 
+4
+ a| 
+Bandeja de controladoras E2860 con cubierta frontal retirada (la bandeja de expansión opcional tiene el mismo aspecto)
+
+|===
+Esta figura muestra la parte posterior del SG6060, incluidas las controladoras de almacenamiento y computación, los ventiladores y los suministros de alimentación.
+
+image::../media/sg6060_rear_view.gif[Vista posterior SG6060]
+
+[cols="1a,5a"]
+|===
+|  | Descripción 
+
+
+ a| 
+1
+ a| 
+Fuente de alimentación (1 de 2) para el controlador informático SG6000-CN
+
+
+
+ a| 
+2
+ a| 
+Conectores para el controlador de computación SG6000-CN
+
+
+
+ a| 
+3
+ a| 
+Ventilador (1 de 2) para bandeja de controladoras E2860
+
+
+
+ a| 
+4
+ a| 
+La controladora de almacenamiento E2800 E-Series (1 de 2) y sus conectores
+
+
+
+ a| 
+5
+ a| 
+Suministro de alimentación (1 de 2) para la bandeja de controladoras E2860
+
+|===
+En esta figura, se muestra la parte posterior de la bandeja de expansión opcional para el SG6060, incluidos los módulos de entrada/salida (IOM), los ventiladores y los suministros de alimentación. Cada SG6060 se puede instalar con una o dos bandejas de expansión, que se pueden incluir en la instalación inicial o añadir más adelante.
+
+image::../media/de460c_expansion_shelf_rear_view.gif[Bandeja de expansión trasera]
+
+[cols="1a,5a"]
+|===
+|  | Descripción 
+
+
+ a| 
+1
+ a| 
+Ventilador (1 de 2) para estante de expansión
+
+
+
+ a| 
+2
+ a| 
+Iom (1 de 2) para la bandeja de expansión
+
+
+
+ a| 
+3
+ a| 
+Fuente de alimentación (1 de 2) para la bandeja de expansión
+
+|===

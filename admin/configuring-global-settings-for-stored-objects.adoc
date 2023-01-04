@@ -1,0 +1,19 @@
+---
+permalink: admin/configuring-global-settings-for-stored-objects.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede utilizar Opciones de cuadrícula para configurar los valores de todos los objetos almacenados en el sistema StorageGRID, incluida la compresión de objetos almacenados, el cifrado de objetos almacenados. y hash de objetos almacenados. 
+---
+= Configuración de la configuración global de los objetos almacenados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar Opciones de cuadrícula para configurar los valores de todos los objetos almacenados en el sistema StorageGRID, incluida la compresión de objetos almacenados, el cifrado de objetos almacenados. y hash de objetos almacenados.
+
+* link:configuring-stored-object-compression.html["Configurar la compresión de objetos almacenados"]
+* link:configuring-stored-object-encryption.html["Configurar el cifrado de objetos almacenados"]
+* link:configuring-stored-object-hashing.html["Configuración de hash de objetos almacenados"]
+

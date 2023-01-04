@@ -1,0 +1,63 @@
+---
+permalink: admin/creating-tenant-account-if-sso-is-enabled.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Al crear una cuenta de inquilino, se especifica un nombre, un protocolo de cliente y, opcionalmente, una cuota de almacenamiento. Si está habilitado el inicio de sesión único \(SSO\) para StorageGRID, también se especifica qué grupo federado tiene permiso de acceso raíz para configurar la cuenta de inquilino.' 
+---
+= Creación de una cuenta de inquilino si SSO está habilitado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al crear una cuenta de inquilino, se especifica un nombre, un protocolo de cliente y, opcionalmente, una cuota de almacenamiento. Si se habilitó el inicio de sesión único (SSO) para StorageGRID, también se especifica qué grupo federado tiene permiso de acceso raíz para configurar la cuenta de inquilino.
+
+.Pasos
+. En el cuadro de texto *Nombre para mostrar*, introduzca un nombre para mostrar para esta cuenta de arrendatario.
++
+No es necesario que los nombres de presentación sean únicos. Cuando se crea la cuenta de arrendatario, recibe un ID de cuenta numérico único.
+
+. Seleccione el protocolo de cliente que utilizará esta cuenta de arrendatario, ya sea *S3* o *Swift*.
+. Para las cuentas de inquilinos S3, mantenga seleccionada la casilla de verificación *permitir servicios de plataforma* a menos que no desee que este inquilino utilice servicios de plataforma para bloques S3.
++
+Si se habilitan los servicios de plataforma, un inquilino puede usar características, como la replicación de CloudMirror, que accedan a servicios externos. Puede que desee deshabilitar el uso de estas funciones para limitar la cantidad de ancho de banda de red u otros recursos que consume un cliente. Consulte «gestionar servicios de plataforma».
+
+. En el cuadro de texto *cuota de almacenamiento*, introduzca opcionalmente el número máximo de gigabytes, terabytes o petabytes que desea poner a disposición de los objetos de este arrendatario. A continuación, seleccione las unidades en la lista desplegable.
++
+Deje este campo en blanco si desea que este arrendatario tenga una cuota ilimitada.
+
++
+
+NOTE: La cuota de almacenamiento de un inquilino representa una cantidad lógica (tamaño de objeto), no una cantidad física (tamaño en disco). Las copias de ILM y la codificación de borrado no contribuyen a la cantidad de cuota utilizada. Si se supera la cuota, la cuenta de arrendatario no puede crear nuevos objetos.
+
++
+
+NOTE: Para supervisar el uso de almacenamiento de cada cuenta de inquilino, seleccione *uso*. Las cuentas de inquilino también pueden supervisar su propio uso de almacenamiento desde la consola de Administrador de inquilinos o con la API de gestión de inquilinos. Tenga en cuenta que los valores de uso de almacenamiento de un inquilino pueden dejar de estar actualizados si los nodos están aislados de otros nodos del grid. Los totales se actualizarán cuando se restaure la conectividad de red.
+
+. Observe que la casilla de verificación *usa el origen de identidades* está desactivada y desactivada.
++
+Dado que SSO está habilitado, el inquilino debe utilizar el origen de identidades configurado para Grid Manager. Ningún usuario local puede iniciar sesión.
+
+. En el campo *Grupo de acceso raíz*, seleccione un grupo federado existente en Grid Manager para tener el permiso acceso raíz inicial para el arrendatario.
++
+
+NOTE: Si dispone de los permisos adecuados, los grupos federados existentes del Gestor de grid se mostrarán al hacer clic en el campo. De lo contrario, introduzca el nombre exclusivo del grupo.
+
+. Haga clic en *Guardar*.
++
+Se crea la cuenta de inquilino. Aparece la página Cuentas de arrendatarios e incluye una fila para el nuevo arrendatario.
+
+. Si es usuario del grupo acceso raíz, haga clic opcionalmente en el enlace *Iniciar sesión* para que el nuevo arrendatario acceda inmediatamente al Administrador de arrendatarios, donde puede configurar el arrendatario. De lo contrario, proporcione la dirección URL para el enlace *Iniciar sesión* al administrador de la cuenta del inquilino. (La URL de un inquilino es el nombre de dominio completo o la dirección IP de cualquier nodo de administrador, seguido de `/?accountId=_20-digit-account-id_`.)
++
+
+NOTE: Se muestra un mensaje de acceso denegado si hace clic en *Iniciar sesión*, pero no pertenece al grupo acceso raíz de la cuenta de arrendatario.
+
+
+
+.Información relacionada
+link:configuring-sso.html["Configuración del inicio de sesión único"]
+
+link:managing-platform-services-for-s3-tenant-accounts.html["Se gestionan los servicios de la plataforma para cuentas de inquilinos de S3"]
+
+link:../tenant/index.html["Usar una cuenta de inquilino"]

@@ -1,0 +1,104 @@
+---
+permalink: ilm/simulating-ilm-policy.html 
+sidebar: sidebar 
+keywords:  
+summary: Debe simular una directiva propuesta en objetos de prueba antes de activar la directiva y aplicarla a los datos de producción. La ventana de simulación proporciona un entorno independiente que es seguro para las políticas de prueba antes de que se activen y apliquen a los datos en el entorno de producción. 
+---
+= Simulación de una política de ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe simular una directiva propuesta en objetos de prueba antes de activar la directiva y aplicarla a los datos de producción. La ventana de simulación proporciona un entorno independiente que es seguro para las políticas de prueba antes de que se activen y apliquen a los datos en el entorno de producción.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+* Es necesario conocer el bloque/objeto-clave de S3 o el contenedor/nombre del objeto Swift para cada objeto que se desea probar, y debe haber ingerido ya esos objetos.
+
+
+.Acerca de esta tarea
+Debe seleccionar cuidadosamente los objetos que desea que pruebe la directiva propuesta. Para simular una política completamente, debe probar al menos un objeto para cada filtro en cada regla.
+
+Por ejemplo, si una política incluye una regla para que coincida con los objetos del bloque A y otra regla para que coincidan con los objetos del bloque B, debe seleccionar al menos un objeto del bloque A y un objeto del bloque B para probar la política a fondo. Si la política incluye una regla predeterminada para colocar los demás objetos, debe probar al menos un objeto de otro bloque.
+
+Al simular una directiva, se aplican las siguientes consideraciones:
+
+* Después de realizar cambios en una directiva, guarde la directiva propuesta. A continuación, simule el comportamiento de la directiva propuesta guardada.
+* Cuando se simula una política, las reglas de ILM en la política filtran los objetos de prueba, de modo que se puede ver qué regla se aplicó a cada objeto. Sin embargo, no se crean copias de objeto y no se coloca ningún objeto. Al ejecutar una simulación no se modifican los datos, las reglas ni la política de ningún modo.
+* La página Simulation conserva los objetos probados hasta que se cierra, se aleja o se actualiza la página políticas de ILM.
+* Simulation devuelve el nombre de la regla coincidente. Para determinar qué pool de almacenamiento o perfil de código de borrado está activo, puede ver el diagrama de retención haciendo clic en el nombre de la regla o en el icono más detalles image:../media/icon_nms_more_details.gif["icono para más detalles"].
+* Si está habilitada la versión de S3, la política solo se simula con respecto a la versión actual del objeto.
+
+
+.Pasos
+. Seleccione y organice las reglas y guarde la política propuesta.
++
+La directiva de este ejemplo tiene tres reglas:
+
++
+[cols="1a,1a,1a,1a"]
+|===
+| Nombre de regla | Filtro | Tipo de copias | Retención 
+
+
+ a| 
+Hombres-X.
+ a| 
+** Inquilinoa
+** Metadatos del usuario (series=x-men)
+
+ a| 
+2 copias en dos centros de datos
+ a| 
+2 años
+
+
+
+ a| 
+PNs
+ a| 
+La clave termina con .png
+ a| 
+2 copias en dos centros de datos
+ a| 
+5 años
+
+
+
+ a| 
+Dos copias dos centros de datos
+ a| 
+_Ninguno_
+ a| 
+2 copias en dos centros de datos
+ a| 
+Para siempre
+
+|===
++
+image:../media/ilm_policies_viewing_proposed.png["Visualización de las políticas de ILM propuestas"]
+
+. Haga clic en *simular*.
++
+Aparecerá el cuadro de diálogo Directiva de gestión de la vida útil de Simulation.
+
+. En el campo *Object*, introduzca el bloque/clave de objeto de S3 o el nombre de objeto/contenedor de Swift para un objeto de prueba y haga clic en *Simulate*.
++
+[NOTE]
+====
+Aparece un mensaje si especifica un objeto que no se ha ingerido.
+
+image::../media/object_not_available_for_simulation.gif[Mensaje si especifica el objeto que falta]
+
+====
+. En *resultados de Simulation*, confirme que cada objeto estaba coincidente con la regla correcta.
++
+En el ejemplo, la `Havok.png` y.. `Warpath.jpg` Los objetos estaban correctamente emparejados con la regla X-men. La `Fullsteam.png` objeto, que no incluye `series=x-men` Los metadatos del usuario no se corresponden con la regla X-men, pero se emparejaron correctamente con la regla PNG. La regla predeterminada no se ha utilizado porque los tres objetos coinciden con otras reglas.
+
++
+image::../media/ilm_policy_simulation_results.gif[Resultados de simulación]
+
+

@@ -1,0 +1,44 @@
+---
+permalink: ubuntu/configuring-host-network.html 
+sidebar: sidebar 
+keywords:  
+summary: Una vez finalizada la instalación de Linux en los hosts, puede que deba realizar alguna configuración adicional para preparar un conjunto de interfaces de red en cada host adecuado para la asignación a los nodos StorageGRID que se pondrá en marcha más adelante. 
+---
+= Configurar la red host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una vez finalizada la instalación de Linux en los hosts, puede que deba realizar alguna configuración adicional para preparar un conjunto de interfaces de red en cada host adecuado para la asignación a los nodos StorageGRID que se pondrá en marcha más adelante.
+
+.Lo que necesitará
+* Ha revisado las directrices de red de StorageGRID.
++
+link:../network/index.html["Directrices de red"]
+
+* Ha revisado la información sobre los requisitos de migración del contenedor de nodos.
++
+link:node-container-migration-requirements.html["Requisitos de migración de contenedores de nodos"]
+
+* Si utiliza hosts virtuales, debe leer las consideraciones y recomendaciones para la clonación de direcciones MAC antes de configurar la red de hosts.
++
+link:considerations-and-recommendations-for-mac-address-cloning.html["Consideraciones y recomendaciones para la clonación de direcciones MAC"]
+
+
+
+
+NOTE: Si utiliza equipos virtuales como hosts, debe seleccionar VMXNET 3 como adaptador de red virtual. El adaptador de red VMware E1000 ha provocado problemas de conectividad con contenedores StorageGRID puestos en marcha en ciertas distribuciones de Linux.
+
+.Acerca de esta tarea
+Los nodos de grid deben poder acceder a la red de grid y, opcionalmente, a las redes de administrador y cliente. Para proporcionar este acceso, debe crear asignaciones que asocien la interfaz física del host con las interfaces virtuales para cada nodo de grid. Cuando se crean interfaces de host, se utilizan nombres descriptivos para facilitar la puesta en marcha en todos los hosts y para habilitar la migración.
+
+La misma interfaz se puede compartir entre el host y uno o varios nodos. Por ejemplo, podría usar la misma interfaz para el acceso al host y el acceso a la red de administrador de nodo para facilitar el mantenimiento del host y del nodo. Aunque el host y los nodos individuales pueden compartir la misma interfaz, todos deben tener direcciones IP diferentes. Las direcciones IP no se pueden compartir entre los nodos ni entre el host y ningún nodo.
+
+Puede utilizar la misma interfaz de red de host para proporcionar la interfaz de red de cuadrícula para todos los nodos StorageGRID del host; puede utilizar una interfaz de red de host diferente para cada nodo; o puede hacer algo entre ambos. Sin embargo, normalmente no debería proporcionar la misma interfaz de red host que las interfaces de red de Grid y Admin para un solo nodo, o bien como la interfaz de red de cuadrícula para un nodo y la interfaz de red de cliente para otro.
+
+Puede completar esta tarea de muchas maneras. Por ejemplo, si sus hosts son máquinas virtuales y va a implementar uno o dos nodos de StorageGRID para cada host, puede simplemente crear el número correcto de interfaces de red en el hipervisor y utilizar una asignación de 1 a 1. Si va a poner en marcha varios nodos en hosts con configuración básica para su uso en producción, puede aprovechar el soporte de la pila de red de Linux para VLAN y LACP para la tolerancia a fallos y el uso compartido de ancho de banda. En las siguientes secciones, se ofrecen enfoques detallados de estos dos ejemplos. No es necesario utilizar ninguno de estos ejemplos; puede utilizar cualquier método que satisfaga sus necesidades.
+
+
+NOTE: No utilice dispositivos de enlace o puente directamente como interfaz de red de contenedores. De esta manera, se podría evitar el inicio del nodo causado por un problema de kernel con el uso de MACVLAN con dispositivos de enlace y puente en el espacio de nombres del contenedor. En su lugar, utilice un dispositivo que no sea de vínculo, como un par VLAN o Ethernet virtual (veth). Especifique este dispositivo como la interfaz de red en el archivo de configuración del nodo.

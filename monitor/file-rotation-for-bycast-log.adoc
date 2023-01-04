@@ -1,0 +1,26 @@
+---
+permalink: monitor/file-rotation-for-bycast-log.html 
+sidebar: sidebar 
+keywords: file rotation, bycast, log, file rotation, bycast.log 
+summary: 'Cuando la `bycast.log` El archivo alcanza 1 GB, se guarda el archivo existente y se inicia un nuevo archivo de registro.' 
+---
+= Rotación de archivos para bycast.log
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando la `bycast.log` El archivo alcanza 1 GB, se guarda el archivo existente y se inicia un nuevo archivo de registro.
+
+Se cambia el nombre del archivo guardado `bycast.log.1`, y el nuevo archivo se denomina `bycast.log`. Cuando el nuevo `bycast.log` Alcanza 1 GB `bycast.log.1` se cambia el nombre y se comprime para convertirse `bycast.log.2.gz`, y. `bycast.log` se cambia el nombre `bycast.log.1`.
+
+El límite de rotación para `bycast.log` tiene 21 archivos. Cuando la versión 22ª del `bycast.log` se crea el archivo, se elimina el más antiguo.
+
+El límite de rotación para `bycast-err.log` hay siete archivos.
+
+
+NOTE: Si se ha comprimido un archivo de registro, no debe descomprimirlo en la misma ubicación en la que se escribió. Descomprimir el archivo en la misma ubicación puede interferir con las secuencias de comandos de rotación del registro.
+
+.Información relacionada
+link:collecting-log-files-and-system-data.html["Recogida de archivos de registro y datos del sistema"]

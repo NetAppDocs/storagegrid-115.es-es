@@ -1,0 +1,43 @@
+---
+permalink: maintain/grid-node-procedures.html 
+sidebar: sidebar 
+keywords: storagegrid, grid node procedure 
+summary: Es posible que deba realizar procedimientos en un nodo de grid específico. Aunque puede realizar algunos de estos procedimientos desde Grid Manager, la mayoría de los procedimientos requieren que acceda a Server Manager desde la línea de comandos del nodo. 
+---
+= Procedimientos de los nodos de grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que deba realizar procedimientos en un nodo de grid específico. Aunque puede realizar algunos de estos procedimientos desde Grid Manager, la mayoría de los procedimientos requieren que acceda a Server Manager desde la línea de comandos del nodo.
+
+Server Manager se ejecuta en todos los nodos de grid para supervisar el inicio y la detención de los servicios y garantizar que estos se unen y salen correctamente del sistema StorageGRID. Server Manager también supervisa los servicios en todos los nodos de grid e intentará reiniciar automáticamente los servicios que informen de los errores.
+
+
+IMPORTANT: Debe acceder a Server Manager solo si el soporte técnico le ha indicado hacerlo.
+
+
+NOTE: Debe cerrar la sesión actual del shell de comandos y cerrar la sesión después de terminar con Server Manager. Introduzca: `exit`
+
+.Opciones
+* link:viewing-server-manager-status-and-version.html["Ver el estado y la versión de Server Manager"]
+* link:viewing-current-status-of-all-services.html["Ver el estado actual de todos los servicios"]
+* link:starting-server-manager-and-all-services.html["Iniciando Server Manager y todos los servicios"]
+* link:restarting-server-manager-and-all-services.html["Reiniciando Server Manager y todos los servicios"]
+* link:stopping-server-manager-and-all-services.html["Deteniendo Server Manager y todos los servicios"]
+* link:viewing-current-status-of-service.html["Ver el estado actual de un servicio"]
+* link:stopping-service.html["Detener un servicio"]
+* link:placing-appliance-into-maintenance-mode.html["Colocar un dispositivo en modo de mantenimiento"]
+* link:forcing-service-to-terminate.html["Obligar a un servicio a terminar"]
+* link:starting-or-restarting-service.html["Iniciar o reiniciar un servicio"]
+* link:removing-port-remaps.html["Eliminando mapas de puertos"]
+* link:removing-port-remaps-on-bare-metal-hosts.html["Quitar mapas de puertos en hosts sin sistema operativo"]
+* link:rebooting-grid-node.html["Reiniciar un nodo de cuadrícula"]
+* link:shutting-down-grid-node.html["Apagar un nodo de grid"]
+* link:powering-down-host.html["Apagar un host"]
+* link:powering-off-and-on-all-nodes-in-grid.html["Apague y encienda todos los nodos de la cuadrícula"]
+* link:using-donotstart-file.html["Uso de un archivo DoNotStart"]
+* link:troubleshooting-server-manager.html["Solución de problemas de Server Manager"]
+

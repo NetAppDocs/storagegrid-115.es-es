@@ -1,0 +1,64 @@
+---
+permalink: maintain/shutting-down-grid-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, node shutdown, shut down node, node shut down 
+summary: Puede apagar un nodo de cuadrícula desde el shell de comandos del nodo. 
+---
+= Apagar un nodo de grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede apagar un nodo de grid desde el shell de comandos del nodo.
+
+.Lo que necesitará
+* Debe tener la `Passwords.txt` archivo.
+
+
+.Acerca de esta tarea
+Antes de realizar este procedimiento, revise estas consideraciones:
+
+* En general, no debe apagar más de un nodo a la vez para evitar interrupciones.
+* No apague un nodo durante un procedimiento de mantenimiento a menos que el soporte técnico le indique explícitamente que lo haga.
+* El proceso de apagado se basa en la ubicación en la que se instala el nodo, de la siguiente manera:
++
+** Apagar un nodo de VMware apaga la máquina virtual.
+** Apagar un nodo Linux apaga el contenedor.
+** Apagar un nodo de un dispositivo StorageGRID apaga la controladora de computación.
+
+
+* Si planea apagar los nodos de almacenamiento, tenga en cuenta lo siguiente:
++
+** Si una regla de ILM especifica un comportamiento de procesamiento del COMMIT doble o la regla especifica un equilibrio y no es posible crear de inmediato todas las copias necesarias, StorageGRID confirma de inmediato cualquier objeto recién ingerido en dos nodos de almacenamiento en el mismo sitio y evalúa ILM más adelante. Si desea apagar dos o más nodos de almacenamiento en un sitio determinado, es posible que no pueda acceder a estos objetos durante el apagado.
+** Para garantizar que pueda acceder a todos los objetos cuando se apaga un nodo de almacenamiento, detenga la incorporación de objetos en un sitio durante aproximadamente una hora antes de apagar el nodo.
+
+
+
+
+.Pasos
+. Inicie sesión en el nodo de grid:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a la raíz: `su -`
+.. Introduzca la contraseña que aparece en `Passwords.txt` archivo.
+
+
++
+Cuando ha iniciado sesión como root, el símbolo del sistema cambia de `$` para `#`.
+
+. Detenga todos los servicios: `service servermanager stop`
++
+Los servicios pueden tardar hasta 15 minutos en apagarse, y es posible que desee iniciar sesión en el sistema de forma remota para supervisar el proceso de apagado.
+
+. Cierre la sesión del shell de comandos: `exit`
+
+
+Tras apagar, puede apagar el nodo de grid.
+
+link:powering-down-host.html["Apagar un host"]
+
+.Información relacionada
+link:../admin/index.html["Administre StorageGRID"]

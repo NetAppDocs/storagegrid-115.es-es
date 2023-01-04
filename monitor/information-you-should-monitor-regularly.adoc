@@ -1,0 +1,91 @@
+---
+permalink: monitor/information-you-should-monitor-regularly.html 
+sidebar: sidebar 
+keywords: monitor, monitoring, StorageGRID, 
+summary: StorageGRID es un sistema de almacenamiento distribuido con tolerancia a fallos que está diseñado para continuar funcionando incluso cuando se producen errores, o cuando nodos o sitios no están disponibles. Debe supervisar de forma proactiva el estado del sistema, las cargas de trabajo y las estadísticas de uso para que pueda tomar medidas para abordar problemas potenciales antes de que afecten a la eficiencia o disponibilidad de la red. 
+---
+= Información que debe supervisar con regularidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID es un sistema de almacenamiento distribuido con tolerancia a fallos que está diseñado para continuar funcionando incluso cuando se producen errores, o cuando nodos o sitios no están disponibles. Debe supervisar de forma proactiva el estado del sistema, las cargas de trabajo y las estadísticas de uso para que pueda tomar medidas para abordar posibles problemas antes de que afecten a la eficiencia o la disponibilidad del grid.
+
+Un sistema ocupado genera grandes cantidades de información. Esta sección proporciona orientación sobre la información más importante que se debe supervisar de forma continua. Esta sección contiene las siguientes subsecciones:
+
+* link:monitoring-system-health.html["Supervisar el estado del sistema"]
+* link:monitoring-storage-capacity.html["Supervisar la capacidad de almacenamiento"]
+* link:monitoring-information-lifecycle-management.html["Supervisión de la gestión de la vida útil de la información"]
+* link:monitoring-performance-networking-and-system-resources.html["Supervisar el rendimiento, las redes y los recursos del sistema"]
+* link:monitoring-tenant-activity.html["Supervisión de la actividad de los inquilinos"]
+* link:monitoring-archival-capacity.html["Supervisar la capacidad de archivado"]
+* link:monitoring-load-balancing-operations.html["Supervisar las operaciones de equilibrio de carga"]
+* link:applying-hotfixes-or-upgrading-software-if-necessary.html["Aplicar revisiones o actualizar software si es necesario"]
+
+
+|===
+| Qué supervisar | Frecuencia 
+
+
+ a| 
+Los datos de mantenimiento del sistema que se muestran en el DashboardNote de Grid Manager si algo ha cambiado con respecto al día anterior.
+ a| 
+Todos los días
+
+
+
+ a| 
+Velocidad a la que se está consumiendo el objeto del nodo de almacenamiento y la capacidad de metadatos
+ a| 
+Semanal
+
+
+
+ a| 
+Operaciones de gestión del ciclo de vida de la información
+ a| 
+Semanal
+
+
+
+ a| 
+Rendimiento, redes y recursos del sistema:
+
+* Latencia de las consultas
+* Conectividad y redes
+* Recursos en el nivel de nodo
+
+ a| 
+Semanal
+
+
+
+ a| 
+Actividad de inquilino
+ a| 
+Semanal
+
+
+
+ a| 
+Capacidad del sistema de almacenamiento de archivos externo
+ a| 
+Semanal
+
+
+
+ a| 
+Operaciones de equilibrio de carga
+ a| 
+Tras la configuración inicial y tras cualquier cambio en la configuración
+
+
+
+ a| 
+Disponibilidad de revisiones de software y actualizaciones de software
+ a| 
+Mensual
+
+|===

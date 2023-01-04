@@ -1,0 +1,18 @@
+---
+permalink: vmware/automating-installation.html 
+sidebar: sidebar 
+keywords:  
+summary: Se puede automatizar la puesta en marcha de los nodos de grid virtual de VMware, la configuración de los nodos de grid y la configuración de los dispositivos StorageGRID. 
+---
+= Automatización de la instalación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se puede automatizar la puesta en marcha de los nodos de grid virtual de VMware, la configuración de los nodos de grid y la configuración de los dispositivos StorageGRID.
+
+* link:automating-grid-node-deployment-in-vmware-vsphere.html["Automatización de la puesta en marcha del nodo de grid en VMware vSphere"]
+* link:automating-configuration-of-storagegrid.html["Automatización de la configuración de StorageGRID"]
+

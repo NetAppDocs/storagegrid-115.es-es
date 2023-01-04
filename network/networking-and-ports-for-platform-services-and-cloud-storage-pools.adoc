@@ -1,0 +1,45 @@
+---
+permalink: network/networking-and-ports-for-platform-services-and-cloud-storage-pools.html 
+sidebar: sidebar 
+keywords:  
+summary: Si piensa utilizar los servicios de plataforma StorageGRID o los pools de almacenamiento en cloud, debe configurar la red de grid y los firewalls para garantizar que se pueda acceder a los extremos de destino. Los servicios de la plataforma incluyen servicios externos que proporcionan integración de búsqueda, notificación de eventos y replicación de CloudMirror. 
+---
+= Conexión a redes y puertos para los servicios de plataforma y los pools de almacenamiento en cloud
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si piensa utilizar los servicios de plataforma StorageGRID o los pools de almacenamiento en cloud, debe configurar la red de grid y los firewalls para garantizar que se pueda acceder a los extremos de destino. Los servicios de la plataforma incluyen servicios externos que proporcionan integración de búsqueda, notificación de eventos y replicación de CloudMirror.
+
+Los servicios de plataforma requieren acceso desde los nodos de almacenamiento que alojan el servicio ADC de StorageGRID a los extremos de servicio externos. Algunos ejemplos para proporcionar acceso son:
+
+* En los nodos de almacenamiento con servicios ADC, configure redes de administración únicas con entradas AESL que se enrutan a los extremos de destino.
+* Confíe en la ruta predeterminada proporcionada por una red cliente. En este ejemplo, se puede utilizar la función Red cliente no confiable para restringir las conexiones entrantes.
+
+
+Los pools de almacenamiento en cloud también requieren el acceso de los nodos de almacenamiento a los extremos que proporciona el servicio externo que se utiliza, como el almacenamiento de Amazon S3 Glacier o Microsoft Azure Blob.
+
+De forma predeterminada, los servicios de plataforma y las comunicaciones de Cloud Storage Pool utilizan los puertos siguientes:
+
+* *80*: Para los URI de punto final que comienzan con `http`
+* *443*: Para los URI de punto final que comienzan con `https`
+
+
+Se puede especificar un puerto diferente cuando se crea o edita el extremo.
+
+Si utiliza un servidor proxy no transparente, también debe configurar la configuración del proxy para permitir que los mensajes se envíen a puntos finales externos, como un punto final en Internet. Consulte Administración de StorageGRID para obtener más información sobre cómo configurar los ajustes de proxy.
+
+Para obtener más información acerca de las redes de cliente que no son de confianza, consulte las instrucciones para administrar StorageGRID. Para obtener más información acerca de los servicios de la plataforma, consulte las instrucciones de uso de cuentas de inquilino. Para obtener más información sobre Cloud Storage Pools, consulte las instrucciones para gestionar objetos con gestión del ciclo de vida de la información.
+
+.Información relacionada
+link:network-port-reference.html["Referencia de puerto de red"]
+
+link:../primer/index.html["Imprimador de rejilla"]
+
+link:../admin/index.html["Administre StorageGRID"]
+
+link:../tenant/index.html["Usar una cuenta de inquilino"]
+
+link:../ilm/index.html["Gestión de objetos con ILM"]

@@ -1,0 +1,19 @@
+---
+permalink: monitor/using-grid-manager-for-monitoring.html 
+sidebar: sidebar 
+keywords:  
+summary: Grid Manager es la herramienta más importante para supervisar el sistema StorageGRID. Esta sección presenta el Panel de Grid Manager y proporciona información detallada sobre las páginas Nodes. 
+---
+= Uso de Grid Manager para la supervisión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Grid Manager es la herramienta más importante para supervisar el sistema StorageGRID. Esta sección presenta el Panel de Grid Manager y proporciona información detallada sobre las páginas Nodes.
+
+* link:web-browser-requirements.html["Requisitos del navegador web"]
+* link:viewing-dashboard.html["Ver la consola"]
+* link:viewing-nodes-page.html["Ver la página Nodes"]
+

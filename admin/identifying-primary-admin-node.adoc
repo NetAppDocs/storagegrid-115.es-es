@@ -1,0 +1,28 @@
+---
+permalink: admin/identifying-primary-admin-node.html 
+sidebar: sidebar 
+keywords:  
+summary: El nodo de administración principal aloja el servicio CMN. Algunos procedimientos de mantenimiento solo se pueden realizar mediante el nodo de administrador principal. 
+---
+= Identificar el nodo de administrador principal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El nodo de administración principal aloja el servicio CMN. Algunos procedimientos de mantenimiento solo se pueden realizar mediante el nodo de administrador principal.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+.Pasos
+. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+. Seleccione *_site_* > *Admin Node* y, a continuación, haga clic en image:../media/icon_plus_sign_black_on_white.gif["signo más"] Para expandir el árbol de topología y mostrar los servicios alojados en este nodo de administración.
++
+El nodo de administración principal aloja el servicio CMN.
+
+. Si este nodo de administrador no aloja el servicio CMN, compruebe los demás nodos de administración.
+

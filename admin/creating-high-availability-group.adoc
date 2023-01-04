@@ -1,0 +1,114 @@
+---
+permalink: admin/creating-high-availability-group.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Puede crear uno o varios grupos de alta disponibilidad \(ha\) para proporcionar acceso de alta disponibilidad a los servicios de los nodos de administración o de puerta de enlace.' 
+---
+= Crear un grupo de alta disponibilidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede crear uno o varios grupos de alta disponibilidad para proporcionar acceso de alta disponibilidad a los servicios en nodos de administración o nodos de puerta de enlace.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener el permiso acceso raíz.
+
+
+.Acerca de esta tarea
+Una interfaz debe cumplir las siguientes condiciones para incluirse en un grupo de alta disponibilidad:
+
+* La interfaz debe ser para un nodo de puerta de enlace o un nodo de administrador.
+* La interfaz debe pertenecer a la red de cuadrícula (eth0) o a la red de cliente (eth2).
+* La interfaz debe configurarse con dirección IP fija o estática, no con DHCP.
+
+
+.Pasos
+. Seleccione *Configuración* > *Configuración de red* > *grupos de alta disponibilidad*.
++
+Aparece la página grupos de alta disponibilidad.
+
++
+image::../media/ha_groups_page_with_no_groups.png[Página HA Groups sin grupos]
+
+. Haga clic en *Crear*.
++
+Se muestra el cuadro de diálogo Crear grupo de alta disponibilidad.
+
+. Escriba un nombre y, si lo desea, una descripción del grupo de alta disponibilidad.
+. Haga clic en *Seleccionar interfaces*.
++
+Se muestra el cuadro de diálogo Add interfaces to High Availability Group. En la tabla se enumeran los nodos elegibles, las interfaces y las subredes IPv4.
+
++
+image::../media/ha_group_add_interfaces.png[Interfaces de adición de grupos de ALTA DISPONIBILIDAD]
+
++
+Una interfaz no aparece en la lista si DHCP asigna su dirección IP.
+
+. En la columna *Agregar al grupo ha* , active la casilla de verificación de la interfaz que desee agregar al grupo ha.
++
+Tenga en cuenta las siguientes directrices para seleccionar interfaces:
+
++
+** Debe seleccionar al menos una interfaz.
+** Si selecciona más de una interfaz, todas las interfaces deben estar en la red de cuadrícula (eth0) o en la red de cliente (eth2).
+** Todas las interfaces deben estar en la misma subred o en subredes con un prefijo común.
++
+Las direcciones IP se restringirán a la subred más pequeña (la que tenga el prefijo más grande).
+
+** Si selecciona interfaces en diferentes tipos de nodos y se produce una conmutación al nodo de respaldo, solo estarán disponibles en las IP virtuales los servicios comunes a los nodos seleccionados.
++
+*** Seleccione dos o más nodos de administrador para la protección de alta disponibilidad de Grid Manager o del inquilino Manager.
+*** Seleccione dos o más nodos de administrador, nodos de puerta de enlace o ambos para la protección de alta disponibilidad del servicio Load Balancer.
+*** Seleccione dos o más nodos de puerta de enlace para la protección de alta disponibilidad del servicio CLB.
++
+
+NOTE: El servicio CLB está obsoleto.
+
+
+
+
+
++
+image::../media/ha_groups_different_node_types.png[Grupos de ALTA DISPONIBILIDAD diferentes tipos de nodos]
+
+. Haga clic en *aplicar*.
++
+Las interfaces seleccionadas se muestran en la sección interfaces de la página Create High Availability Group. De forma predeterminada, la primera interfaz de la lista se selecciona como patrón preferido.
+
++
+image::../media/ha_group_select_virtual_ips.png[HA Groups Select Virtual IPs]
+
+. Si desea que una interfaz diferente sea el Master preferido, seleccione esa interfaz en la columna *Master* preferido.
++
+El principal preferido es la interfaz activa a menos que se produzca un fallo que haga que las direcciones VIP se reasignan a una interfaz de copia de seguridad.
+
++
+
+NOTE: Si el grupo ha proporciona acceso a Grid Manager, debe seleccionar una interfaz en el nodo de administración principal para que sea el maestro preferido. Algunos procedimientos de mantenimiento solo se pueden realizar desde el nodo de administración principal.
+
+. En la sección direcciones IP virtuales de la página, introduzca de una a 10 direcciones IP virtuales para el grupo de alta disponibilidad. Haga clic en el signo más (image:../media/icon_plus_sign_black_on_white_old.png["Signo más"]) Para agregar varias direcciones IP.
++
+Debe proporcionar al menos una dirección IPv4. De manera opcional, es posible especificar direcciones IPv4 e IPv6 adicionales.
+
++
+Las direcciones IPv4 deben estar en la subred IPv4 compartida por todas las interfaces miembros.
+
+. Haga clic en *Guardar*.
++
+El grupo ha se ha creado y ahora puede utilizar las direcciones IP virtuales configuradas.
+
+
+
+.Información relacionada
+link:../rhel/index.html["Instale Red Hat Enterprise Linux o CentOS"]
+
+link:../vmware/index.html["Instale VMware"]
+
+link:../ubuntu/index.html["Instalar Ubuntu o Debian"]
+
+link:managing-load-balancing.html["Gestión del equilibrio de carga"]

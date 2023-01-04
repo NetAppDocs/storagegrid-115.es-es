@@ -1,0 +1,43 @@
+---
+permalink: monitor/generating-charts.html 
+sidebar: sidebar 
+keywords: charts, generating 
+summary: Los gráficos muestran una representación gráfica de los valores de datos de atributos. Puede generar informes en el sitio de un centro de datos, en el nodo de grid, en el componente o en el servicio. 
+---
+= Generando gráficos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los gráficos muestran una representación gráfica de los valores de datos de atributos. Puede generar informes en el sitio de un centro de datos, en el nodo de grid, en el componente o en el servicio.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+.Pasos
+. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+. Seleccione *_grid node_* > *_component o Service_* > *Reports* > *Charts*.
+. Seleccione el atributo sobre el que desea informar en la lista desplegable *atributo*.
+. Para forzar el inicio del eje y a cero, desactive la casilla de verificación *escala vertical*.
+. Para mostrar valores con precisión completa, active la casilla de verificación *datos sin procesar* o redondear valores a un máximo de tres posiciones decimales (por ejemplo, para los atributos informados como porcentajes), desactive la casilla de verificación *datos sin procesar*.
+. Seleccione el período de tiempo que desea generar el informe en la lista desplegable *Consulta rápida*.
++
+Seleccione la opción Consulta personalizada para seleccionar un intervalo de tiempo específico.
+
++
+El gráfico aparece después de unos momentos. Deje varios minutos para tabulación de intervalos de tiempo largos.
+
+. Si ha seleccionado Consulta personalizada, personalice el período de tiempo del gráfico introduciendo *Fecha de inicio* y *Fecha de finalización*.
++
+Utilice el formato `_YYYY/MM/DDHH:MM:SS_` en hora local. Se requieren ceros a la izquierda para que coincidan con el formato. Por ejemplo, 2017/4/6 7:30:00 falla en la validación. El formato correcto es: 2017/04/06 07:30:00.
+
+. Haga clic en *Actualizar*.
++
+Un gráfico se genera después de unos momentos. Deje varios minutos para tabulación de intervalos de tiempo largos. Según el tiempo establecido para la consulta, se muestra un informe de texto sin procesar o un informe de texto agregado.
+
+. Si desea imprimir el gráfico, haga clic con el botón derecho del ratón y seleccione *Imprimir*, modifique cualquier configuración de impresora necesaria y haga clic en *Imprimir*.
+

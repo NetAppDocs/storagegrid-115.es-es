@@ -1,0 +1,33 @@
+---
+permalink: admin/resetting-store-failure-count-for-s3-api-connection.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Si el nodo de archivado se conecta a un sistema de almacenamiento de archivado a través de la API de S3, puede restablecer el recuento de fallos de almacenamiento, que se puede utilizar para borrar la alarma ARVF \(fallos de tienda\).' 
+---
+= Restablecer el número de errores de almacén para la conexión API de S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si el nodo de archivado se conecta a un sistema de almacenamiento de archivado a través de la API de S3, puede restablecer el recuento de fallos de almacenamiento, que se puede utilizar para borrar la alarma de ARVF (fallos de almacenamiento).
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+.Pasos
+. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+. Seleccione *_Archive Node_* > *ARC* > *Store*.
+. Seleccione *Configuración* > *Principal*.
++
+image::../media/archive_store_s3.gif[Configuración de los ajustes de almacén para la conexión API de S3]
+
+. Seleccione *Restablecer recuento de fallos de tienda*.
+. Haga clic en *aplicar cambios*.
++
+El atributo fallos de almacén se restablece a cero.
+
+

@@ -1,0 +1,57 @@
+---
+section: upgrade
+title: Actualizar el software de
+url: "/upgrade/index.html"
+entries:
+- title: Acerca de StorageGRID 11.5
+  url: "/upgrade/about-this-release.html"
+  entries:
+  - title: Novedades de StorageGRID 11.5
+    url: "/upgrade/whats-new.html"
+  - title: Operaciones eliminadas o obsoletas
+    url: "/upgrade/removed-or-deprecated-features.html"
+  - title: Cambios en la API de gestión de grid
+    url: "/upgrade/changes-to-grid-management-api.html"
+  - title: Cambios en la API de gestión de inquilinos
+    url: "/upgrade/changes-to-tenant-management-api.html"
+- title: Planificación y preparación de la actualización
+  url: "/upgrade/upgrade-planning-and-preparation.html"
+  entries:
+  - title: Estimación del tiempo para completar una actualización
+    url: "/upgrade/estimating-time-to-complete-upgrade.html"
+  - title: Cómo se ve afectado el sistema durante la actualización
+    url: "/upgrade/how-your-system-is-affected-during-upgrade.html"
+  - title: Impacto de una actualización en grupos y cuentas de usuario
+    url: "/upgrade/impact-of-upgrade-on-groups-and-user-accounts.html"
+  - title: Verificación de la versión instalada de StorageGRID
+    url: "/upgrade/verifying-installed-version-of-storagegrid.html"
+  - title: Obtención de los materiales necesarios para una actualización de software
+    url: "/upgrade/obtaining-required-materials-for-software-upgrade.html"
+    entries:
+    - title: Requisitos del navegador web
+      url: "/upgrade/web-browser-requirements.html"
+  - title: Descargando los archivos de actualización de StorageGRID
+    url: "/upgrade/downloading-storagegrid-upgrade-files.html"
+  - title: Descarga del paquete de recuperación
+    url: "/upgrade/downloading-recovery-package.html"
+  - title: Comprobación del estado del sistema antes de actualizar el software
+    url: "/upgrade/checking-systems-condition-before-upgrading-software.html"
+- title: Realizando la actualización
+  url: "/upgrade/performing-upgrade.html"
+  entries:
+  - title: 'Linux: Instalación del paquete RPM o DEB en todos los hosts'
+    url: "/upgrade/linux-installing-rpm-or-deb-package-on-all-hosts.html"
+  - title: Iniciando la actualización
+    url: "/upgrade/starting-upgrade.html"
+  - title: Actualizar nodos de grid y completar la actualización
+    url: "/upgrade/upgrading-grid-nodes-and-completing-upgrade.html"
+  - title: Aumento de la configuración de espacio reservado de metadatos
+    url: "/upgrade/increasing-metadata-reserved-space-setting.html"
+- title: Resolución de problemas de actualización
+  url: "/upgrade/troubleshooting-upgrade-issues.html"
+  entries:
+  - title: Solucionar problemas de la interfaz de usuario
+    url: "/upgrade/troubleshooting-user-interface-issues.html"
+  - title: Mensajes de error “Docker Image Availability check” (comprobación de disponibilidad
+      de imagen Docker)
+    url: "/upgrade/docker-image-availability-check-error-messages.html"

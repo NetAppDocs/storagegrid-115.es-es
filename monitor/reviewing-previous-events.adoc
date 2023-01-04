@@ -1,0 +1,31 @@
+---
+permalink: monitor/reviewing-previous-events.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede generar una lista de mensajes de eventos anteriores para ayudar a aislar los problemas que ocurrieron en el pasado. 
+---
+= Revisión de eventos anteriores
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede generar una lista de mensajes de eventos anteriores para ayudar a aislar los problemas que ocurrieron en el pasado.
+
+. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+. Seleccione *_site_* > *_grid node_* > *SSM* > *Eventos* > *Informes*.
+. Seleccione *texto*.
++
+El atributo *último evento* no se muestra en la vista gráficos.
+
+. Cambie *atributo* a *último evento*.
+. Opcionalmente, seleccione un período de tiempo para *Consulta rápida*.
+. Haga clic en *Actualizar*.
++
+image::../media/events_report.gif[Página Events]
+
+
+
+.Información relacionada
+link:using-charts-and-reports.html["Uso de gráficos e informes"]

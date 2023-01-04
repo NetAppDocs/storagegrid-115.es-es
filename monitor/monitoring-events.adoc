@@ -1,0 +1,49 @@
+---
+permalink: monitor/monitoring-events.html 
+sidebar: sidebar 
+keywords: monitor, monitoring events, events, storageGRID events 
+summary: Es posible supervisar los eventos que detecta un nodo de grid, incluidos los eventos personalizados que se crearon para realizar el seguimiento de los eventos que se registran en el servidor de syslog. El mensaje último evento que se muestra en Grid Manager proporciona más información acerca del evento más reciente. 
+---
+= Supervisar eventos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible supervisar los eventos que detecta un nodo de grid, incluidos los eventos personalizados que se crearon para realizar el seguimiento de los eventos que se registran en el servidor de syslog. El mensaje último evento que se muestra en Grid Manager proporciona más información acerca del evento más reciente.
+
+Los mensajes de eventos también aparecen en la `/var/local/log/bycast-err.log` archivo de registro.
+
+La alarma SMTT (total de eventos) puede activarse repetidamente por problemas como problemas de red, cortes de energía o actualizaciones. Esta sección contiene información acerca de la investigación de eventos para que pueda comprender mejor por qué se han producido estas alarmas. Si se ha producido un evento debido a un problema conocido, es seguro restablecer los contadores de eventos.
+
+
+
+== Revisión de eventos en la página Nodes
+
+En la página Nodes, se muestran los eventos del sistema para cada nodo de cuadrícula.
+
+. Seleccione *Nodes*.
+. Seleccione *_grid node_* > *Eventos*.
+. En la parte superior de la página, determine si se muestra un evento para *último evento*, que describe el último evento detectado por el nodo de cuadrícula.
++
+El evento se transmite literalmente desde el nodo de cuadrícula e incluye cualquier mensaje de registro con un nivel de gravedad DE ERROR o CRÍTICO.
+
+. Revise la tabla para ver si el recuento de cualquier evento o error no es cero.
+. Después de resolver problemas, haga clic en *Restablecer recuentos de eventos* para devolver los recuentos a cero.
+
+
+
+
+== Revisión de eventos en la página Grid Topology
+
+La página Topología de cuadrícula también enumera los eventos del sistema para cada nodo de cuadrícula.
+
+. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+. Seleccione *_site_* > *_grid node_* > *SSM* > *Eventos* > *Descripción general* > *Principal*.
+
+
+.Información relacionada
+link:resetting-event-counts.html["Restableciendo el número de eventos"]
+
+link:../monitor/logs-files-reference.html["Referencia de archivos de registro"]

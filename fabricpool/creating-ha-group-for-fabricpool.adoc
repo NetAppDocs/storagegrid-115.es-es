@@ -1,0 +1,40 @@
+---
+permalink: fabricpool/creating-ha-group-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, high availability group, HA group, create, creating, virtual IP, VIP, preferred master, backup interface 
+summary: 'Al configurar StorageGRID para su uso con FabricPool, puede crear opcionalmente uno o varios grupos de alta disponibilidad \(ha\). Un grupo de alta disponibilidad consta de una o varias interfaces de red en los nodos de administración, los nodos de puerta de enlace o ambos.' 
+---
+= Crear un grupo de alta disponibilidad para FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al configurar StorageGRID para su uso con FabricPool, puede opcionalmente crear uno o varios grupos de alta disponibilidad (ha). Un grupo de alta disponibilidad consta de una o varias interfaces de red en los nodos de administración, los nodos de puerta de enlace o ambos.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener el permiso acceso raíz.
+
+
+.Acerca de esta tarea
+Cada grupo de alta disponibilidad utiliza direcciones IP virtuales (VIP) para proporcionar acceso de alta disponibilidad a los servicios compartidos de los nodos asociados.
+
+Para obtener detalles sobre esta tarea. consulte link:../admin/managing-high-availability-groups.html["Gestionar grupos de alta disponibilidad"].
+
+.Pasos
+. Seleccione *Configuración* > *Configuración de red* > *grupos de alta disponibilidad*.
+. Seleccione una o varias de las interfaces de red. Las interfaces de red deben pertenecer a la misma subred en la red de cuadrícula (eth0) o en la red de cliente (eth2).
+. Asigne un nodo para que sea el maestro preferido.
++
+El principal preferido es la interfaz activa a menos que se produzca un fallo que haga que las direcciones VIP se reasignan a una interfaz de copia de seguridad.
+
+. Introduzca hasta diez direcciones IPv4 para el grupo de alta disponibilidad.
++
+Las direcciones deben estar dentro de la subred IPv4 compartida por todas las interfaces miembro.
+
++
+image::../media/create_ha_group_for_fabricpool.png[Crear grupo de alta disponibilidad para FabricPool]
+
+

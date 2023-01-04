@@ -1,0 +1,43 @@
+---
+permalink: fabricpool/creating-tenant-account-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, tenant, SSO 
+summary: Debe crear una cuenta de inquilino en el Gestor de grid para uso de FabricPool. 
+---
+= Creación de una cuenta de inquilino para FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe crear una cuenta de inquilino en el Gestor de grid para uso de FabricPool.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+.Acerca de esta tarea
+Las cuentas de inquilino permiten a las aplicaciones cliente almacenar y recuperar objetos en StorageGRID. Cada cuenta de inquilino tiene su propio ID de cuenta, grupos y usuarios autorizados, bloques y objetos.
+
+Se puede usar la misma cuenta de inquilino para varios clústeres de ONTAP. O bien, puede crear una cuenta de inquilino dedicada para cada clúster de ONTAP según sea necesario.
+
+[NOTE]
+====
+En estas instrucciones se asume que ha configurado el inicio de sesión único (SSO) para Grid Manager. Si no utiliza SSO, utilice las instrucciones para link:../admin/creating-tenant-account-if-storagegrid-is-not-using-sso.html["Creación de una cuenta de inquilino si StorageGRID no utiliza SSO"].
+
+====
+.Pasos
+. Seleccione *arrendatarios*.
+. Seleccione *Crear*.
+. Introduzca un nombre de visualización para la cuenta de inquilino de FabricPool.
+. Seleccione *S3*.
+. Deje seleccionada la casilla de verificación *permitir servicios de plataforma* para habilitar el uso de servicios de plataforma.
++
+Si se habilitan los servicios de plataforma, un inquilino puede usar características, como la replicación de CloudMirror, que accedan a servicios externos.
+
+. Deje en blanco el campo *cuota de almacenamiento*.
+. En el campo *Grupo de acceso raíz*, seleccione un grupo federado existente en Grid Manager para tener el permiso acceso raíz inicial para el arrendatario.
+. Seleccione *Guardar*.
+

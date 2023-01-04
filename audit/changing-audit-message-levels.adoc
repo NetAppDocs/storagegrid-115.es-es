@@ -1,0 +1,105 @@
+---
+permalink: audit/changing-audit-message-levels.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, log, message level, message levels, increase messages, decrease messages, message category 
+summary: Puede ajustar los niveles de auditoría para aumentar o reducir el número de mensajes de auditoría registrados en el registro de auditoría de cada categoría de mensajes de auditoría. 
+---
+= Cambiar los niveles de mensajes de auditoría
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ajustar los niveles de auditoría para aumentar o reducir el número de mensajes de auditoría registrados en el registro de auditoría de cada categoría de mensajes de auditoría.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+.Acerca de esta tarea
+Los mensajes de auditoría registrados en el registro de auditoría se filtran según la configuración de la página *Configuración* > *Supervisión* > *Auditoría*.
+
+Puede establecer un nivel de auditoría diferente para cada una de las siguientes categorías de mensajes:
+
+* *Sistema*: De forma predeterminada, este nivel se establece en normal.
+* *Almacenamiento*: De forma predeterminada, este nivel se establece en error.
+* *Administración*: De forma predeterminada, este nivel se establece en normal.
+* *Lecturas de cliente*: De forma predeterminada, este nivel se establece en normal.
+* *Escrituras de cliente*: De forma predeterminada, este nivel se establece en normal.
+
+
+
+NOTE: Estos valores predeterminados se aplican si instaló inicialmente StorageGRID con la versión 10.3 o posterior. Si ha actualizado desde una versión anterior de StorageGRID, la opción predeterminada para todas las categorías se establece en normal.
+
+
+NOTE: Durante las actualizaciones, las configuraciones a nivel de auditoría no serán efectivas inmediatamente.
+
+.Pasos
+. Seleccione *Configuración* > *Supervisión* > *Auditoría*.
++
+image::../media/default_audit_settings.gif[Captura de pantalla de Configuración > Auditoría]
+
+. Para cada categoría de mensaje de auditoría, seleccione un nivel de auditoría de la lista desplegable:
++
+[cols="20,80"]
+|===
+| Nivel de auditoría | Descripción 
+
+
+ a| 
+Apagado
+ a| 
+No se registran mensajes de auditoría de la categoría.
+
+
+
+ a| 
+Error
+ a| 
+Sólo se registran los mensajes de error: Los mensajes de auditoría para los que el código de resultado no fue "correcto" (SUCS).
+
+
+
+ a| 
+Normal
+ a| 
+Se registran los mensajes transaccionales estándar: Los mensajes que aparecen en estas instrucciones para la categoría.
+
+
+
+ a| 
+Depurar
+ a| 
+Obsoleto. Este nivel se comporta como el nivel de auditoría normal.
+
+|===
++
+Los mensajes incluidos para cualquier nivel particular incluyen los que se registrarán en los niveles superiores. Por ejemplo, el nivel normal incluye todos los mensajes de error.
+
+. En *encabezados de protocolo de auditoría*, introduzca el nombre de los encabezados de solicitud HTTP que se incluirán en los mensajes de auditoría de lectura y escritura de cliente. Utilice un asterisco (\*) como comodín o la secuencia de escape (\*) como un asterisco literal. Haga clic en el signo más para crear una lista de campos de nombre de encabezado.
++
+
+NOTE: Los encabezados de protocolo de auditoría se aplican solo a solicitudes S3 y Swift.
+
++
+Cuando estos encabezados HTTP se encuentran en una solicitud, se incluyen en el mensaje de auditoría bajo el campo HTRH.
+
++
+
+NOTE: Los encabezados de la solicitud del protocolo de auditoría sólo se registran si el nivel de auditoría para *Lecturas de cliente* o *Escrituras de cliente* no es *Desactivada*.
+
+. Haga clic en *Guardar*.
+
+
+.Información relacionada
+link:system-audit-messages.html["Mensajes de auditoría del sistema"]
+
+link:object-storage-audit-messages.html["Mensajes de auditoría del almacenamiento de objetos"]
+
+link:management-audit-message.html["Mensaje de auditoría de gestión"]
+
+link:client-read-audit-messages.html["El cliente lee los mensajes de auditoría"]
+
+link:../admin/index.html["Administre StorageGRID"]

@@ -1,0 +1,32 @@
+---
+permalink: admin/using-grid-management-api.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede realizar tareas de administración del sistema mediante la API REST de Grid Management en lugar de la interfaz de usuario de Grid Manager. Por ejemplo, se recomienda utilizar la API para automatizar operaciones o crear varias entidades, como los usuarios, más rápidamente. 
+---
+= Uso de la API de gestión de grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede realizar tareas de administración del sistema mediante la API REST de Grid Management en lugar de la interfaz de usuario de Grid Manager. Por ejemplo, se recomienda utilizar la API para automatizar operaciones o crear varias entidades, como los usuarios, más rápidamente.
+
+La API de gestión de grid utiliza la plataforma API de código abierto de Swagger. Swagger proporciona una interfaz de usuario intuitiva que permite a los desarrolladores y no desarrolladores realizar operaciones en tiempo real en StorageGRID con la API.
+
+
+
+== Recursos de alto nivel
+
+La API de gestión de grid proporciona los siguientes recursos de nivel superior:
+
+* `/grid`: Access está restringido a los usuarios de Grid Manager y se basa en los permisos de grupo configurados.
+* `/org`: Access está restringido a los usuarios que pertenecen a un grupo LDAP local o federado para una cuenta de inquilino. Para obtener detalles, consulte la información acerca del uso de cuentas de inquilino.
+* `/private`: Access está restringido a los usuarios de Grid Manager y se basa en los permisos de grupo configurados. Estas API están pensadas para el uso interno únicamente y no se documentan públicamente. Estas API también están sujetas a cambios sin previo aviso.
+
+
+.Información relacionada
+link:../tenant/index.html["Usar una cuenta de inquilino"]
+
+https://prometheus.io/docs/querying/basics/["Prometheus: Aspectos básicos de las consultas"^]

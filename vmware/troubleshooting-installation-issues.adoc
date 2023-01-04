@@ -1,0 +1,35 @@
+---
+permalink: vmware/troubleshooting-installation-issues.html 
+sidebar: sidebar 
+keywords: storagegrid, vmware, troubleshoot installation, troubleshooting installation 
+summary: Si se produce algún problema durante la instalación del sistema StorageGRID, puede acceder a los archivos de registro de la instalación. 
+---
+= Resolución de problemas de instalación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si se produce algún problema durante la instalación del sistema StorageGRID, puede acceder a los archivos de registro de la instalación.
+
+A continuación se muestran los archivos de registro de la instalación principales, que el soporte técnico puede necesitar para resolver problemas.
+
+* `/var/local/log/install.log` (se encuentra en todos los nodos de grid)
+* `/var/local/log/gdu-server.log` (Encontrado en el nodo de administración principal)
+
+
+Para obtener más información sobre cómo acceder a los archivos de registro, consulte las instrucciones para supervisar y solucionar problemas de StorageGRID. Para obtener ayuda sobre la solución de problemas de instalación del dispositivo, consulte las instrucciones de instalación y mantenimiento de los dispositivos. Si necesita ayuda adicional, póngase en contacto con el soporte técnico.
+
+.Información relacionada
+link:../monitor/index.html["Solución de problemas de  monitor"]
+
+link:../sg100-1000/index.html["SG100  servicios de aplicaciones SG1000"]
+
+link:../sg6000/index.html["Dispositivos de almacenamiento SG6000"]
+
+link:../sg5700/index.html["Dispositivos de almacenamiento SG5700"]
+
+link:../sg5600/index.html["Dispositivos de almacenamiento SG5600"]
+
+https://mysupport.netapp.com/site/global/dashboard["Soporte de NetApp"^]

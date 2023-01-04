@@ -1,0 +1,58 @@
+---
+permalink: primer/viewing-nodes-page.html 
+sidebar: sidebar 
+keywords: nodes page, connection state, unknown, administratively down, critical, major, minor, icon 
+summary: Si necesita información más detallada sobre el sistema StorageGRID de la que proporciona la consola, puede usar la página nodos para ver métricas de toda la cuadrícula, cada sitio de la cuadrícula y cada nodo de un sitio. 
+---
+= Ver la página Nodes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si necesita información más detallada sobre el sistema StorageGRID de la que proporciona la consola, puede usar la página nodos para ver métricas de toda la cuadrícula, cada sitio de la cuadrícula y cada nodo de un sitio.
+
+image::../media/nodes_menu.png[Menú nodos]
+
+Desde la vista de árbol de la izquierda, puede ver todos los sitios y todos los nodos del sistema StorageGRID. El icono de cada nodo indica si el nodo está conectado o si hay alguna alerta activa.
+
+
+
+== Iconos de estado de conexión
+
+Si un nodo está desconectado de la cuadrícula, la vista de árbol muestra un icono de estado de conexión azul o gris, no el icono de ninguna alerta subyacente.
+
+* *No conectado - Desconocido* image:../media/icon_alarm_blue_unknown.png["icono de signo de interrogación azul"]: El nodo no está conectado a la cuadrícula por una razón desconocida. Por ejemplo, se ha perdido la conexión de red entre los nodos o se ha apagado el suministro eléctrico. La alerta *no se puede comunicar con el nodo* también puede activarse. Es posible que otras alertas estén activas también. Esta situación requiere atención inmediata.
++
+
+NOTE: Es posible que un nodo aparezca como desconocido durante las operaciones de apagado gestionadas. Puede ignorar el estado Desconocido en estos casos.
+
+* *No conectado - administrativamente abajo* image:../media/icon_alarm_gray_administratively_down.png["icono de questionmark gris"]: El nodo no está conectado a la cuadrícula por un motivo esperado. Por ejemplo, el nodo o los servicios del nodo se han apagado correctamente, el nodo se está reiniciando o se está actualizando el software. Una o más alertas también pueden estar activas.
+
+
+
+
+== Iconos de alerta
+
+Si un nodo está conectado a la cuadrícula, la vista de árbol muestra uno de los siguientes iconos, dependiendo de si hay alertas actuales para el nodo.
+
+* *Crítico* image:../media/icon_alert_red_critical.png["Alerta de icono Rojo crítico"]: Existe una condición anormal que ha detenido las operaciones normales de un nodo StorageGRID o servicio. Debe abordar el problema subyacente de inmediato. Se pueden producir interrupciones del servicio y pérdida de datos si no se resuelve el problema.
+* *Mayor* image:../media/icon_alert_orange_major.png["Alerta de icono naranja principal"]: Existe una condición anormal que afecta a las operaciones actuales o se acerca al umbral de una alerta crítica. Debe investigar las alertas principales y solucionar cualquier problema subyacente para garantizar que esta condición no detenga el funcionamiento normal de un nodo o servicio de StorageGRID.
+* *Menor* image:../media/icon_alert_yellow_miinor.png["Alerta de icono menor amarilla"]: El sistema funciona normalmente, pero existe una condición anormal que podría afectar la capacidad de funcionamiento del sistema si continúa. Deberá supervisar y resolver las alertas menores que no se despicen por sí mismas para asegurarse de que no provoquen un problema más grave.
+* *Normal* image:../media/icon_alert_green_checkmark.png["marca de verificación verde de alerta de icono"]: No hay alertas activas y el nodo está conectado a la cuadrícula.
+
+
+
+
+== Ver detalles de un sistema, sitio o nodo
+
+Para ver la información disponible, haga clic en los enlaces correspondientes de la izquierda, de la siguiente manera:
+
+* Seleccione el nombre de la cuadrícula para ver un resumen de las estadísticas de todo el sistema StorageGRID. (La captura de pantalla muestra un sistema denominado StorageGRID Deployment).
+* Seleccione un sitio de centro de datos específico para ver un resumen de las estadísticas de todos los nodos de ese sitio.
+* Seleccione un nodo concreto para ver información detallada de ese nodo.
+
+
+.Información relacionada
+link:../monitor/index.html["Solución de problemas de  monitor"]

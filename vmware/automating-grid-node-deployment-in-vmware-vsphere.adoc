@@ -1,0 +1,78 @@
+---
+permalink: vmware/automating-grid-node-deployment-in-vmware-vsphere.html 
+sidebar: sidebar 
+keywords:  
+summary: Los nodos de grid de StorageGRID se pueden automatizar en la implementación de VMware vSphere. 
+---
+= Automatización de la puesta en marcha del nodo de grid en VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los nodos de grid de StorageGRID se pueden automatizar en la implementación de VMware vSphere.
+
+.Lo que necesitará
+* Usted tiene acceso a un sistema Linux/Unix con Bash 3.2 o posterior.
+* Tiene instalada y configurada correctamente la herramienta OVF de VMware 4.1.
+* Conoce el nombre de usuario y la contraseña necesarios para acceder a VMware vSphere con la herramienta OVF.
+* Conoce la URL de infraestructura virtual (VI) para la ubicación en vSphere donde desea implementar las máquinas virtuales de StorageGRID. Esta URL será normalmente un vApp o un grupo de recursos. Por ejemplo: `vi://vcenter.example.com/vi/sgws`
++
+
+NOTE: Puede utilizar VMware `ovftool` utilidad para determinar este valor (consulte `ovftool` documentación para obtener más detalles).
+
++
+
+NOTE: Si va a implementar en un vApp, los equipos virtuales no se iniciarán automáticamente la primera vez y deberá conectarlos manualmente.
+
+* Recogió toda la información necesaria para el archivo de configuración. Consulte link:collecting-information-about-your-deployment-environment.html["Recogida de información sobre el entorno de implementación"] para obtener más información.
+* Tiene acceso a los siguientes archivos desde el archivo de instalación de VMware para StorageGRID:
+
+
+[cols="1a,1a"]
+|===
+| Nombre de archivo | Descripción 
+
+
+| NetApp-SG-versión-SHA.vmdk  a| 
+El archivo de disco de máquina virtual que se usa como plantilla para crear máquinas virtuales del nodo de grid.
+
+*Nota:* este archivo debe estar en la misma carpeta que el `.ovf` y.. `.mf` archivos.
+
+
+
+| vsphere-primary-admin.ovf vsphere-primary-admin.mf  a| 
+El archivo de plantilla Abrir formato de virtualización (`.ovf`) y el archivo de manifiesto (`.mf`) Para implementar el nodo de administración principal.
+
+
+
+| vsphere-non-primary-admin.ovf vsphere-non-primary-admin.mf  a| 
+El archivo de plantilla (`.ovf`) y el archivo de manifiesto (`.mf`) Para implementar nodos de administración no primarios.
+
+
+
+| vsphere-archive.ovf vsphere-archive.mf  a| 
+El archivo de plantilla (`.ovf`) y el archivo de manifiesto (`.mf`) Para implementar nodos de archivado.
+
+
+
+| vsphere-gateway.ovf vsphere-gateway.mf  a| 
+El archivo de plantilla (`.ovf`) y el archivo de manifiesto (`.mf`) Para implementar nodos de puerta de enlace.
+
+
+
+| vsphere-storage.ovf vsphere-storage.mf  a| 
+El archivo de plantilla (`.ovf`) y el archivo de manifiesto (`.mf`) Para implementar nodos de almacenamiento basados en máquinas virtuales.
+
+
+
+| deploy-vsphere-ovftool.sh  a| 
+La secuencia de comandos de shell Bash utilizada para automatizar la implementación de nodos de cuadrícula virtual.
+
+
+
+| deploy-vsphere-ovftool-sample.ini  a| 
+El archivo de configuración de ejemplo que se puede utilizar con `deploy-vsphere-ovftool.sh` guión.
+
+|===

@@ -1,0 +1,25 @@
+---
+permalink: admin/managing-load-balancing.html 
+sidebar: sidebar 
+keywords:  
+summary: Las funciones de equilibrio de carga de StorageGRID se pueden usar para manejar cargas de trabajo de procesamiento y recuperación de los clientes S3 y Swift. El equilibrio de carga maximiza la velocidad y la capacidad de conexión distribuyendo las cargas de trabajo y las conexiones entre varios nodos de almacenamiento. 
+---
+= Gestión del equilibrio de carga
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las funciones de equilibrio de carga de StorageGRID se pueden usar para manejar cargas de trabajo de procesamiento y recuperación de los clientes S3 y Swift. El equilibrio de carga maximiza la velocidad y la capacidad de conexión distribuyendo las cargas de trabajo y las conexiones entre varios nodos de almacenamiento.
+
+Puede lograr el equilibrio de carga en el sistema StorageGRID de las siguientes maneras:
+
+* Use el servicio Load Balancer, que se instala en los nodos de administrador y de puerta de enlace. El servicio Load Balancer proporciona equilibrio de carga de capa 7 y realiza terminación TLS de solicitudes de cliente, inspecciona las solicitudes y establece nuevas conexiones seguras a los nodos de almacenamiento. Este es el mecanismo de equilibrio de carga recomendado.
+* Utilice el servicio Connection Load Balancer (CLB), que se instala sólo en nodos Gateway. El servicio CLB proporciona equilibrio de carga de capa 4 y soporta costes de enlace.
++
+
+NOTE: El servicio CLB está obsoleto.
+
+* Integre un equilibrador de carga de terceros. Si desea obtener más información, póngase en contacto con el representante de cuenta de NetApp.
+

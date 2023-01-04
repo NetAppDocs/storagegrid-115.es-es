@@ -1,0 +1,107 @@
+---
+permalink: tenant/configuring-federated-identity-source.html 
+sidebar: sidebar 
+keywords: storagegrid, tenant, federated identity source, configuring federated identity source, configure federated identity source, active directory, openldap, open ldap, oracle directory server, directory server 
+summary: Puede configurar la federación de identidades si desea que los grupos de arrendatarios y los usuarios se gestionen en otro sistema, como Active Directory, OpenLDAP u Oracle Directory Server. 
+---
+= Configurar un origen de identidad federado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar la federación de identidades si desea que los grupos de arrendatarios y los usuarios se gestionen en otro sistema, como Active Directory, OpenLDAP u Oracle Directory Server.
+
+.Lo que necesitará
+* Debe iniciar sesión en el Administrador de inquilinos con un explorador compatible.
+* Debe tener permisos de acceso específicos.
+* Debe utilizar Active Directory, OpenLDAP o Oracle Directory Server como proveedor de identidades. Si desea utilizar un servicio LDAP v3 que no esté en la lista, debe ponerse en contacto con el soporte técnico.
+* Si planea utilizar la seguridad de la capa de transporte (TLS) para las comunicaciones con el servidor LDAP, el proveedor de identidades debe usar TLS 1.2 o 1.3.
+
+
+.Acerca de esta tarea
+Si puede configurar un servicio de federación de identidades para su inquilino depende de cómo se haya configurado su cuenta de inquilino. Es posible que el inquilino comparta el servicio de federación de identidades configurado para Grid Manager. Si ve este mensaje al acceder a la página Federación de identidades, no podrá configurar un origen de identidad federado independiente para este arrendatario.
+
+image::../media/tenant_shares_identity_federation.png[El inquilino comparte la Federación de identidades]
+
+.Pasos
+. Seleccione *ADMINISTRACIÓN de ACCESO* > *federación de identidades*.
+. Seleccione *Activar federación de identidades*.
+. En la sección Tipo de servicio LDAP, seleccione *Active Directory*, *OpenLDAP* o *otros*.
++
+Si selecciona *OpenLDAP*, configure el servidor OpenLDAP. Consulte las directrices para configurar un servidor OpenLDAP.
+
++
+Seleccione *otros* para configurar valores para un servidor LDAP que utilice Oracle Directory Server.
+
+. Si ha seleccionado *otros*, complete los campos de la sección atributos LDAP .
++
+** *Nombre único de usuario*: Nombre del atributo que contiene el identificador único de un usuario LDAP. Este atributo es equivalente a. `sAMAccountName` Para Active Directory y. `uid` Para OpenLDAP. Si va a configurar Oracle Directory Server, introduzca `uid`.
+** *UUID de usuario*: Nombre del atributo que contiene el identificador único permanente de un usuario LDAP. Este atributo es equivalente a. `objectGUID` Para Active Directory y. `entryUUID` Para OpenLDAP. Si va a configurar Oracle Directory Server, introduzca `nsuniqueid`. El valor de cada usuario para el atributo especificado debe ser un número hexadecimal de 32 dígitos en formato de 16 bytes o de cadena, donde se ignoran los guiones.
+** *Nombre único del grupo*: Nombre del atributo que contiene el identificador único de un grupo LDAP. Este atributo es equivalente a. `sAMAccountName` Para Active Directory y. `cn` Para OpenLDAP. Si va a configurar Oracle Directory Server, introduzca `cn`.
+** *UUID de grupo*: Nombre del atributo que contiene el identificador único permanente de un grupo LDAP. Este atributo es equivalente a. `objectGUID` Para Active Directory y. `entryUUID` Para OpenLDAP. Si va a configurar Oracle Directory Server, introduzca `nsuniqueid`. El valor de cada grupo para el atributo especificado debe ser un número hexadecimal de 32 dígitos en formato de 16 bytes o de cadena, donde se ignoran los guiones.
+
+
+. En la sección Configure LDAP Server, introduzca la información sobre el servidor LDAP y las conexiones de red necesarias.
++
+** *Hostname*: El nombre de host del servidor o la dirección IP del servidor LDAP.
+** *Puerto*: El puerto utilizado para conectarse al servidor LDAP. El puerto predeterminado para STARTTLS es 389 y el puerto predeterminado para LDAPS es 636. Sin embargo, puede utilizar cualquier puerto siempre que su firewall esté configurado correctamente.
+** *Nombre de usuario*: La ruta completa del nombre completo (DN) para el usuario que se conectará al servidor LDAP. Para Active Directory, también puede especificar el nombre de inicio de sesión de nivel inferior o el nombre principal del usuario.
++
+El usuario especificado debe tener permiso para enumerar grupos y usuarios y para tener acceso a los siguientes atributos:
+
++
+*** `sAMAccountName` o. `uid`
+*** `objectGUID`, `entryUUID`, o. `nsuniqueid`
+*** `cn`
+*** `memberOf` o. `isMemberOf`
+
+
+** *Contraseña*: La contraseña asociada al nombre de usuario.
+** *DN base de grupo*: La ruta completa del nombre distinguido (DN) para un subárbol LDAP que desea buscar grupos. En el ejemplo de Active Directory (a continuación), se pueden usar como grupos federados todos los grupos cuyo nombre distintivo sea relativo al DN base (DC=storagegrid,DC=example,DC=com).
++
+Los valores de *Nombre único de grupo* deben ser únicos dentro del *DN base de grupo* al que pertenecen.
+
+** *DN base de usuario*: La ruta completa del nombre completo (DN) de un subárbol LDAP que desea buscar usuarios.
++
+Los valores de *Nombre único de usuario* deben ser únicos dentro del *DN base de usuario* al que pertenecen.
+
+
+
+. En la sección *Seguridad de la capa de transporte (TLS)*, seleccione una configuración de seguridad.
++
+** *Usar STARTTLS (recomendado)*: Usar STARTTLS para asegurar las comunicaciones con el servidor LDAP. Esta es la opción recomendada.
+** *Use LDAPS*: La opción LDAPS (LDAP sobre SSL) utiliza TLS para establecer una conexión con el servidor LDAP. Esta opción es compatible por motivos de compatibilidad.
+** *No utilice TLS*: El tráfico de red entre el sistema StorageGRID y el servidor LDAP no estará protegido.
++
+Esta opción no es compatible si el servidor de Active Directory aplica la firma LDAP. Debe usar STARTTLS o LDAPS.
+
+
+
+. Si seleccionó STARTTLS o LDAPS, elija el certificado utilizado para proteger la conexión.
++
+** *Utilizar certificado CA* del sistema operativo: Utilice el certificado CA predeterminado instalado en el sistema operativo para asegurar las conexiones.
+** *Utilizar certificado de CA personalizado*: Utilice un certificado de seguridad personalizado.
++
+Si selecciona esta opción, copie y pegue el certificado de seguridad personalizado en el cuadro de texto del certificado de CA.
+
+
+
+. Seleccione *probar conexión* para validar la configuración de conexión para el servidor LDAP.
++
+Si la conexión es válida, aparecerá un mensaje de confirmación en la esquina superior derecha de la página.
+
+. Si la conexión es válida, seleccione *Guardar*.
++
+La siguiente captura de pantalla muestra valores de configuración de ejemplo para un servidor LDAP que utiliza Active Directory.
+
++
+image::../media/ldap_config_active_directory.png[Página Federación de identidades que muestra el servidor LDAP que utiliza Active Directory]
+
+
+
+.Información relacionada
+link:tenant-management-permissions.html["Permisos de gestión de inquilinos"]
+
+link:guidelines-for-configuring-openldap-server.html["Instrucciones para configurar un servidor OpenLDAP"]

@@ -1,0 +1,25 @@
+---
+permalink: maintain/index.html 
+sidebar: sidebar 
+keywords:  
+summary: Obtenga información sobre cómo aplicar una revisión; recupere un nodo de cuadrícula con errores; retire nodos y sitios de cuadrícula y recupere objetos en caso de error del sistema. 
+---
+= Mantenga la recuperación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtenga información sobre cómo aplicar una revisión; recupere un nodo de cuadrícula con errores; retire nodos y sitios de cuadrícula y recupere objetos en caso de error del sistema.
+
+* link:introduction-to-storagegrid-recovery-and-maintenance.html["Introducción a la recuperación y el mantenimiento de StorageGRID"]
+* link:storagegrid-hotfix-procedure.html["Procedimiento de revisión de StorageGRID"]
+* link:grid-node-recovery-procedures.html["Procedimientos de recuperación de nodos de grid"]
+* link:how-site-recovery-is-performed-by-technical-support.html["Cómo realiza la recuperación del sitio el soporte técnico"]
+* link:decommission-procedure.html["Procedimiento de retirada"]
+* link:network-maintenance-procedures.html["Procedimientos de mantenimiento de red"]
+* link:host-level-and-middleware-procedures.html["Procedimientos de middleware y a nivel de host"]
+* link:grid-node-procedures.html["Procedimientos de los nodos de grid"]
+* link:appliance-node-cloning.html["Clonado de nodos de dispositivos"]
+

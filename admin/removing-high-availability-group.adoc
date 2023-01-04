@@ -1,0 +1,43 @@
+---
+permalink: admin/removing-high-availability-group.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Puede eliminar un grupo de alta disponibilidad \(ha\) que ya no utilice.' 
+---
+= Eliminar un grupo de alta disponibilidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede eliminar un grupo de alta disponibilidad que ya no utilice.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener el permiso acceso raíz.
+
+
+.Aboque por esta tarea
+Si quita un grupo de alta disponibilidad, todos los clientes S3 o Swift que se hayan configurado para usar una de las direcciones IP virtuales del grupo ya no podrán conectarse a StorageGRID. Para evitar que se produzcan interrupciones en el cliente, debe actualizar todas las aplicaciones cliente S3 o Swift afectadas antes de quitar un grupo de alta disponibilidad. Actualice cada cliente para que se conecte mediante otra dirección IP, por ejemplo, la dirección IP virtual de un grupo ha diferente o la dirección IP configurada para una interfaz durante la instalación o mediante DHCP.
+
+.Pasos
+. Seleccione *Configuración* > *Configuración de red* > *grupos de alta disponibilidad*.
++
+Aparece la página grupos de alta disponibilidad.
+
++
+image::../media/ha_groups_page_with_two_groups.png[Pantalla principal de grupos HA]
+
+. Seleccione el grupo ha que desea quitar y haga clic en *Quitar*.
++
+Aparece la advertencia Eliminar grupo de alta disponibilidad.
+
++
+image::../media/ha_group_remove_warning.png[Advertencia de eliminación de grupo HA]
+
+. Haga clic en *Aceptar*.
++
+El grupo de alta disponibilidad se ha eliminado.
+
+

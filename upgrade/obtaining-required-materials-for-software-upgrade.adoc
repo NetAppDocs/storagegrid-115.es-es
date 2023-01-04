@@ -1,0 +1,105 @@
+---
+permalink: upgrade/obtaining-required-materials-for-software-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, requirements, rhel, red hat, linux, centOS, ubuntu, debian 
+summary: Antes de iniciar la actualización de software, debe obtener todos los materiales necesarios para poder completar la actualización correctamente. 
+---
+= Obtención de los materiales necesarios para una actualización de software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de iniciar la actualización de software, debe obtener todos los materiales necesarios para poder completar la actualización correctamente.
+
+[cols="1a,3a"]
+|===
+| Elemento | Notas 
+
+
+ a| 
+Archivos de actualización de StorageGRID
+ a| 
+Debe descargar los archivos necesarios en el ordenador portátil de servicio:
+
+* *Todas las plataformas*: `.upgrade` archivo
+* *Cualquier nodo en Red Hat Enterprise Linux o CentOS*: `.upgrade` Archivo y archivo RPM (`.zip` o. `.tgz`)
+* *Cualquier nodo en Ubuntu o Debian*: `.upgrade` Archivo Y ARCHIVO DEB (`.zip` o. `.tgz`)
+
+
+
+
+ a| 
+Portátil de servicio
+ a| 
+El portátil de servicio debe tener:
+
+* Puerto de red
+* Cliente SSH (por ejemplo, PuTTY)
+
+
+
+
+ a| 
+Navegador web compatible
+ a| 
+Debe confirmar que el explorador web del ordenador portátil de servicio es compatible con StorageGRID 11.5.
+
+link:web-browser-requirements.html["Requisitos del navegador web"]
+
+*Nota:* la compatibilidad con el navegador ha cambiado para StorageGRID 11.5. Confirme que está utilizando una versión compatible.
+
+
+
+ a| 
+Paquete de recuperación (`.zip`)
+ a| 
+Antes de la actualización, debe descargar el archivo más reciente del paquete de recuperación en caso de que se produzcan problemas durante la actualización.
+
+Después de actualizar el nodo de administración principal, debe descargar una nueva copia del archivo paquete de recuperación y guardarlo en una ubicación segura. El archivo de paquete de recuperación actualizado le permite restaurar el sistema si se produce un fallo.
+
+link:downloading-recovery-package.html["Descarga del paquete de recuperación"]
+
+
+
+ a| 
+`Passwords.txt` archivo
+ a| 
+Este archivo se incluye en DICHO paquete, que forma parte del paquete de recuperación `.zip` archivo. Debe obtener la última versión del paquete de recuperación.
+
+
+
+ a| 
+Clave de acceso de aprovisionamiento
+ a| 
+La frase de contraseña se crea y documenta cuando se instala el sistema StorageGRID por primera vez. La clave de acceso de aprovisionamiento no aparece en la `Passwords.txt` archivo.
+
+
+
+ a| 
+Documentación relacionada
+ a| 
+* Notas de la versión de StorageGRID 11.5. Asegúrese de leerlos detenidamente antes de iniciar la actualización.
+* Instrucciones para administrar StorageGRID
+* Si va a actualizar una implementación de Linux, las instrucciones de instalación de StorageGRID para su plataforma Linux.
+* Según sea necesario, se ofrece otra documentación de StorageGRID.
+
+
+|===
+.Información relacionada
+link:web-browser-requirements.html["Requisitos del navegador web"]
+
+link:../admin/index.html["Administre StorageGRID"]
+
+link:../rhel/index.html["Instale Red Hat Enterprise Linux o CentOS"]
+
+link:../ubuntu/index.html["Instalar Ubuntu o Debian"]
+
+link:../vmware/index.html["Instale VMware"]
+
+link:downloading-storagegrid-upgrade-files.html["Descargando los archivos de actualización de StorageGRID"]
+
+link:downloading-recovery-package.html["Descarga del paquete de recuperación"]
+
+link:../release-notes/index.html["Notas de la versión"]

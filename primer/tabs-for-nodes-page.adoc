@@ -1,0 +1,128 @@
+---
+permalink: primer/tabs-for-nodes-page.html 
+sidebar: sidebar 
+keywords: nodes page, hardware tab, network tab, storage tab, events tab, objects tab, ilm tab, load balancer tab, platform services tab, santricity system manager tab 
+summary: Las pestañas de la parte superior de la página Nodes se basan en lo que seleccione en el árbol de la izquierda. 
+---
+= Pestañas de la página Nodes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las pestañas de la parte superior de la página Nodes se basan en lo que seleccione en el árbol de la izquierda.
+
+[cols="1a,2a,1a"]
+|===
+| Nombre de la ficha | Descripción | Incluido para 
+
+
+ a| 
+Descripción general
+ a| 
+* Proporciona información básica sobre cada nodo.
+* Muestra cualquier alarma actual que afecte al nodo sin confirmar.
+
+ a| 
+Todos los nodos
+
+
+
+ a| 
+Hardware subyacente
+ a| 
+* Muestra el uso de CPU y de memoria para cada nodo
+* Para los nodos del dispositivo, proporciona información adicional de hardware.
+
+ a| 
+Todos los nodos
+
+
+
+ a| 
+Red
+ a| 
+Muestra un gráfico que muestra el tráfico de red recibido y enviado a través de las interfaces de red.
+ a| 
+Todos los nodos, cada sitio y el grid completo
+
+
+
+ a| 
+Reducida
+ a| 
+* Proporciona detalles para los dispositivos de disco y volúmenes de cada nodo.
+* Para los nodos de almacenamiento, cada sitio y todo el grid, incluye gráficos que muestran el almacenamiento de datos de objetos y el almacenamiento de metadatos usado con el tiempo.
+
+ a| 
+Todos los nodos, cada sitio y el grid completo
+
+
+
+ a| 
+Eventos
+ a| 
+Muestra un número de errores del sistema o eventos de fallos, incluidos errores como errores de red.
+ a| 
+Todos los nodos
+
+
+
+ a| 
+Objetos
+ a| 
+* Proporciona información sobre las tasas de procesamiento y recuperación de S3 y Swift.
+* En el caso de los nodos de almacenamiento, proporciona información sobre el recuento de objetos y las consultas del almacén de metadatos y la verificación en segundo plano.
+
+ a| 
+Nodos de almacenamiento, cada sitio y el grid completo
+
+
+
+ a| 
+ILM
+ a| 
+Proporciona información acerca de las operaciones de gestión del ciclo de vida de la información (ILM).
+
+* En el caso de los nodos de almacenamiento, se proporcionan detalles sobre la evaluación del ILM y la verificación en segundo plano para objetos codificados de borrado.
+* Muestra un gráfico de la cola de ILM a lo largo del tiempo de cada sitio y de la cuadrícula en su totalidad.
+* En todo el grid, ofrece el tiempo estimado para completar un análisis completo de ILM de todos los objetos.
+
+ a| 
+Nodos de almacenamiento, cada sitio y el grid completo
+
+
+
+ a| 
+Equilibrador de carga
+ a| 
+Incluye gráficos de rendimiento y diagnóstico relacionados con el servicio Load Balancer.
+
+* Para cada sitio, proporciona un resumen agregado de las estadísticas para todos los nodos de ese sitio.
+* Para toda la cuadrícula, proporciona un resumen agregado de las estadísticas de todos los sitios.
+
+ a| 
+Los nodos de administrador y de puerta de enlace, cada sitio y todo el grid
+
+
+
+ a| 
+Servicios de plataforma
+ a| 
+Proporciona información sobre cualquier operación de servicio de plataforma S3 en un sitio.
+ a| 
+Cada sitio
+
+
+
+ a| 
+System Manager de SANtricity
+ a| 
+Ofrece acceso a SANtricity System Manager. En SANtricity System Manager, puede revisar la información de diagnóstico de hardware y entorno de la controladora de almacenamiento, así como los problemas relacionados con las unidades.
+ a| 
+Nodos del dispositivo de almacenamiento
+
+*Nota:* la ficha Administrador del sistema de SANtricity no aparecerá si el firmware del controlador en el dispositivo de almacenamiento es inferior a 8.70.
+
+|===

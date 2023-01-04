@@ -1,0 +1,49 @@
+---
+permalink: admin/changing-provisioning-passphrase.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Cambiar la clave de acceso de aprovisionamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Use este procedimiento para cambiar la clave de acceso de aprovisionamiento de StorageGRID. La frase de acceso es necesaria para los procedimientos de recuperación, expansión y mantenimiento. También se requiere la contraseña para descargar las copias de seguridad del paquete de recuperación que incluyen la información de topología de la cuadrícula y las claves de cifrado del sistema StorageGRID.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de mantenimiento o acceso raíz.
+* Debe tener la clave de acceso de aprovisionamiento actual.
+
+
+.Acerca de esta tarea
+La clave de acceso de aprovisionamiento es necesaria para muchos procedimientos de instalación y mantenimiento y para descargar el paquete de recuperación. La clave de acceso de aprovisionamiento no aparece en la `Passwords.txt` archivo. Asegúrese de documentar la frase de acceso de aprovisionamiento y mantenerla en una ubicación segura.
+
+.Pasos
+. Seleccione *Configuración* > *Control de acceso* > *contraseñas de cuadrícula*.
++
+image::../media/grid_password_change_provisioning_passphrase.png[Las contraseñas de red cambian la clave de acceso de aprovisionamiento]
+
+. Introduzca la clave de acceso de aprovisionamiento actual.
+. Introduzca el nuevo pasepartido.la frase de contraseña debe contener al menos 8 caracteres y no más de 32. Las passphrasas distinguen entre mayúsculas y minúsculas.
++
+
+CAUTION: Almacene la nueva clave de acceso de aprovisionamiento en una ubicación segura. Es necesario para los procedimientos de instalación, expansión y mantenimiento.
+
+. Vuelva a introducir la nueva contraseña y haga clic en *Guardar*.
++
+El sistema muestra un banner verde de éxito cuando se completa el cambio de la clave de acceso de aprovisionamiento. El cambio debe tardar menos de un minuto.
+
++
+image::../media/change_provisioning_passphrase_success.png[cambio correcto de la clave de acceso de aprovisionamiento]
+
+. Seleccione el enlace *página del paquete de recuperación* que se encuentra dentro del banner de éxito.
+. Descargue el nuevo paquete de recuperación desde Grid Manager. Seleccione *Mantenimiento* > *paquete de recuperación* e introduzca la nueva contraseña de aprovisionamiento.
++
+
+CAUTION: Después de cambiar la contraseña de aprovisionamiento, debe descargar inmediatamente un nuevo paquete de recuperación. El archivo de paquete de recuperación permite restaurar el sistema si se produce un fallo.
+
+

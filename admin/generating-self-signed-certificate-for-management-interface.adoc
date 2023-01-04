@@ -1,0 +1,68 @@
+---
+permalink: admin/generating-self-signed-certificate-for-management-interface.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede usar un script para generar un certificado de servidor autofirmado para los clientes API de gestión que requieren una validación de nombre de host estricta. 
+---
+= Generar un certificado de servidor autofirmado para la interfaz de gestión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar un script para generar un certificado de servidor autofirmado para los clientes API de gestión que requieren una validación de nombre de host estricta.
+
+.Lo que necesitará
+* Debe tener permisos de acceso específicos.
+* Debe tener la `Passwords.txt` archivo.
+
+
+.Acerca de esta tarea
+En los entornos de producción, debe utilizar un certificado firmado por una entidad de certificación (CA) conocida. Los certificados firmados por una CA se pueden rotar de forma no disruptiva. También son más seguros porque ofrecen una mejor protección contra los ataques de tipo "hombre en el medio".
+
+.Pasos
+. Obtenga el nombre de dominio completo (FQDN) de cada nodo de administrador.
+. Inicie sesión en el nodo de administración principal:
++
+.. Introduzca el siguiente comando: `ssh admin@primary_Admin_Node_IP`
+.. Introduzca la contraseña que aparece en `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a la raíz: `su -`
+.. Introduzca la contraseña que aparece en `Passwords.txt` archivo.
++
+Cuando ha iniciado sesión como root, el símbolo del sistema cambia de `$` para `#`.
+
+
+
+. Configure StorageGRID con un certificado autofirmado nuevo.
++
+`$ sudo make-certificate --domains _wildcard-admin-node-fqdn_ --type management`
+
++
+** Para `--domains`, Utilice comodines para representar los nombres de dominio completos de todos los nodos Admin. Por ejemplo: `*.ui.storagegrid.example.com` utiliza el comodín * que se va a representar `admin1.ui.storagegrid.example.com` y.. `admin2.ui.storagegrid.example.com`.
+** Configurado `--type` para `management` Para configurar el certificado utilizado por el Administrador de grid y el Administrador de inquilinos.
+** De forma predeterminada, los certificados generados son válidos durante un año (365 días) y deben volver a crearse antes de que expiren. Puede utilizar el `--days` argumento para anular el período de validez predeterminado.
++
+
+NOTE: El período de validez de un certificado comienza cuando `make-certificate` se ejecuta. Debe asegurarse de que el cliente de API de gestión esté sincronizado con el mismo origen de hora que StorageGRID; de lo contrario, el cliente podría rechazar el certificado.
+
++
+ $ sudo make-certificate --domains *.ui.storagegrid.example.com --type management --days 365
++
+El resultado contiene el certificado público que necesita el cliente API de gestión.
+
+
+
+. Seleccione y copie el certificado.
++
+Incluya las etiquetas INICIAL Y FINAL en su selección.
+
+. Cierre la sesión del shell de comandos. `$ exit`
+. Confirme que se configuró el certificado:
++
+.. Acceda a Grid Manager.
+.. Seleccione *Configuración* > *certificados de servidor* > *Certificado de servidor de interfaz de administración*.
+
+
+. Configure el cliente de API de gestión para que utilice el certificado público que ha copiado. Incluya las etiquetas INICIAL Y FINAL.
+

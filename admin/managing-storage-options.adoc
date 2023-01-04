@@ -1,0 +1,18 @@
+---
+permalink: admin/managing-storage-options.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede ver y configurar Opciones de almacenamiento mediante el menú Configuración del Gestor de grid. Opciones de almacenamiento incluyen la configuración de segmentación de objetos y los valores actuales para las marcas de agua de almacenamiento. También es posible ver los puertos S3 y Swift que utiliza el servicio CLB obsoleto en los nodos de puerta de enlace y el servicio LDR en los nodos de almacenamiento. 
+---
+= Gestión de opciones de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver y configurar Opciones de almacenamiento mediante el menú Configuración del Gestor de grid. Opciones de almacenamiento incluyen la configuración de segmentación de objetos y los valores actuales para las marcas de agua de almacenamiento. También es posible ver los puertos S3 y Swift que utiliza el servicio CLB obsoleto en los nodos de puerta de enlace y el servicio LDR en los nodos de almacenamiento.
+
+Para obtener información sobre las asignaciones de puertos, consulte link:summary-ip-addresses-and-ports-for-client-connections.html["Resumen: Direcciones IP y puertos para conexiones cliente"].
+
+image::../media/storage_options.gif[Opciones de almacenamiento]

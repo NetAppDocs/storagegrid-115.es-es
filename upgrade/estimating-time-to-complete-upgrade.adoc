@@ -1,0 +1,152 @@
+---
+permalink: upgrade/estimating-time-to-complete-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, time estimate, duration, cassandra upgrade 
+summary: A la hora de planificar una actualización a StorageGRID 11.5, debe tener en cuenta cuándo realizar la actualización, en función de la duración de la actualización. También debe conocer las operaciones que se pueden realizar y no se pueden realizar durante cada etapa de la actualización. 
+---
+= Estimación del tiempo para completar una actualización
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A la hora de planificar una actualización a StorageGRID 11.5, debe tener en cuenta cuándo realizar la actualización, en función de la duración de la actualización. También debe conocer las operaciones que se pueden realizar y no se pueden realizar durante cada etapa de la actualización.
+
+.Acerca de esta tarea
+El tiempo necesario para realizar una actualización de StorageGRID depende de diversos factores, como la carga del cliente y el rendimiento del hardware.
+
+La tabla resume las tareas principales de actualización y enumera el tiempo aproximado necesario para cada tarea. Los pasos de la tabla proporcionan instrucciones que puede utilizar para estimar el tiempo de actualización del sistema.
+
+
+IMPORTANT: Durante la actualización de StorageGRID 11.4 a 11.5, se actualizarán las tablas de la base de datos de Cassandra en los nodos de almacenamiento. La tarea *base de datos de actualización* se realiza en segundo plano, pero puede que requiera una cantidad extensa de tiempo para completarse. Mientras se actualiza la base de datos, puede utilizar nuevas características, aplicar revisiones y realizar operaciones de recuperación de nodos de forma segura. Sin embargo, es posible que no pueda realizar otros procedimientos de mantenimiento.
+
+
+NOTE: Si se necesita urgentemente una expansión, lleve a cabo la expansión antes de actualizar a 11.5.
+
+[cols="1a,1a,1a,a"]
+|===
+| Tarea de actualización | Descripción | Tiempo aproximado necesario | Durante esta tarea 
+
+
+ a| 
+Inicie el servicio de actualización
+ a| 
+Se ejecutan comprobaciones previas de actualización, el archivo de software se distribuye y se inicia el servicio de actualización.
+ a| 
+3 minutos por nodo de grid, a menos que se informen los errores de validación
+ a| 
+Según sea necesario, puede ejecutar las comprobaciones previas de la actualización de forma manual antes de la ventana de mantenimiento de la actualización programada.
+
+
+
+ a| 
+Actualizar nodos de grid (nodo de administrador principal)
+ a| 
+El nodo de administrador principal se detiene, se actualiza y se reinicia.
+ a| 
+Hasta 30 minutos
+ a| 
+No se puede acceder al nodo de administrador principal. Se informan errores de conexión, los cuales se pueden ignorar.
+
+
+
+ a| 
+Actualizar nodos Grid (el resto de nodos)
+ a| 
+Se actualiza el software de los demás nodos de grid, en el orden en el que se aprueban los nodos. Cada nodo de su sistema estará inactivo de uno en uno por varios minutos cada uno.
+ a| 
+De 15 a 45 minutos por nodo, con nodos de almacenamiento de dispositivos que requieren la mayor parte del tiempo
+
+*Nota:* para los nodos del dispositivo, el instalador del dispositivo StorageGRID se actualiza automáticamente a la última versión.
+ a| 
+* No cambie la configuración de la cuadrícula.
+* No cambie la configuración del nivel de auditoría.
+* No actualice la configuración de ILM.
+* No realice otro procedimiento de mantenimiento, como revisión, retirada o expansión.
++
+*Nota:* Si necesita realizar un procedimiento de recuperación, póngase en contacto con el soporte técnico.
+
+
+
+
+
+ a| 
+Active funciones
+ a| 
+Se habilitan las nuevas funciones para la nueva versión.
+ a| 
+Menos de 5 minutos
+ a| 
+* No cambie la configuración de la cuadrícula.
+* No cambie la configuración del nivel de auditoría.
+* No actualice la configuración de ILM.
+* No realice otro procedimiento de mantenimiento.
+
+
+
+
+ a| 
+Actualizar la base de datos
+ a| 
+Se actualizan las tablas de la base de datos de Cassandra, que existen en todos los nodos de almacenamiento.
+ a| 
+Horas o días, según la cantidad de metadatos del sistema
+ a| 
+Durante la tarea *base de datos de actualización*, la cuadrícula actualizada funcionará con normalidad; sin embargo, la actualización seguirá en curso. Durante esta tarea, puede:
+
+* Use las nuevas funciones de la nueva versión de StorageGRID.
+* Cambie la configuración del nivel de auditoría.
+* Actualice la configuración de ILM.
+* Aplicar una revisión.
+* Recuperar un nodo.
+
+
+*Nota:* no puede realizar un procedimiento de retirada o ampliación hasta que se hayan completado los *pasos de actualización final*.
+
+
+
+ a| 
+Pasos finales de la actualización
+ a| 
+Se eliminan los archivos temporales y se completa la actualización a la versión nueva.
+ a| 
+5 minutos
+ a| 
+Cuando finalice la tarea *pasos de actualización final*, puede realizar todos los procedimientos de mantenimiento.
+
+|===
+.Pasos
+. Calcule el tiempo necesario para actualizar todos los nodos Grid (considere todas las tareas de actualización excepto *base de datos de actualización*).
++
+.. Multiplique el número de nodos en su sistema StorageGRID por 30 minutos/nodo (media).
+.. Añada 1 hora a esta hora para tener en cuenta el tiempo necesario para descargar el `.upgrade` realice las comprobaciones previas y complete los pasos finales de actualización.
+
+
+. Si tiene nodos Linux, añada 15 minutos para cada nodo para tener en cuenta el tiempo necesario para descargar e instalar el paquete RPM o DEB.
+. Calcule el tiempo necesario para actualizar la base de datos.
++
+.. En Grid Manager, seleccione *Nodes*.
+.. Seleccione la primera entrada en el árbol (cuadrícula completa) y seleccione la ficha *almacenamiento*.
+.. Pase el cursor sobre el gráfico *almacenamiento usado - metadatos de objeto* y localice el valor *usado*, que indica cuántos bytes de metadatos de objetos hay en la cuadrícula.
+.. Divida el valor *usado* en 1.5 TB/día para determinar cuántos días se necesitarán para actualizar la base de datos.
+
+
+. Calcule el tiempo total estimado para la actualización agregando los resultados de los pasos 1, 2 y 3.
+
+
+
+
+== Ejemplo: Estimar el tiempo de actualización de StorageGRID 11.4 a 11.5
+
+Supongamos que el sistema tiene 14 nodos de grid, de los cuales 8 son nodos Linux. Además, supongamos que el valor *usado* para los metadatos de objetos es de 6 TB.
+
+. Multiplique 14 por 30 minutos/nodo y agregue 1 hora. El tiempo estimado para actualizar todos los nodos es de 8 horas.
+. Múltiples de 8 por 15 minutos/nodo para tener en cuenta el tiempo que se tarda en instalar el paquete RPM o DEB en los nodos Linux. El tiempo estimado para este paso es de 2 horas.
+. Divida 6 entre 1.5 TB/día. El número estimado de días para la tarea *base de datos de actualización* es de 4 días.
++
+
+NOTE: Mientras se ejecuta la tarea *base de datos de actualización*, puede utilizar de forma segura nuevas características, aplicar revisiones y realizar operaciones de recuperación de nodos.
+
+. Agregue los valores juntos. Debe esperar 5 días para completar la actualización del sistema a StorageGRID 11.5.0.
+

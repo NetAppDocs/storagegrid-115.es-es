@@ -1,0 +1,50 @@
+---
+permalink: upgrade/checking-systems-condition-before-upgrading-software.html 
+sidebar: sidebar 
+keywords: upgrade, firewall, ports 
+summary: Antes de actualizar un sistema StorageGRID, es necesario comprobar que el sistema está listo para admitir la actualización. Debe asegurarse de que el sistema se ejecute con normalidad y que todos los nodos de grid estén operativos. 
+---
+= Comprobación del estado del sistema antes de actualizar el software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de actualizar un sistema StorageGRID, es necesario comprobar que el sistema está listo para admitir la actualización. Debe asegurarse de que el sistema se ejecute con normalidad y que todos los nodos de grid estén operativos.
+
+.Pasos
+. Inicie sesión en Grid Manager con un navegador compatible.
+. Compruebe y resuelva cualquier alerta activa.
++
+Para obtener información sobre alertas específicas, consulte las instrucciones de supervisión y solución de problemas.
+
+. Confirme que no hay ninguna tarea de cuadrícula en conflicto activa ni pendiente.
++
+.. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+.. Seleccione *_site_* > *_primary Admin Node_* > *CMN* > *Grid Tasks* > *Configuration*.
++
+Las tareas de evaluación de la gestión del ciclo de vida de la información (ILME) son las únicas tareas de la cuadrícula que se pueden ejecutar simultáneamente con la actualización del software.
+
+.. Si hay otras tareas de cuadrícula activas o pendientes, espere a que finalicen o liberen el bloqueo.
++
+
+NOTE: Póngase en contacto con el soporte técnico si una tarea no finaliza o libera el bloqueo.
+
+
+
+. Consulte las listas de puertos internos y externos en la versión 11.5 de las directrices de red y asegúrese de que todos los puertos necesarios estén abiertos antes de realizar la actualización.
++
+
+IMPORTANT: Si ha abierto algún puerto de firewall personalizado, se le notificará durante las comprobaciones previas de la actualización. Debe comunicarse con el soporte técnico antes de continuar con la actualización.
+
+
+
+.Información relacionada
+link:../monitor/index.html["Solución de problemas de  monitor"]
+
+link:../admin/index.html["Administre StorageGRID"]
+
+link:../maintain/index.html["Mantener  recuperar"]
+
+link:../network/index.html["Directrices de red"]

@@ -1,0 +1,28 @@
+---
+permalink: vmware/deploying-virtual-machine-grid-nodes-in-vmware-vsphere-web-client.html 
+sidebar: sidebar 
+keywords: storagegrid, deploying grid nodes, deploy grid nodes, vsphere, vsphere web client 
+summary: VMware vSphere Web Client se utiliza para implementar cada nodo de grid como máquina virtual. Durante la implementación, se crea cada nodo de grid y se conecta a una o varias redes. Si necesita poner en marcha cualquier nodo de almacenamiento de dispositivo StorageGRID, consulte las instrucciones de instalación y mantenimiento del dispositivo después de poner en marcha todos los nodos de grid de máquina virtual. 
+---
+= Implementación de nodos de grid de máquinas virtuales en VMware vSphere Web Client
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vSphere Web Client se utiliza para implementar cada nodo de grid como máquina virtual. Durante la implementación, se crea cada nodo de grid y se conecta a una o varias redes. Si necesita poner en marcha cualquier nodo de almacenamiento de dispositivo StorageGRID, consulte las instrucciones de instalación y mantenimiento del dispositivo después de poner en marcha todos los nodos de grid de máquina virtual.
+
+* link:collecting-information-about-your-deployment-environment.html["Recogida de información sobre el entorno de implementación"]
+* link:how-grid-nodes-discover-primary-admin-node.html["La forma en que los nodos de grid detectan el nodo de administrador principal"]
+* link:deploying-storagegrid-node-as-virtual-machine.html["Poner en marcha un nodo de StorageGRID como máquina virtual"]
+
+
+.Información relacionada
+link:../sg100-1000/index.html["SG100  servicios de aplicaciones SG1000"]
+
+link:../sg5600/index.html["Dispositivos de almacenamiento SG5600"]
+
+link:../sg5700/index.html["Dispositivos de almacenamiento SG5700"]
+
+link:../sg6000/index.html["Dispositivos de almacenamiento SG6000"]

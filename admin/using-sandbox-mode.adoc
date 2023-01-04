@@ -1,0 +1,90 @@
+---
+permalink: admin/using-sandbox-mode.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Puede utilizar el modo de recinto de seguridad para configurar y probar las confianzas de partes de Active Directory Federation Services \(AD FS\) antes de aplicar el inicio de sesión único \(SSO\) para los usuarios de StorageGRID. Una vez habilitado SSO, puede volver a habilitar el modo Sandbox para configurar o probar confianzas de partes de confianza nuevas y existentes. Al volver a habilitar el modo de recinto limitado, se deshabilita temporalmente SSO para los usuarios de StorageGRID.' 
+---
+= Uso del modo de recinto de seguridad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar el modo de recinto de seguridad para configurar y probar las confianzas de partes de Active Directory Federation Services (AD FS) antes de aplicar el inicio de sesión único (SSO) para los usuarios de StorageGRID. Una vez habilitado SSO, puede volver a habilitar el modo Sandbox para configurar o probar confianzas de partes de confianza nuevas y existentes. Al volver a habilitar el modo de recinto limitado, se deshabilita temporalmente SSO para los usuarios de StorageGRID.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+.Acerca de esta tarea
+Cuando se habilita SSO y un usuario intenta iniciar sesión en un nodo de administración, StorageGRID envía una solicitud de autenticación a AD FS. A su vez, AD FS envía una respuesta de autenticación a StorageGRID, indicando si la solicitud de autorización se ha realizado correctamente. En el caso de las solicitudes correctas, la respuesta incluye un identificador único universal (UUID) para el usuario.
+
+Para permitir que StorageGRID (el proveedor de servicios) y AD FS (el proveedor de identidades) se comuniquen de forma segura acerca de las solicitudes de autenticación de usuario, debe configurar determinados ajustes en StorageGRID. A continuación, debe utilizar AD FS para crear una confianza de parte de confianza para cada nodo de administración. Por último, debe volver a StorageGRID para habilitar SSO.
+
+El modo de recinto de seguridad facilita la realización de esta configuración de fondo y la realización de pruebas de todos los ajustes antes de habilitar SSO.
+
+
+NOTE: Se recomienda utilizar el modo de recinto de seguridad, pero no estrictamente necesario. Si está preparado para crear confianzas de parte de confianza de AD FS inmediatamente después de configurar SSO en StorageGRID, Además, no es necesario probar los procesos de inicio de sesión único (SLO) y cierre de sesión único (SLO) para cada nodo de administración, haga clic en *habilitado*, introduzca la configuración de StorageGRID, cree una confianza de parte de confianza para cada nodo de administración en AD FS y, a continuación, haga clic en *Guardar* para habilitar SSO.
+
+.Pasos
+. Seleccione *Configuración* > *Control de acceso* > *Inicio de sesión único*.
++
+Aparece la página Inicio de sesión único, con la opción *Desactivado* seleccionada.
+
++
+image::../media/sso_status_disabled.gif[Página de inicio de sesión único con el estado de SSO desactivado]
+
++
+
+NOTE: Si las opciones de estado de SSO no aparecen, confirme que ha configurado Active Directory como origen de identidad federado. Véase «'requisitos para el uso de la entrada única».
+
+. Seleccione la opción *modo Sandbox*.
++
+Aparece la configuración del proveedor de identidades y de la parte de confianza. En la sección Proveedor de identidades, el campo *Tipo de servicio* es de sólo lectura. Muestra el tipo de servicio de federación de identidades que está utilizando (por ejemplo, Active Directory).
+
+. En la sección Proveedor de identidades:
++
+.. Escriba el nombre del Servicio de Federación, exactamente como aparece en AD FS.
++
+
+NOTE: Para buscar el nombre del servicio de Federación, vaya al Administrador del servidor de Windows. Seleccione *Herramientas* > *Administración AD FS*. En el menú Acción, seleccione *Editar propiedades del servicio de Federación*. El nombre del servicio de Federación se muestra en el segundo campo.
+
+.. Especifique si desea utilizar TLS (Seguridad de la capa de transporte) para proteger la conexión cuando el proveedor de identidades envíe información de configuración de SSO en respuesta a solicitudes de StorageGRID.
++
+*** *Utilizar certificado CA* del sistema operativo: Utilice el certificado CA predeterminado instalado en el sistema operativo para asegurar la conexión.
+*** *Utilizar certificado de CA personalizado*: Utilice un certificado de CA personalizado para proteger la conexión.
++
+Si selecciona este ajuste, copie y pegue el certificado en el cuadro de texto *Certificado CA*.
+
+*** *No utilice TLS*: No utilice un certificado TLS para garantizar la conexión.
+
+
+
+
+. En la sección parte de confianza , especifique el identificador de parte de confianza que utilizará para los nodos de administración de StorageGRID cuando configure confianzas de parte de confianza.
++
+** Por ejemplo, si el grid solo tiene un nodo de administrador y no prevé añadir más nodos de administrador en el futuro, introduzca `SG` o. `StorageGRID`.
+** Si el grid incluye más de un nodo de administración, incluya la cadena `[HOSTNAME]` en el identificador. Por ejemplo: `SG-[HOSTNAME]`. Esto genera una tabla que incluye un identificador de parte de confianza para cada nodo de administración, en función del nombre de host del nodo. + NOTA: Debe crear una confianza de parte de confianza para cada nodo de administración en su sistema StorageGRID. Tener una confianza de parte que confía en cada nodo de administración garantiza que los usuarios puedan iniciar sesión de forma segura desde y hacia cualquier nodo de administración.
+
+
++
+image::../media/sso_status_sandbox_mode.gif[Inicio de sesión único,Sandbox mode enabled,Relying party identifiers shown for several Admin Nodes]
+
+. Haga clic en *Guardar*.
++
+** Aparece una Marca de verificación verde en el botón *Guardar* durante unos segundos.
++
+image::../media/save_button_green_checkmark.gif[Botón Guardar con una Marca de verificación verde]
+
+** Aparece el aviso de confirmación del modo Sandbox, que confirma que el modo Sandbox está habilitado. Puede utilizar este modo mientras utiliza AD FS para configurar una confianza de parte de confianza para cada nodo de administración y probar los procesos de inicio de sesión único (SSO) y cierre de sesión único (SLO).
++
+image::../media/sso_sandbox_mode_enabled.gif[Modo SSO Sandbox habilitado]
+
+
+
+
+
+.Información relacionada
+link:requirements-for-sso.html["Requisitos para usar el inicio de sesión único"]

@@ -1,0 +1,43 @@
+---
+permalink: admin/configuring-server-certificates.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede personalizar los certificados de servidor que utiliza el sistema StorageGRID. 
+---
+= Configuración de certificados de servidor
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede personalizar los certificados de servidor que utiliza el sistema StorageGRID.
+
+El sistema StorageGRID utiliza certificados de seguridad para varios fines distintos:
+
+* Certificados del servidor de la interfaz de gestión: Se utiliza para proteger el acceso al administrador de grid, al administrador de inquilinos, a la API de gestión de grid y a la API de gestión de inquilinos.
+* Certificados de servidor de API de almacenamiento: Se utiliza para proteger el acceso a los nodos de almacenamiento y puerta de enlace, que las aplicaciones cliente API utilizan para cargar y descargar datos de objetos.
+
+
+Puede utilizar los certificados predeterminados creados durante la instalación, o puede reemplazar, o ambos, estos tipos predeterminados de certificados por sus propios certificados personalizados.
+
+
+
+== Tipos admitidos de certificado de servidor personalizado
+
+El sistema StorageGRID admite certificados de servidor personalizados cifrados con RSA o ECDSA (algoritmo de firma digital de curva elíptica).
+
+Para obtener más información sobre cómo protege StorageGRID las conexiones de cliente para la API REST, consulte las guías de implementación de S3 o Swift.
+
+
+
+== Certificados para extremos de equilibrador de carga
+
+StorageGRID gestiona los certificados utilizados para los extremos del equilibrador de carga por separado. Para configurar certificados de equilibrador de carga, consulte las instrucciones para configurar los extremos de equilibrador de carga.
+
+.Información relacionada
+link:../s3/index.html["Use S3"]
+
+link:../swift/index.html["Use Swift"]
+
+link:configuring-load-balancer-endpoints.html["Configuración de los extremos del equilibrador de carga"]

@@ -1,0 +1,43 @@
+---
+permalink: monitor/types-of-text-reports.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Los informes de texto muestran una representación textual de los valores de datos de atributos que ha procesado el servicio NMS. Hay dos tipos de informes generados en función del período de tiempo en el que se informa: Informes de texto en bruto para períodos inferiores a una semana y informes de texto agregados para períodos de tiempo superiores a una semana.' 
+---
+= Tipos de informes de texto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los informes de texto muestran una representación textual de los valores de datos de atributos que ha procesado el servicio NMS. Hay dos tipos de informes generados en función del período de tiempo en el que se informa: Informes de texto en bruto para períodos inferiores a una semana y informes de texto agregados para períodos de tiempo superiores a una semana.
+
+
+
+== Informes de texto sin formato
+
+Un informe de texto sin procesar muestra detalles sobre el atributo seleccionado:
+
+* Hora recibida: Fecha y hora local en la que el servicio NMS procesó un valor de muestra de los datos de un atributo.
+* Hora de la muestra: Fecha y hora local en la que se muestreó o cambió un valor de atributo en el origen.
+* Valor: Valor de atributo en el tiempo de la muestra.
+
+
+image::../media/raw_text_report.gif[captura de pantalla que muestra el informe de texto sin formato]
+
+
+
+== Informes de texto agregados
+
+Un informe de texto agregado muestra los datos durante un período de tiempo más largo (normalmente una semana) que un informe de texto en bruto. Cada entrada es el resultado de resumir varios valores de atributo (un agregado de valores de atributo) por el servicio NMS a lo largo del tiempo en una sola entrada con valores promedio, máximo y mínimo que se derivan de la agregación.
+
+Cada entrada muestra la siguiente información:
+
+* Hora agregada: Última fecha y hora local que el servicio NMS ha agregado (recopilado) un conjunto de valores de atributo modificados.
+* Valor medio: Promedio del valor del atributo durante el período de tiempo agregado.
+* Valor mínimo: Valor mínimo durante el período de tiempo agregado.
+* Valor máximo: Valor máximo durante el período de tiempo agregado.
+
+
+image::../media/aggregate_text_report.gif[captura de pantalla que muestra el informe de texto agregado]

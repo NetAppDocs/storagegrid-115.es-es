@@ -1,0 +1,70 @@
+---
+permalink: monitor/collecting-log-files-and-system-data.html 
+sidebar: sidebar 
+keywords: log files, system data, collecting data, log, logs 
+summary: 'Puede utilizar Grid Manager para recuperar los archivos de registro y los datos del sistema \(incluidos los datos de configuración\) del sistema StorageGRID.' 
+---
+= Recogida de archivos de registro y datos del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar Grid Manager para recuperar los archivos de registro y los datos del sistema (incluidos los datos de configuración) del sistema StorageGRID.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+* Debe tener la clave de acceso de aprovisionamiento.
+
+
+.Sobre este taak
+Puede utilizar Grid Manager para recopilar archivos de registro, datos del sistema y datos de configuración de cualquier nodo de cuadrícula durante el período de tiempo seleccionado. Los datos se recopilan y archivan en un archivo .tar.gz que se puede descargar en el equipo local.
+
+Debido a que los archivos de registro de aplicaciones pueden ser muy grandes, el directorio de destino donde se descargan los archivos de registro archivados debe tener al menos 1 GB de espacio libre.
+
+.Pasos
+. Seleccione *Soporte* > *Herramientas* > *registros*.
++
+image::../media/support_logs_select_nodes.gif[Captura de pantalla de la IU de recopilación de registros]
+
+. Seleccione los nodos de grid para los que desea recoger archivos de registro.
++
+Según sea necesario, puede recopilar archivos de registro de toda la cuadrícula o de la ubicación del centro de datos.
+
+. Seleccione *Hora de inicio* y *Hora de finalización* para establecer el intervalo de tiempo de los datos que se incluirán en los archivos de registro.
++
+Si selecciona un período de tiempo muy largo o recopila registros de todos los nodos de un grid grande, el archivo de registro puede ser demasiado grande para almacenarse en un nodo o demasiado grande para recogerlo en el nodo de administración principal para su descarga. Si esto ocurre, debe reiniciar la recopilación de registros con un conjunto de datos más pequeño.
+
+. Opcionalmente, escriba notas sobre los archivos de registro que está recopilando en el cuadro de texto *Notas*.
++
+Puede usar estas notas para brindar información de soporte técnico acerca del problema que le pidió que recopile los archivos de registro. Las notas se agregan a un archivo llamado `info.txt`, junto con otra información acerca de la colección de archivos de registro. La `info.txt` el archivo se guarda en el paquete de archivo de registro.
+
+. Introduzca la frase de acceso de aprovisionamiento del sistema StorageGRID en el cuadro de texto *frase de paso* de aprovisionamiento.
+. Haga clic en *recopilar registros*.
++
+Al enviar una nueva solicitud, se elimina la colección anterior de archivos de registro.
+
++
+image::../media/support_logs_in_progress.gif[Recopilación de registros en curso: Captura de pantalla]
+
++
+Puede utilizar la página Logs para supervisar el progreso de la recopilación de archivos de registro de cada nodo de cuadrícula.
+
++
+Si recibe un mensaje de error acerca del tamaño del registro, intente recopilar registros por un periodo más corto de tiempo o para menos nodos.
+
+. Haga clic en *Descargar* cuando haya finalizado la recopilación de archivos de registro.
++
+El archivo _.tar.gz_ contiene todos los archivos de registro de todos los nodos de grid en los que la recopilación de registros se realizó correctamente. Dentro del archivo combinado _.tar.gz_, hay un archivo de registro para cada nodo de cuadrícula.
+
+
+
+.Después de terminar
+Puede volver a descargar el paquete de archivo de registro más adelante si lo necesita.
+
+De forma opcional, puede hacer clic en *Eliminar* para eliminar el paquete de archivos de registro y liberar espacio en disco. El paquete de archivo de registro actual se elimina automáticamente la próxima vez que se recopilan archivos de registro.
+
+.Información relacionada
+link:../monitor/logs-files-reference.html["Referencia de archivos de registro"]

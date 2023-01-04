@@ -1,0 +1,28 @@
+---
+permalink: sg100-1000/maintaining-services-appliance-sg100-and-sg1000.html 
+sidebar: sidebar 
+keywords: storagegrid, sg100, sg1000, service appliance, services appliance, gateway Node, admin node, maintain, maintaining, hardware, procedures, tasks 
+summary: Es posible que deba realizar procedimientos de mantenimiento en el dispositivo. En los procedimientos de esta sección se asume que el dispositivo ya se ha implementado como nodo de puerta de enlace o como nodo de administración en un sistema StorageGRID. 
+---
+= Mantenimiento del aparato
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que deba realizar procedimientos de mantenimiento en el dispositivo. En los procedimientos de esta sección se asume que el dispositivo ya se ha implementado como nodo de puerta de enlace o como nodo de administración en un sistema StorageGRID.
+
+.Pasos
+* link:placing-appliance-into-maintenance-mode.html["Colocar un dispositivo en modo de mantenimiento"]
+* link:turning-controller-identify-led-on-and-off.html["Encender y apagar el LED de identificación de la controladora"]
+* link:locating-controller-in-data-center.html["Ubicar la controladora en un centro de datos"]
+* link:replacing-services-appliance.html["Sustitución del dispositivo de servicios"]
+* link:replacing-power-supply-in-services-appliance.html["Sustitución de una fuente de alimentación en el dispositivo de servicios"]
+* link:replacing-fan-in-services-appliance.html["Sustitución de un ventilador en el dispositivo de servicios"]
+* link:replacing-drive-in-services-appliance.html["Sustitución de una unidad en el dispositivo de servicios"]
+* link:changing-link-configuration-of-services-appliance.html["Cambio de la configuración del vínculo del dispositivo de servicios"]
+* link:changing-mtu-setting.html["Cambiar el valor de MTU"]
+* link:checking-dns-server-configuration.html["Comprobando la configuración del servidor DNS"]
+* link:monitoring-node-encryption-in-maintenance-mode.html["Supervisar el cifrado del nodo en modo de mantenimiento"]
+

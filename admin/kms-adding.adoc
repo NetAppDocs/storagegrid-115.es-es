@@ -1,0 +1,32 @@
+---
+permalink: admin/kms-adding.html 
+sidebar: sidebar 
+keywords:  
+summary: Utilice el asistente del servidor de gestión de claves de StorageGRID para agregar cada clúster KMS o KMS. 
+---
+= Adición de un servidor de gestión de claves (KMS)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilice el asistente del servidor de gestión de claves de StorageGRID para agregar cada clúster KMS o KMS.
+
+.Lo que necesitará
+* Debe haber revisado el link:kms-considerations-and-requirements.html["consideraciones y requisitos para usar un servidor de gestión de claves"].
+* Debe tener link:kms-configuring-storagegrid-as-client.html["Se ha configurado StorageGRID como cliente en el KMS"]Y debe tener la información necesaria para cada clúster KMS o KMS
+* Debe tener el permiso acceso raíz.
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+
+
+.Acerca de esta tarea
+Si es posible, configure cualquier servidor de administración de claves específico del sitio antes de configurar un KMS predeterminado que se aplica a todos los sitios no administrados por otro KMS. Si crea el KMS predeterminado primero, todos los dispositivos cifrados por nodo de la cuadrícula se cifrarán con el KMS predeterminado. Si desea crear más tarde un KMS específico del sitio, primero debe copiar la versión actual de la clave de cifrado del KMS predeterminado al nuevo KMS.
+
+link:kms-considerations-for-changing-for-site.html["Consideraciones para cambiar el KMS de un sitio"]
+
+.Pasos
+. link:kms-adding-enter-kms-details.html["Paso 1: Introduzca los detalles de KMS"]
+. link:kms-adding-upload-server-certificate.html["Paso 2: Cargar certificado de servidor"]
+. link:kms-adding-upload-client-certificates.html["Paso 3: Cargar certificados de cliente"]
+

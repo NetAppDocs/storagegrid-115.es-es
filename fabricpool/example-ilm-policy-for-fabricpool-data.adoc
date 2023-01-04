@@ -1,0 +1,174 @@
+---
+permalink: fabricpool/example-ilm-policy-for-fabricpool-data.html 
+sidebar: sidebar 
+keywords: fabricPool, ilm, information lifecycle management, ILM policy, example 
+summary: Use esta sencilla política de ejemplo como punto de partida para sus propias reglas y políticas de ILM. 
+---
+= Ejemplo de política de ILM para datos FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Use esta sencilla política de ejemplo como punto de partida para sus propias reglas y políticas de ILM.
+
+Este ejemplo asume que está diseñando las reglas del ILM y una política de ILM para un sistema StorageGRID que tiene cuatro nodos de almacenamiento en un único centro de datos en Denver, Colorado. Los datos de FabricPool en este ejemplo utilizan un bloque llamado `fabricpool-bucket`.
+
+[CAUTION]
+====
+Las siguientes reglas y políticas de ILM son solo ejemplos. Existen varias formas de configurar las reglas de ILM. Antes de activar una nueva directiva, simule la política propuesta para confirmar que funcionará con el fin de proteger el contenido de las pérdidas.
+
+Si quiere más información: link:../ilm/index.html["Gestión de objetos con ILM"]
+
+====
+.Pasos
+. Cree un grupo de almacenamiento denominado *DEN*. Seleccione el sitio de Denver.
+. Cree un perfil de código de borrado denominado *2 más 1*. Seleccione el esquema de codificación de borrado 2+1 y el pool de almacenamiento *DEN*.
+. Cree una regla de ILM que se aplique solo a los datos de `fabricpool-bucket`. En este ejemplo, se crean copias con código de borrado.
++
+[cols="1a,1a"]
+|===
+| Definición de regla | Valor de ejemplo 
+
+
+ a| 
+Nombre de regla
+ a| 
+2 más 1 codificación de borrado para datos de FabricPool
+
+
+
+ a| 
+Nombre del bloque
+ a| 
+`fabricpool-bucket`
+
+También puede filtrar en la cuenta de inquilino de FabricPool.
+
+
+
+ a| 
+Filtrado avanzado
+ a| 
+Tamaño de objeto (MB) superior a 0.2 MB.
+
+*Nota:* FabricPool sólo escribe objetos de 4 MB, pero debe agregar un filtro de tamaño de objeto porque esta regla usa código de borrado.
+
+
+
+ a| 
+Tiempo de referencia
+ a| 
+Tiempo de ingesta
+
+
+
+ a| 
+Ubicación
+ a| 
+Desde el día 0 almacenar para siempre
+
+
+
+ a| 
+Tipo
+ a| 
+Código de borrado
+
+
+
+ a| 
+Ubicación
+ a| 
+DEN (2 más 1)
+
+
+
+ a| 
+Comportamiento de ingesta
+ a| 
+Equilibrado
+
+|===
+. Cree una regla de ILM que cree dos copias replicadas de cualquier objeto que no coincida con la primera regla. No seleccione un filtro básico (nombre de cuenta de inquilino o de bloque) ni ningún filtro avanzado.
++
+[cols="1a,1a"]
+|===
+| Definición de regla | Valor de ejemplo 
+
+
+ a| 
+Nombre de regla
+ a| 
+Dos copias replicadas
+
+
+
+ a| 
+Nombre del bloque
+ a| 
+_none_
+
+
+
+ a| 
+Filtrado avanzado
+ a| 
+_none_
+
+
+
+ a| 
+Tiempo de referencia
+ a| 
+Tiempo de ingesta
+
+
+
+ a| 
+Ubicación
+ a| 
+Desde el día 0 almacenar para siempre
+
+
+
+ a| 
+Tipo
+ a| 
+Replicado
+
+
+
+ a| 
+Ubicación
+ a| 
+DEN
+
+
+
+ a| 
+Snapshot
+ a| 
+2
+
+
+
+ a| 
+Comportamiento de ingesta
+ a| 
+Equilibrado
+
+|===
+. Cree una política de ILM propuesta y seleccione las dos reglas. Como la regla de replicación no utiliza ningún filtro, puede ser la regla predeterminada (última) de la directiva.
+. Ingesta de objetos de prueba en el grid.
+. Simule la directiva con los objetos de prueba para verificar el comportamiento.
+. Activar la política.
+
+
+Cuando se activa esta política, StorageGRID coloca los datos de objetos de la siguiente manera:
+
+* Los datos se organizan en niveles desde FabricPool en `fabricpool-bucket` se codificará mediante el esquema de codificación de borrado 2+1. Se colocarán dos fragmentos de datos y un fragmento de paridad en tres nodos de almacenamiento diferentes.
+* Se replicarán todos los objetos de todos los demás bloques. Se crearán dos copias y se colocarán en dos nodos de almacenamiento diferentes.
+* Las copias replicadas y codificadas de borrado se mantendrán en StorageGRID hasta que el cliente S3 las elimine. El ILM de StorageGRID no eliminará nunca estos elementos.
+

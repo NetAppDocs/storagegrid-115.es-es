@@ -1,0 +1,30 @@
+---
+permalink: sg6000/sg6000-appliances-overview.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, overview, models, features 
+summary: 'Los dispositivos StorageGRIDSG6000 son plataformas informáticas y de almacenamiento integradas que funcionan como nodos de almacenamiento en un sistema StorageGRID. Estos dispositivos se pueden utilizar en un entorno de grid híbrido que combina nodos de almacenamiento de dispositivos y nodos de almacenamiento virtuales \(basados en software\).' 
+---
+= Descripción general de los dispositivos SG6000
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los dispositivos StorageGRIDSG6000 son plataformas informáticas y de almacenamiento integradas que funcionan como nodos de almacenamiento en un sistema StorageGRID. Estos dispositivos se pueden utilizar en un entorno de grid híbrido que combina nodos de almacenamiento de dispositivos y nodos de almacenamiento virtuales (basados en software).
+
+Los dispositivos SG6000 ofrecen las siguientes características:
+
+* Disponible en dos modelos:
++
+** SG6060, que incluye 60 unidades y admite bandejas de expansión.
+** SGF6024, que ofrece 24 unidades de estado sólido (SSD).
+
+
+* Integre los elementos de computación y almacenamiento para un nodo de almacenamiento de StorageGRID.
+* Incluya el instalador de dispositivos StorageGRID para simplificar la puesta en marcha y la configuración del nodo de almacenamiento.
+* Incluir System Manager de SANtricity para gestionar y supervisar las controladoras de almacenamiento y las unidades.
+* Incluya una controladora de gestión en placa base (BMC) para supervisar y diagnosticar el hardware en la controladora de computación.
+* Admite hasta cuatro conexiones de 10 GbE o 25 GbE a la red Grid y a la red cliente de StorageGRID.
+* Admite unidades de estándar de procesamiento de información federal (FIPS). Cuando estas unidades se usan con la función Drive Security en SANtricity System Manager, se evita el acceso no autorizado a los datos.
+

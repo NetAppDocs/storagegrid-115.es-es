@@ -1,0 +1,60 @@
+---
+permalink: monitor/chart-legend.html 
+sidebar: sidebar 
+keywords: chart, legend 
+summary: Las líneas y los colores utilizados para dibujar gráficos tienen un significado específico. 
+---
+= Leyenda del gráfico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las líneas y los colores utilizados para dibujar gráficos tienen un significado específico.
+
+|===
+| Muestra | Significado 
+
+
+ a| 
+image:../media/dark_green_chart_line.gif["captura de pantalla que muestra la línea verde oscura"]
+ a| 
+Los valores de atributo reportados se trazan utilizando líneas verdes oscuras.
+
+
+
+ a| 
+image:../media/light_green_chart_line.gif["captura de pantalla que muestra sombreado que indica la entrada de datos"]
+ a| 
+El sombreado verde claro alrededor de las líneas verdes oscuras indica que los valores reales de ese intervalo de tiempo varían y han sido "'binados'" para un trazado más rápido. La línea oscura representa la media ponderada. El rango en verde claro indica los valores máximo y mínimo dentro de la bandeja. El sombreado marrón claro se utiliza para gráficos de áreas para indicar datos volumétricos.
+
+
+
+ a| 
+image:../media/no_data_plotted_chart.gif["captura de pantalla que muestra las áreas en blanco en la línea de trazado"]
+ a| 
+Las áreas en blanco (sin datos representados) indican que los valores de atributo no estaban disponibles. El fondo puede ser azul, gris o una mezcla de gris y azul, dependiendo del estado del servicio que informa sobre el atributo.
+
+
+
+ a| 
+image:../media/light_blue_chart_shading.gif["captura de pantalla que muestra sombreado azul claro que indica valores indeterminados"]
+ a| 
+El sombreado de azul claro indica que algunos o todos los valores de atributo en ese momento eran indeterminados; el atributo no estaba informando de valores porque el servicio estaba en estado desconocido.
+
+
+
+ a| 
+image:../media/gray_chart_shading.gif["captura de pantalla que muestra sombreado de gris debido a valores desconocidos"]
+ a| 
+El sombreado de gris indica que algunos o todos los valores de atributo en ese momento no se conocen porque el servicio que informa de los atributos estaba administrativamente inactivo.
+
+
+
+ a| 
+image:../media/gray_blue_chart_shading.gif["captura de pantalla que muestra la combinación de valores desconocidos e indeterminados"]
+ a| 
+Una mezcla de sombreado de gris y azul indica que algunos de los valores de atributo en ese momento eran indeterminados (porque el servicio estaba en un estado desconocido), mientras que otros no se conocían porque el servicio que reportaba los atributos estaba administrativamente abajo.
+
+|===

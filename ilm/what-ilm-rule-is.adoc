@@ -1,0 +1,61 @@
+---
+permalink: ilm/what-ilm-rule-is.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Para administrar objetos, debe crear un conjunto de reglas de gestión del ciclo de vida de la información \(ILM\) y organizarlas en una política de ILM. Cada objeto ingerido en el sistema se evalúa según la política activa. Cuando una regla de la política coincide con los metadatos de un objeto, las instrucciones de la regla determinan las acciones que StorageGRID lleva a cabo para copiar y almacenar ese objeto.' 
+---
+= Qué es una regla de ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para gestionar objetos, debe crear un conjunto de reglas de gestión de ciclo de vida de la información (ILM) y organizarlas en una política de ILM. Cada objeto ingerido en el sistema se evalúa según la política activa. Cuando una regla de la política coincide con los metadatos de un objeto, las instrucciones de la regla determinan las acciones que StorageGRID lleva a cabo para copiar y almacenar ese objeto.
+
+Las reglas de ILM definen:
+
+* Qué objetos se deben almacenar. Una regla se puede aplicar a todos los objetos o puede especificar filtros para identificar a qué objetos se aplica una regla. Por ejemplo, una regla puede aplicarse solo a los objetos asociados con determinadas cuentas de inquilino, bloques S3 específicos o contenedores Swift, o valores de metadatos específicos.
+* El tipo de almacenamiento y la ubicación. Los objetos se pueden almacenar en nodos de almacenamiento, en pools de almacenamiento en cloud o en nodos de archivado.
+* El tipo de copias de objeto realizadas. Las copias se pueden replicar o codificar.
+* Para las copias replicadas, el número de copias realizadas.
+* Para las copias codificadas de borrado, se utiliza el esquema de codificación de borrado.
+* Los cambios a lo largo del tiempo en la ubicación de almacenamiento de un objeto y el tipo de copias.
+* Cómo se protegen los datos de objetos cuando se ingieren los objetos en el grid (ubicación síncrona o doble registro).
+
+
+Tenga en cuenta que los metadatos de objetos no están gestionados por las reglas de ILM. En su lugar, los metadatos de objetos se almacenan en una base de datos de Cassandra en lo que se conoce como almacén de metadatos. Se mantienen automáticamente tres copias de los metadatos de objetos en cada sitio para proteger los datos frente a pérdidas. Las copias se distribuyen uniformemente por todos los nodos de almacenamiento.
+
+
+
+== Elementos de una regla de ILM
+
+Una regla de ILM consta de tres elementos:
+
+* *Criterios de filtrado*: Los filtros básicos y avanzados de una regla definen a qué objetos se aplica la regla. Si un objeto coincide con todos los filtros, StorageGRID aplica la regla y crea las copias de objeto especificadas en las instrucciones de colocación de la regla.
+* *Instrucciones de colocación*: Las instrucciones de colocación de una regla definen el número, el tipo y la ubicación de las copias de objetos. Cada regla puede incluir una secuencia de instrucciones de colocación para cambiar el número, el tipo y la ubicación de las copias de objetos a lo largo del tiempo. Cuando expira el período de tiempo para una ubicación, la siguiente evaluación de ILM aplica automáticamente las instrucciones en la siguiente ubicación.
+* *Comportamiento de procesamiento*: El comportamiento de procesamiento de una regla define lo que ocurre cuando un cliente S3 o Swift guarda un objeto en la cuadrícula. El comportamiento de la ingesta controla si las copias de objetos se colocan inmediatamente según las instrucciones de la regla o si se realizan copias provisionales y se aplican las instrucciones de colocación más adelante.
+
+
+
+
+== Regla de ILM de ejemplo
+
+Esta regla de ILM de ejemplo se aplica a los objetos que pertenecen al inquilino A. Realiza dos copias replicadas de esos objetos y almacena cada copia en un sitio diferente. Las dos copias se conservan «para siempre», lo que significa que StorageGRID no las eliminará automáticamente. En su lugar, StorageGRID conservará estos objetos hasta que se eliminen mediante una solicitud de eliminación del cliente o cuando finalice el ciclo de vida de un bloque.
+
+Esta regla utiliza la opción equilibrada para el comportamiento de procesamiento: La instrucción de colocación de dos sitios se aplica tan pronto como el inquilino A guarda un objeto en StorageGRID, a menos que no sea posible realizar de inmediato ambas copias necesarias. Por ejemplo, si el sitio 2 no se puede acceder cuando el inquilino A guarda un objeto, StorageGRID realizará dos copias provisionales en los nodos de almacenamiento del sitio 1. En cuanto el sitio 2 esté disponible, StorageGRID realizará la copia necesaria en ese sitio.
+
+image::../media/ilm_example_rule_2_copies_tenant_a.png[Ejemplo de copias de la regla ILM 2 del inquilino A]
+
+.Información relacionada
+link:data-protection-options-for-ingest.html["Opciones de protección de datos para consumo"]
+
+link:what-storage-pool-is.html["Qué es un pool de almacenamiento"]
+
+link:what-cloud-storage-pool-is.html["Qué es un pool de almacenamiento cloud"]
+
+link:how-objects-are-stored-replication-erasure-coding.html["Cómo se almacenan los objetos (codificación de borrado o replicación)"]
+
+link:what-ilm-rule-filtering-is.html["Qué es el filtrado de reglas de ILM"]
+
+link:what-ilm-placement-instructions-are.html["¿Qué son las instrucciones de colocación de reglas de ILM"]

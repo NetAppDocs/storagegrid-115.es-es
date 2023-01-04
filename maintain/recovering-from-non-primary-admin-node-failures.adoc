@@ -1,0 +1,27 @@
+---
+permalink: maintain/recovering-from-non-primary-admin-node-failures.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, non-primary admin node failure 
+summary: 'Debe completar las siguientes tareas para recuperar el sistema de un fallo que no es del nodo de administrador principal. Un nodo de administrador aloja el servicio nodo de gestión de configuración \(CMN\) y se conoce como nodo de administración principal. Aunque puede tener varios nodos de administrador, cada sistema StorageGRID solo incluye un nodo de administrador primario. Todos los demás nodos de administrador son nodos de administrador no primarios.' 
+---
+= Recuperación de fallos de nodos de administrador que no son primarios
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe completar las siguientes tareas para recuperar el sistema de un fallo que no es del nodo de administrador principal. Un nodo de administrador aloja el servicio CMN (nodo de gestión de configuración) y se conoce como nodo de administración principal. Aunque puede tener varios nodos de administrador, cada sistema StorageGRID solo incluye un nodo de administrador primario. Todos los demás nodos de administrador son nodos de administrador no primarios.
+
+.Información relacionada
+link:../sg100-1000/index.html["SG100  servicios de aplicaciones SG1000"]
+
+.Pasos
+* link:copying-audit-logs-from-failed-non-primary-admin-node.html["Se han copiado los registros de auditoría del nodo de administrador que no es primario con errores"]
+* link:replacing-non-primary-admin-node.html["Reemplazar un nodo de administrador que no es primario"]
+* link:selecting-start-recovery-to-configure-non-primary-admin-node.html["Seleccione Start Recovery para configurar un nodo de administrador que no sea primario"]
+* link:restoring-audit-log-on-recovered-non-primary-admin-node.html["Restaurar el registro de auditoría en el nodo de administrador no primario recuperado"]
+* link:resetting-preferred-sender-on-recovered-non-primary-admin-node.html["Restablecer el remitente preferido en el nodo de administración no primario recuperado"]
+* link:restoring-admin-node-database-non-primary-admin-node.html["Restaurar la base de datos del nodo de administrador cuando se recupera un nodo de administrador que no es primario"]
+* link:restoring-prometheus-metrics-non-primary-admin-node.html["Restaurar las métricas de Prometheus al recuperar un nodo de administración que no sea primario"]
+

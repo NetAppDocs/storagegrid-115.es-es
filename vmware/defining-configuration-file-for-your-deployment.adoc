@@ -1,0 +1,24 @@
+---
+permalink: vmware/defining-configuration-file-for-your-deployment.html 
+sidebar: sidebar 
+keywords:  
+summary: Especifique la información necesaria para implementar nodos de grid virtual para StorageGRID en un archivo de configuración, que utiliza el script deploy-vsphere-ovftool.sh Bash. Puede modificar un archivo de configuración de ejemplo para que no tenga que crear el archivo desde cero. 
+---
+= Definición del archivo de configuración para la implementación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Especifique la información necesaria para implementar nodos de grid virtual para StorageGRID en un archivo de configuración, que utiliza el `deploy-vsphere-ovftool.sh` Guión de bash. Puede modificar un archivo de configuración de ejemplo para que no tenga que crear el archivo desde cero.
+
+.Pasos
+. Haga una copia del archivo de configuración de ejemplo (`deploy-vsphere-ovftool.sample.ini`). Guarde el nuevo archivo como `deploy-vsphere-ovftool.ini` en el mismo directorio que `deploy-vsphere-ovftool.sh`.
+. Abierto `deploy-vsphere-ovftool.ini`.
+. Especifique toda la información necesaria para poner en marcha los nodos de grid virtual de VMware.
++
+Consulte link:configuration-file-settings.html["Ajustes del archivo de configuración"] para obtener más información.
+
+. Cuando haya introducido y verificado toda la información necesaria, guarde y cierre el archivo.
+

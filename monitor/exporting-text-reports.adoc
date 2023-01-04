@@ -1,0 +1,36 @@
+---
+permalink: monitor/exporting-text-reports.html 
+sidebar: sidebar 
+keywords: reports, text, export text, report 
+summary: Los informes de texto exportados abren una nueva pestaña del navegador, que permite seleccionar y copiar los datos. 
+---
+= Exportar informes de texto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los informes de texto exportados abren una nueva pestaña del navegador, que permite seleccionar y copiar los datos.
+
+.Acerca de esta tarea
+A continuación, los datos copiados se pueden guardar en un documento nuevo (por ejemplo, una hoja de cálculo) y se pueden utilizar para analizar el rendimiento del sistema StorageGRID.
+
+.Pasos
+. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+. Cree un informe de texto.
+. Haga clic en *Exportar*image:../media/icon_export.gif["icono exportar"].
++
+image::../media/export_text_report.gif[captura de pantalla descrita por el texto circundante]
+
++
+Se abre la ventana Exportar informe de texto que muestra el informe.
+
++
+image::../media/export_text_report_data.gif[captura de pantalla que muestra un informe de texto de muestra]
+
+. Seleccione y copie el contenido de la ventana Exportar informe de texto.
++
+Estos datos se pueden pegar ahora en un documento de terceros, como una hoja de cálculo.
+
+

@@ -1,0 +1,27 @@
+---
+permalink: admin/managing-storagegrid-networks-and-connections.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede utilizar Grid Manager para configurar y administrar redes y conexiones StorageGRID. 
+---
+= Gestionar redes y conexiones StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar Grid Manager para configurar y administrar redes y conexiones StorageGRID.
+
+Consulte link:configuring-client-connections.html["Configurar las conexiones de clientes S3 y Swift"] Para aprender a conectar clientes S3 o Swift.
+
+* link:guidelines-for-storagegrid-networks.html["Directrices para redes StorageGRID"]
+* link:viewing-ip-addresses.html["Visualización de direcciones IP"]
+* link:supported-ciphers-for-outgoing-tls-connections.html["Cifrados compatibles para conexiones TLS salientes"]
+* link:changing-network-transfer-encryption.html["Cambiando el cifrado de transferencia de red"]
+* link:configuring-server-certificates.html["Configuración de certificados de servidor"]
+* link:configuring-storage-proxy-settings.html["Configurando la configuración del proxy de almacenamiento"]
+* link:configuring-admin-proxy-settings.html["Configurando los ajustes del proxy de administrador"]
+* link:managing-traffic-classification-policies.html["Gestión de directivas de clasificación de tráfico"]
+* link:what-link-costs-are.html["¿Cuáles son los costes de enlace"]
+

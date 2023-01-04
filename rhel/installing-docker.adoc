@@ -1,0 +1,68 @@
+---
+permalink: rhel/installing-docker.html 
+sidebar: sidebar 
+keywords:  
+summary: El sistema StorageGRID se ejecuta en Red Hat Enterprise Linux o CentOS como colección de contenedores de Docker. Antes de instalar StorageGRID, debe instalar Docker. 
+---
+= Instalación de Docker
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El sistema StorageGRID se ejecuta en Red Hat Enterprise Linux o CentOS como colección de contenedores de Docker. Antes de instalar StorageGRID, debe instalar Docker.
+
+.Pasos
+. Siga las instrucciones para su distribución de Linux para instalar Docker.
++
+
+NOTE: Si Docker no se incluye con su distribución de Linux, puede descargarla en el sitio web de Docker.
+
+. Para asegurarse de que Docker se ha activado y se ha iniciado, ejecute los dos comandos siguientes:
++
+[listing]
+----
+
+            sudo systemctl enable docker
+----
++
+[listing]
+----
+
+            sudo systemctl start docker
+----
+. Confirme que ha instalado la versión esperada de Docker; para ello, introduzca lo siguiente:
++
+[listing]
+----
+sudo docker version
+----
++
+Las versiones cliente y servidor deben ser 1.10.3 o posterior.
+
++
+[listing]
+----
+Client:
+  Version: 1.10.3
+  API version: 1.22
+  Package version: docker-common-1.10.3-46.el7.14.x86_64
+  Go version: go1.6.2
+  Git commit: 5206701-unsupported
+  Built: Mon Aug 29 14:00:01 2016
+  OS/Arch: linux/amd64
+
+Server:
+  Version: 1.10.3
+  API version: 1.22
+  Package version: docker-common-1.10.3-46.el7.14.x86_64
+  Go version: go1.6.2
+  Git commit: 5206701-unsupported
+  Built: Mon Aug 29 14:00:01 2016
+  OS/Arch: linux/amd64
+----
+
+
+.Información relacionada
+link:configuring-host-storage.html["Configuración del almacenamiento del host"]

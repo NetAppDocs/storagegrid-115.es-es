@@ -1,0 +1,29 @@
+---
+permalink: maintain/site-decommissioning.html 
+sidebar: sidebar 
+keywords:  
+summary: Es posible que deba eliminar un sitio de centro de datos del sistema StorageGRID. Para quitar un sitio, debe retirarlo. 
+---
+= Decomisionado de sitios
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que deba eliminar un sitio de centro de datos del sistema StorageGRID. Para quitar un sitio, debe retirarlo.
+
+El diagrama de flujo muestra los pasos de alto nivel para retirar un sitio.
+
+image::../media/overview_decommission_site.png[Resumen: Retirar sitio]
+
+.Pasos
+* link:considerations-for-removing-site.html["Consideraciones para quitar un sitio"]
+* link:gathering-required-materials-site-decom.html["Recolección de materiales necesarios"]
+* link:step-1-select-site.html["Paso 1: Seleccione Sitio"]
+* link:step-2-view-details.html["Paso 2: Ver detalles"]
+* link:step-3-revise-ilm-policy.html["Paso 3: Revisar la política de ILM"]
+* link:step-4-remove-ilm-references.html["Paso 4: Eliminar referencias de ILM"]
+* link:step-5-resolve-node-conflicts.html["Paso 5: Resolver conflictos de nodos (e iniciar retirada)"]
+* link:step-6-monitor-decommission.html["Paso 6: Supervisión de la misión"]
+

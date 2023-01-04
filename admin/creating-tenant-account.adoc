@@ -1,0 +1,49 @@
+---
+permalink: admin/creating-tenant-account.html 
+sidebar: sidebar 
+keywords:  
+summary: Debe crear al menos una cuenta de inquilino para controlar el acceso al almacenamiento en su sistema de StorageGRID. 
+---
+= Crear una cuenta de inquilino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe crear al menos una cuenta de inquilino para controlar el acceso al almacenamiento en su sistema de StorageGRID.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+.Pasos
+. Seleccione *arrendatarios*.
++
+Aparece la página Cuentas de arrendatarios y enumera todas las cuentas de arrendatario existentes.
+
++
+image::../media/tenant_accounts_page_blank.png[Página de cuentas de inquilino: En blanco]
+
+. Seleccione *Crear*.
++
+Aparece la página Crear cuenta de inquilino. Los campos incluidos en la página dependen de si se ha habilitado el inicio de sesión único (SSO) para el sistema StorageGRID.
+
++
+** Si no se utiliza SSO, la página Crear cuenta de inquilino tiene el aspecto siguiente.
++
+image::../media/create_tenant_account_no_sso.gif[Create Tenant Account SSO deshabilitado]
+
+** Si SSO está habilitado, la página Crear cuenta de inquilino tiene el aspecto siguiente.
++
+image::../media/create_tenant_account_sso.gif[Crear cuenta de inquilino habilitada con SSO]
+
+
+
+
+
+.Información relacionada
+link:using-identity-federation.html["Mediante la federación de identidades"]
+
+link:configuring-sso.html["Configuración del inicio de sesión único"]

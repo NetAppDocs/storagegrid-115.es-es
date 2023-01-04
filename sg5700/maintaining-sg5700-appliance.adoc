@@ -1,0 +1,27 @@
+---
+permalink: sg5700/maintaining-sg5700-appliance.html 
+sidebar: sidebar 
+keywords: storagegrid, sg5700, storage node, storage appliance, maintain, maintaining, hardware, procedures, tasks 
+summary: Es posible que deba actualizar el software de sistema operativo SANtricity en la controladora E2800, cambiar la configuración de enlace Ethernet de la controladora E5700SG, reemplazar la controladora E2800 o la controladora E5700SG, o sustituir componentes específicos. En los procedimientos descritos en esta sección se asume que el dispositivo ya se ha puesto en marcha como nodo de almacenamiento en un sistema StorageGRID. 
+---
+= Mantenimiento del dispositivo SG5700
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que deba actualizar el software de sistema operativo SANtricity en la controladora E2800, cambiar la configuración de enlace Ethernet de la controladora E5700SG, reemplazar la controladora E2800 o la controladora E5700SG, o sustituir componentes específicos. En los procedimientos descritos en esta sección se asume que el dispositivo ya se ha puesto en marcha como nodo de almacenamiento en un sistema StorageGRID.
+
+.Pasos
+* link:placing-appliance-into-maintenance-mode.html["Colocar un dispositivo en modo de mantenimiento"]
+* link:upgrading-santricity-os-on-storage-controller.html["Actualizar el sistema operativo SANtricity en la controladora de almacenamiento"]
+* link:upgrading-drive-firmware-using-santricity-system-manager.html["Actualizar el firmware de la unidad mediante System Manager de SANtricity"]
+* link:replacing-e2800-controller.html["Sustituya la controladora E2800"]
+* link:replacing-e5700sg-controller.html["Reemplazo de la controladora E5700SG"]
+* link:replacing-other-hardware-components-sg5700.html["Sustitución de otros componentes de hardware"]
+* link:changing-link-configuration-of-e5700sg-controller.html["Cambiar la configuración de enlace de la controladora E5700SG"]
+* link:changing-mtu-setting.html["Cambiar el valor de MTU"]
+* link:checking-dns-server-configuration.html["Comprobando la configuración del servidor DNS"]
+* link:monitoring-node-encryption-in-maintenance-mode.html["Supervisar el cifrado del nodo en modo de mantenimiento"]
+

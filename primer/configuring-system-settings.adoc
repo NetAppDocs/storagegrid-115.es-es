@@ -1,0 +1,51 @@
+---
+permalink: primer/configuring-system-settings.html 
+sidebar: sidebar 
+keywords: system settings, grid manager, configure, configuration, display options, grid options, key management server, S3 object lock, storage options 
+summary: Puede configurar varios ajustes del sistema desde el Gestor de cuadrícula para ajustar el funcionamiento del sistema StorageGRID. 
+---
+= Configurando los ajustes del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar varios ajustes del sistema desde el Gestor de cuadrícula para ajustar el funcionamiento del sistema StorageGRID.
+
+
+
+== Opciones de visualización
+
+Las opciones de visualización le permiten especificar el período de tiempo de espera para las sesiones de usuario y suprimir notificaciones por correo electrónico para las alarmas heredadas y los mensajes de AutoSupport activados por un evento.
+
+
+
+== Opciones de cuadrícula
+
+Puede utilizar Opciones de cuadrícula para configurar los valores de todos los objetos almacenados en el sistema StorageGRID, incluida la compresión de objetos almacenados, el cifrado de objetos almacenados. y hash de objetos almacenados.
+
+También puede usar estas opciones para especificar la configuración global de las operaciones cliente de S3 y Swift.
+
+
+
+== Servidores de gestión de claves
+
+Puede configurar uno o más servidores de gestión de claves externos (KMS) para proporcionar claves de cifrado a los servicios de StorageGRID y a los dispositivos de almacenamiento. Cada clúster de KMS o KMS utiliza el protocolo de interoperabilidad de gestión de claves (KMIP) para proporcionar una clave de cifrado a los nodos de los dispositivos en el sitio StorageGRID asociado. El uso de servidores de gestión de claves le permite proteger los datos de StorageGRID aunque un dispositivo se haya eliminado del centro de datos. Una vez que los volúmenes del dispositivo se han cifrado, no podrá acceder a ningún dato en el dispositivo a menos que el nodo se pueda comunicar con el KMS.
+
+
+NOTE: Para utilizar la administración de claves de cifrado, debe activar el ajuste *cifrado de nodos* para cada dispositivo durante la instalación, antes de agregar el dispositivo a la cuadrícula.
+
+
+
+== Bloqueo de objetos de S3
+
+La función StorageGRID S3 Object Lock es una solución de protección de objetos equivalente a S3 Object Lock en Amazon simple Storage Service (Amazon S3). Puede habilitar la configuración global de Object Lock para un sistema StorageGRID a fin de permitir que las cuentas de inquilinos S3 creen bloques con el bloqueo de objetos S3 habilitado. A continuación, el inquilino puede usar una aplicación cliente de S3 para especificar de forma opcional la configuración de retención (conservar hasta la fecha, la conservación legal o ambos) de los objetos en esos bloques.
+
+image::../media/s3_object_lock_architecture.png[Arquitectura de bloqueo de objetos de S3]
+
+
+
+== Opciones de almacenamiento
+
+Las opciones de almacenamiento permiten controlar la segmentación de objetos y definir marcas de agua de almacenamiento para gestionar el espacio de almacenamiento utilizable de un nodo de almacenamiento.

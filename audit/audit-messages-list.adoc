@@ -1,0 +1,14 @@
+---
+permalink: audit/audit-messages-list.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, messages, message 
+summary: Cuando se producen eventos del sistema, el sistema StorageGRID genera mensajes de auditoría y los registra en el registro de auditoría. 
+---
+= Auditar mensajes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando se producen eventos del sistema, el sistema StorageGRID genera mensajes de auditoría y los registra en el registro de auditoría.

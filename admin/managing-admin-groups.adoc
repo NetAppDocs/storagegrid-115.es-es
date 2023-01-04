@@ -1,0 +1,404 @@
+---
+permalink: admin/managing-admin-groups.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Gestión de los grupos de administración
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible crear grupos de administración para gestionar los permisos de seguridad de uno o más usuarios de administrador. Los usuarios deben pertenecer a un grupo para tener acceso al sistema StorageGRID.
+
+
+
+== Creando grupos de administradores
+
+Los grupos de administración permiten determinar a qué usuarios se puede acceder a qué características y operaciones en Grid Manager y en la API de gestión de grid.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+* Si planea importar un grupo federado, debe haber configurado la federación de identidades y el grupo federado debe existir ya en el origen de identidades configurado.
+
+
+.Pasos
+. Seleccione *Configuración* > *Control de acceso* > *grupos de administración*.
++
+Se mostrará la página Admin Groups, donde se enumeran los grupos de administración existentes.
+
++
+image::../media/groups.png[Grupos]
+
+. Seleccione *Agregar*.
++
+Aparece el cuadro de diálogo Agregar grupo.
+
++
+image::../media/add_group.png[Agregar grupo]
+
+. En Tipo de grupo, seleccione *local* si desea crear un grupo que sólo se utilizará dentro de StorageGRID, o seleccione *federado* si desea importar un grupo desde el origen de identidades.
+. Si ha seleccionado *local*, introduzca un nombre para mostrar para el grupo. El nombre para mostrar es el nombre que aparece en el Gestor de cuadrícula. Por ejemplo, «usuarios de mantenimiento» o «Administradores de ILM».
+. Introduzca un nombre único para el grupo.
++
+** *Local*: Introduzca el nombre único que desee. Por ejemplo, «'Administradores de ILM».
+** *Federado*: Introduzca el nombre del grupo exactamente como aparece en el origen de identidad configurado.
+
+
+. En *modo de acceso*, seleccione si los usuarios del grupo pueden cambiar la configuración y realizar operaciones en Grid Manager y la API de gestión de grid o si sólo pueden ver la configuración y las características.
++
+** *Read-write* (predeterminado): Los usuarios pueden cambiar la configuración y realizar las operaciones permitidas por sus permisos de administración.
+** *Sólo lectura*: Los usuarios sólo pueden ver los ajustes y las funciones. No pueden realizar cambios ni realizar ninguna operación en Grid Manager o en la API de gestión de grid. Los usuarios locales de solo lectura pueden cambiar sus propias contraseñas.
++
+
+NOTE: Si un usuario pertenece a varios grupos y cualquier grupo está establecido en *sólo lectura*, el usuario tendrá acceso de sólo lectura a todos los ajustes y características seleccionados.
+
+
+
+. Seleccione uno o más permisos de gestión.
++
+Debe asignar al menos un permiso a cada grupo; de lo contrario, los usuarios que pertenezcan al grupo no podrán iniciar sesión en StorageGRID.
+
+. Seleccione *Guardar*.
++
+Se creará el nuevo grupo. Si se trata de un grupo local, ahora puede agregar uno o más usuarios. Si se trata de un grupo federado, el origen de identidades gestiona los usuarios que pertenecen al grupo.
+
+
+
+.Información relacionada
+link:managing-local-users.html["Gestión de usuarios locales"]
+
+
+
+== Permisos de grupo de administradores
+
+Al crear grupos de usuarios de administrador, debe seleccionar uno o más permisos para controlar el acceso a funciones específicas de Grid Manager. A continuación, puede asignar cada usuario a uno o varios de estos grupos de administración para determinar qué tareas puede realizar el usuario.
+
+Debe asignar al menos un permiso a cada grupo; de lo contrario, los usuarios que pertenezcan a ese grupo no podrán iniciar sesión en Grid Manager.
+
+De forma predeterminada, cualquier usuario que pertenezca a un grupo que tenga al menos un permiso puede realizar las siguientes tareas:
+
+* Inicie sesión en Grid Manager
+* Consulte la consola
+* Puede ver las páginas Nodes
+* Supervise la topología de grid
+* Ver las alertas actuales y resueltas
+* Ver alarmas actuales e históricas (sistema heredado)
+* Cambiar su propia contraseña (sólo usuarios locales)
+* Vea cierta información en las páginas Configuración y Mantenimiento
+
+
+En las siguientes secciones se describen los permisos que se pueden asignar al crear o editar un grupo de administradores. Cualquier funcionalidad que no se haya mencionado explícitamente requiere el permiso acceso raíz.
+
+
+
+=== Acceso raíz
+
+Este permiso proporciona acceso a todas las funciones de administración de grid.
+
+
+
+=== Gestionar alertas
+
+Este permiso proporciona acceso a opciones para gestionar alertas. Los usuarios deben tener este permiso para gestionar las silencios, las notificaciones de alerta y las reglas de alerta.
+
+
+
+=== Reconocer alarmas (sistema heredado)
+
+Este permiso proporciona acceso para reconocer y responder a alarmas (sistema heredado). Todos los usuarios que han iniciado sesión pueden ver las alarmas actuales e históricas.
+
+Si desea que un usuario supervise la topología de la cuadrícula y reconozca únicamente las alarmas, debe asignar este permiso.
+
+
+
+=== Configuración de la página de topología de la cuadrícula
+
+Este permiso permite acceder a las siguientes opciones de menú:
+
+* Fichas de configuración disponibles en las páginas de *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+* *Restablecer recuentos de eventos* enlace en la ficha *nodos* > *Eventos*.
+
+
+
+
+=== Otra configuración de cuadrícula
+
+Este permiso proporciona acceso a opciones de configuración de cuadrícula adicionales.
+
+
+IMPORTANT: Para ver estas opciones adicionales, los usuarios también deben tener el permiso Configuración de página de topología de cuadrícula.
+
+* *Alarmas* (sistema heredado):
++
+** Alarmas globales
+** Configuración de correo electrónico heredado
+
+
+* *ILM*:
++
+** Pools de almacenamiento
+** Grados de almacenamiento
+
+
+* *Configuración* > *Configuración de red*
++
+** Coste del enlace
+
+
+* *Configuración* > *Configuración del sistema*:
++
+** Opciones de visualización
+** Opciones de cuadrícula
+** Opciones de almacenamiento
+
+
+* *Configuración* > *Supervisión*:
++
+** Eventos
+
+
+* *Soporte*:
++
+** AutoSupport
+
+
+
+
+
+
+=== Cuentas de inquilino
+
+Este permiso permite acceder a la página *arrendatarios* > *Cuentas de inquilino*.
+
+
+NOTE: La versión 1 de la API de gestión de grid (que se ha obsoleto) utiliza este permiso para gestionar las políticas de grupos de inquilinos, restablecer las contraseñas de administrador de Swift y gestionar las claves de acceso de S3 de usuario raíz.
+
+
+
+=== Cambiar la contraseña raíz del inquilino
+
+Este permiso proporciona acceso a la opción *Cambiar contraseña raíz* de la página Cuentas de arrendatarios, lo que le permite controlar quién puede cambiar la contraseña del usuario raíz local del arrendatario. Los usuarios que no tienen este permiso no pueden ver la opción *Cambiar contraseña raíz*.
+
+
+NOTE: Debe asignar el permiso Cuentas de inquilino al grupo para poder asignar este permiso.
+
+
+
+=== Mantenimiento
+
+Este permiso permite acceder a las siguientes opciones de menú:
+
+* *Configuración* > *Configuración del sistema*:
++
+** Nombres de dominio*
+** Certificados de servidor*
+
+
+* *Configuración* > *Supervisión*:
++
+** Auditoría*
+
+
+* *Configuración* > *Control de acceso*:
++
+** Contraseñas de grid
+
+
+* *Mantenimiento* > *tareas de mantenimiento*
++
+** Retirada
+** Expansión
+** Recuperación
+
+
+* *Mantenimiento* > *Red*:
++
+** Servidores DNS*
+** Red de red*
+** Servidores NTP*
+
+
+* *Mantenimiento* > *sistema*:
++
+** Licencia*
+** Paquete de recuperación
+** Actualización de software
+
+
+* *Soporte* > *Herramientas*:
++
+** Registros
+
+
+* Los usuarios que no tienen permiso de mantenimiento pueden ver, pero no editar, las páginas marcadas con un asterisco.
+
+
+
+
+=== Consulta de métricas
+
+Este permiso permite acceder a la página *Support* > *Tools* > *Metrics*. Este permiso también proporciona acceso a consultas de métricas Prometheus personalizadas mediante la sección *Metrics* de la API de gestión de grid.
+
+
+
+=== ILM
+
+Este permiso permite acceder a las siguientes opciones del menú *ILM*:
+
+* *Código de borrado*
+* *Reglas*
+* *Políticas*
+* *Regiones*
+
+
+
+NOTE: El acceso a las opciones de menú *ILM* > *agrupaciones de almacenamiento* y *ILM* > *grados de almacenamiento* está controlado por los permisos de configuración de páginas de configuración de cuadrícula y topología de cuadrícula.
+
+
+
+=== Búsqueda de metadatos de objetos
+
+Este permiso proporciona acceso a la opción de menú *ILM* > *Búsqueda de metadatos de objetos*.
+
+
+
+=== Administrador de dispositivos de almacenamiento
+
+Este permiso proporciona acceso al System Manager de SANtricity E-Series en dispositivos de almacenamiento a través de Grid Manager.
+
+
+
+=== Interacción entre permisos y modo de acceso
+
+Para todos los permisos, la configuración del modo de acceso del grupo determina si los usuarios pueden cambiar la configuración y realizar operaciones o si sólo pueden ver la configuración y las funciones relacionadas. Si un usuario pertenece a varios grupos y cualquier grupo está establecido en *sólo lectura*, el usuario tendrá acceso de sólo lectura a todos los ajustes y características seleccionados.
+
+
+
+=== Desactivación de funciones de la API de Grid Management
+
+Puede utilizar la API de gestión de grid para desactivar por completo determinadas funciones del sistema StorageGRID. Cuando se desactiva una función, no se pueden asignar permisos a nadie para realizar las tareas relacionadas con esa función.
+
+.Acerca de esta tarea
+El sistema de funciones desactivadas le permite impedir el acceso a determinadas funciones del sistema StorageGRID. La desactivación de una característica es la única manera de impedir que el usuario raíz o los usuarios que pertenecen a grupos de administrador con el permiso acceso raíz puedan utilizar esa función.
+
+Para comprender cómo puede ser útil esta funcionalidad, considere el siguiente escenario:
+
+_Company A es un proveedor de servicios que arrienda la capacidad de almacenamiento de su sistema StorageGRID mediante la creación de cuentas de inquilino. Para proteger la seguridad de los objetos de sus arrendatarios, la Compañía A desea asegurarse de que sus propios empleados nunca tengan acceso a ninguna cuenta de arrendatario después de que se haya implementado la cuenta._
+
+_La empresa A puede lograr este objetivo mediante el sistema Desactivar características en la API de gestión de grid. Al desactivar completamente la característica *Cambiar contraseña raíz de inquilino* en el administrador de grid (tanto la interfaz de usuario como la API), la empresa A puede garantizar que ningún usuario de administrador (incluido el usuario raíz y los usuarios pertenecientes a grupos con permiso de acceso raíz) puede cambiar la contraseña para el usuario raíz de cualquier cuenta de arrendatario._
+
+
+
+==== Reactivación de las funciones desactivadas
+
+De forma predeterminada, puede utilizar la API de administración de grid para reactivar una función que se haya desactivado. Sin embargo, si desea evitar que alguna vez se reactiven las funciones desactivadas, puede desactivar la propia función *activateFeatures*.
+
+
+CAUTION: La función *activateFeatures* no se puede reactivar. Si decide desactivar esta función, tenga en cuenta que perderá permanentemente la capacidad de reactivar otras funciones desactivadas. Para restaurar cualquier funcionalidad perdida, debe ponerse en contacto con el soporte técnico.
+
+Para obtener detalles, consulte las instrucciones para implementar las aplicaciones cliente S3 o Swift.
+
+.Pasos
+. Acceda a la documentación de Swagger para la API de Grid Management.
+. Busque el extremo Desactivar funciones.
+. Para desactivar una función, como *Cambiar contraseña raíz de inquilino*, envíe un cuerpo a la API de este modo:
++
+[listing]
+----
+{ "grid": {"changeTenantRootPassword": true} }
+----
++
+Cuando se completa la solicitud, se desactiva la función Cambiar contraseña raíz de inquilino. El permiso Cambiar la administración de la contraseña raíz del inquilino ya no aparece en la interfaz de usuario y cualquier solicitud de API que intente cambiar la contraseña raíz de un inquilino fallará con "'403 Prohibido'".
+
+. Para reactivar todas las funciones, envíe un cuerpo a la API de este modo:
++
+[listing]
+----
+{ "grid": null }
+----
++
+Cuando se completa esta solicitud, se reactivan todas las funciones, incluida la función Cambiar contraseña raíz de inquilino. El permiso Cambiar la administración de contraseña raíz de arrendatario ahora aparece en la interfaz de usuario y cualquier solicitud de API que intente cambiar la contraseña raíz de un inquilino se realizará correctamente, suponiendo que el usuario tenga el permiso de administración de acceso raíz o Cambiar contraseña raíz de inquilino.
+
++
+
+NOTE: El ejemplo anterior hace que se reactiven las funciones _all_ desactivadas. Si se han desactivado otras funciones que deben permanecer desactivadas, debe especificarlas explícitamente en la solicitud PUT. Por ejemplo, para reactivar la función Cambiar contraseña raíz de inquilino y continuar desactivando la función de confirmación de alarma, envíe esta solicitud DE PUT:
+
++
+[listing]
+----
+{ "grid": { "alarmAcknowledgment": true } }
+----
+
+
+.Información relacionada
+link:using-grid-management-api.html["Uso de la API de gestión de grid"]
+
+
+
+== Modificar un grupo de administración
+
+Es posible modificar un grupo admin para cambiar los permisos asociados con el grupo. Para los grupos de administración locales, también puede actualizar el nombre para mostrar.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+.Pasos
+. Seleccione *Configuración* > *Control de acceso* > *grupos de administración*.
+. Seleccione el grupo.
++
+Si el sistema incluye más de 20 elementos, puede especificar cuántas filas se muestran en cada página a la vez. A continuación, puede utilizar la función de búsqueda de su navegador para buscar un elemento específico en las filas mostradas actualmente.
+
+. Haga clic en *Editar*.
+. Opcionalmente, para grupos locales, introduzca el nombre del grupo que aparecerá a los usuarios, por ejemplo, "usuarios de mantenimiento".
++
+No se puede cambiar el nombre único, que es el nombre del grupo interno.
+
+. Si lo desea, puede cambiar el modo de acceso del grupo.
++
+** *Read-write* (predeterminado): Los usuarios pueden cambiar la configuración y realizar las operaciones permitidas por sus permisos de administración.
+** *Sólo lectura*: Los usuarios sólo pueden ver los ajustes y las funciones. No pueden realizar cambios ni realizar ninguna operación en Grid Manager o en la API de gestión de grid. Los usuarios locales de solo lectura pueden cambiar sus propias contraseñas.
++
+
+NOTE: Si un usuario pertenece a varios grupos y cualquier grupo está establecido en *sólo lectura*, el usuario tendrá acceso de sólo lectura a todos los ajustes y características seleccionados.
+
+
+
+. Opcionalmente, añada o elimine permisos de grupo.
++
+Consulte la información sobre los permisos del grupo de administración.
+
+. Seleccione *Guardar*.
+
+
+.Información relacionada
+<<Permisos de grupo de administradores>>
+
+
+
+== Eliminar un grupo de administrador
+
+Es posible eliminar un grupo de administración cuando se desea quitar el grupo del sistema y quitar todos los permisos asociados con el grupo. Al eliminar un grupo de administración, se quitan todos los usuarios de administrador del grupo, pero no se eliminan los usuarios de administrador.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+.Acerca de esta tarea
+Al eliminar un grupo, los usuarios asignados a ese grupo perderán todos los privilegios de acceso al Gestor de cuadrícula, a menos que un grupo diferente les conceda privilegios.
+
+.Pasos
+. Seleccione *Configuración* > *Control de acceso* > *grupos de administración*.
+. Seleccione el nombre del grupo.
++
+Si el sistema incluye más de 20 elementos, puede especificar cuántas filas se muestran en cada página a la vez. A continuación, puede utilizar la función de búsqueda de su navegador para buscar un elemento específico en las filas mostradas actualmente.
+
+. Seleccione *Quitar*.
+. Seleccione *OK*.
+

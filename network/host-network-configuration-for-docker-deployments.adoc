@@ -1,0 +1,83 @@
+---
+permalink: network/host-network-configuration-for-docker-deployments.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Antes de iniciar la implementación de StorageGRID en una plataforma de contenedores Docker, determine las redes \(grid, administrador, cliente\) que utilizará cada nodo. Debe asegurarse de que la interfaz de red de cada nodo esté configurada en la interfaz de host virtual o física correcta y de que cada red tenga suficiente ancho de banda.' 
+---
+= Configuración de red host para puestas en marcha de Docker
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de iniciar la implementación de StorageGRID en una plataforma de contenedores Docker, determine qué redes (grid, administrador, cliente) utilizará cada nodo. Debe asegurarse de que la interfaz de red de cada nodo esté configurada en la interfaz de host virtual o física correcta y que cada red tenga el ancho de banda suficiente.
+
+
+
+== Hosts físicos
+
+Si utiliza hosts físicos para dar soporte a los nodos de grid:
+
+* Asegúrese de que todos los hosts utilicen la misma interfaz de host para cada interfaz de nodo. Esta estrategia simplifica la configuración del host y permite la migración de nodos futura.
+* Obtenga una dirección IP para el propio host físico.
++
+
+NOTE: El host puede usar una interfaz física del host en sí y uno o más nodos que se ejecutan en el host. Todas las direcciones IP asignadas al host o los nodos que utilizan esta interfaz deben ser únicas. El host y el nodo no pueden compartir direcciones IP.
+
+* Abra los puertos requeridos en el host.
+
+
+
+
+== Recomendaciones mínimas de ancho de banda
+
+La siguiente tabla muestra las recomendaciones sobre ancho de banda mínimo para cada tipo de nodo StorageGRID y cada tipo de red. Debe aprovisionar cada host físico o virtual con suficiente ancho de banda de red para satisfacer los requisitos mínimos del agregado de ancho de banda para la cantidad total y el tipo de nodos StorageGRID que planea ejecutar en ese host.
+
+|===
+| Tipo de nodo 3+| Tipo de red 
+
+
+ a| 
+| Cuadrícula | Admin | Cliente 
+
+
+ a| 
+Admin
+| 10 Gbps | 1 Gbps | 1 Gbps 
+
+
+ a| 
+Puerta de enlace
+| 10 Gbps | 1 Gbps | 10 Gbps 
+
+
+ a| 
+Reducida
+| 10 Gbps | 1 Gbps | 10 Gbps 
+
+
+ a| 
+Archivado
+| 10 Gbps | 1 Gbps | 10 Gbps 
+|===
+
+NOTE: En esta tabla no se incluye el ancho de banda SAN, el cual es necesario para acceder al almacenamiento compartido. Si utiliza almacenamiento compartido al que se accede a través de Ethernet (iSCSI o FCoE), debe aprovisionar interfaces físicas independientes en cada host para proporcionar un ancho DE banda SAN suficiente. Para evitar presentar un cuello de botella, el ancho DE banda SAN de un host determinado debe igualar prácticamente el ancho de banda de red del nodo de almacenamiento agregado para todos los nodos de almacenamiento que se ejecuten en ese host.
+
+Utilice la tabla para determinar el número mínimo de interfaces de red que se deben aprovisionar en cada host, según el número y el tipo de nodos StorageGRID que piensa ejecutar en ese host.
+
+Por ejemplo, para ejecutar un nodo de administrador, un nodo de puerta de enlace y un nodo de almacenamiento en un solo host:
+
+* Conectar las redes Grid y Admin en el nodo Admin (requiere 10 + 1 = 11 Gbps)
+* Conecte las redes Grid y Client en el nodo Gateway (requiere 10 + 10 = 20 Gbps)
+* Conectar la red de grid en el nodo de almacenamiento (requiere 10 Gbps)
+
+
+En este escenario, debe proporcionar un mínimo de 11 + 20 + 10 = 41 Gbps de ancho de banda de red, Que podrían ser satisfechas por dos interfaces de 40 Gbps o cinco interfaces de 10 Gbps, potencialmente agregadas en enlaces y luego compartidas por las tres o más VLAN que llevan las subredes Grid, Admin y Client locales al centro de datos físico que contiene el host.
+
+Para obtener algunas maneras recomendadas de configurar los recursos físicos y de red en los hosts del clúster StorageGRID a fin de preparar la implementación de StorageGRID, consulte la información sobre cómo configurar la red de host en las instrucciones de instalación para la plataforma Linux.
+
+.Información relacionada
+link:../rhel/index.html["Instale Red Hat Enterprise Linux o CentOS"]
+
+link:../ubuntu/index.html["Instalar Ubuntu o Debian"]

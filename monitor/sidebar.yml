@@ -1,0 +1,183 @@
+---
+section: monitor
+title: Supervisar un sistema StorageGRID
+url: "/monitor/index.html"
+entries:
+- title: Uso de Grid Manager para la supervisión
+  url: "/monitor/using-grid-manager-for-monitoring.html"
+  entries:
+  - title: Requisitos del navegador web
+    url: "/monitor/web-browser-requirements.html"
+  - title: Ver la consola
+    url: "/monitor/viewing-dashboard.html"
+  - title: Ver la página Nodes
+    url: "/monitor/viewing-nodes-page.html"
+    entries:
+    - title: Ver la ficha Descripción general
+      url: "/monitor/viewing-overview-tab.html"
+    - title: Visualización de la pestaña hardware
+      url: "/monitor/viewing-hardware-tab.html"
+    - title: Visualización de la ficha Red
+      url: "/monitor/viewing-network-tab.html"
+    - title: Visualización de la pestaña almacenamiento
+      url: "/monitor/viewing-storage-tab.html"
+    - title: Ver la pestaña Eventos
+      url: "/monitor/viewing-events-tab.html"
+    - title: Uso de la ficha tarea para reiniciar un nodo de cuadrícula
+      url: "/monitor/using-task-tab-to-reboot-grid-node.html"
+    - title: Visualización de la ficha objetos
+      url: "/monitor/viewing-objects-tab.html"
+    - title: Visualización de la pestaña ILM
+      url: "/monitor/viewing-ilm-tab.html"
+    - title: Visualización de la pestaña Load Balancer
+      url: "/monitor/viewing-load-balancer-tab.html"
+    - title: Visualización de la ficha Servicios de plataforma
+      url: "/monitor/viewing-platform-services-tab.html"
+    - title: Ver información sobre los nodos de almacenamiento de dispositivos
+      url: "/monitor/viewing-information-about-appliance-storage-nodes.html"
+    - title: Ver la pestaña System Manager de SANtricity
+      url: "/monitor/viewing-santricity-system-manager-tab.html"
+    - title: Ver información sobre los nodos de administración de dispositivos y los
+        nodos de puerta de enlace
+      url: "/monitor/viewing-information-about-appliance-admin-nodes-and-gateway-nodes.html"
+- title: Información que debe supervisar con regularidad
+  url: "/monitor/information-you-should-monitor-regularly.html"
+  entries:
+  - title: Supervisar el estado del sistema
+    url: "/monitor/monitoring-system-health.html"
+    entries:
+    - title: Supervisar los estados de conexión de los nodos
+      url: "/monitor/monitoring-node-connection-states.html"
+    - title: Ver las alertas actuales
+      url: "/monitor/viewing-current-alerts.html"
+    - title: Ver alertas resueltas
+      url: "/monitor/viewing-resolved-alerts.html"
+    - title: Ver una alerta específica
+      url: "/monitor/viewing-specific-alert.html"
+    - title: Visualización de alarmas heredadas
+      url: "/monitor/viewing-legacy-alarms.html"
+  - title: Supervisar la capacidad de almacenamiento
+    url: "/monitor/monitoring-storage-capacity.html"
+    entries:
+    - title: Supervisar la capacidad de almacenamiento de todo el grid
+      url: "/monitor/monitoring-storage-capacity-for-entire-grid.html"
+    - title: Supervisar la capacidad de almacenamiento de cada nodo de almacenamiento
+      url: "/monitor/monitoring-storage-capacity-for-each-storage-node.html"
+    - title: Supervisar la capacidad de metadatos de los objetos para cada nodo de
+        almacenamiento
+      url: "/monitor/monitoring-object-metadata-capacity-for-each-storage-node.html"
+  - title: Supervisión de la gestión de la vida útil de la información
+    url: "/monitor/monitoring-information-lifecycle-management.html"
+  - title: Supervisar el rendimiento, las redes y los recursos del sistema
+    url: "/monitor/monitoring-performance-networking-and-system-resources.html"
+    entries:
+    - title: Supervisión de la latencia de las consultas
+      url: "/monitor/monitoring-query-latency.html"
+    - title: Supervisar las conexiones de red y el rendimiento
+      url: "/monitor/monitoring-network-connections-and-performance.html"
+    - title: Supervisar recursos a nivel de nodo
+      url: "/monitor/monitoring-node-level-resources.html"
+  - title: Supervisión de la actividad de los inquilinos
+    url: "/monitor/monitoring-tenant-activity.html"
+  - title: Supervisar la capacidad de archivado
+    url: "/monitor/monitoring-archival-capacity.html"
+  - title: Supervisar las operaciones de equilibrio de carga
+    url: "/monitor/monitoring-load-balancing-operations.html"
+  - title: Aplicar revisiones o actualizar software si es necesario
+    url: "/monitor/applying-hotfixes-or-upgrading-software-if-necessary.html"
+- title: Gestión de alertas y alarmas
+  url: "/monitor/managing-alerts-and-alarms.html"
+  entries:
+  - title: Comparación de alertas y alarmas
+    url: "/monitor/comparing-alerts-and-alarms.html"
+  - title: Gestión de alertas
+    url: "/monitor/managing-alerts.html"
+  - title: Gestión de alarmas (sistema heredado)
+    url: "/monitor/managing-alarms.html"
+- title: Uso de la supervisión de SNMP
+  url: "/monitor/using-snmp-monitoring.html"
+  entries:
+  - title: Configuración del agente SNMP
+    url: "/monitor/configuring-snmp-agent.html"
+  - title: Actualización del agente SNMP
+    url: "/monitor/updating-snmp-agent.html"
+- title: Recopilación de datos de StorageGRID adicionales
+  url: "/monitor/collecting-additional-storagegrid-data.html"
+  entries:
+  - title: Uso de gráficos e informes
+    url: "/monitor/using-charts-and-reports.html"
+    entries:
+    - title: Tipos de gráficos
+      url: "/monitor/types-of-charts-and-graphs.html"
+      entries:
+      - title: Leyenda del gráfico
+        url: "/monitor/chart-legend.html"
+    - title: Mostrar gráficos y gráficos
+      url: "/monitor/displaying-charts-and-graphs.html"
+    - title: Generando gráficos
+      url: "/monitor/generating-charts.html"
+    - title: Tipos de informes de texto
+      url: "/monitor/types-of-text-reports.html"
+    - title: Generación de informes de texto
+      url: "/monitor/generating-text-reports.html"
+    - title: Exportar informes de texto
+      url: "/monitor/exporting-text-reports.html"
+  - title: DE PUT y GET rendimiento
+    url: "/monitor/monitoring-put-and-get-performance.html"
+  - title: Supervisar las operaciones de verificación de objetos
+    url: "/monitor/monitoring-object-verification-operations.html"
+  - title: Supervisar eventos
+    url: "/monitor/monitoring-events.html"
+    entries:
+    - title: Revisión de eventos anteriores
+      url: "/monitor/reviewing-previous-events.html"
+    - title: Restableciendo el número de eventos
+      url: "/monitor/resetting-event-counts.html"
+    - title: Creación de eventos de syslog personalizados
+      url: "/monitor/creating-custom-syslog-events.html"
+    - title: Restablecer el número de eventos personalizados a cero
+      url: "/monitor/resetting-count-of-custom-events-to-zero.html"
+  - title: Revisión de mensajes de auditoría
+    url: "/monitor/reviewing-audit-messages.html"
+  - title: Recogida de archivos de registro y datos del sistema
+    url: "/monitor/collecting-log-files-and-system-data.html"
+  - title: Activación manual de un mensaje de AutoSupport
+    url: "/monitor/manually-triggering-autosupport-message.html"
+  - title: Visualización del árbol de topología de cuadrícula
+    url: "/monitor/viewing-grid-topology-tree.html"
+  - title: Revisión de las métricas de soporte
+    url: "/monitor/reviewing-support-metrics.html"
+  - title: Ejecución de diagnósticos
+    url: "/monitor/running-diagnostics.html"
+  - title: Crear aplicaciones de supervisión personalizadas
+    url: "/monitor/creating-custom-monitoring-applications.html"
+- title: Referencia de alertas
+  url: "/monitor/alerts-reference.html"
+  entries:
+  - title: Métricas de Prometheus que se usan habitualmente
+    url: "/monitor/commonly-used-prometheus-metrics.html"
+- title: Referencia de alarmas (sistema heredado)
+  url: "/monitor/alarms-reference.html"
+  entries:
+  - title: Alarmas que generan notificaciones SNMP (sistema heredado)
+    url: "/monitor/alarms-that-generate-snmp-notifications.html"
+- title: Referencia de archivos de registro
+  url: "/monitor/logs-files-reference.html"
+  entries:
+  - title: Registros del software StorageGRID
+    url: "/monitor/storagegrid-software-logs.html"
+  - title: Registros de implementación y mantenimiento
+    url: "/monitor/deployment-and-maintenance-logs.html"
+  - title: Registros del software de terceros
+    url: "/monitor/logs-for-third-party-software.html"
+  - title: Acerca de bycast.log
+    url: "/monitor/about-bycast-log.html"
+    entries:
+    - title: Rotación de archivos para bycast.log
+      url: "/monitor/file-rotation-for-bycast-log.html"
+    - title: Mensajes en bycast.log
+      url: "/monitor/messages-in-bycast-log.html"
+    - title: Niveles de gravedad del mensaje en bycast.log
+      url: "/monitor/message-severities-in-bycast-log.html"
+    - title: códigos de error en bycast.log
+      url: "/monitor/error-codes-in-bycast-log.html"

@@ -1,0 +1,20 @@
+---
+permalink: audit/index.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, logs, messages, log, message 
+summary: Obtenga más información sobre los registros de auditoría del sistema StorageGRID y consulte una lista de todos los mensajes de auditoría. 
+---
+= Revisar los registros de auditoría
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtenga más información sobre los registros de auditoría del sistema StorageGRID y consulte una lista de todos los mensajes de auditoría.
+
+* link:audit-message-overview.html["Información general de los mensajes de auditoría"]
+* link:audit-file-and-message-formats.html["Formatos de archivo y mensaje de registro de auditoría"]
+* link:audit-messages-and-object-lifecycle.html["Auditar los mensajes y el ciclo de vida del objeto"]
+* link:audit-messages-main.html["Auditar mensajes"]
+

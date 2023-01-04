@@ -1,0 +1,42 @@
+---
+permalink: admin/enabling-single-sign-on.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Después de utilizar el modo Sandbox para probar todas las confianzas de partes de confianza de StorageGRID, está listo para habilitar el inicio de sesión único \(SSO\).' 
+---
+= Habilitar el inicio de sesión único
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de usar el modo de Sandbox para probar todas sus confianzas de partes de confianza de StorageGRID, estará listo para habilitar el inicio de sesión único (SSO).
+
+.Lo que necesitará
+* Debe haber importado al menos un grupo federado del origen de identidades y los permisos de administración de acceso raíz asignados al grupo. Debe confirmar que al menos un usuario federado tiene permiso de acceso raíz al administrador de grid y al administrador de inquilinos para las cuentas de arrendatario existentes.
+* Debe haber probado todas las confianzas de partes de confianza mediante el modo de Sandbox.
+
+
+.Pasos
+. Seleccione *Configuración* > *Control de acceso* > *Inicio de sesión único*.
++
+Aparece la página Single Sign-On con *modo Sandbox* seleccionado.
+
+. Cambie el estado de SSO a *habilitado*.
+. Haga clic en *Guardar*.
++
+Aparecerá un mensaje de advertencia.
+
++
+image::../media/sso_status_enabled_warning.gif[Mensaje de advertencia para habilitar SSO]
+
+. Revise la advertencia y haga clic en *Aceptar*.
++
+El inicio de sesión único ahora está activado.
+
++
+
+IMPORTANT: Todos los usuarios deben utilizar SSO para acceder a Grid Manager, al Gestor de inquilinos, a la API de gestión de grid y a la API de gestión de inquilinos. Los usuarios locales ya no pueden acceder a StorageGRID.
+
+

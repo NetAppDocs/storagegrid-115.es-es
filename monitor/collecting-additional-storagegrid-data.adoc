@@ -1,0 +1,27 @@
+---
+permalink: monitor/collecting-additional-storagegrid-data.html 
+sidebar: sidebar 
+keywords: StorageGRID, collecting StorageGRID data 
+summary: Existen varias formas adicionales de recopilar y analizar datos que pueden ser útiles para investigar el estado del sistema StorageGRID o al trabajar con el soporte técnico para resolver problemas. 
+---
+= Recopilación de datos de StorageGRID adicionales
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Existen varias formas adicionales de recopilar y analizar datos que pueden ser útiles para investigar el estado del sistema StorageGRID o al trabajar con el soporte técnico para resolver problemas.
+
+* link:using-charts-and-reports.html["Uso de gráficos e informes"]
+* link:monitoring-put-and-get-performance.html["DE PUT y GET rendimiento"]
+* link:monitoring-object-verification-operations.html["Supervisar las operaciones de verificación de objetos"]
+* link:monitoring-events.html["Supervisar eventos"]
+* link:reviewing-audit-messages.html["Revisión de mensajes de auditoría"]
+* link:collecting-log-files-and-system-data.html["Recogida de archivos de registro y datos del sistema"]
+* link:manually-triggering-autosupport-message.html["Activación manual de un mensaje de AutoSupport"]
+* link:viewing-grid-topology-tree.html["Visualización del árbol de topología de cuadrícula"]
+* link:reviewing-support-metrics.html["Revisión de las métricas de soporte"]
+* link:running-diagnostics.html["Ejecución de diagnósticos"]
+* link:creating-custom-monitoring-applications.html["Crear aplicaciones de supervisión personalizadas"]
+

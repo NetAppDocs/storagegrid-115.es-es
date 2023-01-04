@@ -1,0 +1,29 @@
+---
+permalink: admin/changing-cifs-audit-share-user-or-group-name.html 
+sidebar: sidebar 
+keywords:  
+summary: Es posible cambiar el nombre de un usuario o de un grupo de un recurso compartido de auditoría de CIFS. Para ello, añada un nuevo usuario o grupo y, a continuación, elimine el anterior. 
+---
+= Cambiar un nombre de usuario o de grupo de recursos compartidos de auditoría de CIFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible cambiar el nombre de un usuario o de un grupo de un recurso compartido de auditoría de CIFS. Para ello, añada un nuevo usuario o grupo y, a continuación, elimine el anterior.
+
+.Acerca de esta tarea
+La exportación de auditorías por CIFS/Samba ha sido obsoleta y se eliminará en una futura versión de StorageGRID.
+
+.Pasos
+. Agregue un nuevo usuario o grupo con el nombre actualizado al recurso compartido de auditoría.
+. Elimine el nombre de usuario o grupo anterior.
+
+
+.Información relacionada
+link:../upgrade/index.html["Actualizar el software de"]
+
+link:adding-user-or-group-to-cifs-audit-share.html["Adición de un usuario o un grupo a un recurso compartido de auditoría CIFS"]
+
+link:removing-user-or-group-from-cifs-audit-share.html["Eliminar un usuario o un grupo de un recurso compartido de auditoría CIFS"]

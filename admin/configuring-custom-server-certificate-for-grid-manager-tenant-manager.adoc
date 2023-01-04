@@ -1,0 +1,61 @@
+---
+permalink: admin/configuring-custom-server-certificate-for-grid-manager-tenant-manager.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede reemplazar el certificado de servidor StorageGRID predeterminado por un único certificado de servidor personalizado que permite a los usuarios acceder al Administrador de grid y al Administrador de inquilinos sin tener que encontrar advertencias de seguridad. 
+---
+= Configuración de un certificado de servidor personalizado para el administrador de grid y el administrador de inquilinos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede reemplazar el certificado de servidor StorageGRID predeterminado por un único certificado de servidor personalizado que permite a los usuarios acceder al Administrador de grid y al Administrador de inquilinos sin tener que encontrar advertencias de seguridad.
+
+.Acerca de esta tarea
+De manera predeterminada, cada nodo del administrador se envía un certificado firmado por la CA de grid. Estos certificados firmados por CA pueden sustituirse por un solo certificado de servidor personalizado común y una clave privada correspondiente.
+
+Dado que se utiliza un único certificado de servidor personalizado para todos los nodos de administración, debe especificar el certificado como un comodín o certificado de varios dominios si los clientes necesitan verificar el nombre de host al conectarse a Grid Manager y al Gestor de inquilinos. Defina el certificado personalizado de modo que coincida con todos los nodos de administrador de la cuadrícula.
+
+Debe completar la configuración en el servidor y, en función de la entidad emisora de certificados raíz (CA) que esté utilizando, los usuarios también pueden necesitar instalar el certificado de CA raíz en el explorador Web que utilizarán para acceder a Grid Manager y al Gestor de inquilinos.
+
+
+NOTE: Para garantizar que las operaciones no se interrumpen con un certificado de servidor fallido, la alarma *caducidad del certificado de servidor para la interfaz de administración* y la alarma de caducidad del certificado de interfaz de administración heredada (MCEP) se activan cuando este certificado de servidor está a punto de expirar. Según sea necesario, puede ver el número de días hasta que caduque el certificado de servicio actual seleccionando *Soporte* > *Herramientas* > *Topología de cuadrícula*. A continuación, seleccione *_primary Admin Node_* > *CMN* > *Resources*.
+
+[NOTE]
+====
+Si accede a Grid Manager o a Intenant Manager utilizando un nombre de dominio en lugar de una dirección IP, el explorador mostrará un error de certificado sin una opción para omitir si se produce alguna de las siguientes situaciones:
+
+* El certificado del servidor de la interfaz de gestión personalizada caduca.
+* Se revierte de un certificado del servidor de interfaz de gestión personalizado al certificado de servidor predeterminado.
+
+
+====
+.Pasos
+. Seleccione *Configuración* > *Configuración de red* > *certificados de servidor*.
+. En la sección Certificado de servidor de la interfaz de administración, haga clic en *instalar certificado personalizado*.
+. Cargue los archivos de certificado de servidor requeridos:
++
+** *Certificado de servidor*: El archivo de certificado de servidor personalizado (`.crt`).
+** *Clave privada del certificado del servidor*: El archivo de clave privada del certificado del servidor personalizado (`.key`).
++
+
+NOTE: Las claves privadas EC deben ser de 224 bits o más. Las claves privadas RSA deben ser de 2048 bits o más.
+
+** *Paquete CA*: Un único archivo que contiene los certificados de cada entidad emisora de certificados intermedia (CA). El archivo debe contener cada uno de los archivos de certificado de CA codificados con PEM, concatenados en el orden de la cadena de certificados.
+
+
+. Haga clic en *Guardar*.
++
+Los certificados de servidor personalizados se utilizan para todas las conexiones de cliente nuevas posteriores.
+
++
+Seleccione una pestaña para mostrar información detallada sobre el certificado de servidor StorageGRID predeterminado o un certificado firmado de CA que se cargó.
+
++
+
+NOTE: Después de cargar un nuevo certificado, permita que se borren todas las alertas de caducidad de certificados (o alarmas heredadas) relacionadas.
+
+. Actualice la página para garantizar que se actualice el explorador web.
+

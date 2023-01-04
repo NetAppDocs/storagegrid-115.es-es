@@ -1,0 +1,83 @@
+---
+permalink: ilm/how-objects-are-deleted.html 
+sidebar: sidebar 
+keywords:  
+summary: StorageGRID puede eliminar objetos en respuesta directa a una solicitud del cliente o de forma automática como resultado del vencimiento del ciclo de vida de un bloque de S3 o de los requisitos de la política de ILM. Comprender las diferentes formas en que se pueden eliminar los objetos y el modo en que StorageGRID gestiona las solicitudes de eliminación puede ayudarle a gestionar los objetos de forma más eficaz. 
+---
+= Cómo se eliminan los objetos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID puede eliminar objetos en respuesta directa a una solicitud del cliente o de forma automática como resultado del vencimiento del ciclo de vida de un bloque de S3 o de los requisitos de la política de ILM. Comprender las diferentes formas en que se pueden eliminar los objetos y el modo en que StorageGRID gestiona las solicitudes de eliminación puede ayudarle a gestionar los objetos de forma más eficaz.
+
+StorageGRID puede utilizar uno de estos dos métodos para eliminar objetos:
+
+* Eliminación síncrona: Cuando StorageGRID recibe una solicitud de eliminación de cliente, todas las copias de los objetos se eliminan de inmediato. Se informa al cliente de que la eliminación se ha realizado correctamente una vez eliminadas las copias.
+* Los objetos se ponen en cola para eliminación: Cuando StorageGRID recibe una solicitud de eliminación, el objeto se pone en cola para su eliminación y se informa al cliente inmediatamente de que esta se ha eliminado correctamente. Las copias de objetos se eliminan más adelante mediante el procesamiento de ILM en segundo plano.
+
+
+Cuando se eliminan objetos, StorageGRID utiliza el método que optimiza el rendimiento de eliminación, minimiza las posibles acumulaciones de eliminación y libera espacio que se libera con mayor rapidez.
+
+La tabla resume cuándo StorageGRID utiliza cada método.
+
+[cols="1a,2a"]
+|===
+| Método de eliminación | Cuando se utilice 
+
+
+ a| 
+Los objetos se mantienen en la cola para su eliminación
+ a| 
+Cuando *cualquiera* de las siguientes condiciones se cumple:
+
+* La eliminación automática de objetos ha sido activada por uno de los siguientes eventos:
++
+** Se ha alcanzado la fecha de caducidad o el número de días en la configuración del ciclo de vida de un bloque de S3.
+** El último periodo de tiempo especificado en una regla de ILM transcurre.
+
+
++
+*Nota:* los objetos de un contenedor que tiene habilitado el bloqueo de objetos S3 no se pueden eliminar si están en una reserva legal o si se ha especificado una fecha de retención, pero aún no se ha cumplido.
+
+* Un cliente de S3 o Swift solicita la eliminación y se debe cumplir una o varias de estas condiciones:
++
+** Las copias no se pueden eliminar en 30 segundos porque, por ejemplo, una ubicación de objeto no está disponible temporalmente.
+** Las colas de eliminación en segundo plano están inactivas.
+
+
+
+
+
+
+ a| 
+Los objetos se quitan de inmediato (eliminación síncrona)
+ a| 
+Cuando un cliente S3 o Swift realiza una solicitud de eliminación y *se cumplen todas* las siguientes condiciones:
+
+* Todas las copias se pueden eliminar en 30 segundos.
+* Las colas de eliminación en segundo plano contienen objetos que se van a procesar.
+
+
+|===
+Cuando los clientes de S3 o Swift realizan solicitudes de eliminación, StorageGRID comienza agregando una serie de objetos a la cola de eliminación. A continuación, cambia a realizar una eliminación síncrona. Asegurarse de que la cola de eliminación en segundo plano tiene objetos que procesar permite a StorageGRID procesar las eliminaciones de forma más eficaz, especialmente en los clientes de baja concurrencia, mientras que ayuda a evitar que los clientes eliminen las copias de seguridad.
+
+
+
+== Comprender el impacto que tiene StorageGRID sobre la eliminación de objetos
+
+La forma en que StorageGRID elimina los objetos puede afectar a la forma en la que aparece el sistema:
+
+* Cuando StorageGRID realiza la eliminación síncrona, StorageGRID puede tardar hasta 30 segundos en devolver un resultado al cliente. Esto significa que la eliminación puede parecer más lenta, aunque en realidad se eliminan copias más rápidamente de lo que están cuando StorageGRID pone en cola objetos para su eliminación.
+* Si supervisa de cerca el rendimiento de eliminación durante una eliminación masiva, puede observar que la tasa de eliminación aparece como lenta después de eliminar un cierto número de objetos. Este cambio ocurre cuando StorageGRID pasa de poner objetos en cola para su eliminación a realizar una eliminación síncrona. La reducción aparente en la tasa de eliminación no significa que las copias de objetos se van a eliminar más lentamente. Por el contrario, indica que, en promedio, ahora se libera espacio con más rapidez.
+
+
+Si elimina un gran número de objetos y la prioridad es liberar espacio rápidamente, considere la posibilidad de usar una solicitud de cliente para eliminar objetos en lugar de eliminarlos con ILM u otros métodos. En general, el espacio se libera más rápidamente cuando los clientes lo eliminan, ya que StorageGRID puede utilizar la eliminación síncrona.
+
+Debe tener en cuenta que la cantidad de tiempo necesario para liberar espacio después de eliminar un objeto depende de varios factores:
+
+* Si las copias de objetos se eliminan de forma síncrona o se ponen en cola para su eliminación más adelante (para solicitudes de eliminación de clientes).
+* Otros factores, como el número de objetos de la cuadrícula o la disponibilidad de los recursos de grid cuando las copias de objetos se colocan en cola para su eliminación (tanto para los eliminaciones del cliente como para otros métodos).
+

@@ -1,0 +1,23 @@
+---
+permalink: sg6000/preparing-for-installation.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, install, installation, preparation, get ready, prepare 
+summary: Para preparar la instalación de un dispositivo StorageGRID es necesario preparar el sitio y obtener todo el hardware, cables y herramientas necesarios. También debe recopilar información sobre las direcciones IP y la red. 
+---
+= Preparación de la instalación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para preparar la instalación de un dispositivo StorageGRID es necesario preparar el sitio y obtener todo el hardware, cables y herramientas necesarios. También debe recopilar información sobre las direcciones IP y la red.
+
+.Pasos
+* link:preparing-site-sg6000.html["Preparación del sitio (SG6000)"]
+* link:unpacking-boxes-sg6000.html["Desembalaje de las cajas (SG6000)"]
+* link:obtaining-additional-equipment-and-tools-sg6000.html["Obtención de herramientas y equipos adicionales (SG6000)"]
+* link:web-browser-requirements.html["Requisitos del navegador web"]
+* link:reviewing-appliance-network-connections-sg6000.html["Revisar las conexiones de red del dispositivo"]
+* link:gathering-installation-information-sg6000.html["Recopilación de información de instalación (SG6000)"]
+

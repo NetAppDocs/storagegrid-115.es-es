@@ -1,0 +1,109 @@
+---
+permalink: admin/managing-local-users.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Gestión de usuarios locales
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede crear usuarios locales y asignarles grupos de administración locales para determinar a qué funciones de Grid Manager pueden acceder estos usuarios.
+
+Grid Manager incluye un usuario local predefinido denominado «'root'». Aunque puede agregar y quitar usuarios locales, no puede quitar el usuario raíz.
+
+
+NOTE: Si se ha habilitado el inicio de sesión único (SSO), los usuarios locales no podrán iniciar sesión en StorageGRID.
+
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+
+
+== Creando un usuario local
+
+Si creó grupos de administración locales, puede crear uno o más usuarios locales y asignar cada usuario a uno o más grupos. Los permisos del grupo controlan a qué funciones de Grid Manager puede acceder el usuario.
+
+.Acerca de esta tarea
+Solo es posible crear usuarios locales, y solo es posible asignar estos usuarios a grupos de administración locales. Los usuarios federados y los grupos federados se gestionan usando el origen de identidades externo.
+
+.Pasos
+. Seleccione *Configuración* > *Control de acceso* > *usuarios de administración*.
+. Haga clic en *Crear*.
+. Introduzca el nombre para mostrar, el nombre exclusivo y la contraseña del usuario.
+. Asigne el usuario a uno o varios grupos que rijan los permisos de acceso.
++
+La lista de nombres de grupo se genera a partir de la tabla grupos.
+
+. Haga clic en *Guardar*.
+
+
+.Información relacionada
+link:managing-admin-groups.html["Gestión de los grupos de administración"]
+
+
+
+== Modificar una cuenta de usuario local
+
+Puede modificar la cuenta de un usuario administrador local para actualizar el nombre para mostrar del usuario o la pertenencia a grupos. También es posible impedir temporalmente que un usuario acceda al sistema.
+
+.Acerca de esta tarea
+Solo puede editar usuarios locales. Los detalles de usuario federado se sincronizan automáticamente con el origen de identidad externo.
+
+.Pasos
+. Seleccione *Configuración* > *Control de acceso* > *usuarios de administración*.
+. Seleccione el usuario que desea editar.
++
+Si el sistema incluye más de 20 elementos, puede especificar cuántas filas se muestran en cada página a la vez. A continuación, puede utilizar la función de búsqueda de su navegador para buscar un elemento específico en las filas mostradas actualmente.
+
+. Haga clic en *Editar*.
+. Si lo desea, puede realizar cambios en el nombre o la pertenencia al grupo.
+. Opcionalmente, para evitar que el usuario acceda temporalmente al sistema, marque *Denegar acceso*.
+. Haga clic en *Guardar*.
++
+La nueva configuración se aplica la próxima vez que el usuario cierre sesión y vuelva a acceder al Gestor de cuadrícula.
+
+
+
+
+
+== Eliminar una cuenta de usuario local
+
+Puede eliminar cuentas de usuarios locales que ya no requieran acceso a Grid Manager.
+
+.Pasos
+. Seleccione *Configuración* > *Control de acceso* > *usuarios de administración*.
+. Seleccione el usuario local que desea eliminar.
++
+
+NOTE: No se puede eliminar el usuario local raíz predefinido.
+
++
+Si el sistema incluye más de 20 elementos, puede especificar cuántas filas se muestran en cada página a la vez. A continuación, puede utilizar la función de búsqueda de su navegador para buscar un elemento específico en las filas mostradas actualmente.
+
+. Haga clic en *Quitar*.
+. Haga clic en *Aceptar*.
+
+
+
+
+== Cambiar la contraseña de un usuario local
+
+Los usuarios locales pueden cambiar sus propias contraseñas mediante la opción *Cambiar contraseña* del banner de Grid Manager. Además, los usuarios que tienen acceso a la página Admin Users pueden cambiar las contraseñas de otros usuarios locales.
+
+.Acerca de esta tarea
+Solo es posible cambiar contraseñas para usuarios locales. Los usuarios federados deben cambiar sus propias contraseñas en el origen de identidades externo.
+
+.Pasos
+. Seleccione *Configuración* > *Control de acceso* > *usuarios de administración*.
+. En la página Users, seleccione el usuario.
++
+Si el sistema incluye más de 20 elementos, puede especificar cuántas filas se muestran en cada página a la vez. A continuación, puede utilizar la función de búsqueda de su navegador para buscar un elemento específico en las filas mostradas actualmente.
+
+. Haga clic en *Cambiar contraseña*.
+. Introduzca y confirme la contraseña y haga clic en *Guardar*.
+

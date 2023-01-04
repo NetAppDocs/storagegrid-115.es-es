@@ -1,0 +1,55 @@
+---
+permalink: admin/requirements-for-sso.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Antes de habilitar el inicio de sesión único \(SSO\) para un sistema StorageGRID, revise los requisitos en esta sección.' 
+---
+= Requisitos para usar el inicio de sesión único
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de habilitar el inicio de sesión único (SSO) para un sistema StorageGRID, revise los requisitos en esta sección.
+
+
+IMPORTANT: El inicio de sesión único (SSO) no está disponible en los puertos de administrador de grid restringido o de administrador de inquilinos. Debe utilizar el puerto HTTPS predeterminado (443) si desea que los usuarios se autentiquen con inicio de sesión único.
+
+
+
+== Requisitos del proveedor de identidades
+
+El proveedor de identidades (IDP) para SSO debe cumplir los siguientes requisitos:
+
+* Cualquiera de las siguientes versiones del servicio de Federación de Active Directory (AD FS):
++
+** AD FS 4.0, incluido en Windows Server 2016
++
+
+NOTE: Windows Server 2016 debe utilizar https://support.microsoft.com/en-us/help/3201845/cumulative-update-for-windows-10-version-1607-and-windows-server-2016["Actualización KB3201845"^], o superior.
+
+** AD FS 3.0, incluido con la actualización de Windows Server 2012 R2 o superior.
+
+
+* Seguridad de la capa de transporte (TLS) 1.2 ó 1.3
+* Microsoft .NET Framework, versión 3.5.1 o posterior
+
+
+
+
+== Requisitos de certificado de servidor
+
+StorageGRID utiliza un certificado de servidor de interfaz de gestión en cada nodo de administración para garantizar el acceso al administrador de grid, al administrador de inquilinos, a la API de gestión de grid y a la API de gestión de inquilinos. Cuando configura las confianzas de la parte de confianza de SSO para StorageGRID en AD FS, el certificado de servidor se utiliza como el certificado de firma para las solicitudes de StorageGRID a AD FS.
+
+Si todavía no ha instalado un certificado de servidor personalizado para la interfaz de gestión, debe hacerlo ahora. Cuando se instala un certificado de servidor personalizado, se utiliza para todos los nodos de administración y se puede usar en todas las confianzas de parte que confía de StorageGRID.
+
+
+NOTE: No se recomienda utilizar el certificado de servidor predeterminado de un nodo de administración en la confianza de parte de confianza de AD FS. Si el nodo falla y lo recupera, se genera un nuevo certificado de servidor predeterminado. Antes de iniciar sesión en el nodo recuperado, debe actualizar la confianza de la parte que confía en AD FS con el nuevo certificado.
+
+Para acceder a la certificación de servidor de un nodo de administrador, inicie sesión en el shell de comandos del nodo y vaya al `/var/local/mgmt-api` directorio. Se denomina certificado de servidor personalizado `custom-server.crt`. El certificado de servidor predeterminado del nodo se denomina `server.crt`.
+
+.Información relacionada
+link:controlling-access-through-firewalls.html["Controlar el acceso mediante firewalls"]
+
+link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["Configuración de un certificado de servidor personalizado para el administrador de grid y el administrador de inquilinos"]

@@ -1,0 +1,115 @@
+---
+permalink: ilm/comparing-s3-object-lock-to-legacy-compliance.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Comparación del bloqueo de objetos de S3 con el cumplimiento de normativas heredado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función de bloqueo de objetos S3 de StorageGRID 11.5 reemplaza la función Compliance disponible en versiones anteriores de StorageGRID. Debido a que la nueva función de bloqueo de objetos S3 cumple los requisitos de Amazon S3, deja obsoleto la propia función de cumplimiento de StorageGRID, que ahora se conoce como "'Legacy Compliance".
+
+Si anteriormente habilitó la opción de cumplimiento global, la nueva configuración de bloqueo de objetos S3 global se habilita automáticamente al actualizar a StorageGRID 11.5. Los usuarios inquilinos ya no podrán crear nuevos bloques con el cumplimiento de normativas habilitado en StorageGRID 11.5; sin embargo, según sea necesario, los usuarios inquilinos pueden seguir usando y gestionando cualquier parte existente compatible con bloques heredados, lo que incluye realizar las siguientes tareas:
+
+* Incorporación de objetos nuevos en un bloque existente con cumplimiento de normativas heredado habilitado.
+* Aumento del período de retención de un bloque existente que tiene activada la normativa heredada.
+* Cambio de la configuración de eliminación automática para un bloque existente que tiene activada la conformidad heredada.
+* Colocar una retención legal en un bloque existente que tenga activada la conformidad heredada.
+* Levantar una retención legal.
+
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"^]
+
+Si ha utilizado la función de cumplimiento de normativas heredada en una versión anterior de StorageGRID, consulte la siguiente tabla para saber cómo se compara con la función de bloqueo de objetos S3 de StorageGRID.
+
+[cols="1a,1a,1a"]
+|===
+|  | Bloqueo de objetos de S3 (nuevo) | Cumplimiento (heredado) 
+
+
+ a| 
+¿Cómo se habilita la función a nivel global?
+ a| 
+En Grid Manager, seleccione *Configuración* > *Configuración del sistema* > *S3 Object Lock*.
+ a| 
+Ya no es compatible.
+
+*Nota:* Si ha habilitado previamente la configuración de cumplimiento global, la configuración de bloqueo de objetos S3 global se activará automáticamente al actualizar a StorageGRID 11.5.
+
+
+
+ a| 
+¿Cómo se habilita la función para un bloque?
+ a| 
+Los usuarios deben habilitar el bloqueo de objetos S3 al crear un nuevo bloque con el administrador de inquilinos, la API de gestión de inquilinos o la API DE REST de S3.
+ a| 
+Los usuarios ya no pueden crear nuevos bloques con el cumplimiento habilitado; sin embargo, pueden continuar agregando objetos nuevos a bloques compatibles existentes.
+
+
+
+ a| 
+¿Se admite el control de versiones de bloques?
+ a| 
+Sí. El versionado de bloques se requiere y se habilita automáticamente si se habilita S3 Object Lock para el bloque.
+ a| 
+No La función de cumplimiento heredado no permite el control de versiones de bloques.
+
+
+
+ a| 
+¿Cómo se establece la retención de objetos?
+ a| 
+Los usuarios pueden establecer una fecha de retención hasta cada versión de objeto.
+ a| 
+Los usuarios deben establecer un período de retención para todo el segmento. El período de retención se aplica a todos los objetos del bloque.
+
+
+
+ a| 
+¿Puede un bloque tener la configuración predeterminada para la retención y la retención legal?
+ a| 
+No Los bloques StorageGRID que tienen el bloqueo de objetos S3 habilitado no tienen un período de retención predeterminado. En su lugar, puede especificar una fecha de retención hasta para cada versión del objeto.
+ a| 
+Sí
+
+
+
+ a| 
+¿Se puede cambiar el período de retención?
+ a| 
+La fecha de retención hasta la versión de un objeto se puede aumentar pero nunca disminuir.
+ a| 
+El período de retención del cucharón se puede aumentar pero nunca disminuir.
+
+
+
+ a| 
+¿Dónde se controla la conservación legal?
+ a| 
+Los usuarios pueden poner una retención legal o levantar una retención legal para cualquier versión de objeto en el cubo.
+ a| 
+Se coloca una retención legal en el cubo y afecta a todos los objetos del cucharón.
+
+
+
+ a| 
+¿Cuándo se pueden eliminar los objetos?
+ a| 
+Una versión de objeto se puede eliminar después de alcanzar la fecha de retención hasta la fecha, suponiendo que el objeto no esté en espera legal.
+ a| 
+Un objeto se puede eliminar después de que caduque el período de retención, suponiendo que el segmento no esté en retención legal. Los objetos se pueden eliminar de forma automática o manual.
+
+
+
+ a| 
+¿Se admite la configuración del ciclo de vida de bloques?
+ a| 
+Sí
+ a| 
+No
+
+|===

@@ -1,0 +1,100 @@
+---
+section: rhel
+title: Instale Red Hat Enterprise Linux o CentOS
+url: "/rhel/index.html"
+entries:
+- title: Información general de la instalación
+  url: "/rhel/installation-overview.html"
+- title: Planificación y preparación
+  url: "/rhel/planning-and-preparation.html"
+  entries:
+  - title: Materiales requeridos
+    url: "/rhel/required-materials.html"
+  - title: Descarga y extracción de los archivos de instalación de StorageGRID
+    url: "/rhel/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: Requisitos de CPU y RAM
+    url: "/rhel/cpu-and-ram-requirements.html"
+  - title: Los requisitos de almacenamiento y rendimiento
+    url: "/rhel/storage-and-performance-requirements.html"
+  - title: Requisitos de migración de contenedores de nodos
+    url: "/rhel/node-container-migration-requirements.html"
+  - title: Requisitos del navegador web
+    url: "/rhel/web-browser-requirements.html"
+  - title: Herramientas de puesta en marcha
+    url: "/rhel/deployment-tools.html"
+  - title: Preparar los hosts
+    url: "/rhel/preparing-hosts.html"
+    entries:
+    - title: Instalando Linux
+      url: "/rhel/installing-linux.html"
+    - title: Configurar la red host
+      url: "/rhel/configuring-host-network.html"
+      entries:
+      - title: Consideraciones y recomendaciones para la clonación de direcciones
+          MAC
+        url: "/rhel/considerations-and-recommendations-for-mac-address-cloning.html"
+      - title: 'Ejemplo 1: Asignación de 1 a 1 a NIC físicas o virtuales'
+        url: "/rhel/example-1-1-to-1-mapping-to-physical-or-virtual-nics.html"
+      - title: 'Ejemplo 2: Enlace LACP que transporta VLAN'
+        url: "/rhel/example-2-lacp-bond-carrying-vlans.html"
+    - title: Configuración del almacenamiento del host
+      url: "/rhel/configuring-host-storage.html"
+    - title: Configurar el volumen de almacenamiento de Docker
+      url: "/rhel/configuring-docker-storage-volume.html"
+    - title: Instalación de Docker
+      url: "/rhel/installing-docker.html"
+    - title: Instalar servicios de host StorageGRID
+      url: "/rhel/installing-storagegrid-webscale-host-service.html"
+- title: Poner en marcha nodos de grid virtual
+  url: "/rhel/deploying-virtual-grid-nodes.html"
+  entries:
+  - title: Creando archivos de configuración del nodo
+    url: "/rhel/creating-node-configuration-files.html"
+    entries:
+    - title: La forma en que los nodos de grid detectan el nodo de administrador principal
+      url: "/rhel/how-grid-nodes-discover-primary-admin-node.html"
+    - title: Archivos de configuración del nodo de ejemplo
+      url: "/rhel/example-node-configuration-files.html"
+  - title: Validar la configuración de StorageGRID
+    url: "/rhel/validating-storagegrid-configuration.html"
+  - title: Iniciar el servicio de host StorageGRID
+    url: "/rhel/starting-storagegrid-host-service.html"
+- title: Configurar la cuadrícula y completar la instalación
+  url: "/rhel/configuring-grid-and-completing-installation.html"
+  entries:
+  - title: Navegar hasta Grid Manager
+    url: "/rhel/navigating-to-grid-manager.html"
+  - title: Se especifica la información de licencia de StorageGRID
+    url: "/rhel/specifying-storagegrid-license-information.html"
+  - title: Agregar sitios
+    url: "/rhel/adding-sites.html"
+  - title: Especificación de subredes de red de red
+    url: "/rhel/specifying-grid-network-subnets.html"
+  - title: Aprobando nodos de cuadrícula pendientes
+    url: "/rhel/approving-pending-grid-nodes.html"
+  - title: Especificar la información del servidor de protocolo de tiempo de redes
+    url: "/rhel/specifying-network-time-protocol-server-information.html"
+  - title: Especificación de la información del servidor del sistema de nombres de
+      dominio
+    url: "/rhel/specifying-domain-name-system-server-information.html"
+  - title: Especificar las contraseñas del sistema StorageGRID
+    url: "/rhel/specifying-storagegrid-system-passwords.html"
+  - title: Revisar la configuración y completar la instalación
+    url: "/rhel/reviewing-your-configuration-and-completing-installation.html"
+  - title: Directrices posteriores a la instalación
+    url: "/rhel/post-installation-guidelines.html"
+- title: Automatización de la instalación
+  url: "/rhel/automating-installation.html"
+  entries:
+  - title: Automatizar la instalación y configuración del servicio de host StorageGRID
+    url: "/rhel/automating-installation-and-configuration-of-storagegrid-host-service.html"
+  - title: Automatización de la configuración de StorageGRID
+    url: "/rhel/automating-configuration-of-storagegrid.html"
+- title: Información general de la instalación de la API de REST
+  url: "/rhel/overview-of-installation-rest-api.html"
+- title: A continuación, ¿dónde ir
+  url: "/rhel/where-to-go-next.html"
+- title: Resolución de problemas de instalación
+  url: "/rhel/troubleshooting-installation-issues.html"
+- title: Ejemplo de /etc/sysconfig/network-scripts
+  url: "/rhel/example-etc-sysconfig-network-scripts.html"

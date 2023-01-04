@@ -1,0 +1,19 @@
+---
+permalink: maintain/preparing-to-decommission-grid-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission 
+summary: Debe revisar las consideraciones que se deben tener en cuenta al eliminar los nodos de cuadrícula y confirmar que no haya ninguna tarea de reparación activa para los datos codificados de borrado. 
+---
+= Preparación para retirar nodos de grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe revisar las consideraciones que se deben tener en cuenta al eliminar los nodos de cuadrícula y confirmar que no haya ninguna tarea de reparación activa para los datos codificados de borrado.
+
+.Pasos
+* link:considerations-for-decommissioning-storage-nodes.html["Consideraciones sobre el decomisionado de nodos de almacenamiento"]
+* link:checking-data-repair-jobs.html["Comprobación de trabajos de reparación de datos"]
+

@@ -1,0 +1,22 @@
+---
+permalink: tenant/managing-s3-platform-services.html 
+sidebar: sidebar 
+keywords:  
+summary: Si se permite el uso de servicios de plataforma para su cuenta de inquilino de S3, podrá usar servicios de plataforma para aprovechar los servicios externos y configurar la replicación de CloudMirror, notificaciones e integración de búsqueda para bloques de S3. 
+---
+= Gestión de servicios de plataforma S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si se permite el uso de servicios de plataforma para su cuenta de inquilino de S3, podrá usar servicios de plataforma para aprovechar los servicios externos y configurar la replicación de CloudMirror, notificaciones e integración de búsqueda para bloques de S3.
+
+* link:what-platform-services-are.html["¿Qué servicios de plataforma son"]
+* link:considerations-for-using-platform-services.html["Consideraciones sobre el uso de servicios de plataforma"]
+* link:configuring-platform-services-endpoints.html["Configuración de extremos de servicios de plataforma"]
+* link:configuring-cloudmirror-replication.html["Configurar la replicación de CloudMirror"]
+* link:configuring-event-notifications.html["Configuración de notificaciones de eventos"]
+* link:using-search-integration-service.html["Utilizando el servicio de integración de búsqueda"]
+

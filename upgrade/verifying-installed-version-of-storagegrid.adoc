@@ -1,0 +1,67 @@
+---
+permalink: upgrade/verifying-installed-version-of-storagegrid.html 
+sidebar: sidebar 
+keywords: storagegrid, version, current version, previous version 
+summary: Antes de iniciar la actualización, debe comprobar que la versión anterior de StorageGRID está actualmente instalada con la revisión más reciente disponible aplicada. 
+---
+= Verificación de la versión instalada de StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de iniciar la actualización, debe comprobar que la versión anterior de StorageGRID está actualmente instalada con la revisión más reciente disponible aplicada.
+
+.Pasos
+. Inicie sesión en Grid Manager con un navegador compatible.
+. Seleccione *Ayuda* > *Acerca de*.
+. Compruebe que *Versión* es 11.4._x.y_.
++
+En StorageGRID 11.4._x.y_ número de versión:
+
++
+** La versión principal tiene un valor _x_ de 0 (11.4.0).
+** Una versión secundaria, si está disponible, tiene un valor _x_ distinto de 0 (por ejemplo, 11.4.1).
+** Una revisión, si está disponible, tiene un valor _y_ (por ejemplo, 11.4.0.1).
+
+
++
+
+IMPORTANT: Si tiene una versión anterior de StorageGRID, debe actualizar a cualquier versión 11.4 antes de actualizar a StorageGRID 11.5. No es necesario que tenga la versión secundaria 11.4 más alta para actualizar a StorageGRID 11.5.
+
+. Si no se encuentra en una versión de StorageGRID 11.4, debe actualizar a la versión 11.4, una versión cada vez, siguiendo las instrucciones de cada versión.
++
+También debe aplicar la revisión más reciente para cada versión de StorageGRID antes de actualizar al siguiente nivel.
+
++
+En el ejemplo se muestra una posible ruta de actualización.
+
+. Una vez que se encuentre en StorageGRID 11.4, vaya a la página de descargas de NetApp para StorageGRID y vea si hay alguna revisión disponible para su versión de StorageGRID 11.4._x_.
++
+https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Descargas de NetApp: StorageGRID"^]
+
+. Compruebe que la versión de StorageGRID 11.4._x_ tiene aplicada la revisión más reciente.
+. Si es necesario, descargue y aplique la revisión más reciente de StorageGRID 11.4._x.y_ para su versión de StorageGRID 11.4._x_.
++
+Consulte las instrucciones de recuperación y mantenimiento para obtener información sobre la aplicación de correcciones urgentes.
+
+
+
+
+
+== Ejemplo: Preparándose para actualizar a StorageGRID 11.5 desde la versión 11.3.0.8
+
+En el ejemplo siguiente se muestran los pasos de actualización para preparar una actualización de StorageGRID versión 11.3.0.8 a la versión 11.5. Antes de poder actualizar a StorageGRID 11.5, el sistema debe tener instalada una versión de StorageGRID 11.4 con la revisión más reciente.
+
+Descargue e instale software en la siguiente secuencia para preparar el sistema para la actualización:
+
+. Aplique la última revisión StorageGRID 11.3.0._y_.
+. Actualice a la versión principal de StorageGRID 11.4.0. (No es necesario instalar ninguna versión menor de 11.4._x_.)
+. Aplique la última revisión StorageGRID 11.4.0._y_.
+
+
+.Información relacionada
+link:../admin/index.html["Administre StorageGRID"]
+
+link:../maintain/index.html["Mantener  recuperar"]

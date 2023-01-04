@@ -1,0 +1,49 @@
+---
+permalink: admin/editing-traffic-classification-policy.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede editar una directiva de clasificación de tráfico para cambiar su nombre o descripción, o para crear, editar o eliminar cualquier regla o límite para la directiva. 
+---
+= Edición de una directiva de clasificación de tráfico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede editar una directiva de clasificación de tráfico para cambiar su nombre o descripción, o para crear, editar o eliminar cualquier regla o límite para la directiva.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener el permiso acceso raíz.
+
+
+.Pasos
+. Seleccione *Configuración* > *Configuración de red* > *Clasificación de tráfico*.
++
+Aparece la página Directivas de clasificación del tráfico y las directivas existentes se muestran en la tabla.
+
++
+image::../media/traffic_classification_policies_main_screen_w_examples.png[Ejemplos de directivas de clasificación de tráfico]
+
+. Seleccione el botón de opción situado a la izquierda de la directiva que desea editar.
+. Haga clic en *Editar*.
++
+Aparece el cuadro de diálogo Editar directiva de clasificación del tráfico.
+
++
+image::../media/traffic_classification_policy_edit.png[Editar directiva de clasificación de tráfico]
+
+. Cree, edite o elimine reglas y límites coincidentes según sea necesario.
++
+.. Para crear una regla o un límite coincidente, haga clic en *Crear* y siga las instrucciones para crear una regla o crear un límite.
+.. Para editar una regla o un límite coincidente, seleccione el botón de opción de la regla o límite, haga clic en *Editar* en la sección *Reglas coincidentes* o en la sección *límites* y siga las instrucciones para crear una regla o crear un límite.
+.. Para eliminar una regla o un límite coincidente, seleccione el botón de opción de la regla o límite y haga clic en *Quitar*. A continuación, haga clic en *Aceptar* para confirmar que desea eliminar la regla o el límite.
+
+
+. Cuando haya terminado de crear o editar una regla o un límite, haga clic en *aplicar*.
+. Cuando termine de editar la directiva, haga clic en *Guardar*.
++
+Los cambios realizados en la directiva se guardan y el tráfico de red se gestiona de acuerdo con las directivas de clasificación del tráfico. Puede ver los gráficos de tráfico y comprobar que las directivas están aplicando los límites de tráfico que espera.
+
+

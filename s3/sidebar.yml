@@ -1,0 +1,100 @@
+---
+section: s3
+title: USE LA API DE REST DE S3
+url: "/s3/index.html"
+entries:
+- title: Compatibilidad con la API REST de S3
+  url: "/s3/support-for-s3-rest-api.html"
+  entries:
+  - title: Cambios en la compatibilidad con la API DE REST de S3
+    url: "/s3/changes-to-s3-rest-api-support.html"
+  - title: Versiones compatibles
+    url: "/s3/supported-versions.html"
+  - title: Soporte para servicios de plataforma StorageGRID
+    url: "/s3/support-for-storagegrid-platform-services.html"
+- title: Configurar las conexiones y las cuentas de inquilino
+  url: "/s3/configuring-tenant-accounts-and-connections.html"
+- title: Cómo StorageGRID implementa la API DE REST de S3
+  url: "/s3/how-storagegrid-implements-s3-rest-api.html"
+  entries:
+  - title: Solicitudes de clientes en conflicto
+    url: "/s3/conflicting-client-requests.html"
+  - title: Controles de consistencia
+    url: "/s3/consistency-controls.html"
+  - title: Cómo gestionan las reglas de ILM de StorageGRID los objetos
+    url: "/s3/how-storagegrid-ilm-rules-manage-objects.html"
+  - title: Control de versiones de objetos
+    url: "/s3/object-versioning.html"
+  - title: Recomendaciones para implementar la API REST de S3
+    url: "/s3/recommendations-for-implementing-s3-rest-api.html"
+- title: Operaciones y limitaciones compatibles con la API REST de S3
+  url: "/s3/s3-rest-api-supported-operations-and-limitations.html"
+  entries:
+  - title: Autenticando solicitudes
+    url: "/s3/authenticating-requests.html"
+  - title: Operaciones en el servicio
+    url: "/s3/operations-on-the-service.html"
+  - title: Operaciones en bloques
+    url: "/s3/operations-on-buckets.html"
+  - title: Operaciones personalizadas en bloques
+    url: "/s3/custom-operations-on-buckets.html"
+  - title: Operaciones en objetos
+    url: "/s3/operations-on-objects.html"
+    entries:
+    - title: Uso del bloqueo de objetos de S3
+      url: "/s3/using-s3-object-lock.html"
+    - title: Mediante cifrados del servidor
+      url: "/s3/using-server-side-encryption.html"
+    - title: OBJETO GET
+      url: "/s3/get-object.html"
+    - title: OBJETO HEAD
+      url: "/s3/head-object.html"
+    - title: Restauración DE objetos posterior
+      url: "/s3/post-object-restore.html"
+    - title: OBJETO PUT
+      url: "/s3/put-object.html"
+    - title: 'PONER objeto: Copiar'
+      url: "/s3/put-object-copy.html"
+  - title: Operaciones para cargas de varias partes
+    url: "/s3/operations-for-multipart-uploads.html"
+    entries:
+    - title: Enumerar cargas de varias partes
+      url: "/s3/list-multipart-uploads.html"
+    - title: Inicie la carga de varias partes
+      url: "/s3/initiate-multipart-upload.html"
+    - title: Cargar artículo
+      url: "/s3/upload-part.html"
+    - title: 'Cargar pieza: Copiar'
+      url: "/s3/upload-part-copy.html"
+    - title: Completar carga de varias partes
+      url: "/s3/complete-multipart-upload.html"
+  - title: Respuestas de error
+    url: "/s3/error-responses.html"
+- title: Operaciones de la API de REST de StorageGRID S3
+  url: "/s3/storagegrid-s3-rest-api-operations.html"
+- title: Políticas de acceso a bloques y grupos
+  url: "/s3/bucket-and-group-access-policies.html"
+- title: Configurar la seguridad para la API DE REST
+  url: "/s3/configuring-security-for-rest-api.html"
+- title: Supervisión y auditoría de operaciones
+  url: "/s3/monitoring-and-auditing-operations.html"
+  entries:
+  - title: Supervisión de las tasas de procesamiento y recuperación de objetos
+    url: "/s3/monitoring-object-ingest-and-retrieval-rates.html"
+  - title: Acceder y revisar registros de auditoría
+    url: "/s3/accessing-and-reviewing-audit-logs.html"
+    entries:
+    - title: Se realizó un seguimiento de las operaciones de S3 en los registros de
+        auditoría
+      url: "/s3/s3-operations-tracked-in-audit-logs.html"
+- title: Ventajas de las conexiones HTTP activas, inactivas y simultáneas
+  url: "/s3/benefits-of-active-idle-and-concurrent-http-connections.html"
+  entries:
+  - title: Ventajas de mantener abiertas las conexiones HTTP inactivas
+    url: "/s3/benefits-of-keeping-idle-http-connections-open.html"
+  - title: Ventajas de las conexiones HTTP activas
+    url: "/s3/benefits-of-active-http-connections.html"
+  - title: Ventajas de las conexiones HTTP simultáneas
+    url: "/s3/benefits-of-concurrent-http-connections.html"
+  - title: Separación de grupos de conexiones HTTP para operaciones de lectura y escritura
+    url: "/s3/separation-of-http-connection-pools-for-read-and-write-operations.html"

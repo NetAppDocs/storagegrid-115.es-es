@@ -1,0 +1,21 @@
+---
+permalink: admin/what-archive-node-is.html 
+sidebar: sidebar 
+keywords:  
+summary: El nodo de archivado proporciona una interfaz a través de la cual se puede dirigir un sistema de almacenamiento de archivado externo para el almacenamiento a largo plazo de datos de objetos. El nodo de archivado también supervisa esta conexión y la transferencia de datos de objeto entre el sistema StorageGRID y el sistema de almacenamiento de archivado externo objetivo. 
+---
+= Qué es un nodo de archivado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El nodo de archivado proporciona una interfaz a través de la cual se puede dirigir un sistema de almacenamiento de archivado externo para el almacenamiento a largo plazo de datos de objetos. El nodo de archivado también supervisa esta conexión y la transferencia de datos de objeto entre el sistema StorageGRID y el sistema de almacenamiento de archivado externo objetivo.
+
+image::../media/archive_node.gif[Descripción general del nodo de archivado]
+
+Los datos de objetos que no se pueden eliminar, pero a los que no se tiene acceso regularmente, se pueden trasladar en cualquier momento fuera de los discos giratorios de un nodo de almacenamiento y a un almacenamiento de archivado externo, como el cloud o la cinta. Este archivado de los datos de objetos se realiza mediante la configuración del nodo de archivado del sitio del centro de datos y, a continuación, con la configuración de las reglas de ILM donde este nodo de archivado se selecciona como el "destino" para obtener instrucciones de colocación de contenido. El nodo de archivado no gestiona los propios datos de objetos archivados, lo consigue el dispositivo de archivado externo.
+
+
+NOTE: Los metadatos de objetos no se archivan, pero siguen en los nodos de almacenamiento.

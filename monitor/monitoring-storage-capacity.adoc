@@ -1,0 +1,21 @@
+---
+permalink: monitor/monitoring-storage-capacity.html 
+sidebar: sidebar 
+keywords:  
+summary: Debe supervisar el espacio total utilizable disponible en los nodos de almacenamiento para garantizar que el sistema StorageGRID no se quede sin espacio de almacenamiento para los objetos o para los metadatos de objetos. 
+---
+= Supervisar la capacidad de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe supervisar el espacio total utilizable disponible en los nodos de almacenamiento para garantizar que el sistema StorageGRID no se quede sin espacio de almacenamiento para los objetos o para los metadatos de objetos.
+
+StorageGRID almacena datos de objetos y metadatos de objetos por separado y reserva una cantidad específica de espacio para una base de datos Cassandra distribuida que contiene metadatos de objetos. Supervise la cantidad total de espacio consumido por los objetos y los metadatos del objeto, así como las tendencias de la cantidad de espacio consumido por cada uno. Esto le permitirá planificar con antelación la adición de nodos y evitar cualquier interrupción del servicio.
+
+Puede ver información sobre la capacidad de almacenamiento de la cuadrícula completa, de cada sitio y de cada nodo de almacenamiento del sistema StorageGRID.
+
+.Información relacionada
+link:viewing-storage-tab.html["Visualización de la pestaña almacenamiento"]

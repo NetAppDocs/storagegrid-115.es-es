@@ -1,0 +1,98 @@
+---
+permalink: primer/configuring-network-settings.html 
+sidebar: sidebar 
+keywords: network settings, configure, configuring, configuration, domain name, virtual hosted-style requests 
+summary: Puede configurar varios ajustes de red desde el Gestor de cuadrícula para ajustar el funcionamiento del sistema StorageGRID. 
+---
+= Configurar los ajustes de red
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar varios ajustes de red desde el Gestor de cuadrícula para ajustar el funcionamiento del sistema StorageGRID.
+
+
+
+== Nombres de dominio
+
+Si piensa admitir solicitudes virtuales de estilo alojado en S3, debe configurar la lista de nombres de dominio de extremo a los que se conectan los clientes S3. Los ejemplos incluyen s3.example.com, s3.example.co.uk y s3-east.example.com.
+
+
+NOTE: Los certificados de servidor configurados deben coincidir con los nombres de dominio de extremo.
+
+
+
+== Grupos de alta disponibilidad
+
+Los grupos de alta disponibilidad usan direcciones IP virtuales (VIP) para proporcionar acceso de backup activo a los servicios Gateway Node o Admin Node. Un grupo de alta disponibilidad consta de una o varias interfaces de red en los nodos de administración y de pasarela. Al crear un grupo ha, se seleccionan las interfaces de red que pertenecen a la red de cuadrícula (eth0) o a la red de cliente (eth2).
+
+
+NOTE: La red de administración no admite VIP de alta disponibilidad.
+
+Un grupo de alta disponibilidad mantiene una o varias direcciones IP virtuales que se han añadido a la interfaz activa en el grupo. Si la interfaz activa deja de estar disponible, las direcciones IP virtuales se mueven a otra interfaz. Por lo general, este proceso de conmutación por error solo se realiza en unos pocos segundos y es lo suficientemente rápido como para que las aplicaciones cliente tengan un impacto escaso y puedan confiar en los comportamientos normales de reintento para continuar con el funcionamiento.
+
+Puede que quiera utilizar grupos de alta disponibilidad por varios motivos.
+
+* Un grupo de alta disponibilidad puede proporcionar conexiones administrativas de alta disponibilidad al administrador de grid o al administrador de inquilinos.
+* Un grupo de alta disponibilidad puede proporcionar conexiones de datos de alta disponibilidad para clientes S3 y Swift.
+* Un grupo de alta disponibilidad que contiene una sola interfaz le permite proporcionar muchas direcciones VIP y establecer explícitamente direcciones IPv6.
+
+
+
+
+== Enlazar costes
+
+Puede ajustar los costes de enlace para reflejar la latencia entre los sitios. Cuando existen dos o más centros de datos, los costes de enlace priorizan qué sitio del centro de datos debe proporcionar un servicio solicitado.
+
+
+
+== Puntos finales del equilibrador de carga
+
+Puede utilizar un equilibrio de carga para gestionar cargas de trabajo de procesamiento y recuperación de clientes S3 y Swift. El equilibrio de carga maximiza la velocidad y la capacidad de conexión distribuyendo las cargas de trabajo y las conexiones entre varios nodos de almacenamiento.
+
+Si desea utilizar el servicio de equilibrador de carga StorageGRID, que se incluye en los nodos de administración y de puerta de enlace, debe configurar uno o más puntos finales de equilibrador de carga. Cada extremo define un puerto de nodo de puerta de enlace o nodo de administrador para solicitudes S3 y Swift a nodos de almacenamiento.
+
+
+
+== Configuración de proxy
+
+Si utiliza servicios de plataforma S3 o Cloud Storage Pools, puede configurar un servidor proxy no transparente entre los nodos de almacenamiento y los extremos externos de S3. Si envía mensajes de AutoSupport mediante HTTPS o HTTP, puede configurar un servidor proxy no transparente entre los nodos de administrador y el soporte técnico.
+
+image::../media/proxy_settings_menu_storage.png[Menú Configuración de proxy: Almacenamiento]
+
+
+
+== Certificados de servidor
+
+Es posible cargar dos tipos de certificados de servidor:
+
+* Certificado de servidor de interfaz de gestión, que es el certificado que se utiliza para acceder a la interfaz de gestión.
+* El servicio de almacenamiento de objetos finaliza el certificado de servidor, que protege los extremos S3 y Swift para las conexiones directamente a los nodos de almacenamiento o cuando se usa el servicio CLB en un nodo de puerta de enlace.
++
+
+NOTE: El servicio CLB está obsoleto.
+
+
+
+Los certificados de equilibrador de carga se configuran en la página de extremos de equilibrador de carga. Los certificados de servidor de gestión de claves (KMS) se configuran en la página servidor de gestión de claves.
+
+
+
+== Directivas de clasificación de tráfico
+
+Las políticas de clasificación del tráfico permiten crear reglas para identificar y gestionar diferentes tipos de tráfico de red, incluido el tráfico relacionado con bloques específicos, inquilinos, subredes de clientes o extremos de equilibrador de carga. Estas políticas pueden ayudar a limitar y supervisar el tráfico.
+
+
+
+== Redes de clientes no confiables
+
+Si utiliza una red cliente, puede ayudar a proteger StorageGRID de ataques hostiles especificando que la red cliente de cada nodo no es de confianza. Si la red de cliente de un nodo no es de confianza, el nodo sólo acepta conexiones entrantes en los puertos configurados explícitamente como puntos finales de equilibrador de carga.
+
+Por ejemplo, es posible que desee que un nodo de puerta de enlace rechace todo el tráfico entrante en la red cliente excepto las solicitudes HTTPS S3. O bien, es posible que desee habilitar el tráfico saliente del servicio de plataforma S3 desde un nodo de almacenamiento, al tiempo que se evitan las conexiones entrantes a ese nodo de almacenamiento en la red cliente.
+
+.Información relacionada
+link:../admin/index.html["Administre StorageGRID"]
+
+link:managing-tenants-and-client-connections.html["Gestión de inquilinos y conexiones de clientes"]

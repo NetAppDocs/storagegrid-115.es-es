@@ -1,0 +1,35 @@
+---
+permalink: ubuntu/automating-installation-and-configuration-of-storagegrid-host-service.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede automatizar la instalación del servicio de host de StorageGRID mediante marcos de orquestación estándar como Ansible, Puppet, Chef, Fabric o SaltStack. 
+---
+= Automatizar la instalación y configuración del servicio de host StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede automatizar la instalación del servicio de host de StorageGRID mediante marcos de orquestación estándar como Ansible, Puppet, Chef, Fabric o SaltStack.
+
+El servicio de host StorageGRID está empaquetado en UN DEB y está controlado por archivos de configuración que se pueden preparar con antelación (o mediante programación) para permitir la instalación automatizada. Si ya utiliza un marco de orquestación estándar para instalar y configurar Ubuntu o Debian, agregar StorageGRID a sus libros de estrategia o recetas debe ser sencillo.
+
+Puede automatizar estas tareas:
+
+. Instalando Linux
+. Configurando Linux
+. Configurar interfaces de red de host para que cumplan los requisitos de StorageGRID
+. Configurar el almacenamiento del host para cumplir con los requisitos de StorageGRID
+. Instalación de Docker
+. Instalar el servicio host StorageGRID
+. Creación de archivos de configuración del nodo StorageGRID en `/etc/storagegrid/nodes`
+. Validar los archivos de configuración del nodo StorageGRID
+. Iniciar el servicio de host StorageGRID
+
+
+
+
+== Ejemplo de rol y libro de estrategia de Ansible
+
+Se proporcionan ejemplos de la función y el libro de aplicaciones de Ansible con el archivo de instalación en la carpeta /extras. El libro de estrategia de Ansible muestra cómo `storagegrid` El rol prepara los hosts e instala StorageGRID en los servidores de destino. Puede personalizar el rol o el libro de estrategia según sea necesario.

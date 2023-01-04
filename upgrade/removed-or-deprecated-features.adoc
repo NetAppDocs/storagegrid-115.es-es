@@ -1,0 +1,227 @@
+---
+permalink: upgrade/removed-or-deprecated-features.html 
+sidebar: sidebar 
+keywords: features, removed, deprecated, weak consistency, compliance 
+summary: En StorageGRID 11.5 se quitaron o quedaron obsoletas algunas funciones. Debe revisar estos elementos para saber si necesita actualizar las aplicaciones cliente o modificar la configuración antes de realizar la actualización. 
+---
+= Operaciones eliminadas o obsoletas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En StorageGRID 11.5 se quitaron o quedaron obsoletas algunas funciones. Debe revisar estos elementos para saber si necesita actualizar las aplicaciones cliente o modificar la configuración antes de realizar la actualización.
+
+
+
+== Se ha eliminado el control de consistencia débil
+
+Para StorageGRID 11.5 se ha eliminado el control de consistencia débil. Después de actualizar, se aplicarán los siguientes comportamientos:
+
+* Las solicitudes para establecer una coherencia débil para un bloque de S3 o un contenedor Swift se realizarán correctamente, pero el nivel de coherencia se establecerá en disponible.
+* Los bloques y contenedores existentes que utilizan consistencia débil se actualizarán de forma silenciosa para utilizar la consistencia disponible.
+* Las solicitudes que tienen un encabezado de control de coherencia débil usarán realmente la consistencia disponible, si corresponde.
+
+
+El control de coherencia disponible se comporta igual que el nivel de consistencia "read-after-new-write", pero sólo proporciona consistencia eventual para las operaciones DE CABEZA. El control de coherencia disponible ofrece una mayor disponibilidad para LAS OPERACIONES DE CABEZAL que «entre en una nueva escritura» si los nodos de almacenamiento no están disponibles.
+
+
+
+== Alarma de estado de la red obsoleta
+
+La `/grid/health/topology` La API, que comprueba si hay alarmas activas en los nodos, está obsoleta. En su lugar, un nuevo `/grid/node-health` se ha añadido el extremo. Esta API devuelve el estado actual de cada nodo comprobando si hay un _alerts_ activo en los nodos.
+
+
+
+== Función de cumplimiento de normativas obsoleta
+
+La función de bloqueo de objetos S3 de StorageGRID 11.5 reemplaza la función Compliance disponible en versiones anteriores de StorageGRID. Debido a que la nueva función de bloqueo de objetos S3 cumple los requisitos de Amazon S3, deja obsoleto la propia función de cumplimiento de StorageGRID, que ahora se conoce como "'Legacy Compliance".
+
+Si anteriormente habilitó la opción de cumplimiento global, la nueva configuración de bloqueo de objetos S3 global se habilita automáticamente al actualizar a StorageGRID 11.5. Los usuarios inquilinos ya no podrán crear nuevos bloques con el cumplimiento de normativas habilitado en StorageGRID; sin embargo, según sea necesario, los usuarios inquilinos pueden seguir usando y gestionando cualquier buckets existentes compatibles con versiones anteriores.
+
+En el Administrador de inquilinos, un icono de escudo image:../media/icon_shield.png["Icono de protección"] Indica un segmento compatible con el anterior. Los cucharones legos que cumplen con las normativas también pueden tener un distintivo image:../media/hold_badge.png["Reciba el distintivo"] indicar que el segmento se encuentra bajo una retención legal.
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["KB: Cómo gestionar los bloques que cumplen las normativas heredadas en StorageGRID 11.5"^]
+
+link:../ilm/index.html["Gestión de objetos con ILM"]
+
+
+
+== Se ha eliminado la alerta «s 3 parte multiparte demasiado pequeña»
+
+Se ha eliminado la alerta * S3 multiparte demasiado pequeña*. Antes, esta alerta se activaba si un cliente de S3 intentaba completar una carga de varias partes con piezas que no cumplían los límites de tamaño de Amazon S3. Tras la actualización a StorageGRID 11.5, se producirá un error en todas las solicitudes de carga de varias partes que no cumplan los siguientes límites de tamaño:
+
+* Cada parte de una carga de varias partes debe estar entre 5 MIB (5,242,880 bytes) y 5 GIB (5,368,709,120 bytes).
+* La última parte puede ser más pequeña que 5 MIB (5,242,880 bytes).
+* En general, los tamaños de las piezas deben ser lo más grandes posible. Por ejemplo, utilice tamaños de parte de 5 GIB para un objeto de 100 GIB. Dado que cada parte se considera un objeto único, el uso de tamaños de pieza grandes reduce la sobrecarga de metadatos de StorageGRID.
+* En el caso de objetos de menor tamaño de 5 GIB, considere usar la carga sin varias partes.
+
+
+
+
+== Se han eliminado las alertas de "enlace del dispositivo inactivo en Grid Network"
+
+Se eliminaron las siguientes alertas. Si la red de cuadrícula está inactiva, no se puede acceder a las métricas que activarían estas alertas:
+
+* El dispositivo de servicios está inactivo en Grid Network
+* Enlace del dispositivo de almacenamiento inactivo en Grid Network
+
+
+
+
+== Se ha eliminado de la configuración de SNMP la compatibilidad con el nombre de dominio completo
+
+Al configurar un servidor SNMP en el controlador de administración de la placa base (BMC) para SG6000, SG100 o SG1000, ahora debe especificar una dirección IP en lugar de un nombre de dominio completo. Si previamente se configuró un nombre de dominio completo, cámbielo a una dirección IP antes de actualizar a StorageGRID 11.5.
+
+
+
+== Se eliminaron los atributos heredados
+
+Se han eliminado los siguientes atributos heredados. Según corresponda, la métrica Prometheus proporciona información equivalente:
+
+[cols="1a,2a"]
+|===
+| Atributo heredado | Métrica equivalente Prometheus 
+
+
+ a| 
+BREC
+ a| 
+storagegrid_servicio_red_received_bytes
+
+
+
+ a| 
+TRA
+ a| 
+storagegrid_servicio_red_transmisión_bytes
+
+
+
+ a| 
+CQST
+ a| 
+storagegrid_metadata_consultas_promedio_latencia_milisegundos
+
+
+
+ a| 
+HAI
+ a| 
+storagegrid_http_sessions_incoming_attempted
+
+
+
+ a| 
+HCC
+ a| 
+storagegrid_http_sessions_incoming_actualmente_establecido
+
+
+
+ a| 
+IES
+ a| 
+storagegrid_http_sessions_incoming_failed
+
+
+
+ a| 
+HISC
+ a| 
+storagegrid_http_sessions_incoming_succ
+
+
+
+ a| 
+LHAC
+ a| 
+_none_
+
+
+
+ a| 
+NREC
+ a| 
+_none_
+
+
+
+ a| 
+NTSO (desplazamiento de origen de tiempo elegido)
+ a| 
+storagegrid_ntp_elegida_time_source_offset_milisegundos
+
+
+
+ a| 
+NTRA
+ a| 
+_none_
+
+
+
+ a| 
+SLOD
+ a| 
+storagegrid_service_load
+
+
+
+ a| 
+SMEM
+ a| 
+storagegrid_service_memory_usage_bytes
+
+
+
+ a| 
+SUTM
+ a| 
+storagegrid_servicio_cpu_segundos
+
+
+
+ a| 
+SVUT
+ a| 
+storagegrid_servicio_tiempo activo_segundos
+
+
+
+ a| 
+TRB (bits totales por segundo recibidos)
+ a| 
+_none_
+
+
+
+ a| 
+TRXB
+ a| 
+storagegrid_network_received_bytes
+
+
+
+ a| 
+TTBS (bits totales por segundo transmitidos)
+ a| 
+_none_
+
+
+
+ a| 
+TTXB
+ a| 
+storagegrid_network_transmisible_bytes
+
+|===
+También se realizaron los siguientes cambios relacionados:
+
+* La `network_received_bytes` y.. `network_transmitted_bytes` Las métricas Prometheus se cambiaron de indicadores a contadores porque los valores de estas métricas solo aumentan. Si actualmente utiliza esta métrica en consultas Prometheus, debe empezar a utilizar la `increase()` función de la consulta.
+* La tabla Recursos de red se ha eliminado de la pestaña Recursos para los servicios StorageGRID. (Seleccione *Support* > *Tools* > *Grid Topology*.Then, seleccione *_node_* > *_service_* > *Resources*.)
+* La página HTTP Sessions se quitó para los nodos de almacenamiento. Anteriormente, puede acceder a esta página seleccionando *Soporte* > *Herramientas* > *Topología de cuadrícula* y, a continuación, seleccionando *_nodo de almacenamiento_* > *LDR* > *HTTP*.
+* Se ha eliminado la alarma HCCS (sesiones entrantes actualmente establecidas).
+* Se ha eliminado la alarma NTSO (desviación de origen de hora seleccionada).
+

@@ -1,0 +1,26 @@
+---
+permalink: monitor/resetting-count-of-custom-events-to-zero.html 
+sidebar: sidebar 
+keywords:  
+summary: Si desea restablecer el contador solo para eventos personalizados, debe usar la página Grid Topology del menú de soporte. 
+---
+= Restablecer el número de eventos personalizados a cero
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si desea restablecer el contador solo para eventos personalizados, debe usar la página Grid Topology del menú de soporte.
+
+.Acerca de esta tarea
+El restablecimiento de un contador hace que la alarma se active en el siguiente evento. Por el contrario, cuando se reconoce una alarma, esa alarma sólo se vuelve a activar si se alcanza el siguiente nivel de umbral.
+
+. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+. Seleccione *_grid node_* > *SSM* > *Eventos* > *Configuración* > *Principal*.
+. Seleccione la casilla de verificación *Restablecer* para Eventos personalizados.
++
+image::../media/custom_events_reset.gif[Captura de pantalla en SSM > Eventos > Configuración > Principal]
+
+. Haga clic en *aplicar cambios*.
+

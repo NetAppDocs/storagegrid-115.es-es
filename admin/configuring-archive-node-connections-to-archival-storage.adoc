@@ -1,0 +1,25 @@
+---
+permalink: admin/configuring-archive-node-connections-to-archival-storage.html 
+sidebar: sidebar 
+keywords:  
+summary: Al configurar un nodo de archivado para conectarse con un archivo externo, debe seleccionar el tipo de destino. 
+---
+= Configurar las conexiones del nodo de archivado con el almacenamiento de archivado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al configurar un nodo de archivado para conectarse con un archivo externo, debe seleccionar el tipo de destino.
+
+El sistema StorageGRID es compatible con el archivado de datos de objetos en el cloud a través de una interfaz S3 o a cinta mediante el middleware Tivoli Storage Manager (TSM).
+
+
+NOTE: Una vez configurado el tipo de destino de archivado para un nodo de archivado, el tipo de destino no se puede cambiar.
+
+* link:archiving-to-cloud-through-s3-api.html["Archivado en el cloud mediante la API de S3"]
+* link:archiving-to-tape-through-tsm-middleware.html["Archivar en cinta a través de TSM middleware"]
+* link:configuring-archive-node-retrieve-settings.html["Configurar los ajustes de recuperación del nodo de archivado"]
+* link:configuring-archive-node-replication.html["Configurar la replicación de nodos de archivado"]
+

@@ -1,0 +1,40 @@
+---
+permalink: admin/issuing-api-requests.html 
+sidebar: sidebar 
+keywords:  
+summary: La interfaz de usuario de Swagger proporciona detalles y documentación completos para cada operación de API. 
+---
+= Emitir solicitudes API
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La interfaz de usuario de Swagger proporciona detalles y documentación completos para cada operación de API.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+
+IMPORTANT: Cualquier operación de API que realice mediante la página web de documentos de API es una operación en directo. Tenga cuidado de no crear, actualizar o eliminar datos de configuración u otros datos por error.
+
+.Pasos
+. Seleccione *Ayuda* > *Documentación de API* en el encabezado de Grid Manager.
+. Seleccione la operación deseada.
++
+Al expandir una operación de API, puede ver las acciones HTTP disponibles, como GET, PUT, UPDATE y DELETE.
+
+. Seleccione una acción HTTP para ver los detalles de la solicitud, incluida la dirección URL del extremo, una lista de los parámetros necesarios o opcionales, un ejemplo del cuerpo de la solicitud (cuando sea necesario) y las posibles respuestas.
++
+image::../media/swagger_example.png[Ejemplo de interfaz de usuario de Swagger]
+
+. Determine si la solicitud requiere parámetros adicionales, como un ID de grupo o de usuario. A continuación, obtenga estos valores. Es posible que primero deba emitir una solicitud de API diferente para obtener la información que necesita.
+. Determine si necesita modificar el cuerpo de solicitud de ejemplo. Si es así, puede hacer clic en *Modelo* para conocer los requisitos de cada campo.
+. Haga clic en *probar*.
+. Proporcione los parámetros necesarios o modifique el cuerpo de la solicitud según sea necesario.
+. Haga clic en *Ejecutar*.
+. Revise el código de respuesta para determinar si la solicitud se ha realizado correctamente.
+

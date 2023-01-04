@@ -1,0 +1,92 @@
+---
+permalink: monitor/monitoring-object-metadata-capacity-for-each-storage-node.html 
+sidebar: sidebar 
+keywords: object, metadata, monitoring, monitoring object metadata, metadata, metadata capacity 
+summary: 'Debe supervisar el uso de metadatos de cada nodo de almacenamiento para garantizar que el espacio adecuado siga disponible para las operaciones esenciales de la base de datos. Es necesario añadir nodos de almacenamiento nuevos en cada sitio antes de que los metadatos del objeto superen el 100 % del espacio de metadatos permitido.' 
+---
+= Supervisar la capacidad de metadatos de los objetos para cada nodo de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe supervisar el uso de metadatos de cada nodo de almacenamiento para garantizar que el espacio adecuado siga disponible para las operaciones esenciales de la base de datos. Es necesario añadir nodos de almacenamiento nuevos en cada sitio antes de que los metadatos del objeto superen el 100 % del espacio de metadatos permitido.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+
+
+.Acerca de esta tarea
+StorageGRID mantiene tres copias de metadatos de objetos en cada sitio para proporcionar redundancia y proteger los metadatos de objetos de la pérdida. Las tres copias se distribuyen uniformemente por todos los nodos de almacenamiento de cada sitio, utilizando el espacio reservado para los metadatos en el volumen de almacenamiento 0 de cada nodo de almacenamiento.
+
+En algunos casos, la capacidad de metadatos de objetos del grid puede consumirse con mayor rapidez que la capacidad de almacenamiento de objetos. Por ejemplo, si normalmente ingiere grandes cantidades de objetos pequeños, es posible que deba añadir nodos de almacenamiento para aumentar la capacidad de metadatos aunque siga habiendo suficiente capacidad de almacenamiento de objetos.
+
+Algunos de los factores que pueden aumentar el uso de metadatos son el tamaño y la cantidad de metadatos y etiquetas de usuario, el número total de partes en una carga de varias partes y la frecuencia de los cambios en las ubicaciones de almacenamiento de ILM.
+
+.Pasos
+. Seleccione *Nodes* > *_Storage Node_* > *Storage*.
+. Pase el cursor sobre el gráfico almacenamiento utilizado - metadatos de objetos para ver los valores de una hora específica.
++
+image::../media/storage_used_object_metadata.png[Almacenamiento utilizado: Metadatos de objetos]
+
++
+|===
+| Valor | Descripción | Métrica Prometheus 
+
+
+ a| 
+Utilizado (%)
+ a| 
+El porcentaje de espacio de metadatos permitido que se utilizó en este nodo de almacenamiento.
+ a| 
+`storagegrid_storage_utilization_metadata_bytes/ storagegrid_storage_utilization_metadata_allowed_bytes`
+
+
+
+ a| 
+Utilizado
+ a| 
+Los bytes del espacio de metadatos permitido que se usaron en este nodo de almacenamiento.
+ a| 
+`storagegrid_storage_utilization_metadata_bytes`
+
+
+
+ a| 
+Permitido
+ a| 
+El espacio permitido para los metadatos de objetos en este nodo de almacenamiento. Para saber cómo se determina este valor para cada nodo de almacenamiento, consulte las instrucciones para administrar StorageGRID.
+ a| 
+`storagegrid_storage_utilization_metadata_allowed_bytes`
+
+
+
+ a| 
+Reservado real
+ a| 
+El espacio real reservado para los metadatos en este nodo de almacenamiento. Incluye el espacio permitido y el espacio necesario para las operaciones esenciales de metadatos. Para saber cómo se calcula este valor para cada nodo de almacenamiento, consulte las instrucciones para administrar StorageGRID.
+ a| 
+`storagegrid_storage_utilization_metadata_reserved_bytes`
+
+|===
++
+
+NOTE: Los valores totales de un sitio o de la cuadrícula no incluyen los nodos sin especificar métricas durante al menos cinco minutos, como los nodos sin conexión.
+
+. Si el valor *usado (%)* es 70% o superior, expanda su sistema StorageGRID añadiendo nodos de almacenamiento a cada sitio.
++
+
+IMPORTANT: La alerta *almacenamiento de metadatos bajo* se activa cuando el valor *usado (%)* alcanza ciertos umbrales. Los resultados no deseables se pueden producir si los metadatos de objetos utilizan más del 100% del espacio permitido.
+
++
+Cuando se añaden los nodos nuevos, el sistema reequilibra automáticamente los metadatos de objetos en todos los nodos de almacenamiento del sitio. Consulte las instrucciones para ampliar un sistema StorageGRID.
+
+
+
+.Información relacionada
+link:../troubleshoot/troubleshooting-storagegrid-system.html["Solución de problemas de la alerta de almacenamiento de metadatos bajos"]
+
+link:../admin/index.html["Administre StorageGRID"]
+
+link:../expand/index.html["Amplíe su grid"]

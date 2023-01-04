@@ -1,0 +1,19 @@
+---
+permalink: tenant/using-identity-federation.html 
+sidebar: sidebar 
+keywords:  
+summary: El uso de la federación de identidades agiliza la configuración de usuarios y grupos de inquilinos, y permite a los usuarios de inquilinos iniciar sesión en la cuenta de inquilinos utilizando credenciales conocidas. 
+---
+= Mediante la federación de identidades
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El uso de la federación de identidades agiliza la configuración de usuarios y grupos de inquilinos, y permite a los usuarios de inquilinos iniciar sesión en la cuenta de inquilinos utilizando credenciales conocidas.
+
+* link:configuring-federated-identity-source.html["Configurar un origen de identidad federado"]
+* link:forcing-synchronization-with-identity-source.html["Forzar la sincronización con el origen de identidades"]
+* link:disabling-identity-federation.html["Desactivar la federación de identidades"]
+

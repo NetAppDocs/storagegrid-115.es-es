@@ -1,0 +1,71 @@
+---
+permalink: maintain/gathering-required-materials-for-grid-node-recovery.html 
+sidebar: sidebar 
+keywords: storagegrid, recovery, grid node recovery, node recovery 
+summary: Antes de realizar procedimientos de mantenimiento, debe asegurarse de tener los materiales necesarios para recuperar un nodo de cuadrícula con errores. 
+---
+= Recopilación de materiales necesarios para la recuperación de nodos de grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de realizar procedimientos de mantenimiento, debe asegurarse de tener los materiales necesarios para recuperar un nodo de cuadrícula con errores.
+
+[cols="1a,2a"]
+|===
+| Elemento | Notas 
+
+
+ a| 
+Archivo de instalación de StorageGRID
+ a| 
+Si necesita recuperar un nodo de cuadrícula, necesita el archivo de instalación de StorageGRID para su plataforma.
+
+*Nota:* no es necesario descargar archivos si está recuperando volúmenes de almacenamiento fallidos en un nodo de almacenamiento.
+
+
+
+ a| 
+Paquete de recuperación `.zip` archivo
+ a| 
+Obtenga una copia del paquete de recuperación más reciente `.zip` archivo:
+`sgws-recovery-package-_id-revision_.zip`
+
+El contenido del `.zip` los archivos se actualizan cada vez que se modifica el sistema. Se le indica que guarde la versión más reciente del paquete de recuperación en una ubicación segura después de realizar dichos cambios. Utilice la copia más reciente para recuperarse de fallos de la cuadrícula.
+
+Si el nodo de administración principal funciona normalmente, puede descargar el paquete de recuperación desde el Administrador de grid. Seleccione *Mantenimiento* *sistema* *paquete de recuperación*.
+
+Si no puede acceder a Grid Manager, puede encontrar copias cifradas del paquete de recuperación en algunos nodos de almacenamiento que contienen el servicio ADC. En cada nodo de almacenamiento, examine esta ubicación del paquete de recuperación: `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg` Utilice el paquete de recuperación con el número de revisión más alto.
+
+
+
+ a| 
+`Passwords.txt` archivo
+ a| 
+Contiene las contraseñas que se necesitan para acceder a los nodos de grid en la línea de comandos. Incluido en el paquete de recuperación.
+
+
+
+ a| 
+Clave de acceso de aprovisionamiento
+ a| 
+La frase de contraseña se crea y documenta cuando se instala el sistema StorageGRID por primera vez. La clave de acceso de aprovisionamiento no está en la `Passwords.txt` archivo.
+
+
+
+ a| 
+La documentación actual de su plataforma
+ a| 
+Para conocer las versiones compatibles actuales de la plataforma, consulte herramienta de matriz de interoperabilidad.
+
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
+
+Visite el sitio web del proveedor de la plataforma para obtener documentación.
+
+|===
+.Información relacionada
+link:downloading-and-extracting-storagegrid-installation-files.html["Descarga y extracción de los archivos de instalación de StorageGRID"]
+
+link:web-browser-requirements.html["Requisitos del navegador web"]

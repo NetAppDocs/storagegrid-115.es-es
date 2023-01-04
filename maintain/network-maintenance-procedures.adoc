@@ -1,0 +1,22 @@
+---
+permalink: maintain/network-maintenance-procedures.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede configurar la lista de subredes en la red de cuadrícula o actualizar direcciones IP, servidores DNS o servidores NTP para el sistema StorageGRID. 
+---
+= Procedimientos de mantenimiento de red
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar la lista de subredes en la red de cuadrícula o actualizar direcciones IP, servidores DNS o servidores NTP para el sistema StorageGRID.
+
+.Opciones
+* link:updating-subnets-for-grid-network.html["Actualización de subredes para la red de cuadrícula"]
+* link:configuring-ip-addresses.html["Configuración de direcciones IP"]
+* link:configuring-dns-servers.html["Configurando servidores DNS"]
+* link:configuring-ntp-servers.html["Configurando servidores NTP"]
+* link:restoring-network-connectivity-for-isolated-nodes.html["Restauración de conectividad de red para nodos aislados"]
+

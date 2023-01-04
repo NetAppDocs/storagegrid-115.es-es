@@ -1,0 +1,14 @@
+---
+permalink: tenant/managing-s3-buckets.html 
+sidebar: sidebar 
+keywords: StorageGRID, tenant, tenant manager, s3 bucket 
+summary: 'Si utiliza un inquilino de S3 con los permisos adecuados, puede crear, ver y eliminar bloques de S3, actualizar la configuración de nivel de coherencia, configurar uso compartido de recursos de origen cruzado \(CORS\), habilitar y deshabilitar la configuración de actualización del último tiempo de acceso y gestionar servicios de plataforma S3.' 
+---
+= Gestión de bloques de S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si usa un inquilino de S3 con los permisos adecuados, puede crear, ver y eliminar bloques de S3, actualizar la configuración de nivel de coherencia, configurar el uso compartido de recursos de origen cruzado (CORS), habilitar y deshabilitar las opciones de actualización del tiempo de acceso anterior y gestionar servicios de plataforma de S3.

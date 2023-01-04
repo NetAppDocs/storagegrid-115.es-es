@@ -1,0 +1,237 @@
+---
+permalink: troubleshoot/verifying-object-integrity.html 
+sidebar: sidebar 
+keywords:  
+summary: El sistema StorageGRID verifica la integridad de los datos de objetos en los nodos de almacenamiento y comprueba si hay objetos dañados o ausentes. 
+---
+= Verificando la integridad del objeto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El sistema StorageGRID verifica la integridad de los datos de objetos en los nodos de almacenamiento y comprueba si hay objetos dañados o ausentes.
+
+Hay dos procesos de verificación: Verificación de fondo y verificación en primer plano. Trabajan conjuntamente para garantizar la integridad de los datos. La verificación en segundo plano se ejecuta automáticamente y comprueba continuamente la corrección de los datos del objeto. Un usuario puede activar la verificación en primer plano para verificar más rápidamente la existencia (aunque no la corrección) de objetos.
+
+
+
+== Qué es la verificación de antecedentes
+
+El proceso de verificación en segundo plano comprueba de forma automática y continua si hay copias dañadas de los datos de los objetos e intenta reparar automáticamente los problemas que encuentre.
+
+La verificación en segundo plano comprueba la integridad de los objetos replicados y los objetos codificados mediante borrado de la siguiente manera:
+
+* *Objetos replicados*: Si el proceso de verificación en segundo plano encuentra un objeto replicado que está dañado, la copia dañada se quita de su ubicación y se pone en cuarentena en otro lugar del nodo de almacenamiento. A continuación, se genera y coloca una copia nueva sin daños para satisfacer la política activa de ILM. Es posible que la nueva copia no se coloque en el nodo de almacenamiento que se utilizó para la copia original.
+
+
+
+NOTE: Los datos de objetos dañados se ponen en cuarentena en lugar de eliminarse del sistema, de modo que aún se puede acceder a ellos. Para obtener más información sobre el acceso a los datos de objetos en cuarentena, póngase en contacto con el soporte técnico.
+
+* *Objetos codificados con borrado*: Si el proceso de verificación en segundo plano detecta que un fragmento de un objeto codificado con borrado está dañado, StorageGRID intenta automáticamente reconstruir el fragmento que falta en el mismo nodo de almacenamiento, utilizando los fragmentos restantes de datos y paridad. Si el fragmento dañado no se puede reconstruir, el atributo copias dañadas detectadas (ECOR) aumenta en uno y se intenta recuperar otra copia del objeto. Si la recuperación se realiza correctamente, se realiza una evaluación de ILM para crear una copia de reemplazo del objeto codificado por borrado.
++
+El proceso de verificación en segundo plano comprueba los objetos solo en los nodos de almacenamiento. No comprueba los objetos en los nodos de archivado ni en un pool de almacenamiento en cloud. Los objetos deben tener una antigüedad superior a cuatro días para poder optar a la verificación en segundo plano.
+
+
+
+La verificación en segundo plano se ejecuta a una velocidad continua diseñada para no interferir con las actividades normales del sistema. No se puede detener la verificación en segundo plano. Sin embargo, puede aumentar la tasa de verificación en segundo plano para verificar más rápidamente el contenido de un nodo de almacenamiento si sospecha que existe un problema.
+
+
+
+=== Alertas y alarmas (heredadas) relacionadas con la verificación en segundo plano
+
+Si el sistema detecta un objeto dañado que no puede corregir automáticamente (debido a que el daño impide que el objeto se identifique), se activa la alerta *objeto dañado no identificado*.
+
+Si la verificación en segundo plano no puede reemplazar un objeto dañado porque no puede localizar otra copia, se activan la alarma *objetos perdidos* y la alarma heredada PERDIDA (objetos perdidos).
+
+
+
+== Modificación de la tasa de verificación en segundo plano
+
+Puede cambiar la velocidad a la que la verificación en segundo plano comprueba los datos de objetos replicados en un nodo de almacenamiento si tiene dudas acerca de la integridad de los datos.
+
+.Lo que necesitará
+* Debe iniciar sesión en Grid Manager mediante un explorador compatible.
+* Debe tener permisos de acceso específicos.
+
+
+.Acerca de esta tarea
+Es posible cambiar la tasa de verificación para la verificación en segundo plano en un nodo de almacenamiento:
+
+* Adaptive: Ajuste predeterminado. La tarea está diseñada para verificar un máximo de 4 MB/s o 10 objetos/s (lo que se supere primero).
+* Alto: La verificación del almacenamiento procede rápidamente, a un ritmo que puede ralentizar las actividades normales del sistema.
+
+
+Utilice la alta tasa de verificación sólo cuando sospeche que un error de hardware o software puede tener datos de objeto dañados. Una vez finalizada la verificación en segundo plano de prioridad alta, la velocidad de verificación se restablece automáticamente a adaptable.
+
+.Pasos
+. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+. Seleccione *_Storage Node_ > LDR > Verification*.
+. Seleccione *Configuración* > *Principal*.
+. Vaya a *LDR* > *verificación* > *Configuración* > *Principal*.
+. En verificación de fondo, seleccione *velocidad de verificación* > *Alta* o *velocidad de verificación* > *adaptable*.
++
+image::../media/background_verification_rate.png[Configuración de la tasa de verificación]
+
+
+
+
+NOTE: Al establecer la velocidad de verificación en Alta se activa la alarma heredada de VPRI (tasa de verificación) en el nivel de aviso.
+
+. Haga clic en *aplicar cambios*.
+. Supervise los resultados de la verificación en segundo plano de los objetos replicados.
++
+.. Vaya a *Nodes* > *_Storage Node_* > *Objects*.
+.. En la sección verificación, supervise los valores de *objetos corruptos* y *objetos corruptos no identificados*.
++
+Si la verificación en segundo plano encuentra datos de objeto replicados dañados, se incrementa la métrica *objetos corruptos* y StorageGRID intenta extraer el identificador de objeto de los datos, de la siguiente manera:
+
++
+*** Si se puede extraer el identificador del objeto, StorageGRID crea automáticamente una nueva copia de los datos del objeto. La nueva copia puede realizarse en cualquier punto del sistema StorageGRID que satisfaga la política de ILM activa.
+*** Si no se puede extraer el identificador de objeto (porque ha estado dañado), se incrementa la métrica *objetos corruptos no identificados* y se activa la alerta *objeto dañado no identificado*.
+
+
+.. Si se encuentran datos de objeto replicado dañados, póngase en contacto con el soporte técnico para determinar la causa raíz de los daños.
+
+
+. Supervise los resultados de la verificación en segundo plano para objetos codificados mediante borrado.
++
+Si la verificación en segundo plano encuentra fragmentos dañados de datos de objeto codificados con borrado, se incrementa el atributo fragmentos dañados detectados. StorageGRID se recupera al reconstruir el fragmento dañado in situ en el mismo nodo de almacenamiento.
+
++
+.. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+.. Seleccione *_Storage Node_ > LDR > Código de borrado*.
+.. En la tabla resultados de verificación, supervise el atributo fragmentos dañados detectados (ECCD).
+
+
+. Una vez que el sistema StorageGRID restaura automáticamente los objetos dañados, restablece el número de objetos dañados.
++
+.. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+.. Seleccione *_Storage Node_ > LDR > Verification > Configuration*.
+.. Seleccione *Restablecer recuento de objetos dañados*.
+.. Haga clic en *aplicar cambios*.
+
+
+. Si está seguro de que los objetos en cuarentena no son necesarios, puede eliminarlos.
+
+
+
+NOTE: Si se activó la alerta *objetos perdidos* o la alarma heredada PERDIDA (objetos perdidos), es posible que el soporte técnico desee tener acceso a los objetos en cuarentena para ayudar a depurar el problema subyacente o intentar recuperar datos.
+
+. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*.
+. Seleccione *_Storage Node_* > *LDR* > *Verification* > *Configuration*.
+. Seleccione *Eliminar objetos en cuarentena*.
+. Haga clic en *aplicar cambios*.
+
+
+
+
+== Qué es la verificación en primer plano
+
+La verificación en primer plano es un proceso iniciado por el usuario que comprueba si todos los datos de objeto esperados existen en un nodo de almacenamiento. La verificación en primer plano se utiliza para verificar la integridad de un dispositivo de almacenamiento.
+
+La verificación en primer plano es una alternativa más rápida a la verificación en segundo plano que comprueba la existencia, pero no la integridad, de datos de objetos en un nodo de almacenamiento. Si la verificación en primer plano encuentra que faltan muchos elementos, puede que haya un problema con todo o parte de un dispositivo de almacenamiento asociado al nodo de almacenamiento.
+
+La verificación en primer plano comprueba tanto los datos de objeto replicados como los de objeto con código de borrado como los siguientes:
+
+* *Objetos replicados*: Si falta una copia de los datos del objeto replicado, StorageGRID intenta automáticamente sustituir la copia de las copias almacenadas en otro lugar del sistema. El nodo de almacenamiento ejecuta una copia existente a través de una evaluación de ILM, que determina que ya no se cumple la política actual de ILM para este objeto, ya que la copia que falta ya no existe en la ubicación esperada. Se genera una copia nueva y se coloca para satisfacer la política de ILM activa del sistema. Es posible que esta nueva copia no se coloque en la misma ubicación en la que se guardó la copia que falta.
+* *Objetos codificados con borrado*: Si falta un fragmento de un objeto codificado con borrado, StorageGRID intenta automáticamente reconstruir el fragmento que falta en el mismo nodo de almacenamiento utilizando los fragmentos restantes. Si el fragmento que falta no se puede reconstruir (porque se han perdido demasiados fragmentos), el atributo copias dañadas detectadas (ECOR) aumenta en uno. A continuación, ILM intenta encontrar otra copia del objeto, que puede usar para generar una nueva copia codificada por borrado.
++
+Si la verificación en primer plano identifica un problema con la codificación de borrado en un volumen de almacenamiento, la tarea de verificación en primer plano se suspende con un mensaje de error que identifica el volumen afectado. Debe realizar un procedimiento de recuperación de todos los volúmenes de almacenamiento afectados.
+
+
+
+Si no se encuentran otras copias de un objeto replicado que falta o un objeto dañado con código de borrado en la cuadrícula, se activan la alerta *objetos perdidos* y la alarma heredada PERDIDA (objetos perdidos).
+
+
+
+== Ejecutando verificación en primer plano
+
+La verificación en primer plano le permite verificar la existencia de datos en un nodo de almacenamiento. Los datos de objeto ausentes pueden indicar que existe un problema con el dispositivo de almacenamiento subyacente.
+
+.Lo que necesitará
+* Debe asegurarse de que no se estén ejecutando las siguientes tareas de cuadrícula:
++
+** Expansión de cuadrícula: Agregar servidor (GEXP) al agregar un nodo de almacenamiento
+** Retirada del nodo de almacenamiento (LDCM) en el mismo nodo de almacenamiento Si estas tareas de cuadrícula están en ejecución, espere a que finalice o libere su bloqueo.
+
+
+* Se aseguró de que el almacenamiento esté en línea. (Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*. A continuación, seleccione *_Storage Node_* > *LDR* > *Storage* > *Overview* > *Main*. Asegúrese de que *Estado de almacenamiento - corriente* está en línea.)
+* Comprobó que los siguientes procedimientos de recuperación no se están ejecutando en el mismo nodo de almacenamiento:
++
+** Recuperación de un volumen de almacenamiento con fallos
+** Recuperación de un nodo de almacenamiento con un error en la verificación primer plano de la unidad del sistema no proporciona información útil mientras los procedimientos de recuperación están en curso.
+
+
+
+
+.Acerca de esta tarea
+La verificación en primer plano busca los datos del objeto replicado que faltan y los datos del objeto con código de borrado que faltan:
+
+* Si la verificación en primer plano encuentra grandes cantidades de datos de objetos que faltan, es probable que haya un problema con el almacenamiento del nodo de almacenamiento que se deba investigar y solucionar.
+* Si la verificación en primer plano encuentra un error de almacenamiento asociado con datos codificados de borrado, lo notificará. Debe realizar una recuperación del volumen de almacenamiento para reparar el error.
+
+
+Puede configurar la verificación en primer plano para comprobar todos los almacenes de objetos de un nodo de almacenamiento o sólo los almacenes de objetos específicos.
+
+Si la verificación en primer plano encuentra datos de objeto que faltan, el sistema StorageGRID intenta reemplazarlo. Si no se puede hacer una copia de reemplazo, puede activarse la alarma PÉRDIDA (objetos perdidos).
+
+La verificación en primer plano genera una tarea de cuadrícula verificación en primer plano de LDR que, en función del número de objetos almacenados en un nodo de almacenamiento, puede tardar días o semanas en completarse. Es posible seleccionar varios nodos de almacenamiento al mismo tiempo; sin embargo, estas tareas de grid no se ejecutan simultáneamente. En su lugar, se ponen en cola y se ejecutan una después de la otra hasta que finalice. Cuando la verificación en primer plano está en curso en un nodo de almacenamiento, no puede iniciar otra tarea de verificación en primer plano en ese mismo nodo de almacenamiento aunque la opción de verificar volúmenes adicionales pueda parecer estar disponible para el nodo de almacenamiento.
+
+Si un nodo de almacenamiento distinto del que se está ejecutando la verificación en primer plano se desconecta, la tarea de cuadrícula continúa ejecutándose hasta que el atributo *% completado* alcance el 99.99%. A continuación, el atributo *% completado* vuelve al 50% y espera a que el nodo de almacenamiento vuelva al estado en línea. Cuando el estado del nodo de almacenamiento vuelve a estar en línea, la tarea de cuadrícula verificación de primer plano LDR continúa hasta que se completa.
+
+.Pasos
+. Seleccione *_Storage Node_* > *LDR* > *Verification*.
+. Seleccione *Configuración* > *Principal*.
+. En *verificación de primer plano*, seleccione la casilla de verificación de cada ID de volumen de almacenamiento que desee verificar.
++
+image::../media/foreground_verification_volume_id_selection.gif[Página Configuración de verificación en primer plano]
+
+. Haga clic en *aplicar cambios*.
++
+Espere a que la página se actualice y se recargará automáticamente antes de salir de la página. Una vez actualizados, los almacenes de objetos dejan de estar disponibles para su selección en ese nodo de almacenamiento.
+
++
+Se genera una tarea de cuadrícula verificación de primer plano de LDR y se ejecuta hasta que se completa, se detiene o se cancela.
+
+. Supervisar los objetos que faltan o los fragmentos que faltan:
++
+.. Seleccione *_Storage Node_* > *LDR* > *Verification*.
+.. En la ficha Descripción general en *resultados de verificación*, anote el valor de *objetos perdidos*.
++
+*Nota*: El mismo valor se informa como *objetos perdidos* en la página Nodes. Vaya a *Nodes* > *_Storage Node_* y seleccione la ficha *objetos*.
+
++
+Si el número de *objetos ausentes detectados* es grande (si faltan cientos de objetos), es probable que haya un problema con el almacenamiento del nodo de almacenamiento. Póngase en contacto con el soporte técnico.
+
+.. Seleccione *_Storage Node_* > *LDR* > *código de borrado*.
+.. En la ficha Descripción general en *resultados de verificación*, anote el valor de *fragmentos ausentes detectados*.
++
+Si el número de *fragmentos ausentes detectados* es grande (si faltan cientos de fragmentos), es probable que haya un problema con el almacenamiento del nodo de almacenamiento. Póngase en contacto con el soporte técnico.
+
+
+
++
+Si la verificación en primer plano no detecta un número importante de copias de objetos replicados que faltan o un número importante de fragmentos, el almacenamiento funciona con normalidad.
+
+. Supervise la finalización de la tarea de la cuadrícula de verificación en primer plano:
++
+.. Seleccione *Soporte* > *Herramientas* > *Topología de cuadrícula*. A continuación, seleccione *site* > *_Admin Node_* > *CMN* > *Grid Task* > *Overview* > *Main*.
+.. Compruebe que la tarea de la cuadrícula de verificación en primer plano está progresando sin errores.
++
+*Nota*: Se activa una alarma de nivel de aviso en el estado de la tarea de la cuadrícula (SCAS) si la tarea de la cuadrícula de verificación en primer plano se detiene.
+
+.. Si la tarea de la cuadrícula se detiene con un `critical storage error`, recupere el volumen afectado y, a continuación, ejecute la verificación en primer plano en los volúmenes restantes para comprobar si hay errores adicionales.
++
+*Atención*: Si la tarea de la cuadrícula de verificación en primer plano se detiene con el mensaje `Encountered a critical storage error in volume _volID_`, debe realizar el procedimiento para recuperar un volumen de almacenamiento fallido. Consulte las instrucciones de recuperación y mantenimiento.
+
+
+
+
+
+.Después de terminar
+Si aún tiene dudas sobre la integridad de los datos, vaya a *LDR* > *verificación* > *Configuración* > *Principal* y aumente la tasa de verificación de fondo. La verificación en segundo plano comprueba la corrección de todos los datos de objeto almacenados y repara cualquier problema que encuentre. Encontrar y reparar posibles problemas lo más rápidamente posible reduce el riesgo de pérdida de datos.
+
+.Información relacionada
+link:../maintain/index.html["Mantener  recuperar"]
