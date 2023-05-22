@@ -81,7 +81,7 @@ link:../rhel/index.html["Instale Red Hat Enterprise Linux o CentOS"]
 
 link:../ubuntu/index.html["Instalar Ubuntu o Debian"]
 
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+https://["Herramienta de matriz de interoperabilidad de NetApp"^]
 
 
 
@@ -146,7 +146,7 @@ Es necesario realizar operaciones de ampliación con la versión de StorageGRID 
 .Pasos
 . Vaya a la página de descargas de NetApp para StorageGRID.
 +
-https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Descargas de NetApp: StorageGRID"^]
+https://["Descargas de NetApp: StorageGRID"^]
 
 . Seleccione la versión de StorageGRID que se está ejecutando actualmente en la cuadrícula.
 . Inicie sesión con el nombre de usuario y la contraseña de su cuenta de NetApp.
@@ -435,6 +435,6 @@ No utilice la traducción de direcciones de red (NAT) en la red de cuadrícula e
 
 *Información relacionada*
 
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+https://["Herramienta de matriz de interoperabilidad de NetApp"^]
 
 link:updating-subnets-for-grid-network.html["Actualización de subredes para la red de cuadrícula"]

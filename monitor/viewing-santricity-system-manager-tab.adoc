@@ -44,4 +44,4 @@ NOTE: Puede usar el enlace SANtricity System Manager para abrir la instancia de 
 
 Para ver detalles sobre el rendimiento de la cabina de almacenamiento y el uso de la capacidad, pase el cursor sobre cada gráfico.
 
-Para obtener más detalles sobre la visualización de la información accesible en la pestaña System Manager de SANtricity, consulte la información en la http://mysupport.netapp.com/info/web/ECMP1658252.html["Centro de documentación para sistemas E-Series y EF-Series de NetApp"]
+Para obtener más detalles sobre la visualización de la información accesible en la pestaña System Manager de SANtricity, consulte la información en la http://["Centro de documentación para sistemas E-Series y EF-Series de NetApp"]

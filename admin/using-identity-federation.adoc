@@ -171,7 +171,7 @@ Además, asegúrese de que los campos mencionados en la ayuda para Nombre de usu
 Consulte la información sobre el mantenimiento de pertenencia a grupos revertidos en la Guía del administrador para OpenLDAP.
 
 .Información relacionada
-http://www.openldap.org/doc/admin24/index.html["Documentación de OpenLDAP: Guía del administrador de la versión 2.4"^]
+http://["Documentación de OpenLDAP: Guía del administrador de la versión 2.4"^]
 
 
 

@@ -29,4 +29,4 @@ La API de gestión de grid proporciona los siguientes recursos de nivel superior
 .Información relacionada
 link:../tenant/index.html["Usar una cuenta de inquilino"]
 
-https://prometheus.io/docs/querying/basics/["Prometheus: Aspectos básicos de las consultas"^]
+https://["Prometheus: Aspectos básicos de las consultas"^]

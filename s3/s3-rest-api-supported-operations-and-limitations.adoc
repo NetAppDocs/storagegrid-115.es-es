@@ -77,4 +77,4 @@ No se utiliza
 
 |===
 .Información relacionada
-http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["Documentación de Amazon Web Services (AWS): Referencia de API de Amazon simple Storage Service"]
+http://["Documentación de Amazon Web Services (AWS): Referencia de API de Amazon simple Storage Service"]

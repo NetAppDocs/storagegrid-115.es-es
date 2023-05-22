@@ -838,7 +838,7 @@ link:s3-rest-api-supported-operations-and-limitations.html["Uso del bloqueo de o
 
 link:../ilm/index.html["Gestión de objetos con ILM"]
 
-https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"]
+https://["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"]
 
 
 
@@ -853,7 +853,7 @@ link:s3-rest-api-supported-operations-and-limitations.html["Uso del bloqueo de o
 
 link:../ilm/index.html["Gestión de objetos con ILM"]
 
-https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"]
+https://["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"]
 
 Ya no se pueden crear bloques nuevos con el cumplimiento de normativas habilitado. Se devuelve el siguiente mensaje de error si intenta utilizar las modificaciones DE la solicitud PUT Bucket para cumplir con las normativas a fin de crear un nuevo bloque compatible:
 
@@ -880,7 +880,7 @@ link:s3-rest-api-supported-operations-and-limitations.html["Uso del bloqueo de o
 
 link:../ilm/index.html["Gestión de objetos con ILM"]
 
-https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"]
+https://["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"]
 
 Para completar esta operación, debe tener el permiso s3:GetBucketCompliance o ser la raíz de la cuenta.
 
@@ -971,7 +971,7 @@ link:s3-rest-api-supported-operations-and-limitations.html["Uso del bloqueo de o
 
 link:../ilm/index.html["Gestión de objetos con ILM"]
 
-https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"]
+https://["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"]
 
 Debe tener el permiso s3:PutBucketCompliance o ser la raíz de la cuenta para completar esta operación.
 

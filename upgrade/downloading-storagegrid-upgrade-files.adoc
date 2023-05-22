@@ -22,7 +22,7 @@ Debe descargar la `.upgrade` archivado para cualquier plataforma. Si alguno de l
 .Pasos
 . Vaya a la página de descargas de NetApp para StorageGRID.
 +
-https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Descargas de NetApp: StorageGRID"^]
+https://["Descargas de NetApp: StorageGRID"^]
 
 . Seleccione el botón para descargar la última versión, o seleccione otra versión en el menú desplegable y seleccione *Ir*.
 +

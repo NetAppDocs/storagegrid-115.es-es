@@ -39,7 +39,7 @@ En el ejemplo se muestra una posible ruta de actualización.
 
 . Una vez que se encuentre en StorageGRID 11.4, vaya a la página de descargas de NetApp para StorageGRID y vea si hay alguna revisión disponible para su versión de StorageGRID 11.4._x_.
 +
-https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Descargas de NetApp: StorageGRID"^]
+https://["Descargas de NetApp: StorageGRID"^]
 
 . Compruebe que la versión de StorageGRID 11.4._x_ tiene aplicada la revisión más reciente.
 . Si es necesario, descargue y aplique la revisión más reciente de StorageGRID 11.4._x.y_ para su versión de StorageGRID 11.4._x_.

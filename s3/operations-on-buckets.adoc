@@ -15,7 +15,7 @@ El sistema StorageGRID admite un máximo de 1,000 bloques para cada cuenta de in
 
 Las restricciones de nombres de bloque siguen las restricciones de región del estándar estadounidense de AWS, pero debe restringirlas a convenciones de nomenclatura de DNS para admitir solicitudes de estilo hospedado virtual de S3.
 
-https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html["Documentación de Amazon Web Services (AWS): Restricciones y limitaciones de buckets"]
+https://["Documentación de Amazon Web Services (AWS): Restricciones y limitaciones de buckets"]
 
 link:configuring-tenant-accounts-and-connections.html["Nombres de dominio extremo para la solicitud de S3"]
 
@@ -342,7 +342,7 @@ Esta implementación usa la `versioning` subrecurso para establecer el estado de
 
 |===
 .Información relacionada
-http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html["Documentación de Amazon Web Services (AWS): Replicación entre regiones"]
+http://["Documentación de Amazon Web Services (AWS): Replicación entre regiones"]
 
 link:consistency-controls.html["Controles de consistencia"]
 
@@ -366,7 +366,7 @@ Puede crear una configuración del ciclo de vida de S3 para controlar cuándo se
 
 El ejemplo sencillo de esta sección muestra cómo puede controlar una configuración del ciclo de vida de S3 cuando se eliminan ciertos objetos (caducados) de bloques S3 específicos. El ejemplo de esta sección es solo con fines ilustrativos. Para obtener detalles completos sobre la creación de configuraciones del ciclo de vida de S3, consulte la sección sobre la gestión del ciclo de vida de objetos en la _Amazon simple Storage Service Developer Guide_. Tenga en cuenta que StorageGRID solo admite acciones de caducidad, no admite acciones de transición.
 
-https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["Guía para desarrolladores de Amazon simple Storage Service: Gestión del ciclo de vida de los objetos"]
+https://["Guía para desarrolladores de Amazon simple Storage Service: Gestión del ciclo de vida de los objetos"]
 
 
 

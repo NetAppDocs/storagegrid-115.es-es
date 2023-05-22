@@ -42,7 +42,7 @@ Si anteriormente habilitó la opción de cumplimiento global, la nueva configura
 
 En el Administrador de inquilinos, un icono de escudo image:../media/icon_shield.png["Icono de protección"] Indica un segmento compatible con el anterior. Los cucharones legos que cumplen con las normativas también pueden tener un distintivo image:../media/hold_badge.png["Reciba el distintivo"] indicar que el segmento se encuentra bajo una retención legal.
 
-https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["KB: Cómo gestionar los bloques que cumplen las normativas heredadas en StorageGRID 11.5"^]
+https://["KB: Cómo gestionar los bloques que cumplen las normativas heredadas en StorageGRID 11.5"^]
 
 link:../ilm/index.html["Gestión de objetos con ILM"]
 

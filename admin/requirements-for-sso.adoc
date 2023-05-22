@@ -27,7 +27,7 @@ El proveedor de identidades (IDP) para SSO debe cumplir los siguientes requisito
 ** AD FS 4.0, incluido en Windows Server 2016
 +
 
-NOTE: Windows Server 2016 debe utilizar https://support.microsoft.com/en-us/help/3201845/cumulative-update-for-windows-10-version-1607-and-windows-server-2016["Actualización KB3201845"^], o superior.
+NOTE: Windows Server 2016 debe utilizar https://["Actualización KB3201845"^], o superior.
 
 ** AD FS 3.0, incluido con la actualización de Windows Server 2012 R2 o superior.
 

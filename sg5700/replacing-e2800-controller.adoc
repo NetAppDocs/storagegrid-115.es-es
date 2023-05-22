@@ -219,4 +219,4 @@ image::../media/node_rejoin_grid_confirmation.png[El nodo del dispositivo se ha 
 
 
 .Información relacionada
-http://mysupport.netapp.com/info/web/ECMP1658252.html["Sitio de documentación para sistemas E-Series y EF-Series de NetApp"^]
+http://["Sitio de documentación para sistemas E-Series y EF-Series de NetApp"^]

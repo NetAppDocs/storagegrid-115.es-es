@@ -223,7 +223,7 @@ link:../admin/index.html["Administre StorageGRID"]
 
 link:commonly-used-prometheus-metrics.html["Métricas de Prometheus que se usan habitualmente"]
 
-https://prometheus.io/docs/querying/basics/["Prometheus: Aspectos básicos de las consultas"]
+https://["Prometheus: Aspectos básicos de las consultas"]
 
 
 
@@ -352,7 +352,7 @@ link:../admin/index.html["Administre StorageGRID"]
 
 link:commonly-used-prometheus-metrics.html["Métricas de Prometheus que se usan habitualmente"]
 
-https://prometheus.io/docs/querying/basics/["Prometheus: Aspectos básicos de las consultas"]
+https://["Prometheus: Aspectos básicos de las consultas"]
 
 
 

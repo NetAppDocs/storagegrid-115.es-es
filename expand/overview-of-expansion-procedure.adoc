@@ -25,7 +25,7 @@ image::../media/expansion_workflow.png[diagrama de flujo que muestra una descrip
 
 *Información relacionada*
 
-https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
+https://["Herramienta de matriz de interoperabilidad de NetApp"^]
 
 link:planning-expansion.html["Planificación de una expansión de StorageGRID"]
 
