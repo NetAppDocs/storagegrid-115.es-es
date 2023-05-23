@@ -36,4 +36,4 @@ IMPORTANT: Si no se deshabilita por completo el intercambio, el rendimiento se p
 
 
 .Información relacionada
-https://["Herramienta de matriz de interoperabilidad de NetApp"^]
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]

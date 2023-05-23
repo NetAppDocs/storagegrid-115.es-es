@@ -28,7 +28,7 @@ El segundo dígito de las dos versiones debe coincidir. Por ejemplo, si el siste
 
 . Si el dispositivo tiene una versión de nivel inferior para instalador de dispositivos de StorageGRID, vaya a la página de descargas de NetApp para StorageGRID.
 +
-https://["Descargas de NetApp: StorageGRID"^]
+https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Descargas de NetApp: StorageGRID"^]
 
 +
 Inicie sesión con el nombre de usuario y la contraseña de su cuenta de NetApp.

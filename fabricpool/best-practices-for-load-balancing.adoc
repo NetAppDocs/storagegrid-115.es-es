@@ -25,7 +25,7 @@ El servicio Load Balancer de cada nodo funciona de forma independiente cuando se
 
 Aunque el servicio StorageGRID Load Balancer es el mecanismo de equilibrio de carga recomendado, puede que en su lugar desee integrar un equilibrador de carga de terceros. Si quiere más información, póngase en contacto con su representante de cuentas de NetApp o consulte el siguiente informe técnico:
 
-https://["Opciones de equilibrador de carga de StorageGRID"^]
+https://www.netapp.com/pdf.html?item=/media/17068-tr4626pdf.pdf["Opciones de equilibrador de carga de StorageGRID"^]
 
 
 NOTE: El servicio de equilibrador de carga de conexión (CLB) independiente en los nodos de puerta de enlace queda obsoleto y ya no se recomienda su uso con FabricPool.

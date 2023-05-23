@@ -82,4 +82,4 @@ link:status-indicators-on-e5700sg-controller.html["Indicadores de estado en el c
 
 link:troubleshooting-hardware-installation.html["Solucionar los problemas de instalación del hardware"]
 
-https://["Guía de supervisión del sistema E5700 y E2800"^]
+https://library.netapp.com/ecmdocs/ECMLP2588751/html/frameset.html["Guía de supervisión del sistema E5700 y E2800"^]

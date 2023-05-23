@@ -471,9 +471,9 @@ Realiza la recogida de seguimiento para recopilar información que el soporte t�
 
 
 .Información relacionada
-https://["Herramienta de matriz de interoperabilidad de NetApp"^]
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^]
 
-https://["Hardware Universe de NetApp"^]
+https://hwu.netapp.com["Hardware Universe de NetApp"^]
 
 link:../vmware/index.html["Instale VMware"]
 

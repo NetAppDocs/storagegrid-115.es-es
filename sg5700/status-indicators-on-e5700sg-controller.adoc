@@ -290,4 +290,4 @@ Se produjo un error en la instalación o la comunicación con la controladora E2
 .Información relacionada
 link:troubleshooting-hardware-installation.html["Solucionar los problemas de instalación del hardware"]
 
-https://["Soporte de NetApp"^]
+https://mysupport.netapp.com/site/global/dashboard["Soporte de NetApp"^]

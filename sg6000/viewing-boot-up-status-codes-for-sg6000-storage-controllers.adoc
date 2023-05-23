@@ -32,10 +32,10 @@ image::../media/seven_segment_display_codes_for_e2800.gif[Códigos de visualizac
 
 
 .Información relacionada
-https://["Guía de supervisión del sistema E5700 y E2800"^]
+https://library.netapp.com/ecmdocs/ECMLP2588751/html/frameset.html["Guía de supervisión del sistema E5700 y E2800"^]
 
 link:troubleshooting-hardware-installation.html["Solucionar los problemas de instalación del hardware"]
 
-https://["Soporte de NetApp"^]
+https://mysupport.netapp.com/site/global/dashboard["Soporte de NetApp"^]
 
 link:powering-on-sg6000-cn-controller-and-verifying-operation.html["Encender el controlador SG6000-CN y verificar el funcionamiento"]

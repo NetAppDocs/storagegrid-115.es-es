@@ -33,7 +33,7 @@ Un administrador de grid debe habilitar la configuración global de bloqueo de o
 ====
 Si se habilitó la opción de cumplimiento global mediante una versión anterior de StorageGRID, la nueva opción de bloqueo de objetos S3 se habilita automáticamente al actualizar a StorageGRID versión 11.5. Puede seguir utilizando StorageGRID para gestionar la configuración de los bloques compatibles existentes; sin embargo, ya no puede crear nuevos bloques compatibles.
 
-https://["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"^]
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"^]
 
 ====
 .Pasos

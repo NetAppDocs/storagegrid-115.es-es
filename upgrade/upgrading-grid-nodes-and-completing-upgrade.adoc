@@ -118,7 +118,7 @@ image::../media/software_upgrade_done.png[Actualización de software realizada]
 
 . Consulte la página de descargas de NetApp para ver StorageGRID si tiene alguna revisión disponible para la versión de StorageGRID que acaba de instalar.
 +
-https://["Descargas de NetApp: StorageGRID"^]
+https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Descargas de NetApp: StorageGRID"^]
 
 +
 En StorageGRID 11.5._x.y_ número de versión:

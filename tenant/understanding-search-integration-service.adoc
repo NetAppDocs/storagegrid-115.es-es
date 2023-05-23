@@ -38,7 +38,7 @@ Después de agregar XML de configuración de notificación de metadatos a un blo
 El servicio de integración de búsqueda StorageGRID admite un clúster de Elasticsearch como destino. Al igual que con los demás servicios de plataforma, el destino se especifica en el extremo cuyo URN se utiliza en el XML de configuración del servicio. Utilice _Interoperability Matrix Tool_ para determinar las versiones compatibles de Elasticsearch.
 
 .Información relacionada
-https://["Herramienta de matriz de interoperabilidad de NetApp"]
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
 
 link:configuration-xml-for-search-configuration.html["XML de configuración para la integración de búsqueda"]
 

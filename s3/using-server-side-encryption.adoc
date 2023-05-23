@@ -123,4 +123,4 @@ link:s3-rest-api-supported-operations-and-limitations.html["Cargar artículo"]
 
 link:s3-rest-api-supported-operations-and-limitations.html["Cargar pieza: Copiar"]
 
-https://["Guía para desarrolladores de Amazon S3: Protección de datos mediante cifrado en el lado del servidor con claves de cifrado proporcionadas por el cliente (SSE-C)"]
+https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html["Guía para desarrolladores de Amazon S3: Protección de datos mediante cifrado en el lado del servidor con claves de cifrado proporcionadas por el cliente (SSE-C)"]

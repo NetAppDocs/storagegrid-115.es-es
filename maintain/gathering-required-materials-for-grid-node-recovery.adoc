@@ -60,7 +60,7 @@ La documentación actual de su plataforma
  a| 
 Para conocer las versiones compatibles actuales de la plataforma, consulte herramienta de matriz de interoperabilidad.
 
-https://["Herramienta de matriz de interoperabilidad de NetApp"]
+https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]
 
 Visite el sitio web del proveedor de la plataforma para obtener documentación.
 
