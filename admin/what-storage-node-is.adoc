@@ -55,7 +55,7 @@ Se recomienda revisar la información de consulta para supervisar el estado del 
 
 También puede ver el número total de consultas que han fallado debido a los fallos de consistencia. Los fallos de nivel de coherencia se deben a un número insuficiente de almacenes de metadatos disponibles en el momento en que se realiza una consulta a través del servicio DDS específico.
 
-Puede utilizar la página Diagnósticos para obtener información adicional sobre el estado actual de la cuadrícula. Consulte link:../monitor/running-diagnostics.html.html["Ejecución de diagnósticos"].
+Puede utilizar la página Diagnósticos para obtener información adicional sobre el estado actual de la cuadrícula. Consulte link:../monitor/running-diagnostics.html["Ejecución de diagnósticos"].
 
 
 
@@ -92,7 +92,7 @@ Puede revisar la información de consulta para supervisar el estado del almacén
 
 También puede ver el número total de consultas que han fallado debido a los fallos de consistencia. Los fallos de nivel de consistencia se deben a un número insuficiente de almacenes de metadatos disponibles en el momento en que se realiza una consulta a través del servicio LDR específico.
 
-Puede utilizar la página Diagnósticos para obtener información adicional sobre el estado actual de la cuadrícula. Consulte link:../monitor/running-diagnostics.html.html["Ejecución de diagnósticos"].
+Puede utilizar la página Diagnósticos para obtener información adicional sobre el estado actual de la cuadrícula. Consulte link:../monitor/running-diagnostics.html["Ejecución de diagnósticos"].
 
 
 

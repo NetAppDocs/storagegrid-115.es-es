@@ -21,7 +21,7 @@ La red de administración de StorageGRID es una red opcional que se utiliza para
 
 *SG100 puertos RJ-45*
 
-image::../media/sg100_rj_45_ports_circled.png[sg100 rj 45 puertos en círculo]
+image::../media/sg100_rj_45_ports_circled.png[SG100 puertos RJ-45]
 
 *SG1000 puertos RJ-45*
 

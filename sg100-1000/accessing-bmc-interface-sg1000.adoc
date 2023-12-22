@@ -20,7 +20,7 @@ Puede acceder a la interfaz del BMC en el dispositivo de servicios mediante la d
 *SG100 Puerto de gestión BMC*
 
 +
-image::../media/sg100_bmc_management_port.png[sg100 bmc puerto de gestión]
+image::../media/sg100_bmc_management_port.png[Puerto de gestión SG100]
 
 +
 *Puerto de administración de SG1000 BMC*

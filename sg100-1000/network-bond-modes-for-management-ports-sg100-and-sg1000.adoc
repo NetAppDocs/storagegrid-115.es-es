@@ -15,7 +15,7 @@ Para los dos puertos de gestión de 1-GbE en el dispositivo de servicios, puede 
 
 *Puertos de administración de red SG100*
 
-image::../media/sg100_bonded_management_ports.png[sg100 puertos de gestión de enlace]
+image::../media/sg100_bonded_management_ports.png[Puertos de gestión vinculados a SG100 GbE]
 
 *Puertos de administración de redes SG1000*
 

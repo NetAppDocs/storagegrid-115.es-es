@@ -38,7 +38,7 @@ CAUTION: Almacene la nueva clave de acceso de aprovisionamiento en una ubicació
 El sistema muestra un banner verde de éxito cuando se completa el cambio de la clave de acceso de aprovisionamiento. El cambio debe tardar menos de un minuto.
 
 +
-image::../media/change_provisioning_passphrase_success.png[cambio correcto de la clave de acceso de aprovisionamiento]
+image::../media/change_provisioning_passphrase_success.png[Cambiar la clave de acceso de aprovisionamiento: Mensaje correcto]
 
 . Seleccione el enlace *página del paquete de recuperación* que se encuentra dentro del banner de éxito.
 . Descargue el nuevo paquete de recuperación desde Grid Manager. Seleccione *Mantenimiento* > *paquete de recuperación* e introduzca la nueva contraseña de aprovisionamiento.

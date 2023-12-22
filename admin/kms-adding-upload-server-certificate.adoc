@@ -23,7 +23,7 @@ image::../media/kms_step_2_upload_server_certificate.png[KMS Paso 2 cargue el ce
 Se muestran los metadatos del certificado del servidor.
 
 +
-image::../media/kms_step_2_server_certificate_metadata.png[metadatos de certificado de servidor del paso 2 de kms]
+image::../media/kms_step_2_server_certificate_metadata.png[Metadatos de certificado de servidor]
 
 +
 

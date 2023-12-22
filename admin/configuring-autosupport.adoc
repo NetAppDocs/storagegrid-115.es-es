@@ -38,7 +38,7 @@ Puede habilitar la función AutoSupport y las opciones individuales de AutoSuppo
 
 image::../media/autosupport_disabled_message.png[Mensaje AutoSupport deshabilitado]
 
-Puede seleccionar el símbolo «'x'» image:../media/autosupport_close_message.png[""] para cerrar el mensaje. El mensaje no volverá a aparecer hasta que se borre la caché del explorador, incluso si AutoSupport queda deshabilitado.
+Puede seleccionar el símbolo «'x'» image:../media/autosupport_close_message.png["símbolo x."] para cerrar el mensaje. El mensaje no volverá a aparecer hasta que se borre la caché del explorador, incluso si AutoSupport queda deshabilitado.
 
 
 
